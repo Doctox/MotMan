@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { assetUrl } from './assetUrl'
 import { frameClassName, getAnimation, getAvatar, getFrame, NO_ANIMATION_ID } from './cosmetics'
 import './cosmetic-portrait.css'
 
@@ -44,12 +45,12 @@ export function CosmeticPortrait({ avatarId, frameId, animationId = NO_ANIMATION
 
   return <span ref={portraitRef} className={`${className} ${frameClassName(frameId)} ${frame.asset ? 'has-frame-art' : 'line-frame'} ${animation.asset ? 'has-avatar-animation' : ''} ${motionVisible ? 'is-cosmetic-visible' : ''} ${small ? 'small' : ''}`} data-frame={frameId} data-animation={animation.id}>
     <span className="cosmetic-avatar-clip">
-      <img className="cosmetic-avatar-image" src={avatar.asset} alt={alt} loading="lazy" decoding="async" />
+      <img className="cosmetic-avatar-image" src={assetUrl(avatar.asset)} alt={alt} loading="lazy" decoding="async" />
     </span>
-    {frame.asset ? <img className="cosmetic-frame-art" src={frame.asset} alt="" aria-hidden="true" decoding="async" /> : null}
+    {frame.asset ? <img className="cosmetic-frame-art" src={assetUrl(frame.asset)} alt="" aria-hidden="true" decoding="async" /> : null}
     {animation.asset && motionVisible ? <picture className="cosmetic-avatar-animation" aria-hidden="true">
-      {animation.poster && !previewAnimation ? <source media="(prefers-reduced-motion: reduce)" srcSet={animation.poster} /> : null}
-      <img src={animation.asset} alt="" loading="lazy" decoding="async" fetchPriority="low" draggable={false} />
+      {animation.poster && !previewAnimation ? <source media="(prefers-reduced-motion: reduce)" srcSet={assetUrl(animation.poster)} /> : null}
+      <img src={assetUrl(animation.asset)} alt="" loading="lazy" decoding="async" fetchPriority="low" draggable={false} />
     </picture> : null}
   </span>
 }

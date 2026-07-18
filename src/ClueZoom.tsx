@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react'
 import { X } from 'lucide-react'
+import { assetUrl } from './assetUrl'
 import type { ClueEntry } from './generator'
 import { useDialogFocus } from './useDialogFocus'
 
@@ -17,7 +18,7 @@ export function ClueZoom({ entry, onClose }: { entry: ClueEntry; onClose: () => 
       <button data-dialog-autofocus className="clue-popover-close" type="button" aria-label="Fermer la définition" onClick={onClose}><X /></button>
       <span className="clue-popover-direction">{direction}<b aria-hidden="true">{arrow}</b></span>
       {entry.image
-        ? <div className="clue-popover-image"><img src={entry.image.asset} alt={entry.image.alt} /></div>
+        ? <div className="clue-popover-image"><img src={assetUrl(entry.image.asset)} alt={entry.image.alt} /></div>
         : <strong>{entry.text}</strong>}
     </section>
   </div>

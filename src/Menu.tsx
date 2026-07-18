@@ -6,6 +6,7 @@ import {
   Feather, FileText, ShoppingBasket,
 } from 'lucide-react'
 import './menu.css'
+import { assetUrl } from './assetUrl'
 import type { GridDifficulty } from './generator'
 import {
   loadPlayerIdentity, playerInitials, shortPlayerId,
@@ -63,7 +64,7 @@ type MenuAppProps = {
 }
 
 function Brand() {
-  return <div className="mm-brand"><img src="/assets/motman-logo-v2.webp" alt="MotMan" /></div>
+  return <div className="mm-brand"><img src={assetUrl('/assets/motman-logo-v2.webp')} alt="MotMan" /></div>
 }
 
 function Avatar({ label = 'A', small = false }: { label?: string; small?: boolean }) {

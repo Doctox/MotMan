@@ -3,7 +3,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 100 1000;
-  src: url('/assets/fonts/dm-sans-latin-variable.woff2') format('woff2-variations');
+  src: url('./assets/fonts/dm-sans-latin-variable.woff2') format('woff2-variations');
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400 900;
-  src: url('/assets/fonts/playfair-display-latin-variable.woff2') format('woff2-variations');
+  src: url('./assets/fonts/playfair-display-latin-variable.woff2') format('woff2-variations');
 }
 
 *{box-sizing:border-box}

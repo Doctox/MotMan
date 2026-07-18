@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Feather, Minus } from 'lucide-react'
+import { assetUrl } from './assetUrl'
 import { ExperienceReward } from './ExperienceReward'
 import type { ExperienceAward } from './playerProgress'
 
@@ -28,8 +29,8 @@ export function GameResultScreen({
 }) {
   return <section className={`game-result-screen result-${outcome}`} aria-labelledby="game-result-title">
     <div className="game-result-hero">
-      {outcome === 'win' ? <img className="game-result-art" src="/assets/result-victory-hero.webp" alt="" aria-hidden="true" />
-        : outcome === 'loss' ? <img className="game-result-art" src="/assets/result-loss-hero.webp" alt="" aria-hidden="true" /> : <>
+      {outcome === 'win' ? <img className="game-result-art" src={assetUrl('/assets/result-victory-hero.webp')} alt="" aria-hidden="true" />
+        : outcome === 'loss' ? <img className="game-result-art" src={assetUrl('/assets/result-loss-hero.webp')} alt="" aria-hidden="true" /> : <>
         <Feather className="result-feather result-feather-left" aria-hidden="true" />
         <Feather className="result-feather result-feather-right" aria-hidden="true" />
         <div className="game-result-emblem" aria-hidden="true"><span><Minus /></span></div>

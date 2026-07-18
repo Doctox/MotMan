@@ -617,7 +617,7 @@ body{overscroll-behavior-y:none}
 .corner-block,.clue.corner-clue{
   position:relative;
   background-color:#fbf7ec!important;
-  background-image:url('/assets/motman-logo-v2.webp')!important;
+  background-image:url('./assets/motman-logo-v2.webp')!important;
   background-repeat:no-repeat!important;
   background-size:auto 110%!important;
   background-position:24.2% center!important;

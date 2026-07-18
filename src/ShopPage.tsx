@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, Check, Feather, PackageOpen, Palette, ShoppingBasket, Sparkles, User } from 'lucide-react'
+import { assetUrl } from './assetUrl'
 import {
   ANIMATIONS, AVATARS, BASKETS, FRAMES, avatarRarity,
   type CosmeticKind, type CosmeticReward, type PlayerCosmetics,
@@ -33,8 +34,8 @@ function Price({ value }: { value: number }) {
 
 function BasketArtwork({ state }: { state: BasketStageState }) {
   return <span className={`mm-basket-picture is-${state}`} aria-hidden="true">
-    <img className="mm-basket-picture-closed" src="/assets/shop/basket-closed.webp" alt="" draggable={false} />
-    <img className="mm-basket-picture-open" src="/assets/shop/basket-open.webp" alt="" draggable={false} />
+    <img className="mm-basket-picture-closed" src={assetUrl('/assets/shop/basket-closed.webp')} alt="" draggable={false} />
+    <img className="mm-basket-picture-open" src={assetUrl('/assets/shop/basket-open.webp')} alt="" draggable={false} />
   </span>
 }
 
