@@ -9,7 +9,7 @@ import { BoardScoreEffects } from './BoardScoreEffects'
 import { BoardWordHighlight, type BoardWordHighlightState } from './BoardWordHighlight'
 import { awardExperience, type ExperienceAward } from './playerProgress'
 import { GameResultScreen } from './GameResultScreen'
-import { botTuning, createBotPersona, type BotSkill } from './botOpponents'
+import { createBotPersona, planBotMove, refillBotRack, type BotSkill } from './botOpponents'
 import { canUseReroll, evaluateTurn, gameWordCellIndexes, hintCandidates, replenishUniqueRack, REWARD_EFFECT_LIFETIME_MS, REWARD_STEP_MS } from './gameRules'
 import { ClueZoom } from './ClueZoom'
 import { haptic, playEffect } from './sensoryPreferences'
@@ -153,6 +153,7 @@ function GameScreen({ difficulty, pace, initialGrid, onExit, onHome }: { difficu
   const [opponent, setOpponent] = useState(() => makeSoloOpponent(difficulty))
   const [boardTiles, setBoardTiles] = useState<Record<number, BoardTile>>({})
   const [rack, setRack] = useState<Tile[]>(() => drawTiles(grid, {}, 5))
+  const [botRack, setBotRack] = useState<string[]>(() => refillBotRack({ grid, occupiedCells: [], currentLetters: [], seed: `solo:${grid.id}:bot` }))
   const [selected, setSelected] = useState<Tile | null>(null)
   const [drag, setDrag] = useState<{ tile: Tile; origin: 'rack' | number; x: number; y: number } | null>(null)
   const [dropTarget, setDropTarget] = useState<number | null>(null)
@@ -187,6 +188,7 @@ function GameScreen({ difficulty, pace, initialGrid, onExit, onHome }: { difficu
   const botTimer = useRef<number | null>(null)
   const boardTilesRef = useRef(boardTiles)
   const rackRef = useRef(rack)
+  const botRackRef = useRef(botRack)
   const validateRef = useRef<() => void>(() => {})
   const aidedCell = useRef<number | null>(null)
   const hintFlightTimer = useRef<number | null>(null)
@@ -217,6 +219,7 @@ function GameScreen({ difficulty, pace, initialGrid, onExit, onHome }: { difficu
   }, [])
   useEffect(() => { boardTilesRef.current = boardTiles }, [boardTiles])
   useEffect(() => { rackRef.current = rack }, [rack])
+  useEffect(() => { botRackRef.current = botRack }, [botRack])
   useEffect(() => {
     if (!finished || resolvingTurn || botTurn || experienceAward) return
     const outcome = score === botScore ? 'draw' : score > botScore ? 'win' : 'loss'
@@ -338,34 +341,17 @@ function GameScreen({ difficulty, pace, initialGrid, onExit, onHome }: { difficu
     botTimer.current = window.setTimeout(() => {
       setResolvingTurn(true)
       const current = boardTilesRef.current
-      const available = grid.cells.flatMap((cell, index) => cell.kind === 'letter' && current[index]?.status !== 'confirmed' ? [index] : [])
-      const remainingByLetter = new Map<string, number>()
-      available.forEach(index => {
-        const cell = grid.cells[index]
-        if (cell.kind === 'letter') remainingByLetter.set(cell.solution, (remainingByLetter.get(cell.solution) ?? 0) + 1)
+      const confirmed = Object.entries(current).filter(([, item]) => item.status === 'confirmed').map(([rawIndex]) => Number(rawIndex))
+      const plan = planBotMove({
+        grid,
+        occupiedCells: confirmed,
+        rackLetters: botRackRef.current,
+        persona: opponent,
+        seed: `solo:${grid.id}:${validations}:${botScore}:${score}:${Date.now()}`,
+        scoreGap: score - botScore,
       })
-      const requiredByRack = new Map<string, number>()
-      rackRef.current.forEach(tile => requiredByRack.set(tile.letter, (requiredByRack.get(tile.letter) ?? 0) + 1))
-      const tuning = botTuning(opponent)
-      const targetCount = Math.min(available.length, tuning.minLetters + Math.floor(Math.random() * (tuning.maxLetters - tuning.minLetters + 1)))
-      const attempts: Array<{ index: number; letter: string; correct: boolean }> = []
-      const possibleLetters = [...new Set(available.flatMap(index => {
-        const cell = grid.cells[index]
-        return cell.kind === 'letter' ? [cell.solution] : []
-      }))]
-      for (const index of [...available].sort(() => Math.random() - .5)) {
-        const cell = grid.cells[index]
-        if (cell.kind !== 'letter') continue
-        const remaining = remainingByLetter.get(cell.solution) ?? 0
-        const reserved = requiredByRack.get(cell.solution) ?? 0
-        if (remaining - 1 < reserved) continue
-        const correct = Math.random() * 100 < tuning.accuracy
-        const wrongLetters = possibleLetters.filter(letter => letter !== cell.solution)
-        const letter = correct || !wrongLetters.length ? cell.solution : wrongLetters[Math.floor(Math.random() * wrongLetters.length)]
-        attempts.push({ index, letter, correct: letter === cell.solution })
-        remainingByLetter.set(cell.solution, remaining - 1)
-        if (attempts.length === targetCount) break
-      }
+      setBotRack(plan.rackAfter)
+      const attempts = plan.attempts.map(attempt => ({ index: attempt.cellIndex, letter: attempt.letter, correct: attempt.correct }))
       let evolving = { ...current }
       let gained = 0
       let successful = 0
@@ -627,7 +613,8 @@ function GameScreen({ difficulty, pace, initialGrid, onExit, onHome }: { difficu
     aidedCell.current = null
     finishCelebrated.current = false
     soloAwardId.current = makeSoloAwardId()
-    setGrid(generated); setOpponent(makeSoloOpponent(difficulty)); setBoardTiles({}); setRack(drawTiles(generated, {}, 5)); setSelected(null); setDrag(null); setGreenCells(new Set()); setWrongRevealCells(new Set()); setBotAnimatedCells(new Set()); setScoreEffects([]); setWordHighlight(null); setHint(null); setHintFlight(null); setAutoHintCell(null); setHintUsedInMatch(false); setRerollUsedInMatch(false); setRackRolling(false); setPaused(false); setScore(0); setBotScore(0); setBotTurn(false); setResolvingTurn(false); setTurnSeconds(turnDuration); setValidations(0); setProductiveTurns(0); setExperienceAward(null); setFeedback(null); setStatus('Nouvelle grille'); startedAt.current = Date.now()
+    const nextOpponent = makeSoloOpponent(difficulty)
+    setGrid(generated); setOpponent(nextOpponent); setBoardTiles({}); setRack(drawTiles(generated, {}, 5)); setBotRack(refillBotRack({ grid: generated, occupiedCells: [], currentLetters: [], seed: `solo:${generated.id}:${nextOpponent.displayName}` })); setSelected(null); setDrag(null); setGreenCells(new Set()); setWrongRevealCells(new Set()); setBotAnimatedCells(new Set()); setScoreEffects([]); setWordHighlight(null); setHint(null); setHintFlight(null); setAutoHintCell(null); setHintUsedInMatch(false); setRerollUsedInMatch(false); setRackRolling(false); setPaused(false); setScore(0); setBotScore(0); setBotTurn(false); setResolvingTurn(false); setTurnSeconds(turnDuration); setValidations(0); setProductiveTurns(0); setExperienceAward(null); setFeedback(null); setStatus('Nouvelle grille'); startedAt.current = Date.now()
   }
 
   const sendFeedback = (quality: 'yes' | 'no', reason?: string) => {

@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import { createBotPersona, botTuning, type BotSkill } from '../../../src/botOpponents.ts'
+import { createBotPersona, planBotMove, type BotSkill } from '../../../src/botOpponents.ts'
 import {
   canUseHint, canUseReroll, evaluateTurn, hintCandidates, keepRackLettersAfterTurn, replenishUniqueRack, REWARD_STEP_MS,
   shouldForfeitAfterInactivity, type GameRuleGrid, type GameRuleWord,
@@ -270,19 +270,16 @@ function timeoutTurn(row: MatchRow) {
 
 function botPlacements(row: MatchRow, grid: CatalogGrid) {
   const state = row.state; const bot = state.bot!; const rules = ruleGrid(grid); const rack = state.racks[bot.playerId] ?? []
-  const tuning = botTuning(bot); const available = rack.flatMap(letter => rules.cells.flatMap((cell, cellIndex) => cell.kind === 'letter' && cell.solution === letter && !state.board[String(cellIndex)] ? [{ cellIndex, letter }] : []))
-  const count = Math.min(available.length, tuning.minLetters + hash(`${row.id}:${row.turn_number}`) % (tuning.maxLetters - tuning.minLetters + 1))
-  const result: Array<{ cellIndex: number; letter: string }> = []
-  for (let index = 0; index < count; index += 1) {
-    const candidate = available.splice(hash(`${row.id}:${row.turn_number}:${index}`) % available.length, 1)[0]
-    if (!candidate) break
-    if (hash(`${row.id}:accuracy:${row.turn_number}:${index}`) % 100 < tuning.accuracy) result.push(candidate)
-    else {
-      const wrong = rack.find(letter => letter !== candidate.letter) ?? candidate.letter
-      result.push({ cellIndex: candidate.cellIndex, letter: wrong })
-    }
-  }
-  return result
+  const botScore = state.scores[bot.playerId] ?? 0
+  const bestOpponentScore = Math.max(...state.playerIds.filter(id => id !== bot.playerId).map(id => state.scores[id] ?? 0), 0)
+  return planBotMove({
+    grid: rules,
+    occupiedCells: Object.keys(state.board).map(Number),
+    rackLetters: rack,
+    persona: bot,
+    seed: `${row.id}:${row.turn_number}:${rack.join('')}`,
+    scoreGap: bestOpponentScore - botScore,
+  }).attempts.map(attempt => ({ cellIndex: attempt.cellIndex, letter: attempt.letter }))
 }
 
 async function persist(admin: ReturnType<typeof createClient>, row: MatchRow) {
