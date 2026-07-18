@@ -286,8 +286,25 @@
 .mm-home-friend{min-height:54px;border:0;border-bottom:1px solid color-mix(in srgb,var(--mm-line) 68%,transparent);border-radius:0;background:transparent}
 .mm-home-friend:last-child{border-bottom:0}
 
-.mm-play-page{padding-top:27px}
+.mm-play-page{padding-top:20px}
+.mm-play-group{margin-bottom:20px}
+.mm-play-group:last-child{margin-bottom:0}
+.mm-play-group>h3{
+  margin:0 0 9px 4px;
+  color:var(--mm-coral);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  line-height:1;
+  text-transform:uppercase;
+}
+.mm-play-group-body{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
 .mm-play-accordion{margin-bottom:15px;border:1px solid var(--mm-line);border-radius:11px;background:var(--mm-sage-soft);box-shadow:0 3px 10px var(--mm-shadow);overflow:hidden}
+.mm-play-group .mm-play-accordion{margin-bottom:0}
 .mm-play-accordion:hover{transform:none;box-shadow:0 4px 12px var(--mm-shadow)}
 .mm-play-accordion.is-open{border-color:var(--mm-line);box-shadow:0 5px 15px var(--mm-shadow)}
 .mm-play-accordion .mm-panel-heading{height:60px;grid-template-columns:52px 1fr 36px;padding:0 7px;background:transparent}

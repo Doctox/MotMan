@@ -172,7 +172,7 @@ function MatchmakingRow({ icon, title, subtitle, searching, disabled, start, can
   </div>
 }
 
-type PlaySectionId = 'solo' | 'normal' | 'ranked' | 'friends'
+type PlaySectionId = 'solo' | 'multiplayer' | 'normal' | 'ranked' | 'friends'
 
 function PlayAccordion({ id, icon, title, open, toggle, children }: {
   id: PlaySectionId
@@ -200,6 +200,13 @@ function PlayAccordion({ id, icon, title, open, toggle, children }: {
   </section>
 }
 
+function PlayGroup({ title, children }: { title: string; children: ReactNode }) {
+  return <section className="mm-play-group" aria-label={title}>
+    <h3>{title}</h3>
+    <div className="mm-play-group-body">{children}</div>
+  </section>
+}
+
 const SOLO_LEVELS: Array<{ id: GridDifficulty; label: string; available: boolean }> = [
   { id: 'easy', label: 'Facile', available: true },
   { id: 'normal', label: 'Normal', available: true },
@@ -223,6 +230,7 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
   const [soloPace, setSoloPace] = useState<MatchPace | null>(null)
   const [friendPace, setFriendPace] = useState<MatchPace>('realtime')
   const [openSection, setOpenSection] = useState<PlaySectionId | null>(null)
+  const [openMultiplayerSection, setOpenMultiplayerSection] = useState<PlaySectionId | null>(null)
   const [matchBusy, setMatchBusy] = useState<string | null>(null)
   const [searchBusy, setSearchBusy] = useState<MatchPace | null>(null)
   const [showActiveMatches, setShowActiveMatches] = useState(false)
@@ -246,6 +254,7 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
   const toggleSection = (id: PlaySectionId) => {
     const next = openSection === id ? null : id
     setOpenSection(next)
+    if (next === 'solo') setOpenMultiplayerSection(null)
     if (!next) return
     window.requestAnimationFrame(() => {
       document.getElementById(`mm-${id}-accordion`)?.scrollIntoView({
@@ -255,7 +264,13 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
     })
   }
 
+  const toggleMultiplayerSection = (id: PlaySectionId) => {
+    setOpenMultiplayerSection(current => current === id ? null : id)
+    setOpenSection(null)
+  }
+
   return <div className="mm-page mm-play-page">
+    <PlayGroup title="Solo">
     <PlayAccordion id="solo" icon={<Play />} title="Solo" open={openSection === 'solo'} toggle={toggleSection}>
       <div className="mm-solo-options">
         <span>Niveau du bot</span>
@@ -277,7 +292,10 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
         }}>{soloBusy ? 'Préparation…' : 'Jouer'} <ChevronRight /></button>
       </div>
     </PlayAccordion>
-    <PlayAccordion id="normal" icon={<Trophy />} title="Normal" open={openSection === 'normal'} toggle={toggleSection}>
+    </PlayGroup>
+
+    <PlayGroup title="Multijoueur">
+    <PlayAccordion id="normal" icon={<Trophy />} title="Normal" open={openMultiplayerSection === 'normal'} toggle={toggleMultiplayerSection}>
       <MatchmakingRow icon={<Clock3 />} title="Temps limité" subtitle={realtimeSearching ? 'Un adversaire est recherché…' : '45 s par tour'} searching={realtimeSearching} disabled={searchBusy !== null} start={() => void beginSearch('realtime')} cancel={() => void stopSearch('realtime')} />
       <MatchmakingRow icon={<Hourglass />} title="Temps illimité" subtitle={asyncSearching ? 'Vous pouvez revenir plus tard' : '24 h par tour'} searching={asyncSearching} disabled={searchBusy !== null} start={() => void beginSearch('async')} cancel={() => void stopSearch('async')} />
       <button type="button" className="mm-mode-row" aria-expanded={showActiveMatches} onClick={() => setShowActiveMatches(current => !current)}><span className="mm-mode-icon"><Users /></span><span><strong>Parties en cours</strong><small>Reprenez quand vous voulez</small></span><b className="mm-count">{asyncMatches.length}</b></button>
@@ -289,11 +307,11 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
         </button>) : <p className="mm-no-active-match">Aucune partie en temps illimité en cours.</p>}
       </div> : null}
     </PlayAccordion>
-    <PlayAccordion id="ranked" icon={<BarChart3 />} title="Classé" open={openSection === 'ranked'} toggle={toggleSection}>
+    <PlayAccordion id="ranked" icon={<BarChart3 />} title="Classé" open={openMultiplayerSection === 'ranked'} toggle={toggleMultiplayerSection}>
       <SoonButton icon={<Clock3 />} title="Temps limité" subtitle="45 s par tour · Bientôt" onClick={soon} />
       <SoonButton icon={<Hourglass />} title="Temps illimité" subtitle="24 h par tour · Bientôt" onClick={soon} />
     </PlayAccordion>
-    <PlayAccordion id="friends" icon={<Users />} title="Amis" open={openSection === 'friends'} toggle={toggleSection}>
+    <PlayAccordion id="friends" icon={<Users />} title="Amis" open={openMultiplayerSection === 'friends'} toggle={toggleMultiplayerSection}>
       <div className="mm-friend-pace-step">
         <span>Rythme de la partie</span>
         <div className="mm-solo-pace-choice mm-friend-pace-choice" role="group" aria-label="Choisir le rythme de la partie entre amis">
@@ -313,8 +331,9 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
           <span><strong>{friend.displayName}</strong><small>{presenceLabel(friend.activity)}</small></span>
           <button type="button" disabled={friendPace === 'realtime' && (!friend.online || friend.activity === 'playing') || alreadyInvited || matchBusy !== null} onClick={async () => { setMatchBusy(friend.playerId); await invite(friend.playerId, friendPace); setMatchBusy(null) }}>{alreadyInvited ? 'Envoyée' : friendPace === 'realtime' && friend.activity === 'playing' ? 'En jeu' : 'Inviter'}</button>
         </div>
-      }) : <button type="button" className="mm-match-add-friend" onClick={openFriends}><UserPlus /><span><strong>Ajouter un ami</strong><small>Ajoutez votre femme avec son code ami.</small></span><ChevronRight /></button>}
+      }) : <button type="button" className="mm-match-add-friend" onClick={openFriends}><UserPlus /><span><strong>Ajouter un ami</strong><small>Ajoutez un joueur avec son code ami.</small></span><ChevronRight /></button>}
     </PlayAccordion>
+    </PlayGroup>
   </div>
 }
 
