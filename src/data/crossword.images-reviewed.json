@@ -1,0 +1,2141 @@
+{
+  "version": 2,
+  "policy": "Images simples, concrètes et immédiatement reconnaissables à petite taille; chaque réponse reste présente dans le corpus central sourcé.",
+  "entries": [
+    {
+      "answer": "ABRI",
+      "clue": "",
+      "sourceClue": "Indice illustré : abri",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f6d6",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6d6.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "ABRI",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/abri.svg",
+        "alt": "Abri",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "AIL",
+      "clue": "",
+      "sourceClue": "Indice illustré : ail",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f9c4",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f9c4.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "AIL",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/ail.svg",
+        "alt": "Ail",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "ANGE",
+      "clue": "",
+      "sourceClue": "Indice illustré : ange",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f47c",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f47c.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "ANGE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/ange.svg",
+        "alt": "Ange",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "ARA",
+      "clue": "",
+      "sourceClue": "Indice illustré : ara",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f99c",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f99c.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "ARA",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/ara.svg",
+        "alt": "Ara",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "ARGENT",
+      "clue": "",
+      "sourceClue": "Indice illustré : argent",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4b0",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4b0.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:ARGENT:MONNAIE",
+      "semanticConflicts": [
+        "MONNAIE"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/argent.svg",
+        "alt": "Argent",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "AUTO",
+      "clue": "",
+      "sourceClue": "Indice illustré : auto",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f697",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f697.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "AUTO",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/auto.svg",
+        "alt": "Auto",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "BAIN",
+      "clue": "",
+      "sourceClue": "Indice illustré : bain",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f6c1",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6c1.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "BAIN",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/bain.svg",
+        "alt": "Bain",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "BARBE",
+      "clue": "",
+      "sourceClue": "Indice illustré : barbe",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f9d4",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f9d4.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:BARBE:POIL",
+      "semanticConflicts": [
+        "POIL"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/barbe.svg",
+        "alt": "Barbe",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "BD",
+      "clue": "",
+      "sourceClue": "Indice illustré : bd",
+      "length": 2,
+      "frequency": 6.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4ac",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4ac.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "BANDE_DESSINEE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/bd.svg",
+        "alt": "Bd",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "BOIS",
+      "clue": "",
+      "sourceClue": "Indice illustré : bois",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1fab5",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1fab5.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:BOIS:FORET",
+      "semanticConflicts": [
+        "FORET"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/bois.svg",
+        "alt": "Bois",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "BRAS",
+      "clue": "",
+      "sourceClue": "Indice illustré : bras",
+      "length": 4,
+      "frequency": 5.02,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4aa",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4aa.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "BRAS",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/bras.svg",
+        "alt": "Bras",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CAFE",
+      "clue": "",
+      "sourceClue": "Indice illustré : cafe",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-2615",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/2615.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:CAFE:BISTROT",
+      "semanticConflicts": [
+        "BISTROT"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/cafe.svg",
+        "alt": "Cafe",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CAMION",
+      "clue": "",
+      "sourceClue": "Indice illustré : camion",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f69a",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f69a.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "CAMION",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/camion.svg",
+        "alt": "Camion",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CARTE",
+      "clue": "",
+      "sourceClue": "Indice illustré : carte",
+      "length": 5,
+      "frequency": 5.06,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f5fa",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f5fa.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "CARTE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/carte.svg",
+        "alt": "Carte",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CD",
+      "clue": "",
+      "sourceClue": "Indice illustré : cd",
+      "length": 2,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4bf",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4bf.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "CD",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/cd.svg",
+        "alt": "Cd",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CERVEAU",
+      "clue": "",
+      "sourceClue": "Indice illustré : cerveau",
+      "length": 7,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f9e0",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f9e0.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "CERVEAU",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/cerveau.svg",
+        "alt": "Cerveau",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CHAISE",
+      "clue": "",
+      "sourceClue": "Indice illustré : chaise",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1fa91",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1fa91.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:CHAISE:SIEGE",
+      "semanticConflicts": [
+        "SIEGE"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/chaise.svg",
+        "alt": "Chaise",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CHAPEAU",
+      "clue": "",
+      "sourceClue": "Indice illustré : chapeau",
+      "length": 7,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f3a9",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f3a9.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "CHAPEAU",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/chapeau.svg",
+        "alt": "Chapeau",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CHATEAU",
+      "clue": "",
+      "sourceClue": "Indice illustré : chateau",
+      "length": 7,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f3f0",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f3f0.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:CHATEAU:MANOIR",
+      "semanticConflicts": [
+        "MANOIR"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/chateau.svg",
+        "alt": "Chateau",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CHEVAL",
+      "clue": "",
+      "sourceClue": "Indice illustré : cheval",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f40e",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f40e.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:CHEVAL:CANASSON",
+      "semanticConflicts": [
+        "CANASSON"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/cheval.svg",
+        "alt": "Cheval",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CLIP",
+      "clue": "",
+      "sourceClue": "Indice illustré : clip",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4ce",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4ce.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "CLIP",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/clip.svg",
+        "alt": "Clip",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "COQ",
+      "clue": "",
+      "sourceClue": "Indice illustré : coq",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f413",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f413.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "COQ",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/coq.svg",
+        "alt": "Coq",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "COR",
+      "clue": "",
+      "sourceClue": "Indice illustré : cor",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4ef",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4ef.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "COR",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/cor.svg",
+        "alt": "Cor",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CRANE",
+      "clue": "",
+      "sourceClue": "Indice illustré : crane",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f480",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f480.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "CRANE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/crane.svg",
+        "alt": "Crane",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CUILLERE",
+      "clue": "",
+      "sourceClue": "Indice illustré : cuillere",
+      "length": 8,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f944",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f944.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "CUILLERE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/cuillere.svg",
+        "alt": "Cuillere",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "CUISINE",
+      "clue": "",
+      "sourceClue": "Indice illustré : cuisine",
+      "length": 7,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f373",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f373.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "CUISINE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/cuisine.svg",
+        "alt": "Cuisine",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "DENT",
+      "clue": "",
+      "sourceClue": "Indice illustré : dent",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f9b7",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f9b7.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "DENT",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/dent.svg",
+        "alt": "Dent",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "DOUCHE",
+      "clue": "",
+      "sourceClue": "Indice illustré : douche",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f6bf",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6bf.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:DOUCHE:LAVAGE",
+      "semanticConflicts": [
+        "LAVAGE"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/douche.svg",
+        "alt": "Douche",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "DUEL",
+      "clue": "",
+      "sourceClue": "Indice illustré : duel",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-2694",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/2694.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "DUEL",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/duel.svg",
+        "alt": "Duel",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "EGLISE",
+      "clue": "",
+      "sourceClue": "Indice illustré : eglise",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-26ea",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/26ea.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:EGLISE:TEMPLE",
+      "semanticConflicts": [
+        "TEMPLE"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/eglise.svg",
+        "alt": "Eglise",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "EPEE",
+      "clue": "",
+      "sourceClue": "Indice illustré : epee",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-2694",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/2694.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "EPEE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/epee.svg",
+        "alt": "Epee",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "FEMME",
+      "clue": "",
+      "sourceClue": "Indice illustré : femme",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f469",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f469.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:FEMME:EPOUSE",
+      "semanticConflicts": [
+        "EPOUSE"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/femme.svg",
+        "alt": "Femme",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "FENETRE",
+      "clue": "",
+      "sourceClue": "Indice illustré : fenetre",
+      "length": 7,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1fa9f",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1fa9f.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:FENETRE:VASISTAS",
+      "semanticConflicts": [
+        "VASISTAS"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/fenetre.svg",
+        "alt": "Fenetre",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "FIL",
+      "clue": "",
+      "sourceClue": "Indice illustré : fil",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f9f5",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f9f5.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "FIL",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/fil.svg",
+        "alt": "Fil",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "FILLE",
+      "clue": "",
+      "sourceClue": "Indice illustré : fille",
+      "length": 5,
+      "frequency": 5.42,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f467",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f467.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "FILLE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/fille.svg",
+        "alt": "Fille",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "FILM",
+      "clue": "",
+      "sourceClue": "Indice illustré : film",
+      "length": 4,
+      "frequency": 5.36,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f39e",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f39e.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "FILM",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/film.svg",
+        "alt": "Film",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "FORET",
+      "clue": "",
+      "sourceClue": "Indice illustré : foret",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f332",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f332.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "FORET",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/foret.svg",
+        "alt": "Foret",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "FUMEE",
+      "clue": "",
+      "sourceClue": "Indice illustré : fumee",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4a8",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4a8.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:FUMEE:VAPEUR",
+      "semanticConflicts": [
+        "VAPEUR"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/fumee.svg",
+        "alt": "Fumee",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "GARCON",
+      "clue": "",
+      "sourceClue": "Indice illustré : garcon",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f466",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f466.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:GARCON:GARS",
+      "semanticConflicts": [
+        "GARS"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/garcon.svg",
+        "alt": "Garcon",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "HERBE",
+      "clue": "",
+      "sourceClue": "Indice illustré : herbe",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f33f",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f33f.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:HERBE:GAZON",
+      "semanticConflicts": [
+        "GAZON"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/herbe.svg",
+        "alt": "Herbe",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "HOMME",
+      "clue": "",
+      "sourceClue": "Indice illustré : homme",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f468",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f468.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:HOMME:INDIVIDU",
+      "semanticConflicts": [
+        "INDIVIDU"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/homme.svg",
+        "alt": "Homme",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "JET",
+      "clue": "",
+      "sourceClue": "Indice illustré : jet",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f6e9",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6e9.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "JET",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/jet.svg",
+        "alt": "Jet",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "LAIT",
+      "clue": "",
+      "sourceClue": "Indice illustré : lait",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f95b",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f95b.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "LAIT",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/lait.svg",
+        "alt": "Lait",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "LUMIERE",
+      "clue": "",
+      "sourceClue": "Indice illustré : lumiere",
+      "length": 7,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4a1",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4a1.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "LUMIERE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/lumiere.svg",
+        "alt": "Lumiere",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "MAGASIN",
+      "clue": "",
+      "sourceClue": "Indice illustré : magasin",
+      "length": 7,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f3ea",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f3ea.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "MAGASIN",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/magasin.svg",
+        "alt": "Magasin",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "MAIS",
+      "clue": "",
+      "sourceClue": "Indice illustré : mais",
+      "length": 4,
+      "frequency": 6.62,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f33d",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f33d.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "MAIS",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/mais.svg",
+        "alt": "Mais",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "MIROIR",
+      "clue": "",
+      "sourceClue": "Indice illustré : miroir",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1fa9e",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1fa9e.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "MIROIR",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/miroir.svg",
+        "alt": "Miroir",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "MONTAGNE",
+      "clue": "",
+      "sourceClue": "Indice illustré : montagne",
+      "length": 8,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-26f0",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/26f0.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:MONTAGNE:MONT",
+      "semanticConflicts": [
+        "MONT"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/montagne.svg",
+        "alt": "Montagne",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "MOTO",
+      "clue": "",
+      "sourceClue": "Indice illustré : moto",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f3cd",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f3cd.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "MOTO",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/moto.svg",
+        "alt": "Moto",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "MUR",
+      "clue": "",
+      "sourceClue": "Indice illustré : mur",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f9f1",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f9f1.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "MUR",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/mur.svg",
+        "alt": "Mur",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "NID",
+      "clue": "",
+      "sourceClue": "Indice illustré : nid",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1fab9",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1fab9.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "NID",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/nid.svg",
+        "alt": "Nid",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "OVNI",
+      "clue": "",
+      "sourceClue": "Indice illustré : ovni",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f6f8",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6f8.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "OVNI",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/ovni.svg",
+        "alt": "Ovni",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PANTALON",
+      "clue": "",
+      "sourceClue": "Indice illustré : pantalon",
+      "length": 8,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f456",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f456.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "PANTALON",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/pantalon.svg",
+        "alt": "Pantalon",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PAPIER",
+      "clue": "",
+      "sourceClue": "Indice illustré : papier",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4c4",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4c4.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "PAPIER",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/papier.svg",
+        "alt": "Papier",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PAQUET",
+      "clue": "",
+      "sourceClue": "Indice illustré : paquet",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4e6",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4e6.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:PAQUET:BALLE",
+      "semanticConflicts": [
+        "BALLE"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/paquet.svg",
+        "alt": "Paquet",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PARFUM",
+      "clue": "",
+      "sourceClue": "Indice illustré : parfum",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f9f4",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f9f4.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:PARFUM:ODEUR",
+      "semanticConflicts": [
+        "ODEUR"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/parfum.svg",
+        "alt": "Parfum",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PC",
+      "clue": "",
+      "sourceClue": "Indice illustré : pc",
+      "length": 2,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4bb",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4bb.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "PC",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/pc.svg",
+        "alt": "Pc",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PEINTURE",
+      "clue": "",
+      "sourceClue": "Indice illustré : peinture",
+      "length": 8,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f3a8",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f3a8.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:PEINTURE:TABLEAU",
+      "semanticConflicts": [
+        "TABLEAU"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/peinture.svg",
+        "alt": "Peinture",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PHOTO",
+      "clue": "",
+      "sourceClue": "Indice illustré : photo",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4f7",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4f7.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:PHOTO:CLICHE",
+      "semanticConflicts": [
+        "CLICHE"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/photo.svg",
+        "alt": "Photo",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PIC",
+      "clue": "",
+      "sourceClue": "Indice illustré : pic",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-26cf",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/26cf.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "PIC",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/pic.svg",
+        "alt": "Pic",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PILE",
+      "clue": "",
+      "sourceClue": "Indice illustré : pile",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f50b",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f50b.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "PILE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/pile.svg",
+        "alt": "Pile",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PLAGE",
+      "clue": "",
+      "sourceClue": "Indice illustré : plage",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f3d6",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f3d6.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:PLAGE:RIVAGE",
+      "semanticConflicts": [
+        "RIVAGE"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/plage.svg",
+        "alt": "Plage",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PLANETE",
+      "clue": "",
+      "sourceClue": "Indice illustré : planete",
+      "length": 7,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1fa90",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1fa90.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "PLANETE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/planete.svg",
+        "alt": "Planete",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PONT",
+      "clue": "",
+      "sourceClue": "Indice illustré : pont",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f309",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f309.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "PONT",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/pont.svg",
+        "alt": "Pont",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PORT",
+      "clue": "",
+      "sourceClue": "Indice illustré : port",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-2693",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/2693.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "PORT",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/port.svg",
+        "alt": "Port",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PORTE",
+      "clue": "",
+      "sourceClue": "Indice illustré : porte",
+      "length": 5,
+      "frequency": 5.47,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f6aa",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6aa.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "PORTE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/porte.svg",
+        "alt": "Porte",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "POT",
+      "clue": "",
+      "sourceClue": "Indice illustré : pot",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1fad9",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1fad9.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "POT",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/pot.svg",
+        "alt": "Pot",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "PUB",
+      "clue": "",
+      "sourceClue": "Indice illustré : pub",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4e3",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4e3.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "PUB",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/pub.svg",
+        "alt": "Pub",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "RAIL",
+      "clue": "",
+      "sourceClue": "Indice illustré : rail",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f6e4",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6e4.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "RAIL",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/rail.svg",
+        "alt": "Rail",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "RENARD",
+      "clue": "",
+      "sourceClue": "Indice illustré : renard",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f98a",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f98a.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "RENARD",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/renard.svg",
+        "alt": "Renard",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "REPAS",
+      "clue": "",
+      "sourceClue": "Indice illustré : repas",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f37d",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f37d.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "REPAS",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/repas.svg",
+        "alt": "Repas",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "ROC",
+      "clue": "",
+      "sourceClue": "Indice illustré : roc",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1faa8",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1faa8.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "ROC",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/roc.svg",
+        "alt": "Roc",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "ROUE",
+      "clue": "",
+      "sourceClue": "Indice illustré : roue",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f6de",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6de.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "ROUE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/roue.svg",
+        "alt": "Roue",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "ROUTE",
+      "clue": "",
+      "sourceClue": "Indice illustré : route",
+      "length": 5,
+      "frequency": 5.17,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f6e3",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6e3.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "ROUTE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/route.svg",
+        "alt": "Route",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "SAC",
+      "clue": "",
+      "sourceClue": "Indice illustré : sac",
+      "length": 3,
+      "frequency": 6.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f392",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f392.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "SAC_DOS",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/sac.svg",
+        "alt": "Sac",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "SEAU",
+      "clue": "",
+      "sourceClue": "Indice illustré : seau",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1faa3",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1faa3.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "SEAU",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/seau.svg",
+        "alt": "Seau",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "SINGE",
+      "clue": "",
+      "sourceClue": "Indice illustré : singe",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f412",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f412.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "SINGE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/singe.svg",
+        "alt": "Singe",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "SKI",
+      "clue": "",
+      "sourceClue": "Indice illustré : ski",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f3bf",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f3bf.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "SKI",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/ski.svg",
+        "alt": "Ski",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "SMS",
+      "clue": "",
+      "sourceClue": "Indice illustré : sms",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4f2",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4f2.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "SMS",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/sms.svg",
+        "alt": "Sms",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "STOP",
+      "clue": "",
+      "sourceClue": "Indice illustré : stop",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f6d1",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6d1.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "STOP",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/stop.svg",
+        "alt": "Stop",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "TABLEAU",
+      "clue": "",
+      "sourceClue": "Indice illustré : tableau",
+      "length": 7,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f5bc",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f5bc.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "TABLEAU",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/tableau.svg",
+        "alt": "Tableau",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "TGV",
+      "clue": "",
+      "sourceClue": "Indice illustré : tgv",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f684",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f684.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "TGV",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/tgv.svg",
+        "alt": "Tgv",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "THE",
+      "clue": "",
+      "sourceClue": "Indice illustré : the",
+      "length": 3,
+      "frequency": 5.35,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1fad6",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1fad6.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "THE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/the.svg",
+        "alt": "The",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "TORTUE",
+      "clue": "",
+      "sourceClue": "Indice illustré : tortue",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f422",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f422.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "TORTUE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/tortue.svg",
+        "alt": "Tortue",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "TOUR",
+      "clue": "",
+      "sourceClue": "Indice illustré : tour",
+      "length": 4,
+      "frequency": 5.37,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f5fc",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f5fc.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "TOUR",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/tour.svg",
+        "alt": "Tour",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "TRACTEUR",
+      "clue": "",
+      "sourceClue": "Indice illustré : tracteur",
+      "length": 8,
+      "frequency": 6.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f69c",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f69c.svg",
+      "editorialStatus": "image-reviewed",
+      "conceptGroup": "TRACTEUR",
+      "image": {
+        "asset": "/assets/clues/twemoji/tracteur.svg",
+        "alt": "Tracteur",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "TRAM",
+      "clue": "",
+      "sourceClue": "Indice illustré : tram",
+      "length": 4,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f68a",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f68a.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "TRAM",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/tram.svg",
+        "alt": "Tram",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "TV",
+      "clue": "",
+      "sourceClue": "Indice illustré : tv",
+      "length": 2,
+      "frequency": 6.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f4fa",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4fa.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "TELEVISION",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/tv.svg",
+        "alt": "Tv",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "VALISE",
+      "clue": "",
+      "sourceClue": "Indice illustré : valise",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f9f3",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f9f3.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "VALISE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/valise.svg",
+        "alt": "Valise",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "VER",
+      "clue": "",
+      "sourceClue": "Indice illustré : ver",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1fab1",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1fab1.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "VER",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/ver.svg",
+        "alt": "Ver",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "VESTE",
+      "clue": "",
+      "sourceClue": "Indice illustré : veste",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f9e5",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f9e5.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "VESTE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/veste.svg",
+        "alt": "Veste",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "VILLE",
+      "clue": "",
+      "sourceClue": "Indice illustré : ville",
+      "length": 5,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f3d9",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f3d9.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "jeuxdemots:VILLE:CITE",
+      "semanticConflicts": [
+        "CITE"
+      ],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/ville.svg",
+        "alt": "Ville",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "VIN",
+      "clue": "",
+      "sourceClue": "Indice illustré : vin",
+      "length": 3,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f377",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f377.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "VIN",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/vin.svg",
+        "alt": "Vin",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    },
+    {
+      "answer": "VISAGE",
+      "clue": "",
+      "sourceClue": "Indice illustré : visage",
+      "length": 6,
+      "frequency": 5.0,
+      "difficulty": "easy",
+      "sourceType": "image",
+      "sourceId": "twemoji-1f642",
+      "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f642.svg",
+      "editorialStatus": "image-reviewed",
+      "manualReview": "motman-small-screen-pictogram-review-20260716",
+      "conceptGroup": "VISAGE",
+      "semanticConflicts": [],
+      "license": "CC BY 4.0",
+      "image": {
+        "asset": "/assets/clues/twemoji/visage.svg",
+        "alt": "Visage",
+        "source": "Twemoji",
+        "license": "CC BY 4.0"
+      }
+    }
+  ],
+  "metrics": {
+    "reviewedImageAnswers": 94,
+    "addedByExpansion": 3,
+    "skipped": {
+      "BROCOLI": "not-in-canonical-central-corpus",
+      "CHAMEAU": "not-in-canonical-central-corpus",
+      "CRABE": "not-in-canonical-central-corpus",
+      "ELEPHANT": "not-in-canonical-central-corpus",
+      "GIRAFE": "not-in-canonical-central-corpus",
+      "KIWI": "not-in-canonical-central-corpus",
+      "LIT": "blacklist-or-rotation-cooldown",
+      "LOUP": "not-in-canonical-central-corpus",
+      "MOUTON": "not-in-canonical-central-corpus",
+      "OIGNON": "not-in-canonical-central-corpus",
+      "ORANGE": "not-in-canonical-central-corpus",
+      "PASTEQUE": "not-in-canonical-central-corpus",
+      "PECHE": "not-in-canonical-central-corpus",
+      "RADIO": "not-in-canonical-central-corpus",
+      "REQUIN": "not-in-canonical-central-corpus",
+      "SERPENT": "not-in-canonical-central-corpus",
+      "TELE": "blacklist-or-rotation-cooldown",
+      "TOILETTE": "not-in-canonical-central-corpus",
+      "VERRE": "not-in-canonical-central-corpus",
+      "ZEBRE": "not-in-canonical-central-corpus"
+    }
+  }
+}

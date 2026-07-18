@@ -1,0 +1,6460 @@
+{
+  "version": 1,
+  "kind": "motman-corpus-aware-five-owner-review",
+  "publicationPolicy": "Aucune publication automatique; validation du propriétaire requise.",
+  "batchMetrics": {
+    "grids": 5,
+    "answers": 127,
+    "uniqueAnswers": 127,
+    "repeatedAnswersInsideBatch": 0,
+    "singularPluralFamiliesInsideBatch": 0,
+    "uniqueShapes": 5,
+    "images": 8,
+    "answersNewToActiveCatalog": 90,
+    "answersAlreadyInActiveCatalog": 37,
+    "answerLengthProfile": {
+      "2": 10,
+      "3": 29,
+      "4": 23,
+      "5": 22,
+      "6": 6,
+      "7": 10,
+      "8": 27
+    }
+  },
+  "grids": [
+    {
+      "id": "corpus-aware-review-01",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-standard-owner-calibrated",
+      "publicationStatus": "owner-review-required",
+      "reviewCycle": "2026-07-15",
+      "shapeFingerprint": "0873030fda86222e",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "corpus-aware-review-01:word:01",
+          "answer": "AH",
+          "clue": "Cri de surprise",
+          "sourceClue": "Cri de surprise",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "sourceId": "cnrtl-ah",
+          "sourceUrl": "https://www.cnrtl.fr/definition/ah",
+          "sourceType": "dictionary",
+          "sourceFrequency": 4.5,
+          "difficulty": "easy",
+          "conceptGroup": "INTERJECTION_SURPRISE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:02",
+          "answer": "TASSE",
+          "clue": "",
+          "sourceClue": "DAME",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1446.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1446",
+          "sourcePublishedOn": "2026-04-23",
+          "sourceFrequency": 3.91,
+          "difficulty": "hard",
+          "conceptGroup": "TASSE",
+          "semanticConflicts": [],
+          "editorialStatus": "image-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/tasse.svg",
+            "alt": "Tasse",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:03",
+          "answer": "ABEILLES",
+          "clue": "",
+          "sourceClue": "DILIGENTES OUVRIÈRES",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1411.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1411",
+          "sourcePublishedOn": "2026-03-19",
+          "sourceFrequency": 3.9,
+          "difficulty": "hard",
+          "conceptGroup": "ABEILLES",
+          "semanticConflicts": [],
+          "editorialStatus": "image-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/abeille.svg",
+            "alt": "Abeilles",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:04",
+          "answer": "PERSUADE",
+          "clue": "Convainc",
+          "sourceClue": "CONVAINCU",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1402.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1402",
+          "sourcePublishedOn": "2026-03-10",
+          "sourceFrequency": 3.01,
+          "difficulty": "hard",
+          "conceptGroup": "PERSUADE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:05",
+          "answer": "ATRE",
+          "clue": "Foyer de cheminée",
+          "sourceClue": "COIN CHAUD",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3820.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_2_3820",
+          "sourcePublishedOn": "2025-12-26",
+          "sourceFrequency": 1.64,
+          "difficulty": "hard",
+          "conceptGroup": "ATRE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:06",
+          "answer": "PIE",
+          "clue": "Oiseau bavard",
+          "sourceClue": "AGACE",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1249.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1249",
+          "sourcePublishedOn": "2025-10-08",
+          "sourceFrequency": 3.86,
+          "difficulty": "hard",
+          "conceptGroup": "PIE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:07",
+          "answer": "NIE",
+          "clue": "Refuse d'admettre",
+          "sourceClue": "CONTESTE",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3802.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3802",
+          "sourcePublishedOn": "2025-12-08",
+          "sourceFrequency": 3.88,
+          "difficulty": "easy",
+          "conceptGroup": "NIE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:08",
+          "answer": "JETS",
+          "clue": "Lancers",
+          "sourceClue": "AVIONS PRIVÉS",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "sourceFrequency": 3.67,
+          "difficulty": "normal",
+          "conceptGroup": "JETS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:09",
+          "answer": "RARE",
+          "clue": "Peu commun",
+          "sourceClue": "SOUVENT CHER",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1527.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1527",
+          "sourcePublishedOn": "2026-07-13",
+          "sourceFrequency": 4.67,
+          "difficulty": "hard",
+          "conceptGroup": "RARE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:10",
+          "answer": "ABUSEUR",
+          "clue": "Trompeur",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.04,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "ABUSEUR",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:11",
+          "answer": "DISPARU",
+          "clue": "Introuvable",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            1
+          ],
+          "cells": [
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 6.42,
+          "partOfSpeech": "ADJ",
+          "difficulty": "normal",
+          "conceptGroup": "DISPARU",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:12",
+          "answer": "ROCHEUSE",
+          "clue": "Pleine de rochers",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 2.64,
+          "partOfSpeech": "ADJ",
+          "difficulty": "hard",
+          "conceptGroup": "ROCHEUSE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:13",
+          "answer": "TAPANT",
+          "clue": "Très voyant",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.41,
+          "partOfSpeech": "ADJ",
+          "difficulty": "hard",
+          "conceptGroup": "TAPANT",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:14",
+          "answer": "ABETI",
+          "clue": "Rendu stupide",
+          "sourceClue": "ABRUTI",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "sourceFrequency": 0.0,
+          "difficulty": "hard",
+          "conceptGroup": "ABETI",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:15",
+          "answer": "SERRE",
+          "clue": "Abri vitré",
+          "sourceClue": "FORCERIE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1368.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1368",
+          "sourcePublishedOn": "2026-02-04",
+          "sourceFrequency": 4.2,
+          "difficulty": "hard",
+          "conceptGroup": "SERRE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:16",
+          "answer": "SISE",
+          "clue": "Située",
+          "sourceClue": "SITUÉE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3858.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_2_3858",
+          "sourcePublishedOn": "2026-02-02",
+          "sourceFrequency": 3.08,
+          "difficulty": "normal",
+          "conceptGroup": "SISE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:17",
+          "answer": "ELU",
+          "clue": "Choisi par vote",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 2.81,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "ELU",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:18",
+          "answer": "USEES",
+          "clue": "Très fatiguées",
+          "sourceClue": "REBATTUES",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1237.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1237",
+          "sourcePublishedOn": "2025-09-26",
+          "sourceFrequency": 0.0,
+          "difficulty": "hard",
+          "conceptGroup": "USEES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:19",
+          "answer": "LAPEREAU",
+          "clue": "Jeune lapin",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            6
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.29,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "LAPEREAU",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:20",
+          "answer": "EDITEURS",
+          "clue": "Publient des livres",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 3.45,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "EDITEURS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:21",
+          "answer": "JASPE",
+          "clue": "Pierre colorée",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.27,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "JASPE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:22",
+          "answer": "RUSH",
+          "clue": "Prise de tournage",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            4
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 1.04,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "RUSH",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:23",
+          "answer": "AS",
+          "clue": "Champion",
+          "sourceClue": "Champion",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ],
+          "sourceId": "cnrtl-as",
+          "sourceUrl": "https://www.cnrtl.fr/definition/as",
+          "sourceType": "dictionary",
+          "sourceFrequency": 5.8,
+          "difficulty": "easy",
+          "conceptGroup": "CHAMPION",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:24",
+          "answer": "ADO",
+          "clue": "Jeune personne",
+          "sourceClue": "JEUNE ENCORE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            2
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3991.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_2_3991",
+          "sourcePublishedOn": "2026-06-15",
+          "sourceFrequency": 4.0,
+          "difficulty": "normal",
+          "conceptGroup": "ADO",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:25",
+          "answer": "BIC",
+          "clue": "Stylo jetable",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.44,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "BIC",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-01:word:26",
+          "answer": "RUE",
+          "clue": "Voie urbaine",
+          "sourceClue": "VOIE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            8
+          ],
+          "cells": [
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "sourceFrequency": 5.27,
+          "difficulty": "easy",
+          "conceptGroup": "RUE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        }
+      ]
+    },
+    {
+      "id": "corpus-aware-review-02",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-standard-owner-calibrated",
+      "publicationStatus": "owner-review-required",
+      "reviewCycle": "2026-07-15",
+      "shapeFingerprint": "dfcfc055ca59e9d4",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "corpus-aware-review-02:word:01",
+          "answer": "AN",
+          "clue": "Douze mois",
+          "sourceClue": "Douze mois",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "sourceId": "cnrtl-an",
+          "sourceUrl": "https://www.cnrtl.fr/definition/an",
+          "sourceType": "dictionary",
+          "sourceFrequency": 6.5,
+          "difficulty": "easy",
+          "conceptGroup": "ANNEE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:02",
+          "answer": "ODE",
+          "clue": "Poème lyrique",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.94,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "ODE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:03",
+          "answer": "PUB",
+          "clue": "Réclame familière",
+          "sourceClue": "RÉCLAME",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3847.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_2_3847",
+          "sourcePublishedOn": "2026-01-22",
+          "sourceFrequency": 4.49,
+          "difficulty": "normal",
+          "conceptGroup": "PUB",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:04",
+          "answer": "PECORINO",
+          "clue": "Fromage de brebis",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.25,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "PECORINO",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:05",
+          "answer": "ECUREUIL",
+          "clue": "Rongeur roux",
+          "sourceClue": "RONGEUR",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "sourceFrequency": 2.26,
+          "difficulty": "hard",
+          "conceptGroup": "ECUREUIL",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:06",
+          "answer": "ROMAN",
+          "clue": "Long récit",
+          "sourceClue": "LANGUE ANCIENNE",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "sourceFrequency": 4.71,
+          "difficulty": "easy",
+          "conceptGroup": "ROMAN",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:07",
+          "answer": "ARETES",
+          "clue": "Os de poisson",
+          "sourceClue": "ANGLES SAILLANTS",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3772.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3772",
+          "sourcePublishedOn": "2025-11-08",
+          "sourceFrequency": 0.0,
+          "difficulty": "hard",
+          "conceptGroup": "ARETES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:08",
+          "answer": "OTAGE",
+          "clue": "Prisonnier retenu",
+          "sourceClue": "GAGE HUMAIN",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3808.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3808",
+          "sourcePublishedOn": "2025-12-14",
+          "sourceFrequency": 3.99,
+          "difficulty": "easy",
+          "conceptGroup": "OTAGE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:09",
+          "answer": "AMITIES",
+          "clue": "Liens affectueux",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 10.07,
+          "partOfSpeech": "NOM",
+          "difficulty": "normal",
+          "conceptGroup": "AMITIES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:10",
+          "answer": "GARENNE",
+          "clue": "Refuge de lapins",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            1
+          ],
+          "cells": [
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.68,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "GARENNE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:11",
+          "answer": "DETESTEE",
+          "clue": "Profondément haïe",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.68,
+          "partOfSpeech": "ADJ",
+          "difficulty": "hard",
+          "conceptGroup": "DETESTEE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:12",
+          "answer": "OPERAS",
+          "clue": "Drames chantés",
+          "sourceClue": "ŒUVRES LYRIQUES",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3730.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3730",
+          "sourcePublishedOn": "2025-09-27",
+          "sourceFrequency": 1.66,
+          "difficulty": "hard",
+          "conceptGroup": "OPERAS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:13",
+          "answer": "DECOR",
+          "clue": "Cadre de scène",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 38.78,
+          "partOfSpeech": "NOM",
+          "difficulty": "normal",
+          "conceptGroup": "DECOR",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:14",
+          "answer": "ECUME",
+          "clue": "Mousse marine",
+          "sourceClue": "MOUSSE BLANCHÂTRE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3865.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3865",
+          "sourcePublishedOn": "2026-02-09",
+          "sourceFrequency": 1.92,
+          "difficulty": "hard",
+          "conceptGroup": "ECUME",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:15",
+          "answer": "PIU",
+          "clue": "Plus, en musique",
+          "sourceClue": "PLUS MUSICAL",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1328.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1328",
+          "sourcePublishedOn": "2025-12-26",
+          "sourceFrequency": 2.16,
+          "difficulty": "hard",
+          "conceptGroup": "PIU",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:16",
+          "answer": "UNIS",
+          "clue": "Rassemblés",
+          "sourceClue": "ASSOCIÉS",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3841.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3841",
+          "sourcePublishedOn": "2026-01-16",
+          "sourceFrequency": 5.27,
+          "difficulty": "easy",
+          "conceptGroup": "UNIS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:17",
+          "answer": "BOL",
+          "clue": "",
+          "sourceClue": "BONNE FORTUNE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1357.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1357",
+          "sourcePublishedOn": "2026-01-24",
+          "sourceFrequency": 4.19,
+          "difficulty": "hard",
+          "conceptGroup": "BOL",
+          "semanticConflicts": [],
+          "editorialStatus": "image-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/bol.svg",
+            "alt": "Bol",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:18",
+          "answer": "ORATOIRE",
+          "clue": "Lieu de prière",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 1.28,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "ORATOIRE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:19",
+          "answer": "RENETTES",
+          "clue": "Pommes anciennes",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.07,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "RENETTES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:20",
+          "answer": "SAINT",
+          "clue": "Homme canonisé",
+          "sourceClue": "BON PERSONNAGE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            6
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3857.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_2_3857",
+          "sourcePublishedOn": "2026-02-01",
+          "sourceFrequency": 5.53,
+          "difficulty": "normal",
+          "conceptGroup": "SAINT",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:21",
+          "answer": "PESEE",
+          "clue": "Mesure du poids",
+          "sourceClue": "PRESSION",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            8
+          ],
+          "cells": [
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1526.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1526",
+          "sourcePublishedOn": "2026-07-12",
+          "sourceFrequency": 0.0,
+          "difficulty": "hard",
+          "conceptGroup": "PESEE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:22",
+          "answer": "GENE",
+          "clue": "Embarrasse",
+          "sourceClue": "À COURT",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1330.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1330",
+          "sourcePublishedOn": "2025-12-28",
+          "sourceFrequency": 3.53,
+          "difficulty": "hard",
+          "conceptGroup": "GENE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:23",
+          "answer": "LU",
+          "clue": "Déjà parcouru",
+          "sourceClue": "Parcouru des yeux",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ],
+          "sourceId": "cnrtl-lire",
+          "sourceUrl": "https://www.cnrtl.fr/definition/lire",
+          "sourceType": "dictionary",
+          "sourceFrequency": 5.0,
+          "difficulty": "easy",
+          "conceptGroup": "LIRE_PARTICIPE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:24",
+          "answer": "AGE",
+          "clue": "Années vécues",
+          "sourceClue": "EXPÉRIENCE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            2
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1385.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1385",
+          "sourcePublishedOn": "2026-02-21",
+          "sourceFrequency": 4.3,
+          "difficulty": "hard",
+          "conceptGroup": "AGE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-02:word:25",
+          "answer": "MAT",
+          "clue": "Roi piégé",
+          "sourceClue": "ÉCHEC COMPLET",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1361.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1361",
+          "sourcePublishedOn": "2026-01-28",
+          "sourceFrequency": 4.04,
+          "difficulty": "hard",
+          "conceptGroup": "MAT",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        }
+      ]
+    },
+    {
+      "id": "corpus-aware-review-03",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-standard-owner-calibrated",
+      "publicationStatus": "owner-review-required",
+      "reviewCycle": "2026-07-15",
+      "shapeFingerprint": "7b1f724af7b4083c",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "corpus-aware-review-03:word:01",
+          "answer": "MI",
+          "clue": "Troisième note",
+          "sourceClue": "Après ré",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "sourceId": "eduscol-notes",
+          "sourceUrl": "https://bnseep.eduscol.education.fr/ressources/examens/sujets/18/320/2551600/E3/U3_SUJET.pdf",
+          "sourceType": "dictionary",
+          "sourceFrequency": 5.5,
+          "difficulty": "easy",
+          "conceptGroup": "NOTE_MUSICALE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:02",
+          "answer": "ESTER",
+          "clue": "Saisir la justice",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.25,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "ESTER",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:03",
+          "answer": "DAIM",
+          "clue": "Cervidé tacheté",
+          "sourceClue": "CUIR SUÉDÉ",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1479.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1479",
+          "sourcePublishedOn": "2026-05-26",
+          "sourceFrequency": 3.01,
+          "difficulty": "hard",
+          "conceptGroup": "DAIM",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:04",
+          "answer": "TRI",
+          "clue": "Classement",
+          "sourceClue": "CLASSEMENT",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3952.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3952",
+          "sourcePublishedOn": "2026-05-07",
+          "sourceFrequency": 3.98,
+          "difficulty": "easy",
+          "conceptGroup": "TRI",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:05",
+          "answer": "ACROMION",
+          "clue": "Saillie scapulaire",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.14,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "ACROMION",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:06",
+          "answer": "TARSE",
+          "clue": "Arrière du pied",
+          "sourceClue": "RANGÉE D'OSSELETS",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "sourceFrequency": 2.85,
+          "difficulty": "hard",
+          "conceptGroup": "TARSE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:07",
+          "answer": "AVINES",
+          "clue": "Ivres de vin",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.47,
+          "partOfSpeech": "ADJ",
+          "difficulty": "hard",
+          "conceptGroup": "AVINES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:08",
+          "answer": "LEVITES",
+          "clue": "Prêtres hébreux",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.14,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "LEVITES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:09",
+          "answer": "ILLETTRE",
+          "clue": "Sans savoir lire",
+          "sourceClue": "ANALPHABÈTE",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3974.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3974",
+          "sourcePublishedOn": "2026-05-29",
+          "sourceFrequency": 0.0,
+          "difficulty": "hard",
+          "conceptGroup": "ILLETTRE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:10",
+          "answer": "FEU",
+          "clue": "",
+          "sourceClue": "COMMANDEMENT MILITAIRE",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1407.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1407",
+          "sourcePublishedOn": "2026-03-15",
+          "sourceFrequency": 5.16,
+          "difficulty": "hard",
+          "conceptGroup": "FEU",
+          "semanticConflicts": [],
+          "editorialStatus": "image-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/feu.svg",
+            "alt": "Feu",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:11",
+          "answer": "OEIL",
+          "clue": "",
+          "sourceClue": "GLOBE OCULAIRE",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            4
+          ],
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3993.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3993",
+          "sourcePublishedOn": "2026-06-17",
+          "sourceFrequency": 4.51,
+          "difficulty": "normal",
+          "conceptGroup": "OEIL",
+          "semanticConflicts": [],
+          "editorialStatus": "image-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/oeil.svg",
+            "alt": "Œil",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:12",
+          "answer": "SEMEUSES",
+          "clue": "Répandent des graines",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.14,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "SEMEUSES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:13",
+          "answer": "EDAM",
+          "clue": "Fromage hollandais",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.34,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "EDAM",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:14",
+          "answer": "SAC",
+          "clue": "Contenant souple",
+          "sourceClue": "BANANE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1397.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1397",
+          "sourcePublishedOn": "2026-03-05",
+          "sourceFrequency": 4.8,
+          "difficulty": "hard",
+          "conceptGroup": "SAC",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:15",
+          "answer": "TIR",
+          "clue": "Action de tirer",
+          "sourceClue": "LANCER",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3809.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_2_3809",
+          "sourcePublishedOn": "2025-12-15",
+          "sourceFrequency": 4.43,
+          "difficulty": "normal",
+          "conceptGroup": "TIR",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:16",
+          "answer": "EMOTIVE",
+          "clue": "Très sensible",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 1.22,
+          "partOfSpeech": "ADJ",
+          "difficulty": "hard",
+          "conceptGroup": "EMOTIVE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:17",
+          "answer": "MINE",
+          "clue": "Gisement exploité",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 48.18,
+          "partOfSpeech": "NOM",
+          "difficulty": "easy",
+          "conceptGroup": "MINE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:18",
+          "answer": "TIRETTES",
+          "clue": "Petites poignées",
+          "sourceClue": "LANGUETTES",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            6
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_4014.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_4014",
+          "sourcePublishedOn": "2026-07-08",
+          "sourceFrequency": 1.59,
+          "difficulty": "hard",
+          "conceptGroup": "TIRETTES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:19",
+          "answer": "ROSSERIE",
+          "clue": "Méchanceté",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.14,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "ROSSERIE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:20",
+          "answer": "MANITOU",
+          "clue": "Esprit amérindien",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.74,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "MANITOU",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:21",
+          "answer": "PI",
+          "clue": "Lettre grecque",
+          "sourceClue": "Environ 3,14",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "sourceId": "larousse-pi",
+          "sourceUrl": "https://www.larousse.fr/dictionnaires/francais/pi/60674",
+          "sourceType": "dictionary",
+          "sourceFrequency": 5.0,
+          "difficulty": "normal",
+          "conceptGroup": "NOMBRE_PI",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:22",
+          "answer": "ALLEE",
+          "clue": "Chemin bordé",
+          "sourceClue": "CHEMIN",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3898.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3898",
+          "sourcePublishedOn": "2026-03-14",
+          "sourceFrequency": 2.53,
+          "difficulty": "hard",
+          "conceptGroup": "ALLEE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:23",
+          "answer": "VELUM",
+          "clue": "Voile anatomique",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.27,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "VELUM",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:24",
+          "answer": "SELS",
+          "clue": "Cristaux minéraux",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 2.23,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "SELS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-03:word:25",
+          "answer": "IFS",
+          "clue": "Conifères toxiques",
+          "sourceClue": "ARBRES VERTS",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3906.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3906",
+          "sourcePublishedOn": "2026-03-22",
+          "sourceFrequency": 2.68,
+          "difficulty": "hard",
+          "conceptGroup": "IFS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        }
+      ]
+    },
+    {
+      "id": "corpus-aware-review-04",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-standard-owner-calibrated",
+      "publicationStatus": "owner-review-required",
+      "reviewCycle": "2026-07-15",
+      "shapeFingerprint": "fd6198e93a2ca37c",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "corpus-aware-review-04:word:01",
+          "answer": "FA",
+          "clue": "Quatrième note",
+          "sourceClue": "Avant sol",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "sourceId": "eduscol-notes",
+          "sourceUrl": "https://bnseep.eduscol.education.fr/ressources/examens/sujets/18/320/2551600/E3/U3_SUJET.pdf",
+          "sourceType": "dictionary",
+          "sourceFrequency": 5.5,
+          "difficulty": "easy",
+          "conceptGroup": "NOTE_MUSICALE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:02",
+          "answer": "BOA",
+          "clue": "Grand serpent",
+          "sourceClue": "GROS SERPENT",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3759.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3759",
+          "sourcePublishedOn": "2025-10-26",
+          "sourceFrequency": 3.04,
+          "difficulty": "normal",
+          "conceptGroup": "BOA",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:03",
+          "answer": "RAT",
+          "clue": "Petit rongeur",
+          "sourceClue": "DANSEUSE",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_4003.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_4003",
+          "sourcePublishedOn": "2026-06-27",
+          "sourceFrequency": 3.9,
+          "difficulty": "easy",
+          "conceptGroup": "RAT",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:04",
+          "answer": "AIREDALE",
+          "clue": "Chien anglais",
+          "sourceClue": "CHIEN ANGLAIS",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1308.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1308",
+          "sourcePublishedOn": "2025-12-06",
+          "sourceFrequency": 1.12,
+          "difficulty": "hard",
+          "conceptGroup": "AIREDALE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:05",
+          "answer": "VERDELET",
+          "clue": "Un peu vert",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.07,
+          "partOfSpeech": "ADJ",
+          "difficulty": "hard",
+          "conceptGroup": "VERDELET",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:06",
+          "answer": "OISEAU",
+          "clue": "",
+          "sourceClue": "Indice illustré",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "sourceId": "twemoji",
+          "sourceUrl": "https://github.com/jdecked/twemoji",
+          "sourceType": "image",
+          "sourceFrequency": 4.31,
+          "difficulty": "easy",
+          "conceptGroup": "OISEAU",
+          "semanticConflicts": [],
+          "editorialStatus": "image-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/oiseau.svg",
+            "alt": "Oiseau",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:07",
+          "answer": "KITS",
+          "clue": "Ensembles prêts",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.34,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "KITS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:08",
+          "answer": "RAPE",
+          "clue": "Ustensile denté",
+          "sourceClue": "ÉLIMÉ",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3736.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3736",
+          "sourcePublishedOn": "2025-10-03",
+          "sourceFrequency": 2.61,
+          "difficulty": "hard",
+          "conceptGroup": "RAPE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:09",
+          "answer": "SIBILANT",
+          "clue": "Comme un sifflement",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.07,
+          "partOfSpeech": "ADJ",
+          "difficulty": "hard",
+          "conceptGroup": "SIBILANT",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:10",
+          "answer": "PLACENTA",
+          "clue": "Organe de grossesse",
+          "sourceClue": "TISSU FŒTAL",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3907.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_2_3907",
+          "sourcePublishedOn": "2026-03-23",
+          "sourceFrequency": 2.96,
+          "difficulty": "hard",
+          "conceptGroup": "PLACENTA",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:11",
+          "answer": "ALTESSES",
+          "clue": "Personnes royales",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 2.97,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "ALTESSES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:12",
+          "answer": "BAVE",
+          "clue": "Salive coulante",
+          "sourceClue": "PROPOS CALOMNIEUX",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1369.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1369",
+          "sourcePublishedOn": "2026-02-05",
+          "sourceFrequency": 3.29,
+          "difficulty": "hard",
+          "conceptGroup": "BAVE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:13",
+          "answer": "OIE",
+          "clue": "Palmipède domestique",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 5.42,
+          "partOfSpeech": "NOM",
+          "difficulty": "normal",
+          "conceptGroup": "OIE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:14",
+          "answer": "ARROI",
+          "clue": "Éclat solennel",
+          "sourceClue": "ÉQUIPAGE IMPORTANT",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1295.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1295",
+          "sourcePublishedOn": "2025-11-23",
+          "sourceFrequency": 0.0,
+          "difficulty": "hard",
+          "conceptGroup": "ARROI",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:15",
+          "answer": "RALE",
+          "clue": "Cri rauque",
+          "sourceClue": "DERNIÈRE ÉMISSION",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1470.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1470",
+          "sourcePublishedOn": "2026-05-17",
+          "sourceFrequency": 2.61,
+          "difficulty": "hard",
+          "conceptGroup": "RALE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:16",
+          "answer": "ALEA",
+          "clue": "Hasard",
+          "sourceClue": "HASARD",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3951.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_2_3951",
+          "sourcePublishedOn": "2026-05-06",
+          "sourceFrequency": 2.14,
+          "difficulty": "hard",
+          "conceptGroup": "ALEA",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:17",
+          "answer": "TETUE",
+          "clue": "Très obstinée",
+          "sourceClue": "BORNÉE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "sourceFrequency": 0.0,
+          "difficulty": "hard",
+          "conceptGroup": "TETUE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:18",
+          "answer": "EDITRICE",
+          "clue": "Professionnelle du livre",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.26,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "EDITRICE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:19",
+          "answer": "DESSALES",
+          "clue": "Retire le sel",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.07,
+          "partOfSpeech": "ADJ",
+          "difficulty": "hard",
+          "conceptGroup": "DESSALES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:20",
+          "answer": "SI",
+          "clue": "À condition",
+          "sourceClue": "Sous condition",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "sourceId": "cnrtl-si",
+          "sourceUrl": "https://www.cnrtl.fr/definition/si",
+          "sourceType": "dictionary",
+          "sourceFrequency": 6.0,
+          "difficulty": "easy",
+          "conceptGroup": "CONJONCTION_SI",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:21",
+          "answer": "KRILL",
+          "clue": "Petits crustacés",
+          "sourceClue": "PLANCTON",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3810.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3810",
+          "sourcePublishedOn": "2025-12-16",
+          "sourceFrequency": 2.33,
+          "difficulty": "hard",
+          "conceptGroup": "KRILL",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:22",
+          "answer": "PANS",
+          "clue": "Parties de mur",
+          "sourceClue": "BASQUES",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1373.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_4_1373",
+          "sourcePublishedOn": "2026-02-09",
+          "sourceFrequency": 3.63,
+          "difficulty": "hard",
+          "conceptGroup": "PANS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:23",
+          "answer": "ENTE",
+          "clue": "Greffe végétale",
+          "sourceClue": "GREFFE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3925.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3925",
+          "sourcePublishedOn": "2026-04-10",
+          "sourceFrequency": 2.59,
+          "difficulty": "hard",
+          "conceptGroup": "ENTE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:24",
+          "answer": "SPA",
+          "clue": "Centre de soins",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.79,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "SPA",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:25",
+          "answer": "BAT",
+          "clue": "Frappe",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 2.36,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "BAT",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-04:word:26",
+          "answer": "TAS",
+          "clue": "Amas",
+          "sourceClue": "NOMBRE IMPORTANT",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            8
+          ],
+          "cells": [
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1339.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1339",
+          "sourcePublishedOn": "2026-01-06",
+          "sourceFrequency": 4.54,
+          "difficulty": "hard",
+          "conceptGroup": "TAS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        }
+      ]
+    },
+    {
+      "id": "corpus-aware-review-05",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-standard-owner-calibrated",
+      "publicationStatus": "owner-review-required",
+      "reviewCycle": "2026-07-15",
+      "shapeFingerprint": "3d1057aa45e23753",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "corpus-aware-review-05:word:01",
+          "answer": "IA",
+          "clue": "Intelligence artificielle",
+          "sourceClue": "Intelligence artificielle",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "sourceId": "academie-ia",
+          "sourceUrl": "https://www.academie-francaise.fr/sites/academie-francaise.fr/files/vocabulaire_tic_2017.pdf",
+          "sourceType": "dictionary",
+          "sourceFrequency": 5.5,
+          "difficulty": "easy",
+          "conceptGroup": "INTELLIGENCE_ARTIFICIELLE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:02",
+          "answer": "IFTAR",
+          "clue": "Repas du ramadan",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.07,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "IFTAR",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:03",
+          "answer": "MORS",
+          "clue": "Pièce de bride",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 1.89,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "MORS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:04",
+          "answer": "COU",
+          "clue": "Sous la tête",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 112.7,
+          "partOfSpeech": "NOM",
+          "difficulty": "easy",
+          "conceptGroup": "COU",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:05",
+          "answer": "BUISSONS",
+          "clue": "Petits arbustes",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 17.09,
+          "partOfSpeech": "NOM",
+          "difficulty": "normal",
+          "conceptGroup": "BUISSONS",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:06",
+          "answer": "DIONEE",
+          "clue": "Plante carnivore",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.03,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "DIONEE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:07",
+          "answer": "PIEUVRE",
+          "clue": "",
+          "sourceClue": "Indice illustré",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "sourceId": "twemoji",
+          "sourceUrl": "https://github.com/jdecked/twemoji",
+          "sourceType": "image",
+          "sourceFrequency": 2.91,
+          "difficulty": "easy",
+          "conceptGroup": "PIEUVRE",
+          "semanticConflicts": [],
+          "editorialStatus": "image-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/pieuvre.svg",
+            "alt": "Pieuvre",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:08",
+          "answer": "GRUE",
+          "clue": "Engin de chantier",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 3.54,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "GRUE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:09",
+          "answer": "CINECLUB",
+          "clue": "Séances de cinéma",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.54,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "CINECLUB",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:10",
+          "answer": "AME",
+          "clue": "Esprit intérieur",
+          "sourceClue": "CŒUR",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1516.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1516",
+          "sourcePublishedOn": "2026-07-02",
+          "sourceFrequency": 3.54,
+          "difficulty": "hard",
+          "conceptGroup": "AME",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:11",
+          "answer": "ISSU",
+          "clue": "Provenant de",
+          "sourceClue": "SORTI DE",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            4
+          ],
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1251.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1251",
+          "sourcePublishedOn": "2025-10-10",
+          "sourceFrequency": 4.19,
+          "difficulty": "hard",
+          "conceptGroup": "ISSU",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:12",
+          "answer": "POTELEES",
+          "clue": "Un peu rondes",
+          "sourceClue": "",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 1.15,
+          "partOfSpeech": "ADJ",
+          "difficulty": "hard",
+          "conceptGroup": "POTELEES",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:13",
+          "answer": "IMBU",
+          "clue": "Plein de soi",
+          "sourceClue": "FAT",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3849.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_2_3849",
+          "sourcePublishedOn": "2026-01-24",
+          "sourceFrequency": 2.72,
+          "difficulty": "hard",
+          "conceptGroup": "IMBU",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:14",
+          "answer": "FOU",
+          "clue": "Pas raisonnable",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 181.51,
+          "partOfSpeech": "ADJ",
+          "difficulty": "easy",
+          "conceptGroup": "FOU",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:15",
+          "answer": "TRIDI",
+          "clue": "Troisième jour républicain",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.07,
+          "partOfSpeech": "NOM",
+          "difficulty": "hard",
+          "conceptGroup": "TRIDI",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:16",
+          "answer": "ASSIEGE",
+          "clue": "Encercle une ville",
+          "sourceClue": "ENCERCLÉ",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3869.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3869",
+          "sourcePublishedOn": "2026-02-13",
+          "sourceFrequency": 0.0,
+          "difficulty": "hard",
+          "conceptGroup": "ASSIEGE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:17",
+          "answer": "MUSEE",
+          "clue": "Lieu d'exposition",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 21.55,
+          "partOfSpeech": "NOM",
+          "difficulty": "normal",
+          "conceptGroup": "MUSEE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:18",
+          "answer": "CONVULSE",
+          "clue": "Secoue violemment",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            6
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 0.41,
+          "partOfSpeech": "ADJ",
+          "difficulty": "hard",
+          "conceptGroup": "CONVULSE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:19",
+          "answer": "ONEREUSE",
+          "clue": "Qui coûte cher",
+          "sourceClue": "CHÈRE",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3773.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_1_3773",
+          "sourcePublishedOn": "2025-11-09",
+          "sourceFrequency": 0.0,
+          "difficulty": "hard",
+          "conceptGroup": "ONEREUSE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:20",
+          "answer": "SOURCIL",
+          "clue": "Arcade de poils",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 8.65,
+          "partOfSpeech": "NOM",
+          "difficulty": "normal",
+          "conceptGroup": "SOURCIL",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:21",
+          "answer": "UT",
+          "clue": "Ancien do",
+          "sourceClue": "Ancien do",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "sourceId": "larousse-ut",
+          "sourceUrl": "https://www.larousse.fr/dictionnaires/francais/ut/80798",
+          "sourceType": "dictionary",
+          "sourceFrequency": 4.0,
+          "difficulty": "hard",
+          "conceptGroup": "NOTE_MUSICALE",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:22",
+          "answer": "PRIMO",
+          "clue": "En premier lieu",
+          "sourceClue": "PREMIÈREMENT",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3872.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_2_3872",
+          "sourcePublishedOn": "2026-02-16",
+          "sourceFrequency": 3.55,
+          "difficulty": "normal",
+          "conceptGroup": "PRIMO",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:23",
+          "answer": "CAP",
+          "clue": "Pointe de terre",
+          "sourceClue": "",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "sourceFrequency": 19.48,
+          "partOfSpeech": "NOM",
+          "difficulty": "normal",
+          "conceptGroup": "CAP",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:24",
+          "answer": "NET",
+          "clue": "Sans flou",
+          "sourceClue": "CLAIR",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1253.mfj",
+          "sourceType": "crossword",
+          "sourcePuzzleId": "mfleches_3_1253",
+          "sourcePublishedOn": "2025-10-12",
+          "sourceFrequency": 4.62,
+          "difficulty": "hard",
+          "conceptGroup": "NET",
+          "semanticConflicts": [],
+          "editorialStatus": "human-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715"
+        },
+        {
+          "wordId": "corpus-aware-review-05:word:25",
+          "answer": "BUS",
+          "clue": "",
+          "sourceClue": "AUTOCAR",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            8
+          ],
+          "cells": [
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "sourceFrequency": 4.74,
+          "difficulty": "normal",
+          "conceptGroup": "BUS",
+          "semanticConflicts": [],
+          "editorialStatus": "image-reviewed",
+          "definitionStatus": "manually-edited",
+          "manualReview": "reviewed-awaiting-owner",
+          "editorialReviewId": "motman-corpus-aware-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/bus.svg",
+            "alt": "Bus",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        }
+      ]
+    }
+  ]
+}

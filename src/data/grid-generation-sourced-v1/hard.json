@@ -1,0 +1,6912 @@
+{
+  "difficulty": "hard",
+  "maximumAnswerUses": 2,
+  "grids": [
+    {
+      "id": "hard-2026271700-2",
+      "size": 9,
+      "difficulty": "hard",
+      "difficultyMix": {
+        "easy": 2,
+        "normal": 5,
+        "hard": 14
+      },
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          6
+        ]
+      ],
+      "words": [
+        {
+          "answer": "OR",
+          "clue": "Jaune brillant",
+          "direction": "across",
+          "clueCell": [
+            8,
+            6
+          ],
+          "cells": [
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "PICCOLO",
+          "clue": "Flûte fluette",
+          "direction": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "CARESSER",
+          "clue": "Flatter",
+          "direction": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "VESPA",
+          "clue": "Scooter",
+          "direction": "across",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "APROPOS",
+          "clue": "Présence d'esprit",
+          "direction": "across",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ARECS",
+          "clue": "Palmiers",
+          "direction": "across",
+          "clueCell": [
+            5,
+            3
+          ],
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "TROIE",
+          "clue": "Ilion",
+          "direction": "down",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "SARRE",
+          "clue": "Land allemand",
+          "direction": "down",
+          "clueCell": [
+            3,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "STACE",
+          "clue": "Poète latin",
+          "direction": "across",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "PVC",
+          "clue": "Matière plastique",
+          "direction": "down",
+          "clueCell": [
+            5,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "VRILLE",
+          "clue": "Tire-bouchon végétal",
+          "direction": "across",
+          "clueCell": [
+            7,
+            2
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "SUCEE",
+          "clue": "Tétée",
+          "direction": "across",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "OS",
+          "clue": "Charpente",
+          "direction": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "SIR",
+          "clue": "Titre d'ailleurs",
+          "direction": "across",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "VA",
+          "clue": "Convient",
+          "direction": "down",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "DIVA",
+          "clue": "Cantatrice",
+          "direction": "down",
+          "clueCell": [
+            2,
+            2
+          ],
+          "cells": [
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "IDF",
+          "clue": "Région",
+          "direction": "across",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "CIVE",
+          "clue": "Ciboule",
+          "direction": "down",
+          "clueCell": [
+            1,
+            1
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "VELO",
+          "clue": "Petite reine",
+          "direction": "across",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/velo.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "answer": "JERK",
+          "clue": "Danse agitée",
+          "direction": "down",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "CONFIEE",
+          "clue": "Déboutonnée",
+          "direction": "across",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hard-2026272700-0",
+      "size": 9,
+      "difficulty": "hard",
+      "difficultyMix": {
+        "easy": 3,
+        "normal": 5,
+        "hard": 15
+      },
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "words": [
+        {
+          "answer": "AN",
+          "clue": "Durée",
+          "direction": "across",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "EU",
+          "clue": "Obtenu",
+          "direction": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "LA",
+          "clue": "Note",
+          "direction": "across",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "NENE",
+          "clue": "Cours anglais",
+          "direction": "down",
+          "clueCell": [
+            3,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "CLE",
+          "clue": "Passe-partout",
+          "direction": "across",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/cle.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "answer": "CALERA",
+          "clue": "N'avancera pas",
+          "direction": "down",
+          "clueCell": [
+            2,
+            7
+          ],
+          "cells": [
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "BASIC",
+          "clue": "Langage informatique",
+          "direction": "across",
+          "clueCell": [
+            3,
+            2
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "GRE",
+          "clue": "Bon vouloir",
+          "direction": "across",
+          "clueCell": [
+            7,
+            5
+          ],
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "TGV",
+          "clue": "Train français",
+          "direction": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "CREVAS",
+          "clue": "Perças l'abcès",
+          "direction": "across",
+          "clueCell": [
+            8,
+            2
+          ],
+          "cells": [
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "LACES",
+          "clue": "Attachés",
+          "direction": "down",
+          "clueCell": [
+            3,
+            8
+          ],
+          "cells": [
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ORAL",
+          "clue": "Verbal",
+          "direction": "across",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "USONS",
+          "clue": "Épuisons",
+          "direction": "down",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "AGA",
+          "clue": "Chef turc",
+          "direction": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "ALGUE",
+          "clue": "Vert d'eau",
+          "direction": "across",
+          "clueCell": [
+            2,
+            1
+          ],
+          "cells": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "FISC",
+          "clue": "Trésor public",
+          "direction": "down",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "ICA",
+          "clue": "Du pérou",
+          "direction": "across",
+          "clueCell": [
+            1,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "POUR",
+          "clue": "Afin de",
+          "direction": "down",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "GAIETE",
+          "clue": "Bonne humeur",
+          "direction": "down",
+          "clueCell": [
+            2,
+            1
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "CAL",
+          "clue": "Cor",
+          "direction": "across",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "SOM",
+          "clue": "Monnaie kirghize",
+          "direction": "down",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "ARA",
+          "clue": "Oiseau",
+          "direction": "across",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "VETU",
+          "clue": "Habillé",
+          "direction": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hard-2026273700-1",
+      "size": 9,
+      "difficulty": "hard",
+      "difficultyMix": {
+        "easy": 3,
+        "normal": 6,
+        "hard": 13
+      },
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          5
+        ]
+      ],
+      "words": [
+        {
+          "answer": "VU",
+          "clue": "Regardé",
+          "direction": "down",
+          "clueCell": [
+            6,
+            4
+          ],
+          "cells": [
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "US",
+          "clue": "Usages",
+          "direction": "across",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "CA",
+          "clue": "Démonstratif",
+          "direction": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "REVU",
+          "clue": "Corrigé",
+          "direction": "across",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "VACHE",
+          "clue": "Indice illustré",
+          "direction": "across",
+          "clueCell": [
+            7,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/vache.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "answer": "ECO",
+          "clue": "Mini-matière",
+          "direction": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "CHU",
+          "clue": "À terre",
+          "direction": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "OUR",
+          "clue": "Berceau d'abraham",
+          "direction": "across",
+          "clueCell": [
+            8,
+            5
+          ],
+          "cells": [
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "RECU",
+          "clue": "Admis",
+          "direction": "across",
+          "clueCell": [
+            6,
+            4
+          ],
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "FLUER",
+          "clue": "Couler largement",
+          "direction": "down",
+          "clueCell": [
+            3,
+            8
+          ],
+          "cells": [
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "POUF",
+          "clue": "Coussin",
+          "direction": "across",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "REE",
+          "clue": "Gueule d'amour",
+          "direction": "down",
+          "clueCell": [
+            5,
+            2
+          ],
+          "cells": [
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "MATER",
+          "clue": "Dompter",
+          "direction": "down",
+          "clueCell": [
+            3,
+            1
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "RFA",
+          "clue": "C'est l'allemagne",
+          "direction": "across",
+          "clueCell": [
+            5,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "GARA",
+          "clue": "Parqua",
+          "direction": "down",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "OGIVES",
+          "clue": "Crânes d'obus",
+          "direction": "across",
+          "clueCell": [
+            3,
+            1
+          ],
+          "cells": [
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "MAI",
+          "clue": "Joli mois",
+          "direction": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "MOT",
+          "clue": "Billet",
+          "direction": "down",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "MINET",
+          "clue": "Terme d'affection",
+          "direction": "across",
+          "clueCell": [
+            1,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "AVAIS",
+          "clue": "Possédais",
+          "direction": "across",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ALOI",
+          "clue": "Titre d'alliage",
+          "direction": "across",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "NAUSEE",
+          "clue": "Dégoût insurmontable",
+          "direction": "down",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hard-2026274700-0",
+      "size": 9,
+      "difficulty": "hard",
+      "difficultyMix": {
+        "easy": 2,
+        "normal": 7,
+        "hard": 14
+      },
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "words": [
+        {
+          "answer": "NE",
+          "clue": "Éclos",
+          "direction": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "ET",
+          "clue": "Puis",
+          "direction": "down",
+          "clueCell": [
+            6,
+            5
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "LU",
+          "clue": "Consulté",
+          "direction": "across",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "BOL",
+          "clue": "Bonne fortune",
+          "direction": "down",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/bol.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "answer": "ETRES",
+          "clue": "Des gens",
+          "direction": "across",
+          "clueCell": [
+            8,
+            3
+          ],
+          "cells": [
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "NEE",
+          "clue": "Arrivée",
+          "direction": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "PNB",
+          "clue": "Richesse d'état",
+          "direction": "across",
+          "clueCell": [
+            6,
+            5
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "URUBUS",
+          "clue": "Petits vautours",
+          "direction": "down",
+          "clueCell": [
+            2,
+            8
+          ],
+          "cells": [
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "CHEVEU",
+          "clue": "Tif",
+          "direction": "across",
+          "clueCell": [
+            7,
+            2
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ACHE",
+          "clue": "Céleri-rave",
+          "direction": "down",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "COUAC",
+          "clue": "Canard",
+          "direction": "down",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "SUANT",
+          "clue": "Transpirant",
+          "direction": "across",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "BIO",
+          "clue": "Label agricole",
+          "direction": "across",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "USB",
+          "clue": "Clé d'ordinateur",
+          "direction": "down",
+          "clueCell": [
+            1,
+            1
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "OMISE",
+          "clue": "Complètement oubliée",
+          "direction": "down",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "PEAU",
+          "clue": "Cuir",
+          "direction": "across",
+          "clueCell": [
+            3,
+            4
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "TSAR",
+          "clue": "Empereur",
+          "direction": "across",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ETAI",
+          "clue": "Bon soutien",
+          "direction": "across",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "ENTEND",
+          "clue": "Perçoit",
+          "direction": "across",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "INO",
+          "clue": "Fille d'harmonie",
+          "direction": "across",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "TOT",
+          "clue": "Avant l'heure",
+          "direction": "down",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "SUT",
+          "clue": "Eut l'information",
+          "direction": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "ONDE",
+          "clue": "Courant littéraire",
+          "direction": "across",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hard-2026275700-0",
+      "size": 9,
+      "difficulty": "hard",
+      "difficultyMix": {
+        "easy": 2,
+        "normal": 6,
+        "hard": 14
+      },
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "words": [
+        {
+          "answer": "AS",
+          "clue": "Crack",
+          "direction": "across",
+          "clueCell": [
+            6,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "NI",
+          "clue": "Conjonction",
+          "direction": "down",
+          "clueCell": [
+            6,
+            6
+          ],
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "RASCASSE",
+          "clue": "Poisson marin",
+          "direction": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "RECENTS",
+          "clue": "Modernes",
+          "direction": "across",
+          "clueCell": [
+            7,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "UNIATE",
+          "clue": "Église orientale",
+          "direction": "down",
+          "clueCell": [
+            2,
+            7
+          ],
+          "cells": [
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "BESEF",
+          "clue": "Beaucoup",
+          "direction": "down",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "BANC",
+          "clue": "Formation marine",
+          "direction": "across",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "EPIA",
+          "clue": "Guetta",
+          "direction": "across",
+          "clueCell": [
+            5,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "EDIFIEE",
+          "clue": "Bâtie",
+          "direction": "across",
+          "clueCell": [
+            8,
+            1
+          ],
+          "cells": [
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "SPEED",
+          "clue": "Très agité",
+          "direction": "down",
+          "clueCell": [
+            3,
+            3
+          ],
+          "cells": [
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "LCI",
+          "clue": "Chaîne d'info",
+          "direction": "down",
+          "clueCell": [
+            5,
+            4
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "BUS",
+          "clue": "Autocar",
+          "direction": "across",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/bus.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "answer": "AOP",
+          "clue": "Label",
+          "direction": "across",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "ANOURE",
+          "clue": "Sans queue",
+          "direction": "down",
+          "clueCell": [
+            2,
+            2
+          ],
+          "cells": [
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "MORAL",
+          "clue": "Mental",
+          "direction": "down",
+          "clueCell": [
+            1,
+            1
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "SUCEUR",
+          "clue": "Embout d'aspirateur",
+          "direction": "across",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "UNE",
+          "clue": "Couverture",
+          "direction": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "ANES",
+          "clue": "Baudets",
+          "direction": "across",
+          "clueCell": [
+            2,
+            2
+          ],
+          "cells": [
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "TUT",
+          "clue": "Cela même",
+          "direction": "across",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "HIC",
+          "clue": "Problème",
+          "direction": "across",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "SAC",
+          "clue": "Banane",
+          "direction": "down",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "ATON",
+          "clue": "Dieu solaire",
+          "direction": "down",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hard-2026276700-0",
+      "size": 9,
+      "difficulty": "hard",
+      "difficultyMix": {
+        "easy": 3,
+        "normal": 5,
+        "hard": 15
+      },
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "words": [
+        {
+          "answer": "UN",
+          "clue": "Chiffre",
+          "direction": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "TV",
+          "clue": "Média",
+          "direction": "down",
+          "clueCell": [
+            6,
+            5
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "EX",
+          "clue": "Ancien époux",
+          "direction": "across",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "AVION",
+          "clue": "Aéroplane",
+          "direction": "across",
+          "clueCell": [
+            8,
+            3
+          ],
+          "cells": [
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/avion.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "answer": "ESO",
+          "clue": "Organisme européen",
+          "direction": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "ATTISA",
+          "clue": "Excita",
+          "direction": "across",
+          "clueCell": [
+            7,
+            2
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "CANCAN",
+          "clue": "Chahut",
+          "direction": "down",
+          "clueCell": [
+            2,
+            8
+          ],
+          "cells": [
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "TEC",
+          "clue": "Mesure thermique",
+          "direction": "across",
+          "clueCell": [
+            6,
+            5
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "LITA",
+          "clue": "Superposa",
+          "direction": "down",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "CHOC",
+          "clue": "Collision",
+          "direction": "across",
+          "clueCell": [
+            3,
+            4
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "NIES",
+          "clue": "Non admis",
+          "direction": "across",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "ILE",
+          "clue": "Terre !",
+          "direction": "down",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "IPECA",
+          "clue": "Produit vomitif",
+          "direction": "down",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "BTP",
+          "clue": "Secteur porteur",
+          "direction": "across",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "TUB",
+          "clue": "Ancienne baignoire",
+          "direction": "down",
+          "clueCell": [
+            1,
+            1
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "CELTE",
+          "clue": "Ancien européen",
+          "direction": "across",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "PITCH",
+          "clue": "Bref résumé",
+          "direction": "down",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "CULTES",
+          "clue": "Rites",
+          "direction": "across",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ENTA",
+          "clue": "Greffa",
+          "direction": "across",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "NUE",
+          "clue": "Sobre",
+          "direction": "across",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "CRI",
+          "clue": "Appel",
+          "direction": "down",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "OUD",
+          "clue": "Luth arabe",
+          "direction": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "USUS",
+          "clue": "Droit d'utilisation",
+          "direction": "across",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hard-2026287000-0",
+      "size": 9,
+      "difficulty": "hard",
+      "difficultyMix": {
+        "easy": 3,
+        "normal": 6,
+        "hard": 14
+      },
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "answer": "US",
+          "clue": "Usages",
+          "direction": "down",
+          "clueCell": [
+            4,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "LA",
+          "clue": "Note",
+          "direction": "down",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "NE",
+          "clue": "Éclos",
+          "direction": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "URATE",
+          "clue": "Sel d'acide",
+          "direction": "across",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "ETATS",
+          "clue": "Positions sociales",
+          "direction": "down",
+          "clueCell": [
+            3,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "BLESSURE",
+          "clue": "Contusion",
+          "direction": "across",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "VITRAIL",
+          "clue": "Panneau d'église",
+          "direction": "down",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "TUE",
+          "clue": "Liquide",
+          "direction": "across",
+          "clueCell": [
+            4,
+            1
+          ],
+          "cells": [
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "ERES",
+          "clue": "Gros temps",
+          "direction": "down",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "INTERET",
+          "clue": "Passion",
+          "direction": "across",
+          "clueCell": [
+            7,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "BRU",
+          "clue": "Moitié d'enfant",
+          "direction": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "ETE",
+          "clue": "Saison",
+          "direction": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ARBRE",
+          "clue": "Indice illustré",
+          "direction": "across",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/arbre.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "answer": "SUA",
+          "clue": "Eut chaud",
+          "direction": "down",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "DIAPRER",
+          "clue": "Chamarrer",
+          "direction": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "CADI",
+          "clue": "Juge musulman",
+          "direction": "across",
+          "clueCell": [
+            2,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "IMC",
+          "clue": "Indice pondéral",
+          "direction": "down",
+          "clueCell": [
+            1,
+            8
+          ],
+          "cells": [
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "SLIM",
+          "clue": "Jean serré",
+          "direction": "across",
+          "clueCell": [
+            3,
+            4
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "LAC",
+          "clue": "Étang",
+          "direction": "across",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "TNP",
+          "clue": "Théâtre populaire",
+          "direction": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "RACE",
+          "clue": "Espèce",
+          "direction": "down",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "BEAT",
+          "clue": "Serein",
+          "direction": "across",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "ARSENAL",
+          "clue": "Collection d'armes",
+          "direction": "across",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hard-2026288000-1",
+      "size": 9,
+      "difficulty": "hard",
+      "difficultyMix": {
+        "easy": 2,
+        "normal": 6,
+        "hard": 14
+      },
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "words": [
+        {
+          "answer": "EU",
+          "clue": "Obtenu",
+          "direction": "across",
+          "clueCell": [
+            4,
+            6
+          ],
+          "cells": [
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "VA",
+          "clue": "Convient",
+          "direction": "across",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "CA",
+          "clue": "Démonstratif",
+          "direction": "down",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "ITOU",
+          "clue": "Aussi",
+          "direction": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "TAT",
+          "clue": "Test psychologique",
+          "direction": "across",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "QUASI",
+          "clue": "Presque",
+          "direction": "across",
+          "clueCell": [
+            1,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ECOLE",
+          "clue": "Indice illustré",
+          "direction": "down",
+          "clueCell": [
+            3,
+            7
+          ],
+          "cells": [
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/ecole.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "answer": "GLU",
+          "clue": "Colle",
+          "direction": "across",
+          "clueCell": [
+            7,
+            5
+          ],
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "AOC",
+          "clue": "D'origine française",
+          "direction": "across",
+          "clueCell": [
+            6,
+            5
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "SNOB",
+          "clue": "Très affecté",
+          "direction": "down",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "TAGS",
+          "clue": "Graffitis",
+          "direction": "down",
+          "clueCell": [
+            4,
+            6
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "CUT",
+          "clue": "Coupe sèche",
+          "direction": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "BISET",
+          "clue": "Pigeon",
+          "direction": "across",
+          "clueCell": [
+            8,
+            3
+          ],
+          "cells": [
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "DUE",
+          "clue": "À rendre",
+          "direction": "down",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "AIDA",
+          "clue": "Porta secours",
+          "direction": "across",
+          "clueCell": [
+            3,
+            2
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "PHO",
+          "clue": "Spécialité vietnamienne",
+          "direction": "across",
+          "clueCell": [
+            2,
+            1
+          ],
+          "cells": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "HANTER",
+          "clue": "Tourmenter",
+          "direction": "down",
+          "clueCell": [
+            1,
+            3
+          ],
+          "cells": [
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "BAN",
+          "clue": "Exil imposé",
+          "direction": "across",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "BANNI",
+          "clue": "Rayé",
+          "direction": "down",
+          "clueCell": [
+            3,
+            1
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "AMENA",
+          "clue": "Occasionna",
+          "direction": "down",
+          "clueCell": [
+            3,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "AIMA",
+          "clue": "Apprécia",
+          "direction": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "CARMEN",
+          "clue": "Opéra-comique",
+          "direction": "across",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hard-2026289000-0",
+      "size": 9,
+      "difficulty": "hard",
+      "difficultyMix": {
+        "easy": 3,
+        "normal": 6,
+        "hard": 14
+      },
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "answer": "EX",
+          "clue": "Ancien époux",
+          "direction": "down",
+          "clueCell": [
+            4,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "UN",
+          "clue": "Chiffre",
+          "direction": "down",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "VU",
+          "clue": "Regardé",
+          "direction": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "AVARIES",
+          "clue": "Donc immangeables",
+          "direction": "across",
+          "clueCell": [
+            7,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "USURIERE",
+          "clue": "L'intérêt l'intéresse",
+          "direction": "across",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "SONAR",
+          "clue": "Système d'écoute",
+          "direction": "down",
+          "clueCell": [
+            3,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "ENDOS",
+          "clue": "Signature",
+          "direction": "across",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "EVENTAS",
+          "clue": "Divulguas",
+          "direction": "down",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "EUS",
+          "clue": "Battus",
+          "direction": "across",
+          "clueCell": [
+            4,
+            1
+          ],
+          "cells": [
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "SUD",
+          "clue": "Direction",
+          "direction": "down",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "SURI",
+          "clue": "Aigrelet",
+          "direction": "down",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "ESE",
+          "clue": "Est-sud-est",
+          "direction": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "AIE",
+          "clue": "Mal dit...",
+          "direction": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "NUAGE",
+          "clue": "Mouton",
+          "direction": "across",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/nuage.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "answer": "DIRIGER",
+          "clue": "Administrer",
+          "direction": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "RUDE",
+          "clue": "Fameux sculpteur",
+          "direction": "across",
+          "clueCell": [
+            2,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ETA",
+          "clue": "Caractère étranger",
+          "direction": "down",
+          "clueCell": [
+            1,
+            8
+          ],
+          "cells": [
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "IRA",
+          "clue": "Fera l'affaire",
+          "direction": "across",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "EDIT",
+          "clue": "Acte royal",
+          "direction": "across",
+          "clueCell": [
+            3,
+            4
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ASE",
+          "clue": "Ferment",
+          "direction": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "SAPA",
+          "clue": "Détruisit progressivement",
+          "direction": "down",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "FLUO",
+          "clue": "Flashy",
+          "direction": "across",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "ABONDER",
+          "clue": "Pulluler",
+          "direction": "across",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hard-2026290000-0",
+      "size": 9,
+      "difficulty": "hard",
+      "difficultyMix": {
+        "easy": 1,
+        "normal": 5,
+        "hard": 14
+      },
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "words": [
+        {
+          "answer": "OS",
+          "clue": "Charpente",
+          "direction": "down",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "ROI",
+          "clue": "Chef d'état",
+          "direction": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/roi.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "answer": "OMO",
+          "clue": "Vallée éthiopienne",
+          "direction": "across",
+          "clueCell": [
+            7,
+            5
+          ],
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ULEMA",
+          "clue": "Théologien",
+          "direction": "down",
+          "clueCell": [
+            3,
+            7
+          ],
+          "cells": [
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "TAILLAI",
+          "clue": "Coupai",
+          "direction": "across",
+          "clueCell": [
+            8,
+            1
+          ],
+          "cells": [
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ENVOL",
+          "clue": "Prise d'air",
+          "direction": "down",
+          "clueCell": [
+            3,
+            6
+          ],
+          "cells": [
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "GNL",
+          "clue": "Gaz naturel",
+          "direction": "across",
+          "clueCell": [
+            5,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "ENTRAVER",
+          "clue": "Piger",
+          "direction": "across",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "RAI",
+          "clue": "Petit jour",
+          "direction": "down",
+          "clueCell": [
+            5,
+            4
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "NAITRA",
+          "clue": "Arrivera",
+          "direction": "down",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "GRANIT",
+          "clue": "Roche dure",
+          "direction": "down",
+          "clueCell": [
+            2,
+            2
+          ],
+          "cells": [
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "GIGA",
+          "clue": "Préfixe multiplicateur",
+          "direction": "down",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "PIF",
+          "clue": "Intuition",
+          "direction": "across",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "AFRO",
+          "clue": "Coiffure volumineuse",
+          "direction": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ASSISTA",
+          "clue": "Épaula",
+          "direction": "across",
+          "clueCell": [
+            1,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "STEM",
+          "clue": "Virage",
+          "direction": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "OLE",
+          "clue": "Émission espagnole",
+          "direction": "across",
+          "clueCell": [
+            0,
+            0
+          ],
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "ALU",
+          "clue": "Métal léger",
+          "direction": "across",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "OBOLES",
+          "clue": "Aumônes",
+          "direction": "down",
+          "clueCell": [
+            1,
+            1
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "ARDU",
+          "clue": "Compliqué",
+          "direction": "down",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

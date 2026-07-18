@@ -1,0 +1,15 @@
+{
+  "appId": "com.motman.game",
+  "appName": "MotMan",
+  "webDir": "dist",
+  "backgroundColor": "#fbf7ec",
+  "server": {
+    "androidScheme": "https"
+  },
+  "ios": {
+    "contentInset": "automatic"
+  },
+  "android": {
+    "allowMixedContent": false
+  }
+}

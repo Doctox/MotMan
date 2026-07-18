@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "kind": "motman-large-definition-free-constructor-wordlist-summary",
+  "output": "C:\\Users\\peete\\OneDrive\\Documents\\Mot Fléché MultiJoueur\\src\\data\\fill.wordlist.large.json.gz",
+  "policy": {
+    "purpose": "geometric placement only",
+    "definitionsUsedForPlacement": false,
+    "definitionRequiredAfterCandidateSelection": true,
+    "lowScoreReserveFormsRetained": true,
+    "source": "Morphalou 3.1 + Lexique frequency metadata",
+    "blacklistSha256": "455926fea5cfc5f752f784407bb1eb8095e0a235f0fad6f254344b0a3665ca11"
+  },
+  "counts": {
+    "answers": 225309,
+    "byLength": {
+      "2": 24,
+      "3": 772,
+      "4": 2596,
+      "5": 8790,
+      "6": 21387,
+      "7": 40884,
+      "8": 64821,
+      "9": 86035
+    },
+    "byPartOfSpeech": {
+      "adjective": 24537,
+      "adverb": 343,
+      "common-noun": 66882,
+      "curated-short": 24,
+      "verb": 133523
+    },
+    "byFormType": {
+      "curated": 24,
+      "inflected": 162388,
+      "lemma": 62897
+    },
+    "withLexiqueFrequency": 112924,
+    "neverUsedInActiveCatalog": 224619,
+    "rejectedByRule": {
+      "owner-blacklist-or-cooldown": 971,
+      "part-of-speech": 460
+    }
+  },
+  "scoreBands": {
+    "70plus": 167,
+    "50to69": 900,
+    "30to49": 3812,
+    "under30Reserve": 220430
+  }
+}

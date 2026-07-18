@@ -1,0 +1,663 @@
+{
+  "version": 1,
+  "generatorSeed": 20260805,
+  "difficulty": "easy",
+  "minFrequency": 4.2,
+  "grids": [
+    {
+      "id": "offline-20260805-3",
+      "size": 9,
+      "difficulty": "easy",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          5
+        ]
+      ],
+      "words": [
+        {
+          "answer": "PU",
+          "clue": "Déformation de l’adverbe plus",
+          "direction": "across",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "AN",
+          "clue": "Le temps qui passe",
+          "direction": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "AL",
+          "clue": "Pronom impersonnel",
+          "direction": "down",
+          "clueCell": [
+            6,
+            4
+          ],
+          "cells": [
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "OEIL",
+          "clue": "Variante typographique d’œil",
+          "direction": "across",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "BRAVO",
+          "clue": "Homme de main",
+          "direction": "down",
+          "clueCell": [
+            3,
+            1
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ]
+        },
+        {
+          "answer": "AXE",
+          "clue": "Voir axe magnétique",
+          "direction": "down",
+          "clueCell": [
+            5,
+            2
+          ],
+          "cells": [
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "ANIME",
+          "clue": "Dessin japonais",
+          "direction": "across",
+          "clueCell": [
+            7,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "AME",
+          "clue": "Habitant",
+          "direction": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "FER",
+          "clue": "Voir de fer",
+          "direction": "across",
+          "clueCell": [
+            8,
+            5
+          ],
+          "cells": [
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "GIF",
+          "clue": "Image animée",
+          "direction": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ]
+        },
+        {
+          "answer": "EGAL",
+          "clue": "En parlant des personnes",
+          "direction": "across",
+          "clueCell": [
+            6,
+            4
+          ],
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "ALLER",
+          "clue": "Mêler",
+          "direction": "down",
+          "clueCell": [
+            3,
+            8
+          ],
+          "cells": [
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "CELA",
+          "clue": "Ce qui vient d'être dit",
+          "direction": "across",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "CAR",
+          "clue": "Langue nicobar parlée dans les îles Nicobar",
+          "direction": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "answer": "ARRIVE",
+          "clue": "Qui réussit",
+          "direction": "across",
+          "clueCell": [
+            3,
+            1
+          ],
+          "cells": [
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ]
+          ]
+        },
+        {
+          "answer": "MAX",
+          "clue": "Maximum",
+          "direction": "down",
+          "clueCell": [
+            1,
+            2
+          ],
+          "cells": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ]
+          ]
+        },
+        {
+          "answer": "RIVE",
+          "clue": "Littoral",
+          "direction": "down",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ]
+          ]
+        },
+        {
+          "answer": "VOL",
+          "clue": "Chose volée",
+          "direction": "across",
+          "clueCell": [
+            5,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "answer": "ARMEE",
+          "clue": "Vaurien, vagabond",
+          "direction": "across",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "CRIME",
+          "clue": "Faute légère",
+          "direction": "across",
+          "clueCell": [
+            1,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "answer": "COMPTE",
+          "clue": "État de ce qui a été reçu, ce qui est dû, dépensé, avancé ou fourni",
+          "direction": "down",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ]
+        },
+        {
+          "answer": "VOUS",
+          "clue": "Pour intensifier le discours, dans un emploi explétif",
+          "direction": "across",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

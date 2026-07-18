@@ -1,0 +1,6186 @@
+{
+  "version": 1,
+  "kind": "central-priority-third-five-owner-rejected",
+  "publicationPolicy": "Lot rejeté par le propriétaire; publication interdite.",
+  "ownerDecision": {
+    "status": "rejected",
+    "date": "2026-07-15",
+    "reason": "Trop de réponses déjà présentes dans le catalogue actif et trop de mots de deux lettres."
+  },
+  "batchMetrics": {
+    "grids": 5,
+    "answers": 131,
+    "uniqueAnswers": 130,
+    "repeatedAnswersInsideBatch": {
+      "SI": 2
+    },
+    "singularPluralFamiliesInsideBatch": 0,
+    "uniqueShapes": 5,
+    "images": 5,
+    "forbiddenAnswers": [
+      "AMAS",
+      "AN",
+      "ANS",
+      "BOL"
+    ],
+    "centralCorpusEligibleAnswers": 9218,
+    "centralCorpusAnswersUsed": 93,
+    "lexiqueRescueAnswersUsed": 38,
+    "blacklistedAnswersTotal": 854
+  },
+  "grids": [
+    {
+      "id": "central-priority-third-review-01",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-standard-owner-reviewed",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          5
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "central-priority-third-review-01:word:01",
+          "answer": "RE",
+          "clue": "Note musicale",
+          "sourceClue": "Après do",
+          "sourceId": "academie-note",
+          "sourceUrl": "https://www.cnrtl.fr/definition/academie8/note",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "NOTE_MUSICALE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:02",
+          "answer": "PAPES",
+          "clue": "Chefs du Vatican",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PAPES",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:03",
+          "answer": "EDAM",
+          "clue": "Fromage néerlandais",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "EDAM",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:04",
+          "answer": "CRU",
+          "clue": "Vin classé",
+          "sourceClue": "BON VIN",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3888.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CRU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:05",
+          "answer": "LOTERIES",
+          "clue": "Jeux de hasard",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "LOTERIES",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:06",
+          "answer": "TRESSE",
+          "clue": "Natte",
+          "sourceClue": "NATTE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3780.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "TRESSE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:07",
+          "answer": "CUITES",
+          "clue": "Non crues",
+          "sourceClue": "PAS CRUES",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3772.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CUITES",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:08",
+          "answer": "TOLET",
+          "clue": "Appui d'aviron",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "TOLET",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:09",
+          "answer": "ESPERERA",
+          "clue": "Attendra",
+          "sourceClue": "ATTENDRA",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1251.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ESPERERA",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:10",
+          "answer": "GAI",
+          "clue": "Joyeux",
+          "sourceClue": "CONTENT",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3853.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "GAI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:11",
+          "answer": "SERF",
+          "clue": "Paysan féodal",
+          "sourceClue": "ESCLAVE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1287.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "SERF",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            4
+          ],
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:12",
+          "answer": "ORNE",
+          "clue": "Département normand",
+          "sourceClue": "DÉPARTEMENT 61",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3774.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ORNE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:13",
+          "answer": "SAS",
+          "clue": "Passage étanche",
+          "sourceClue": "PASSAGE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3754.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "SAS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            5
+          ],
+          "cells": [
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:14",
+          "answer": "PELE",
+          "clue": "Sans végétation",
+          "sourceClue": "CAILLE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3945.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PELE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:15",
+          "answer": "ADO",
+          "clue": "Jeune",
+          "sourceClue": "JEUNE ENCORE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3991.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ADO",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:16",
+          "answer": "PATTU",
+          "clue": "Aux pattes fournies",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PATTU",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:17",
+          "answer": "EMERITE",
+          "clue": "Très expérimenté",
+          "sourceClue": "DISTINGUÉ",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1464.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "EMERITE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:18",
+          "answer": "BUSE",
+          "clue": "Conduit",
+          "sourceClue": "CONDUIT",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1247.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "BUSE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:19",
+          "answer": "CISELEES",
+          "clue": "Finement gravées",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CISELEES",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            6
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:20",
+          "answer": "RESSERRA",
+          "clue": "Rapprocha",
+          "sourceClue": "RAPPROCHA",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3940.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "RESSERRA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:21",
+          "answer": "RETORS",
+          "clue": "Rusé",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "RETORS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:22",
+          "answer": "LU",
+          "clue": "Parcouru",
+          "sourceClue": "Parcouru des yeux",
+          "sourceId": "cnrtl-lire",
+          "sourceUrl": "https://www.cnrtl.fr/definition/lire",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "LIRE_PARTICIPE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:23",
+          "answer": "CESAR",
+          "clue": "Empereur romain",
+          "sourceClue": "FAMEUX ROMAIN",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3991.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CESAR",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:24",
+          "answer": "TAFS",
+          "clue": "Boulots familiers",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "TAFS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:25",
+          "answer": "EGO",
+          "clue": "Moi",
+          "sourceClue": "C'EST MOI",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3868.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "EGO",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-01:word:26",
+          "answer": "PIN",
+          "clue": "",
+          "sourceClue": "CONIFÈRE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3759.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PIN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/pin.svg",
+            "alt": "Pin",
+            "source": "Twemoji",
+            "sourceUrl": "https://github.com/jdecked/twemoji",
+            "license": "CC BY 4.0"
+          }
+        }
+      ],
+      "generationMetrics": {
+        "solver": "bitset-csp",
+        "nodes": 4,
+        "elapsedSeconds": 0.093,
+        "reason": "solved"
+      },
+      "publicationStatus": "owner-rejected",
+      "corpusPolicy": "local-human-frequency-repair-central-9491",
+      "repairDepth": 1,
+      "repairedAnswers": [
+        "RABES"
+      ],
+      "centralAnswerCount": 18,
+      "lexiqueRescueCount": 8,
+      "reviewCycle": "2026-07-15-third-five",
+      "shapeFingerprint": "ef9046aad3e4de33"
+    },
+    {
+      "id": "central-priority-third-review-02",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-standard-owner-reviewed",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          5
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "central-priority-third-review-02:word:01",
+          "answer": "MI",
+          "clue": "Note musicale",
+          "sourceClue": "Après ré",
+          "sourceId": "eduscol-notes",
+          "sourceUrl": "https://bnseep.eduscol.education.fr/ressources/examens/sujets/18/320/2551600/E3/U3_SUJET.pdf",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "NOTE_MUSICALE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:02",
+          "answer": "DODOS",
+          "clue": "Sommeils enfantins",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "DODOS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:03",
+          "answer": "ETUI",
+          "clue": "Boîte protectrice",
+          "sourceClue": "ENVELOPPE PROTECTRICE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_4017.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ETUI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:04",
+          "answer": "CRI",
+          "clue": "Son puissant",
+          "sourceClue": "Son très fort",
+          "sourceId": "lexique-editorial-review",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CRI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:05",
+          "answer": "REPEREUR",
+          "clue": "Localisateur",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "REPEREUR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:06",
+          "answer": "ARE",
+          "clue": "Cent mètres carrés",
+          "sourceClue": "SURFACE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1478.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ARE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:07",
+          "answer": "ARIA",
+          "clue": "Air d'opéra",
+          "sourceClue": "VIEIL ENNUI",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1247.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ARIA",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:08",
+          "answer": "PARADIS",
+          "clue": "Lieu céleste",
+          "sourceClue": "Ciel",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "jeuxdemots:PARADIS:CIEL",
+          "semanticConflicts": [
+            "CIEL"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:09",
+          "answer": "MASSE",
+          "clue": "Grande quantité",
+          "sourceClue": "BLOC",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1455.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "MASSE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:10",
+          "answer": "PLURIEL",
+          "clue": "Opposé du singulier",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PLURIEL",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:11",
+          "answer": "AISSEAU",
+          "clue": "Bardeau de bois",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "AISSEAU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            1
+          ],
+          "cells": [
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:12",
+          "answer": "ANSE",
+          "clue": "Petite baie",
+          "sourceClue": "BAIE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1458.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ANSE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:13",
+          "answer": "RUE",
+          "clue": "Voie urbaine",
+          "sourceClue": "VOIE",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "RUE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            5
+          ],
+          "cells": [
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:14",
+          "answer": "DERAPE",
+          "clue": "Glisse",
+          "sourceClue": "GLISSE BRUSQUEMENT",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3796.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "DERAPE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:15",
+          "answer": "OTERA",
+          "clue": "Enlèvera",
+          "sourceClue": "FERA DISPARAÎTRE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3937.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "OTERA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:16",
+          "answer": "DUPER",
+          "clue": "Tromper",
+          "sourceClue": "Tromper",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "jeuxdemots:DUPER:TROMPER",
+          "semanticConflicts": [
+            "TROMPER"
+          ],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:17",
+          "answer": "OIE",
+          "clue": "",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "OIE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/oie.svg",
+            "alt": "Oie",
+            "source": "Twemoji",
+            "sourceUrl": "https://github.com/jdecked/twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:18",
+          "answer": "DIRA",
+          "clue": "Exprimera",
+          "sourceClue": "TIENDRA PAROLE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1319.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "DIRA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:19",
+          "answer": "CERISIER",
+          "clue": "Arbre à cerises",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CERISIER",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            6
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:20",
+          "answer": "RUISSEAU",
+          "clue": "Cours d'eau",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "RUISSEAU",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:21",
+          "answer": "RADARS",
+          "clue": "Détecteurs routiers",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "RADARS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:22",
+          "answer": "AMUSE",
+          "clue": "Divertit",
+          "sourceClue": "CHASSE L'ENNUI",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1400.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "AMUSE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:23",
+          "answer": "ELUE",
+          "clue": "Choisie",
+          "sourceClue": "DAME D'HONNEUR",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1491.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ELUE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:24",
+          "answer": "AH",
+          "clue": "Cri surpris",
+          "sourceClue": "Cri de surprise",
+          "sourceId": "cnrtl-ah",
+          "sourceUrl": "https://www.cnrtl.fr/definition/ah",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "INTERJECTION_SURPRISE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:25",
+          "answer": "PAN",
+          "clue": "Bruit soudain",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PAN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            2
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-02:word:26",
+          "answer": "LIS",
+          "clue": "Fleurs à bulbe",
+          "sourceClue": "FLEUR",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3965.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "LIS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        }
+      ],
+      "generationMetrics": {
+        "solver": "bitset-csp",
+        "nodes": 2,
+        "elapsedSeconds": 0.079,
+        "reason": "solved"
+      },
+      "publicationStatus": "owner-rejected",
+      "corpusPolicy": "local-human-frequency-repair-central-9491",
+      "repairDepth": 1,
+      "repairedAnswers": [
+        "PI"
+      ],
+      "centralAnswerCount": 17,
+      "lexiqueRescueCount": 9,
+      "reviewCycle": "2026-07-15-third-five",
+      "shapeFingerprint": "1fda4e4d12bc1ac0"
+    },
+    {
+      "id": "central-priority-third-review-03",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-standard-owner-reviewed",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "central-priority-third-review-03:word:01",
+          "answer": "AS",
+          "clue": "Champion",
+          "sourceClue": "Champion",
+          "sourceId": "cnrtl-as",
+          "sourceUrl": "https://www.cnrtl.fr/definition/as",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CHAMPION",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:02",
+          "answer": "ABBES",
+          "clue": "Supérieurs religieux",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ABBES",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:03",
+          "answer": "GOUT",
+          "clue": "Sens gustatif",
+          "sourceClue": "Penchant",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "jeuxdemots:GOUT:PENCHANT",
+          "semanticConflicts": [
+            "PENCHANT"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:04",
+          "answer": "AGE",
+          "clue": "Nombre d'années",
+          "sourceClue": "EXPÉRIENCE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1385.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "AGE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:05",
+          "answer": "INTERNET",
+          "clue": "Réseau mondial",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "INTERNET",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:06",
+          "answer": "ROCHE",
+          "clue": "",
+          "sourceClue": "Pierre",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "jeuxdemots:ROCHE:PIERRE",
+          "semanticConflicts": [
+            "PIERRE"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/roche.svg",
+            "alt": "Roche",
+            "source": "Twemoji",
+            "sourceUrl": "https://github.com/jdecked/twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:07",
+          "answer": "BANNIE",
+          "clue": "Chassée",
+          "sourceClue": "REFOULÉE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1350.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "BANNIE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:08",
+          "answer": "EVIDENT",
+          "clue": "Manifeste",
+          "sourceClue": "TRANSPARENT",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1342.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "EVIDENT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:09",
+          "answer": "CRETONNE",
+          "clue": "Toile de coton",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CRETONNE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:10",
+          "answer": "ANNE",
+          "clue": "Duchesse bretonne",
+          "sourceClue": "DUCHESSE BRETONNE",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ANNE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:11",
+          "answer": "NET",
+          "clue": "Bien défini",
+          "sourceClue": "CLAIR",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1253.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "NET",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            5
+          ],
+          "cells": [
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:12",
+          "answer": "PAS",
+          "clue": "Mouvement du pied",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PAS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:13",
+          "answer": "PESE",
+          "clue": "A du poids",
+          "sourceClue": "ÉVALUÉ",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3758.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PESE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            4
+          ],
+          "cells": [
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:14",
+          "answer": "AGIR",
+          "clue": "Intervenir",
+          "sourceClue": "OPÉRER",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3999.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "AGIR",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:15",
+          "answer": "BON",
+          "clue": "De qualité",
+          "sourceClue": "SOIT !",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1231.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "BON",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:16",
+          "answer": "BUT",
+          "clue": "Objectif",
+          "sourceClue": "OBJECTIF",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3878.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "BUT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:17",
+          "answer": "ETERNITE",
+          "clue": "Temps sans fin",
+          "sourceClue": "PÉRIODE INFINIE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3819.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ETERNITE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:18",
+          "answer": "FETE",
+          "clue": "Moment de célébration",
+          "sourceClue": "ANNIVERSAIRE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3930.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "FETE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:19",
+          "answer": "ANCIENNE",
+          "clue": "D'autrefois",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ANCIENNE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            6
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:20",
+          "answer": "GEHENNES",
+          "clue": "Souffrances infernales",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "GEHENNES",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:21",
+          "answer": "RONDO",
+          "clue": "Forme musicale",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "RONDO",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:22",
+          "answer": "IA",
+          "clue": "Intelligence artificielle",
+          "sourceClue": "Intelligence artificielle",
+          "sourceId": "academie-ia",
+          "sourceUrl": "https://www.academie-francaise.fr/sites/academie-francaise.fr/files/vocabulaire_tic_2017.pdf",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "INTELLIGENCE_ARTIFICIELLE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:23",
+          "answer": "BERNA",
+          "clue": "Trompa",
+          "sourceClue": "TROMPA, ABUSA",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3967.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "BERNA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:24",
+          "answer": "AVENS",
+          "clue": "Gouffres calcaires",
+          "sourceClue": "IGUES",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3917.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "AVENS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:25",
+          "answer": "TETE",
+          "clue": "Partie du corps",
+          "sourceClue": "Visage",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "jeuxdemots:TETE:VISAGE",
+          "semanticConflicts": [
+            "VISAGE"
+          ],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-03:word:26",
+          "answer": "CAP",
+          "clue": "Direction suivie",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CAP",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        }
+      ],
+      "generationMetrics": {
+        "solver": "bitset-csp",
+        "nodes": 15,
+        "elapsedSeconds": 0.11,
+        "reason": "solved"
+      },
+      "publicationStatus": "owner-rejected",
+      "corpusPolicy": "local-human-frequency-repair-central-9491",
+      "repairDepth": 2,
+      "repairedAnswers": [
+        "GATTE",
+        "NURSING"
+      ],
+      "centralAnswerCount": 18,
+      "lexiqueRescueCount": 8,
+      "reviewCycle": "2026-07-15-third-five",
+      "shapeFingerprint": "e8b4f6ee93382f98"
+    },
+    {
+      "id": "central-priority-third-review-04",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-standard-owner-reviewed",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "central-priority-third-review-04:word:01",
+          "answer": "MEMENTOS",
+          "clue": "Rappels écrits",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "MEMENTOS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:02",
+          "answer": "OVALAIRE",
+          "clue": "De forme ovale",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "OVALAIRE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:03",
+          "answer": "TELECRAN",
+          "clue": "Ardoise magique",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "TELECRAN",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:04",
+          "answer": "CRANS",
+          "clue": "Encoches",
+          "sourceClue": "DES ENCOCHES",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1371.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CRANS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:05",
+          "answer": "APTE",
+          "clue": "Capable",
+          "sourceClue": "FAIT POUR",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3857.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "APTE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:06",
+          "answer": "VERSE",
+          "clue": "Fait couler",
+          "sourceClue": "FAIT COULER",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3949.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "VERSE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:07",
+          "answer": "PIRE",
+          "clue": "Plus mauvais",
+          "sourceClue": "PIS",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1249.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PIRE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:08",
+          "answer": "TAC",
+          "clue": "Bruit sec",
+          "sourceClue": "BRUIT SEC",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3937.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "TAC",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            5
+          ],
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:09",
+          "answer": "LOT",
+          "clue": "Groupe assorti",
+          "sourceClue": "Groupement",
+          "sourceId": "motman-owner-review-20260715",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "GROUPEMENT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:10",
+          "answer": "SAMU",
+          "clue": "Urgence médicale",
+          "sourceClue": "SECOURS RAPIDE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1300.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "SAMU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            4
+          ],
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:11",
+          "answer": "INEDITES",
+          "clue": "Jamais publiées",
+          "sourceClue": "JAMAIS SORTIES",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3912.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "INEDITES",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:12",
+          "answer": "MOTS",
+          "clue": "Unités écrites",
+          "sourceClue": "TERMES",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1463.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "MOTS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:13",
+          "answer": "EVE",
+          "clue": "Première femme",
+          "sourceClue": "ÉPOUSE D'ADAM",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3896.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "EVE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:14",
+          "answer": "MAL",
+          "clue": "Douleur",
+          "sourceClue": "DOULEUR",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "MAL",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:15",
+          "answer": "ELECTRE",
+          "clue": "Fille d'Agamemnon",
+          "sourceClue": "SŒUR D'ORESTE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1382.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ELECTRE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:16",
+          "answer": "NACRES",
+          "clue": "Matières irisées",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "NACRES",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:17",
+          "answer": "TIRA",
+          "clue": "Fit feu",
+          "sourceClue": "FIT FEU",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3731.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "TIRA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:18",
+          "answer": "ORANT",
+          "clue": "Personnage en prière",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ORANT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:19",
+          "answer": "SENS",
+          "clue": "Direction",
+          "sourceClue": "DIRECTION",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3811.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "SENS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:20",
+          "answer": "LA",
+          "clue": "Note musicale",
+          "sourceClue": "Note musicale",
+          "sourceId": "cnrtl-la",
+          "sourceUrl": "https://www.cnrtl.fr/definition/la",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "NOTE_MUSICALE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:21",
+          "answer": "AVION",
+          "clue": "",
+          "sourceClue": "AÉROPLANE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1309.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "AVION",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/avion.svg",
+            "alt": "Avion",
+            "source": "Twemoji",
+            "sourceUrl": "https://github.com/jdecked/twemoji",
+            "license": "CC BY 4.0"
+          },
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:22",
+          "answer": "PERTE",
+          "clue": "Déficit",
+          "sourceClue": "DÉFICIT",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3783.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PERTE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:23",
+          "answer": "ETAT",
+          "clue": "Pays",
+          "sourceClue": "PAYS",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3996.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ETAT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:24",
+          "answer": "ECUS",
+          "clue": "Anciennes monnaies",
+          "sourceClue": "ANCIENNES PIÈCES",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ECUS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:25",
+          "answer": "PLI",
+          "clue": "Marque du tissu",
+          "sourceClue": "LEVÉE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1229.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PLI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:26",
+          "answer": "AME",
+          "clue": "Esprit",
+          "sourceClue": "CŒUR",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1516.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "AME",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            7
+          ],
+          "cells": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-04:word:27",
+          "answer": "SI",
+          "clue": "Sous condition",
+          "sourceClue": "Sous condition",
+          "sourceId": "cnrtl-si",
+          "sourceUrl": "https://www.cnrtl.fr/definition/si",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CONJONCTION_SI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            7,
+            5
+          ],
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        }
+      ],
+      "generationMetrics": {
+        "solver": "bitset-csp",
+        "nodes": 8,
+        "elapsedSeconds": 0.11,
+        "reason": "solved"
+      },
+      "publicationStatus": "owner-rejected",
+      "corpusPolicy": "local-human-frequency-repair-central-9491",
+      "repairDepth": 2,
+      "repairedAnswers": [
+        "AGE"
+      ],
+      "centralAnswerCount": 22,
+      "lexiqueRescueCount": 5,
+      "reviewCycle": "2026-07-15-third-five",
+      "shapeFingerprint": "a4a3a46d31e0d41b"
+    },
+    {
+      "id": "central-priority-third-review-05",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-standard-owner-reviewed",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          5
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "central-priority-third-review-05:word:01",
+          "answer": "SI",
+          "clue": "Sous condition",
+          "sourceClue": "Sous condition",
+          "sourceId": "cnrtl-si",
+          "sourceUrl": "https://www.cnrtl.fr/definition/si",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CONJONCTION_SI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:02",
+          "answer": "CAS",
+          "clue": "Situation",
+          "sourceClue": "CIRCONSTANCE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3802.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CAS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:03",
+          "answer": "TON",
+          "clue": "Manière de parler",
+          "sourceClue": "Style",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "jeuxdemots:TON:STYLE",
+          "semanticConflicts": [
+            "STYLE"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:04",
+          "answer": "REAPPARU",
+          "clue": "Revenu",
+          "sourceClue": "REDEVENU VISIBLE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1347.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "REAPPARU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:05",
+          "answer": "ARBOUSES",
+          "clue": "Fruits d'arbousier",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ARBOUSES",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:06",
+          "answer": "MELER",
+          "clue": "Entremêler",
+          "sourceClue": "Mélanger",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "jeuxdemots:MELER:MELANGER",
+          "semanticConflicts": [
+            "MELANGER"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:07",
+          "answer": "PRETES",
+          "clue": "Disponibles",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PRETES",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:08",
+          "answer": "ETIER",
+          "clue": "Canal côtier",
+          "sourceClue": "ARRIVÉE D'EAU",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1446.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ETIER",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:09",
+          "answer": "ABSENTS",
+          "clue": "Non présents",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ABSENTS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:10",
+          "answer": "RASSURE",
+          "clue": "Réconforte",
+          "sourceClue": "APAISE",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "RASSURE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            1
+          ],
+          "cells": [
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:11",
+          "answer": "ATRE",
+          "clue": "Foyer",
+          "sourceClue": "COIN CHAUD",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3820.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ATRE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:12",
+          "answer": "SEC",
+          "clue": "Sans humidité",
+          "sourceClue": "SANS EAU",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3762.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "SEC",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            5
+          ],
+          "cells": [
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:13",
+          "answer": "CRAMPE",
+          "clue": "Contraction douloureuse",
+          "sourceClue": "MAL D'ESTOMAC",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "CRAMPE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:14",
+          "answer": "AERER",
+          "clue": "Renouveler l'air",
+          "sourceClue": "CHANGER D'AIR",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3803.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "AERER",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:15",
+          "answer": "SABLE",
+          "clue": "Grains de plage",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "SABLE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:16",
+          "answer": "TAS",
+          "clue": "Grand nombre",
+          "sourceClue": "NOMBRE IMPORTANT",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1339.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "TAS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:17",
+          "answer": "OREE",
+          "clue": "Bord du bois",
+          "sourceClue": "LISIÈRE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3920.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "OREE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:18",
+          "answer": "NUS",
+          "clue": "Sans vêtements",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "NUS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:19",
+          "answer": "POETESSE",
+          "clue": "Femme poète",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "POETESSE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:20",
+          "answer": "PURETES",
+          "clue": "Absences d'impuretés",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "PURETES",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:21",
+          "answer": "SINUS",
+          "clue": "Cavités nasales",
+          "sourceClue": "",
+          "sourceId": "lexique-3.83",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "lexical-attestation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "SINUS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            6
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:22",
+          "answer": "ORSEC",
+          "clue": "Plan de secours",
+          "sourceClue": "PLAN URGENT",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3894.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ORSEC",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            8
+          ],
+          "cells": [
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:23",
+          "answer": "ETRE",
+          "clue": "Exister",
+          "sourceClue": "EXISTER",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3902.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ETRE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:24",
+          "answer": "FA",
+          "clue": "Note musicale",
+          "sourceClue": "Avant sol",
+          "sourceId": "eduscol-notes",
+          "sourceUrl": "https://bnseep.eduscol.education.fr/ressources/examens/sujets/18/320/2551600/E3/U3_SUJET.pdf",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "NOTE_MUSICALE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:25",
+          "answer": "ART",
+          "clue": "",
+          "sourceClue": "SAVOIR-FAIRE",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "ART",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            2
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715",
+          "image": {
+            "asset": "/assets/clues/twemoji/art.svg",
+            "alt": "Palette de peinture",
+            "source": "Twemoji",
+            "sourceUrl": "https://github.com/jdecked/twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "central-priority-third-review-05:word:26",
+          "answer": "BAR",
+          "clue": "Café",
+          "sourceClue": "CAFÉ",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3919.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "rejected-with-grid-by-owner",
+          "conceptGroup": "BAR",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "central-priority-third-five-20260715"
+        }
+      ],
+      "generationMetrics": {
+        "solver": "bitset-csp",
+        "nodes": 2,
+        "elapsedSeconds": 0.141,
+        "reason": "solved"
+      },
+      "publicationStatus": "owner-rejected",
+      "corpusPolicy": "local-human-frequency-repair-central-9491",
+      "repairDepth": 2,
+      "repairedAnswers": [
+        "PAS"
+      ],
+      "centralAnswerCount": 18,
+      "lexiqueRescueCount": 8,
+      "reviewCycle": "2026-07-15-third-five",
+      "shapeFingerprint": "b19c18d3b15dc87f"
+    }
+  ]
+}

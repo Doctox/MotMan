@@ -1,0 +1,163 @@
+import assert from 'node:assert/strict'
+import { readFile } from 'node:fs/promises'
+import { createClient } from '@supabase/supabase-js'
+
+async function readEnvironment() {
+  const source = await readFile(new URL('../.env.local', import.meta.url), 'utf8')
+  return Object.fromEntries(source.split(/\r?\n/).flatMap(line => {
+    const match = line.match(/^([^#=]+)=(.*)$/)
+    return match ? [[match[1].trim(), match[2].trim().replace(/^['"]|['"]$/g, '')]] : []
+  }))
+}
+
+const env = await readEnvironment()
+const url = env.VITE_SUPABASE_URL
+const key = env.VITE_SUPABASE_PUBLISHABLE_KEY
+assert.ok(url && key, 'Configuration Supabase absente de .env.local')
+const runtimeCatalog = JSON.parse(await readFile(new URL('../src/data/runtime.grid.catalog.json', import.meta.url), 'utf8'))
+
+function sessionClient() {
+  return createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } })
+}
+
+async function createPlayer() {
+  const client = sessionClient()
+  const { data, error } = await client.auth.signInAnonymously()
+  assert.ifError(error)
+  assert.ok(data.session?.access_token && data.user)
+  return { client, user: data.user, token: data.session.access_token }
+}
+
+async function invoke(player, name, body, expectedStatus = 200) {
+  const response = await fetch(`${url}/functions/v1/${name}`, {
+    method: 'POST',
+    headers: { apikey: key, Authorization: `Bearer ${player.token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+  const payload = await response.json().catch(() => ({}))
+  assert.equal(response.status, expectedStatus, `${name}/${body.action}: ${response.status} ${JSON.stringify(payload)}`)
+  return payload
+}
+
+const [alice, bob] = await Promise.all([createPlayer(), createPlayer()])
+const aliceAccount = await invoke(alice, 'account-api', { action: 'bootstrap', identity: { displayName: 'Alice QA' } })
+const bobAccount = await invoke(bob, 'account-api', { action: 'bootstrap', identity: { displayName: 'Bob QA' } })
+assert.equal(aliceAccount.identity.playerId, alice.user.id)
+assert.equal(bobAccount.identity.playerId, bob.user.id)
+assert.equal(aliceAccount.progress.level, 1)
+assert.equal(aliceAccount.progress.version, 3)
+assert.equal(aliceAccount.progress.equippedTitleId, 'premiers-mots')
+assert.ok(aliceAccount.progress.titles.find(title => title.id === 'premiers-mots')?.unlocked)
+assert.ok(aliceAccount.progress.titles.find(title => title.id === 'plume-curieuse' && !title.unlocked))
+const initialOdds = Object.values(aliceAccount.cosmetics.basketOdds).reduce((total, chance) => total + chance, 0)
+assert.ok(Math.abs(initialOdds - 100) < 0.001, 'Les probabilités du panier doivent totaliser 100 %')
+
+await invoke(alice, 'account-api', {
+  action: 'update-profile', displayName: 'Admin MotMan', avatarId: 'plume-motman', frameId: 'cadre-ivoire', animationId: 'animation-none',
+}, 400)
+await invoke(alice, 'social-api', { action: 'report', targetId: bob.user.id, reason: 'comportement', details: 'Test automatisé' })
+
+const created = await invoke(alice, 'match-api', { action: 'solo', difficulty: 'normal', pace: 'realtime' })
+const match = created.match
+assert.equal(match.mode, 'solo')
+assert.ok(match.grid && match.grid.columns >= 9 && match.grid.rows >= 9)
+assert.ok(match.grid.words.every(word => /^•+$/.test(word.answer)), 'Une réponse réelle a fui dans la grille publique')
+assert.ok(match.grid.cells.every(cell => cell.kind !== 'letter' || cell.solution === ''), 'Une solution de cellule a fui')
+assert.deepEqual(Object.keys(match.racks), [alice.user.id], 'Le client a reçu un chevalet adverse')
+assert.equal(match.racks[match.bot.playerId], undefined)
+
+await invoke(bob, 'match-api', { action: 'match', matchId: match.id }, 404)
+const directCatalog = await fetch(`${url}/rest/v1/server_grid_catalog?select=id&limit=1`, {
+  headers: { apikey: key, Authorization: `Bearer ${alice.token}` },
+})
+assert.ok([401, 403].includes(directCatalog.status), `Le catalogue serveur reste lisible directement (${directCatalog.status})`)
+
+await new Promise(resolve => setTimeout(resolve, Math.max(0, Date.parse(match.turnStartedAt) - Date.now() + 80)))
+const rack = match.racks[alice.user.id]
+const sourceGrid = runtimeCatalog.grids.find(grid => grid.id === match.gridId)
+assert.ok(sourceGrid, `Grille ${match.gridId} absente du catalogue de test`)
+const columns = sourceGrid.columns ?? sourceGrid.size ?? 9
+const solution = new Map()
+for (const word of sourceGrid.words) {
+  word.cells.forEach(([row, column], offset) => solution.set(row * columns + column, word.answer[offset]))
+}
+const wrongPlacement = rack.flatMap(letter => [...solution].map(([cellIndex, expected]) => ({ cellIndex, letter, expected })))
+  .find(candidate => candidate.letter !== candidate.expected)
+assert.ok(wrongPlacement, 'Impossible de construire un placement volontairement incorrect')
+const played = await invoke(alice, 'match-api', {
+  action: 'turn', matchId: match.id, turnNumber: match.turnNumber,
+  placements: [{ cellIndex: wrongPlacement.cellIndex, letter: wrongPlacement.letter }], automatic: false,
+})
+assert.equal(played.result.scoreGained, 0, 'Une lettre incorrecte a rapporté des points')
+assert.deepEqual(played.result.wrongPlacements, [{ cellIndex: wrongPlacement.cellIndex, letter: wrongPlacement.letter }])
+assert.deepEqual(played.match.racks[alice.user.id], rack, 'La lettre refusée doit revenir sans renouveler le chevalet')
+assert.equal(played.match.scores[alice.user.id], 0)
+assert.deepEqual(Object.keys(played.match.racks), [alice.user.id])
+
+const duplicate = await invoke(alice, 'match-api', {
+  action: 'turn', matchId: match.id, turnNumber: match.turnNumber,
+  placements: [{ cellIndex: wrongPlacement.cellIndex, letter: wrongPlacement.letter }], automatic: false,
+})
+assert.equal(duplicate.result.id, played.result.id, 'La répétition réseau a créé un second résultat')
+
+const forfeited = await invoke(alice, 'match-api', { action: 'forfeit', matchId: match.id })
+assert.equal(forfeited.match.status, 'finished')
+assert.equal(forfeited.match.finishReason, 'forfeit')
+const finalAccount = await invoke(alice, 'account-api', { action: 'state' })
+const awards = finalAccount.progress.experienceAwards.filter(award => award.id === `server:match:${match.id}`)
+assert.equal(awards.length, 1, 'La récompense de partie doit être enregistrée exactement une fois')
+assert.equal(awards[0].breakdown.total, 0, 'Un abandon ne doit donner aucune expérience')
+assert.equal(awards[0].plumesEarned, 0, 'Un abandon ne doit donner aucune plume')
+assert.equal(finalAccount.progress.losses, 1, 'Un abandon doit compter comme une défaite')
+
+const feedback = await invoke(alice, 'match-api', {
+  action: 'feedback', matchId: match.id, quality: 'yes', reason: 'Rotation QA',
+})
+assert.equal(feedback.recorded, true, 'L’avis de grille doit être enregistré côté serveur')
+assert.equal(feedback.popularity.positive_reviews >= 1, true)
+assert.equal(Number.isFinite(Number(feedback.popularity.popularity_score)), true)
+
+const rotated = await invoke(alice, 'match-api', { action: 'solo', difficulty: 'normal', pace: 'realtime' })
+assert.notEqual(rotated.match.gridId, match.gridId, 'La grille précédente doit sortir de la rotation récente')
+await invoke(alice, 'match-api', { action: 'forfeit', matchId: rotated.match.id })
+
+await invoke(alice, 'social-api', { action: 'request', friendCode: bobAccount.identity.friendCode })
+const bobSocial = (await invoke(bob, 'social-api', { action: 'state' })).state
+assert.equal(bobSocial.incoming.length, 1)
+await invoke(bob, 'social-api', { action: 'respond', requestId: bobSocial.incoming[0].id, decision: 'accept' })
+await invoke(alice, 'match-api', { action: 'create', targetId: bob.user.id, pace: 'async' })
+const bobLobby = await invoke(bob, 'match-api', { action: 'state' })
+assert.equal(bobLobby.incoming.length, 1)
+const accepted = await invoke(bob, 'match-api', { action: 'respond', invitationId: bobLobby.incoming[0].id, decision: 'accept' })
+assert.equal(accepted.active.length, 1)
+const friendMatchId = accepted.active[0].id
+const aliceFriend = (await invoke(alice, 'match-api', { action: 'match', matchId: friendMatchId })).match
+const bobFriend = (await invoke(bob, 'match-api', { action: 'match', matchId: friendMatchId })).match
+assert.deepEqual(Object.keys(aliceFriend.racks), [alice.user.id])
+assert.deepEqual(Object.keys(bobFriend.racks), [bob.user.id])
+assert.equal(aliceFriend.racks[bob.user.id], undefined)
+assert.equal(bobFriend.racks[alice.user.id], undefined)
+
+// Bob abandons while Alice owns the turn. This must remain possible in an
+// asynchronous game, but an instant arranged forfeit must not mint rewards.
+const friendForfeit = await invoke(bob, 'match-api', { action: 'forfeit', matchId: friendMatchId })
+assert.equal(friendForfeit.match.status, 'finished')
+const [aliceAfterFriend, bobAfterFriend] = await Promise.all([
+  invoke(alice, 'account-api', { action: 'state' }),
+  invoke(bob, 'account-api', { action: 'state' }),
+])
+const aliceFriendAward = aliceAfterFriend.progress.experienceAwards.find(award => award.id === `server:match:${friendMatchId}`)
+const bobFriendAward = bobAfterFriend.progress.experienceAwards.find(award => award.id === `server:match:${friendMatchId}`)
+assert.equal(aliceFriendAward.breakdown.total, 0)
+assert.equal(aliceFriendAward.plumesEarned, 0)
+assert.equal(bobFriendAward.breakdown.total, 0)
+assert.equal(bobFriendAward.plumesEarned, 0)
+assert.equal(aliceAfterFriend.progress.wins, 1, 'Un abandon adverse doit compter comme une victoire')
+assert.equal(bobAfterFriend.progress.losses, 1, 'Le joueur qui abandonne doit enregistrer une défaite')
+
+console.log(JSON.stringify({
+  status: 'ok', matchId: match.id, dimensions: `${match.grid.columns}x${match.grid.rows}`,
+  privacy: 'solutions et chevalet adverse masqués', authority: 'score et récompense serveur', moderation: 'signalement accepté',
+  multiplayer: 'deux sessions isolées, abandon hors-tour et anti-farming validés',
+  content: 'rotation des 12 dernières grilles, avis et popularité serveur validés',
+}, null, 2))

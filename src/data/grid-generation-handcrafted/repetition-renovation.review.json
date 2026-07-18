@@ -1,0 +1,4102 @@
+{
+  "version": 1,
+  "kind": "motman-conservative-repetition-renovation-owner-review",
+  "publicationPolicy": "Non publié ; validation explicite du propriétaire requise.",
+  "metrics": {
+    "drafts": 3,
+    "replacements": 7,
+    "images": 18,
+    "before": {
+      "grids": 42,
+      "answerSlots": 1198,
+      "uniqueConcepts": 749,
+      "conceptExcessSlots": 449,
+      "conceptExcessRate": 0.375,
+      "conceptsUsedAtLeastFourTimes": 67
+    },
+    "afterIfApproved": {
+      "grids": 42,
+      "answerSlots": 1198,
+      "uniqueConcepts": 756,
+      "conceptExcessSlots": 442,
+      "conceptExcessRate": 0.369,
+      "conceptsUsedAtLeastFourTimes": 67
+    },
+    "conceptExcessSlotsRemoved": 7,
+    "activeCatalogModified": false
+  },
+  "changes": [
+    {
+      "gridId": "repetition-renovation-26",
+      "oldAnswer": "AN",
+      "newAnswer": "CP",
+      "newClue": "Cours préparatoire"
+    },
+    {
+      "gridId": "repetition-renovation-26",
+      "oldAnswer": "DO",
+      "newAnswer": "IP",
+      "newClue": "Adresse informatique"
+    },
+    {
+      "gridId": "repetition-renovation-09",
+      "oldAnswer": "ON",
+      "newAnswer": "HS",
+      "newClue": "Hors d'usage"
+    },
+    {
+      "gridId": "repetition-renovation-09",
+      "oldAnswer": "RUSE",
+      "newAnswer": "BUSE",
+      "newClue": "Rapace"
+    },
+    {
+      "gridId": "repetition-renovation-09",
+      "oldAnswer": "LA",
+      "newAnswer": "JT",
+      "newClue": "Info en images"
+    },
+    {
+      "gridId": "repetition-renovation-19",
+      "oldAnswer": "IF",
+      "newAnswer": "QI",
+      "newClue": "Quotient intellectuel"
+    },
+    {
+      "gridId": "repetition-renovation-19",
+      "oldAnswer": "MI",
+      "newAnswer": "ZI",
+      "newClue": "Zone industrielle"
+    }
+  ],
+  "grids": [
+    {
+      "id": "repetition-renovation-26",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-conservative-repetition-renovation",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          5
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "repetition-renovation-26:word:01",
+          "answer": "CP",
+          "clue": "Cours préparatoire",
+          "sourceClue": "COURS PRÉPARATOIRE",
+          "sourceId": "leparisien-rcijeux-short-reviewed",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3750.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CP",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-repetition-replacement",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:02",
+          "answer": "CREPE",
+          "clue": "",
+          "sourceClue": "Indice illustré : crepe",
+          "sourceId": "twemoji-1f95e",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f95e.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CREPE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/crepe.svg",
+            "alt": "Crepe",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-26:word:03",
+          "answer": "AINE",
+          "clue": "Pli de cuisse",
+          "sourceClue": "Pli de cuisse",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "AINE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:04",
+          "answer": "SOU",
+          "clue": "Ancienne monnaie",
+          "sourceClue": "Ancienne monnaie",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SOU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:05",
+          "answer": "MANUCURE",
+          "clue": "",
+          "sourceClue": "Indice illustré : manucure",
+          "sourceId": "twemoji-1f485",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f485.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "MANUCURE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/manucure.svg",
+            "alt": "Manucure",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-26:word:06",
+          "answer": "IDEE",
+          "clue": "Pensée",
+          "sourceClue": "Pensée",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "IDEE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:07",
+          "answer": "BILE",
+          "clue": "Liquide digestif",
+          "sourceClue": "Liquide digestif",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BILE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:08",
+          "answer": "ILE",
+          "clue": "Entourée d'eau",
+          "sourceClue": "Entourée d'eau",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ILE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:09",
+          "answer": "FLOT",
+          "clue": "Masse d'eau",
+          "sourceClue": "Masse d'eau",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "FLOT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:10",
+          "answer": "TAC",
+          "clue": "Bruit sec",
+          "sourceClue": "Bruit sec",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TAC",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            5
+          ],
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:11",
+          "answer": "EAU",
+          "clue": "",
+          "sourceClue": "Indice illustré : eau",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1245.mfj",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "EAU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/eau.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:12",
+          "answer": "BRIN",
+          "clue": "Fine tige",
+          "sourceClue": "Fine tige",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BRIN",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            4
+          ],
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:13",
+          "answer": "UNIR",
+          "clue": "Assembler",
+          "sourceClue": "Assembler",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "UNIR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:14",
+          "answer": "ERE",
+          "clue": "Époque",
+          "sourceClue": "Époque",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ERE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            5
+          ],
+          "cells": [
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:15",
+          "answer": "CAMP",
+          "clue": "Groupe installé",
+          "sourceClue": "Groupe installé",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CAMP",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:16",
+          "answer": "RIA",
+          "clue": "Vallée marine",
+          "sourceClue": "Vallée marine",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "RIA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:17",
+          "answer": "ENNUI",
+          "clue": "Désagrément",
+          "sourceClue": "Désagrément",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ENNUI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:18",
+          "answer": "PEU",
+          "clue": "Pas beaucoup",
+          "sourceClue": "Pas beaucoup",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PEU",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:19",
+          "answer": "BUEE",
+          "clue": "",
+          "sourceClue": "Indice illustré : buee",
+          "sourceId": "twemoji-1f32b",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f32b.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BUEE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/buee.svg",
+            "alt": "Buee",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-26:word:20",
+          "answer": "SUD",
+          "clue": "Point cardinal",
+          "sourceClue": "Point cardinal",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SUD",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            6
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:21",
+          "answer": "OREE",
+          "clue": "Lisière",
+          "sourceClue": "Lisière",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "OREE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:22",
+          "answer": "CIEL",
+          "clue": "Voûte bleue",
+          "sourceClue": "Voûte bleue",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CIEL",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:23",
+          "answer": "IP",
+          "clue": "Adresse informatique",
+          "sourceClue": "ADRESSE INFORMATIQUE",
+          "sourceId": "leparisien-rcijeux-short-reviewed",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3730.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "IP",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-repetition-replacement",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:24",
+          "answer": "BILAN",
+          "clue": "Résultat global",
+          "sourceClue": "Résultat global",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BILAN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:25",
+          "answer": "LIT",
+          "clue": "",
+          "sourceClue": "Indice illustré : lit",
+          "sourceId": "twemoji-1f6cf",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6cf.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "LIT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/lit.svg",
+            "alt": "Lit",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-26:word:26",
+          "answer": "ETRE",
+          "clue": "Exister",
+          "sourceClue": "Exister",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ETRE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:27",
+          "answer": "ACNE",
+          "clue": "Boutons cutanés",
+          "sourceClue": "Boutons cutanés",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ACNE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:28",
+          "answer": "FEU",
+          "clue": "",
+          "sourceClue": "Indice illustré : feu",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1407.mfj",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "FEU",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/feu.svg",
+            "alt": "Feu",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:29",
+          "answer": "OUI",
+          "clue": "Accord",
+          "sourceClue": "Accord",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "OUI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-26:word:30",
+          "answer": "AIR",
+          "clue": "Mélodie",
+          "sourceClue": "Mélodie",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "AIR",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            7
+          ],
+          "cells": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        }
+      ],
+      "publicationStatus": "owner-review-required",
+      "humanReview": {
+        "status": "editorially-reviewed",
+        "reviewedAt": "2026-07-14",
+        "note": "Réponses et définitions relues manuellement; validation propriétaire encore requise."
+      },
+      "replacesGridId": "reference-standard-26",
+      "reviewCycle": "2026-07-16"
+    },
+    {
+      "id": "repetition-renovation-09",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-conservative-repetition-renovation",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "repetition-renovation-09:word:01",
+          "answer": "HS",
+          "clue": "Hors d'usage",
+          "sourceClue": "HORS D'USAGE",
+          "sourceId": "leparisien-rcijeux-short-reviewed",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3924.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "HS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-repetition-replacement",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:02",
+          "answer": "SAMBA",
+          "clue": "Danse brésilienne",
+          "sourceClue": "Danse brésilienne",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SAMBA",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:03",
+          "answer": "EMOI",
+          "clue": "Trouble",
+          "sourceClue": "Trouble",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "EMOI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:04",
+          "answer": "BLE",
+          "clue": "",
+          "sourceClue": "Indice illustré : ble",
+          "sourceId": "twemoji-1f33e",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f33e.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BLE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/ble.svg",
+            "alt": "Ble",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-09:word:05",
+          "answer": "VENT",
+          "clue": "",
+          "sourceClue": "Indice illustré : vent",
+          "sourceId": "twemoji-1f32c",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f32c.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "VENT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/vent.svg",
+            "alt": "Vent",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-09:word:06",
+          "answer": "EAU",
+          "clue": "",
+          "sourceClue": "Indice illustré : eau",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1245.mfj",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "EAU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/eau.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:07",
+          "answer": "DURCIR",
+          "clue": "Rendre plus solide",
+          "sourceClue": "Rendre plus solide",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "DURCIR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:08",
+          "answer": "DEMI",
+          "clue": "Moitié",
+          "sourceClue": "Moitié",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "DEMI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:09",
+          "answer": "ERE",
+          "clue": "Époque",
+          "sourceClue": "Époque",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ERE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:10",
+          "answer": "BAR",
+          "clue": "Comptoir à boissons",
+          "sourceClue": "Comptoir à boissons",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BAR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:11",
+          "answer": "ETRE",
+          "clue": "Exister",
+          "sourceClue": "Exister",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ETRE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            4
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:12",
+          "answer": "AMIS",
+          "clue": "Proches appréciés",
+          "sourceClue": "Proches appréciés",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "AMIS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:13",
+          "answer": "AIR",
+          "clue": "Mélodie",
+          "sourceClue": "Mélodie",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "AIR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            5
+          ],
+          "cells": [
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:14",
+          "answer": "NEZ",
+          "clue": "",
+          "sourceClue": "Indice illustré : nez",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3787.mfj",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "NEZ",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/nez.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:15",
+          "answer": "BUSE",
+          "clue": "Rapace",
+          "sourceClue": "Gros rapace diurne",
+          "sourceId": "larousse-buse",
+          "sourceUrl": "https://www.larousse.fr/dictionnaires/francais/buse/11752",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BUSE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            4
+          ],
+          "cells": [
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-repetition-replacement",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:16",
+          "answer": "SEVE",
+          "clue": "Liquide végétal",
+          "sourceClue": "Liquide végétal",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SEVE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:17",
+          "answer": "AME",
+          "clue": "Esprit",
+          "sourceClue": "Esprit",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "AME",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:18",
+          "answer": "MONDE",
+          "clue": "Ensemble des humains",
+          "sourceClue": "Ensemble des humains",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "MONDE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:19",
+          "answer": "BITUME",
+          "clue": "Revêtement routier",
+          "sourceClue": "Revêtement routier",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BITUME",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:20",
+          "answer": "PEUR",
+          "clue": "Frayeur",
+          "sourceClue": "Frayeur",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PEUR",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:21",
+          "answer": "BEC",
+          "clue": "Bouche d'oiseau",
+          "sourceClue": "Bouche d'oiseau",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BEC",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            6
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:22",
+          "answer": "LAIT",
+          "clue": "",
+          "sourceClue": "Indice illustré : lait",
+          "sourceId": "twemoji-1f95b",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f95b.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "LAIT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/lait.svg",
+            "alt": "Lait",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-09:word:23",
+          "answer": "RIRE",
+          "clue": "Expression joyeuse",
+          "sourceClue": "Expression joyeuse",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "RIRE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:24",
+          "answer": "JT",
+          "clue": "Info en images",
+          "sourceClue": "INFO EN IMAGES",
+          "sourceId": "leparisien-rcijeux-short-reviewed",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1240.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "JT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-repetition-replacement",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:25",
+          "answer": "DRAME",
+          "clue": "Tragédie",
+          "sourceClue": "Tragédie",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "DRAME",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:26",
+          "answer": "ETAU",
+          "clue": "Outil serrant",
+          "sourceClue": "Outil serrant",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ETAU",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:27",
+          "answer": "PERE",
+          "clue": "Papa",
+          "sourceClue": "Papa",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PERE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:28",
+          "answer": "BAN",
+          "clue": "Exclusion officielle",
+          "sourceClue": "Exclusion officielle",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BAN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-09:word:29",
+          "answer": "RIZ",
+          "clue": "",
+          "sourceClue": "Indice illustré : riz",
+          "sourceId": "twemoji-1f35a",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f35a.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "RIZ",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/riz.svg",
+            "alt": "Riz",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-09:word:30",
+          "answer": "RIS",
+          "clue": "Abat de veau",
+          "sourceClue": "Abat de veau",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "RIS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            7
+          ],
+          "cells": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        }
+      ],
+      "publicationStatus": "owner-review-required",
+      "humanReview": {
+        "status": "editorially-reviewed",
+        "reviewedAt": "2026-07-14",
+        "note": "Réponses et définitions relues manuellement; validation propriétaire encore requise."
+      },
+      "replacesGridId": "reference-standard-09",
+      "reviewCycle": "2026-07-16"
+    },
+    {
+      "id": "repetition-renovation-19",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-conservative-repetition-renovation",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "repetition-renovation-19:word:01",
+          "answer": "QI",
+          "clue": "Quotient intellectuel",
+          "sourceClue": "QUOTIENT INTELLECTUEL",
+          "sourceId": "leparisien-rcijeux-short-reviewed",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3827.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "QI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-repetition-replacement",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:02",
+          "answer": "ART",
+          "clue": "Création esthétique",
+          "sourceClue": "Création esthétique",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ART",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:03",
+          "answer": "BOA",
+          "clue": "Serpent constricteur",
+          "sourceClue": "Serpent constricteur",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BOA",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:04",
+          "answer": "COUSCOUS",
+          "clue": "Semoule nord-africaine",
+          "sourceClue": "Semoule nord-africaine",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "COUSCOUS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:05",
+          "answer": "TILT",
+          "clue": "Déclic soudain",
+          "sourceClue": "Déclic soudain",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TILT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:06",
+          "answer": "LIT",
+          "clue": "",
+          "sourceClue": "Indice illustré : lit",
+          "sourceId": "twemoji-1f6cf",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6cf.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "LIT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/lit.svg",
+            "alt": "Lit",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-19:word:07",
+          "answer": "LASSER",
+          "clue": "Fatiguer",
+          "sourceClue": "Fatiguer",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "LASSER",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:08",
+          "answer": "VENT",
+          "clue": "",
+          "sourceClue": "Indice illustré : vent",
+          "sourceId": "twemoji-1f32c",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f32c.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "VENT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/vent.svg",
+            "alt": "Vent",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-19:word:09",
+          "answer": "DOSE",
+          "clue": "Quantité prescrite",
+          "sourceClue": "Quantité prescrite",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "DOSE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:10",
+          "answer": "ANE",
+          "clue": "Cousin du cheval",
+          "sourceClue": "Cousin du cheval",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ANE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:11",
+          "answer": "PILE",
+          "clue": "",
+          "sourceClue": "Indice illustré : pile",
+          "sourceId": "twemoji-1f50b",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f50b.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PILE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            4
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/pile.svg",
+            "alt": "Pile",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-19:word:12",
+          "answer": "GITE",
+          "clue": "Abri",
+          "sourceClue": "Abri",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "GITE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:13",
+          "answer": "TAS",
+          "clue": "Amas",
+          "sourceClue": "Amas",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TAS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            5
+          ],
+          "cells": [
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:14",
+          "answer": "ERE",
+          "clue": "Époque",
+          "sourceClue": "Époque",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ERE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:15",
+          "answer": "CENT",
+          "clue": "Dix dizaines",
+          "sourceClue": "Dix dizaines",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CENT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            4
+          ],
+          "cells": [
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:16",
+          "answer": "ACTE",
+          "clue": "Geste",
+          "sourceClue": "Geste",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ACTE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:17",
+          "answer": "ROI",
+          "clue": "",
+          "sourceClue": "Indice illustré : roi",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3829.mfj",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ROI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/roi.svg",
+            "alt": "Indice illustré",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:18",
+          "answer": "TULLE",
+          "clue": "Tissu ajouré",
+          "sourceClue": "Tissu ajouré",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TULLE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:19",
+          "answer": "BOLS",
+          "clue": "Récipients creux",
+          "sourceClue": "Récipients creux",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BOLS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:20",
+          "answer": "OUIE",
+          "clue": "Sens auditif",
+          "sourceClue": "Sens auditif",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "OUIE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:21",
+          "answer": "ASTRE",
+          "clue": "",
+          "sourceClue": "Indice illustré : astre",
+          "sourceId": "twemoji-2b50",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/2b50.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ASTRE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/astre.svg",
+            "alt": "Astre",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-19:word:22",
+          "answer": "STAND",
+          "clue": "Emplacement d'exposition",
+          "sourceClue": "Emplacement d'exposition",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "STAND",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:23",
+          "answer": "STOP",
+          "clue": "",
+          "sourceClue": "Indice illustré : stop",
+          "sourceId": "twemoji-1f6d1",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f6d1.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "STOP",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-image",
+          "editorialReviewId": "repetition-renovation-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/stop.svg",
+            "alt": "Stop",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "repetition-renovation-19:word:24",
+          "answer": "ZI",
+          "clue": "Zone industrielle",
+          "sourceClue": "ZONE INDUSTRIELLE",
+          "sourceId": "leparisien-rcijeux-short-reviewed",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3865.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ZI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed-repetition-replacement",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:25",
+          "answer": "VENIR",
+          "clue": "Se rapprocher",
+          "sourceClue": "Se rapprocher",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "VENIR",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:26",
+          "answer": "SITE",
+          "clue": "Emplacement",
+          "sourceClue": "Emplacement",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SITE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:27",
+          "answer": "ELAN",
+          "clue": "Mouvement vif",
+          "sourceClue": "Mouvement vif",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ELAN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:28",
+          "answer": "AGE",
+          "clue": "Années vécues",
+          "sourceClue": "Années vécues",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "AGE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:29",
+          "answer": "ETE",
+          "clue": "Saison chaude",
+          "sourceClue": "Saison chaude",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ETE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        },
+        {
+          "wordId": "repetition-renovation-19:word:30",
+          "answer": "EST",
+          "clue": "Direction du levant",
+          "sourceClue": "Direction du levant",
+          "sourceId": "motman-manual-standard-20260714",
+          "sourceUrl": "https://www.lexique.org/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "EST",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            8
+          ],
+          "cells": [
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-standard",
+          "definitionStatus": "reviewed",
+          "editorialReviewId": "repetition-renovation-20260716"
+        }
+      ],
+      "publicationStatus": "owner-review-required",
+      "humanReview": {
+        "status": "editorially-reviewed",
+        "reviewedAt": "2026-07-14",
+        "note": "Réponses et définitions relues manuellement; validation propriétaire encore requise."
+      },
+      "replacesGridId": "reference-standard-19",
+      "reviewCycle": "2026-07-16"
+    }
+  ]
+}

@@ -1,0 +1,1265 @@
+{
+  "version": 1,
+  "kind": "owner-flexible-complete-grid-review",
+  "publicationPolicy": "Non publiée ; validation explicite du propriétaire requise.",
+  "rule": "Première ligne et première colonne en définitions ; intérieur libre ; aucune lettre orpheline.",
+  "metrics": {
+    "grids": 1,
+    "dimensions": "9x10",
+    "totalCells": 90,
+    "clueCellsIncludingNeutralCorner": 29,
+    "letterCells": 61,
+    "coveredLetterCells": 61,
+    "orphanLetters": 0,
+    "orphanSegments": 0,
+    "answers": 28,
+    "uniqueAnswers": 28,
+    "lengthProfile": {
+      "2": 11,
+      "3": 2,
+      "5": 6,
+      "6": 5,
+      "8": 2,
+      "9": 2
+    },
+    "topRowEntirelyClues": true,
+    "leftColumnEntirelyClues": true,
+    "topologyValid": true
+  },
+  "grids": [
+    {
+      "id": "owner-flexible-complete-01",
+      "columns": 9,
+      "rows": 10,
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "owner-flexible-complete-01:word:01",
+          "answer": "ARRONDIES",
+          "clue": "Rendues rondes",
+          "sourceClue": "Rendues rondes",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:02",
+          "answer": "SOURIANTE",
+          "clue": "Visiblement heureuse",
+          "sourceClue": "Visiblement heureuse",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:03",
+          "answer": "SUE",
+          "clue": "Transpire",
+          "sourceClue": "Transpire",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:04",
+          "answer": "OM",
+          "clue": "Club marseillais",
+          "sourceClue": "Club marseillais",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:05",
+          "answer": "MA",
+          "clue": "Possessif féminin",
+          "sourceClue": "Possessif féminin",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:06",
+          "answer": "MI",
+          "clue": "Note musicale",
+          "sourceClue": "Note musicale",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:07",
+          "answer": "EN",
+          "clue": "À l'intérieur",
+          "sourceClue": "À l'intérieur",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:08",
+          "answer": "RE",
+          "clue": "Après do",
+          "sourceClue": "Après do",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:09",
+          "answer": "ASSOMMER",
+          "clue": "Mettre K.-O.",
+          "sourceClue": "Mettre K.-O.",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:10",
+          "answer": "ROUMAINE",
+          "clue": "De Bucarest",
+          "sourceClue": "De Bucarest",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:11",
+          "answer": "RUE",
+          "clue": "Voie urbaine",
+          "sourceClue": "Voie urbaine",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:12",
+          "answer": "ECOSSE",
+          "clue": "Pays du whisky",
+          "sourceClue": "Pays du whisky",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:13",
+          "answer": "COUPON",
+          "clue": "Bon de réduction",
+          "sourceClue": "Bon de réduction",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:14",
+          "answer": "ADROIT",
+          "clue": "Très habile",
+          "sourceClue": "Très habile",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            6
+          ],
+          "cells": [
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:15",
+          "answer": "RESTER",
+          "clue": "Ne pas partir",
+          "sourceClue": "Ne pas partir",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            7
+          ],
+          "cells": [
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:16",
+          "answer": "TRESSE",
+          "clue": "Cheveux entrelacés",
+          "sourceClue": "Cheveux entrelacés",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            8
+          ],
+          "cells": [
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:17",
+          "answer": "OR",
+          "clue": "Métal précieux",
+          "sourceClue": "Métal précieux",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:18",
+          "answer": "ECART",
+          "clue": "Distance séparant",
+          "sourceClue": "Distance séparant",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:19",
+          "answer": "NI",
+          "clue": "Pas davantage",
+          "sourceClue": "Pas davantage",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:20",
+          "answer": "CODER",
+          "clue": "Programmer",
+          "sourceClue": "Programmer",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            3
+          ],
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:21",
+          "answer": "DA",
+          "clue": "Oui, en russe",
+          "sourceClue": "Oui, en russe",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:22",
+          "answer": "OURSE",
+          "clue": "Ours femelle",
+          "sourceClue": "Ours femelle",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:23",
+          "answer": "IN",
+          "clue": "À la mode",
+          "sourceClue": "À la mode",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:24",
+          "answer": "SPOTS",
+          "clue": "Courtes publicités",
+          "sourceClue": "Courtes publicités",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:25",
+          "answer": "ET",
+          "clue": "Relie deux mots",
+          "sourceClue": "Relie deux mots",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:26",
+          "answer": "SOIES",
+          "clue": "Fibres de cocon",
+          "sourceClue": "Fibres de cocon",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            3
+          ],
+          "cells": [
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:27",
+          "answer": "SE",
+          "clue": "Pronom réfléchi",
+          "sourceClue": "Pronom réfléchi",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        },
+        {
+          "wordId": "owner-flexible-complete-01:word:28",
+          "answer": "ENTRE",
+          "clue": "Au milieu",
+          "sourceClue": "Au milieu",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "reviewed-awaiting-owner",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-owner-flexible-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            3
+          ],
+          "cells": [
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "editorialProfile": "motman-relaxed-layout-human-pass"
+        }
+      ],
+      "publicationStatus": "owner-review-required",
+      "editorialProfile": "motman-relaxed-layout-human-pass",
+      "reviewCycle": "2026-07-18",
+      "shapeId": "common-flex-l-shape",
+      "layoutPolicy": "full-top-row-and-left-column-clues; free-interior; exact-topology"
+    }
+  ]
+}

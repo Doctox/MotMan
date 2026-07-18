@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "policy": "Couples courts, sourcés puis reformulés et validés humainement",
+  "entries": [
+    {
+      "answer": "DO", "clue": "Avant ré", "sourceClue": "Avant ré",
+      "length": 2, "frequency": 5.5, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "eduscol-notes",
+      "sourceUrl": "https://bnseep.eduscol.education.fr/ressources/examens/sujets/18/320/2551600/E3/U3_SUJET.pdf",
+      "editorialStatus": "human-reviewed", "conceptGroup": "NOTE_MUSICALE",
+      "semanticConflicts": [], "license": "source citée, indice original"
+    },
+    {
+      "answer": "RE", "clue": "Après do", "sourceClue": "Après do",
+      "length": 2, "frequency": 5.5, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "academie-note",
+      "sourceUrl": "https://www.cnrtl.fr/definition/academie8/note",
+      "editorialStatus": "human-reviewed", "conceptGroup": "NOTE_MUSICALE",
+      "semanticConflicts": [], "license": "source citée, indice original"
+    },
+    {
+      "answer": "MI", "clue": "Après ré", "sourceClue": "Après ré",
+      "length": 2, "frequency": 5.5, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "eduscol-notes",
+      "sourceUrl": "https://bnseep.eduscol.education.fr/ressources/examens/sujets/18/320/2551600/E3/U3_SUJET.pdf",
+      "editorialStatus": "human-reviewed", "conceptGroup": "NOTE_MUSICALE",
+      "semanticConflicts": [], "license": "source citée, indice original"
+    },
+    {
+      "answer": "FA", "clue": "Avant sol", "sourceClue": "Avant sol",
+      "length": 2, "frequency": 5.5, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "eduscol-notes",
+      "sourceUrl": "https://bnseep.eduscol.education.fr/ressources/examens/sujets/18/320/2551600/E3/U3_SUJET.pdf",
+      "editorialStatus": "human-reviewed", "conceptGroup": "NOTE_MUSICALE",
+      "semanticConflicts": [], "license": "source citée, indice original"
+    },
+    {
+      "answer": "UT", "clue": "Ancien do", "sourceClue": "Ancien do",
+      "length": 2, "frequency": 4.0, "difficulty": "hard",
+      "sourceType": "dictionary", "sourceId": "larousse-ut",
+      "sourceUrl": "https://www.larousse.fr/dictionnaires/francais/ut/80798",
+      "editorialStatus": "human-reviewed", "conceptGroup": "NOTE_MUSICALE",
+      "semanticConflicts": [], "license": "source citée, indice original"
+    },
+    {
+      "answer": "IA", "clue": "Intelligence artificielle", "sourceClue": "Intelligence artificielle",
+      "length": 2, "frequency": 5.5, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "academie-ia",
+      "sourceUrl": "https://www.academie-francaise.fr/sites/academie-francaise.fr/files/vocabulaire_tic_2017.pdf",
+      "editorialStatus": "human-reviewed", "conceptGroup": "INTELLIGENCE_ARTIFICIELLE",
+      "semanticConflicts": [], "license": "source citée, indice original"
+    },
+    {
+      "answer": "PI", "clue": "Environ 3,14", "sourceClue": "Environ 3,14",
+      "length": 2, "frequency": 5.0, "difficulty": "normal",
+      "sourceType": "dictionary", "sourceId": "larousse-pi",
+      "sourceUrl": "https://www.larousse.fr/dictionnaires/francais/pi/60674",
+      "editorialStatus": "human-reviewed", "conceptGroup": "NOMBRE_PI",
+      "semanticConflicts": [], "license": "source citée, indice original"
+    },
+    {
+      "answer": "AN", "clue": "Douze mois", "sourceClue": "Douze mois",
+      "length": 2, "frequency": 6.5, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-an", "sourceUrl": "https://www.cnrtl.fr/definition/an",
+      "editorialStatus": "human-reviewed", "conceptGroup": "ANNEE", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "AS", "clue": "Champion", "sourceClue": "Champion",
+      "length": 2, "frequency": 5.8, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-as", "sourceUrl": "https://www.cnrtl.fr/definition/as",
+      "editorialStatus": "human-reviewed", "conceptGroup": "CHAMPION", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "OR", "clue": "Métal précieux", "sourceClue": "Métal précieux",
+      "length": 2, "frequency": 6.0, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-or", "sourceUrl": "https://www.cnrtl.fr/definition/or",
+      "editorialStatus": "human-reviewed", "conceptGroup": "OR_METAL", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "OS", "clue": "Pièce du squelette", "sourceClue": "Pièce du squelette",
+      "length": 2, "frequency": 5.5, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-os", "sourceUrl": "https://www.cnrtl.fr/definition/os",
+      "editorialStatus": "human-reviewed", "conceptGroup": "OS_SQUELETTE", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "LA", "clue": "Note musicale", "sourceClue": "Note musicale",
+      "length": 2, "frequency": 5.5, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-la", "sourceUrl": "https://www.cnrtl.fr/definition/la",
+      "editorialStatus": "human-reviewed", "conceptGroup": "NOTE_MUSICALE", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "SI", "clue": "Sous condition", "sourceClue": "Sous condition",
+      "length": 2, "frequency": 6.0, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-si", "sourceUrl": "https://www.cnrtl.fr/definition/si",
+      "editorialStatus": "human-reviewed", "conceptGroup": "CONJONCTION_SI", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "IL", "clue": "Pronom masculin", "sourceClue": "Pronom masculin",
+      "length": 2, "frequency": 6.0, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-il", "sourceUrl": "https://www.cnrtl.fr/definition/il",
+      "editorialStatus": "human-reviewed", "conceptGroup": "PRONOM_IL", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "ON", "clue": "Pronom indéfini", "sourceClue": "Pronom indéfini",
+      "length": 2, "frequency": 6.0, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-on", "sourceUrl": "https://www.cnrtl.fr/definition/on",
+      "editorialStatus": "human-reviewed", "conceptGroup": "PRONOM_ON", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "AH", "clue": "Cri de surprise", "sourceClue": "Cri de surprise",
+      "length": 2, "frequency": 4.5, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-ah", "sourceUrl": "https://www.cnrtl.fr/definition/ah",
+      "editorialStatus": "human-reviewed", "conceptGroup": "INTERJECTION_SURPRISE", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "EX", "clue": "Ancien partenaire", "sourceClue": "Ancien partenaire",
+      "length": 2, "frequency": 5.0, "difficulty": "normal",
+      "sourceType": "dictionary", "sourceId": "cnrtl-ex", "sourceUrl": "https://www.cnrtl.fr/definition/ex",
+      "editorialStatus": "human-reviewed", "conceptGroup": "EX_PARTENAIRE", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "IF", "clue": "Conifère", "sourceClue": "Conifère",
+      "length": 2, "frequency": 4.5, "difficulty": "normal",
+      "sourceType": "dictionary", "sourceId": "cnrtl-if", "sourceUrl": "https://www.cnrtl.fr/definition/if",
+      "editorialStatus": "human-reviewed", "conceptGroup": "IF_ARBRE", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "RU", "clue": "Petit ruisseau", "sourceClue": "Petit ruisseau",
+      "length": 2, "frequency": 3.8, "difficulty": "hard",
+      "sourceType": "dictionary", "sourceId": "cnrtl-ru", "sourceUrl": "https://www.cnrtl.fr/definition/ru",
+      "editorialStatus": "human-reviewed", "conceptGroup": "RUISSEAU", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "LU", "clue": "Parcouru des yeux", "sourceClue": "Parcouru des yeux",
+      "length": 2, "frequency": 5.0, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-lire", "sourceUrl": "https://www.cnrtl.fr/definition/lire",
+      "editorialStatus": "human-reviewed", "conceptGroup": "LIRE_PARTICIPE", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    },
+    {
+      "answer": "VU", "clue": "Aperçu", "sourceClue": "Aperçu",
+      "length": 2, "frequency": 5.5, "difficulty": "easy",
+      "sourceType": "dictionary", "sourceId": "cnrtl-voir", "sourceUrl": "https://www.cnrtl.fr/definition/voir",
+      "editorialStatus": "human-reviewed", "conceptGroup": "VOIR_PARTICIPE", "semanticConflicts": [],
+      "license": "source citée, indice original"
+    }
+  ]
+}

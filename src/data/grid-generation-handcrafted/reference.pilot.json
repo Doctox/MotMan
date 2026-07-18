@@ -1,0 +1,5465 @@
+{
+  "version": 1,
+  "kind": "handcrafted-reference-pilot",
+  "publicationPolicy": "Staging only until explicit visual and human play review.",
+  "grids": [
+    {
+      "id": "reference-easy-child-01",
+      "columns": 9,
+      "rows": 10,
+      "difficulty": "easy",
+      "audience": "enfants de 7 à 14 ans",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "reference-easy-child-01:word:01",
+          "answer": "IL",
+          "clue": "Pronom masculin",
+          "sourceClue": "Pronom masculin",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "IL",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:02",
+          "answer": "BAS",
+          "clue": "En dessous",
+          "sourceClue": "En dessous",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "BAS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:03",
+          "answer": "PIC",
+          "clue": "Sommet pointu",
+          "sourceClue": "Sommet pointu",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "PIC",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:04",
+          "answer": "ON",
+          "clue": "Pronom indéfini",
+          "sourceClue": "Pronom indéfini",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "ON",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:05",
+          "answer": "BALLE",
+          "clue": "Petite sphère",
+          "sourceClue": "Petite sphère",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "BALLE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:06",
+          "answer": "REMUER",
+          "clue": "Bouger vivement",
+          "sourceClue": "Bouger vivement",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "REMUER",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            2
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:07",
+          "answer": "COTES",
+          "clue": "Bords marins",
+          "sourceClue": "Bords marins",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "COTE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            1
+          ],
+          "cells": [
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:08",
+          "answer": "HIER",
+          "clue": "Jour précédent",
+          "sourceClue": "Jour précédent",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "HIER",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:09",
+          "answer": "FA",
+          "clue": "Après mi",
+          "sourceClue": "Après mi",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "FA",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:10",
+          "answer": "DOS",
+          "clue": "Arrière du corps",
+          "sourceClue": "Arrière du corps",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "DOS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            5
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:11",
+          "answer": "ARC",
+          "clue": "Arme courbée",
+          "sourceClue": "Arme courbée",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "ARC",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:12",
+          "answer": "BOUE",
+          "clue": "Terre mouillée",
+          "sourceClue": "Terre mouillée",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "BOUE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            4
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:13",
+          "answer": "IMAGE",
+          "clue": "Dessin ou photo",
+          "sourceClue": "Dessin ou photo",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "IMAGE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:14",
+          "answer": "LU",
+          "clue": "Parcouru des yeux",
+          "sourceClue": "Parcouru des yeux",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "LU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            6
+          ],
+          "cells": [
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:15",
+          "answer": "MER",
+          "clue": "Grande eau salée",
+          "sourceClue": "Grande eau salée",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "MER",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:16",
+          "answer": "CIEL",
+          "clue": "Voûte bleue",
+          "sourceClue": "Voûte bleue",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "CIEL",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            4
+          ],
+          "cells": [
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:17",
+          "answer": "BOL",
+          "clue": "",
+          "sourceClue": "Indice illustré : bol",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "image-reviewed",
+          "sourceType": "image",
+          "sourceId": "twemoji-bol",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/bol.svg",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "BOL",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/bol.svg",
+            "alt": "Bol",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "reference-easy-child-01:word:18",
+          "answer": "AN",
+          "clue": "Douze mois",
+          "sourceClue": "Douze mois",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "AN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:19",
+          "answer": "PLUS",
+          "clue": "Davantage",
+          "sourceClue": "Davantage",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "PLUS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:20",
+          "answer": "ILE",
+          "clue": "Entourée d'eau",
+          "sourceClue": "Entourée d'eau",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "ILE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:21",
+          "answer": "CERF",
+          "clue": "Porte des bois",
+          "sourceClue": "Porte des bois",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "CERF",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:22",
+          "answer": "BETES",
+          "clue": "Animaux",
+          "sourceClue": "Animaux",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "BETE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:23",
+          "answer": "AMER",
+          "clue": "Goût du pamplemousse",
+          "sourceClue": "Goût du pamplemousse",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "AMER",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:24",
+          "answer": "ROI",
+          "clue": "",
+          "sourceClue": "Indice illustré : roi",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "image-reviewed",
+          "sourceType": "image",
+          "sourceId": "twemoji-roi",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/roi.svg",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "ROI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            2,
+            3
+          ],
+          "cells": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/roi.svg",
+            "alt": "Roi",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "reference-easy-child-01:word:25",
+          "answer": "OR",
+          "clue": "Métal précieux",
+          "sourceClue": "Métal précieux",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "OR",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:26",
+          "answer": "CHARME",
+          "clue": "Pouvoir de plaire",
+          "sourceClue": "Pouvoir de plaire",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "CHARME",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:27",
+          "answer": "POULE",
+          "clue": "",
+          "sourceClue": "Indice illustré : poule",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "image-reviewed",
+          "sourceType": "image",
+          "sourceId": "twemoji-poule",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/poule.svg",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "POULE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            7
+          ],
+          "cells": [
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/poule.svg",
+            "alt": "Poule",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "reference-easy-child-01:word:28",
+          "answer": "FAIM",
+          "clue": "Besoin de manger",
+          "sourceClue": "Besoin de manger",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "FAIM",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:29",
+          "answer": "DO",
+          "clue": "Avant ré",
+          "sourceClue": "Avant ré",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "DO",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:30",
+          "answer": "SEUL",
+          "clue": "Sans compagnie",
+          "sourceClue": "Sans compagnie",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "SEUL",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:31",
+          "answer": "CAR",
+          "clue": "Autocar",
+          "sourceClue": "Autocar",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "CAR",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-easy-child-01:word:32",
+          "answer": "BEC",
+          "clue": "Bouche d'oiseau",
+          "sourceClue": "Bouche d'oiseau",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-child-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-child-7-14",
+          "conceptGroup": "BEC",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            5
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ]
+        }
+      ],
+      "difficultyMix": {
+        "easy": 31,
+        "normal": 1
+      },
+      "imageCount": 3,
+      "publicationStatus": "owner-approved-staging",
+      "humanReview": {
+        "status": "approved",
+        "reviewedAt": "2026-07-14",
+        "note": "Grille approuvée visuellement par le propriétaire comme grille étalon."
+      },
+      "provenance": {
+        "answers": "Lexique 3.83 et liste scolaire Éduscol",
+        "clues": "Formulations originales MotMan, revue manuelle du 2026-07-14",
+        "geometry": "Remplissage sous contraintes puis acceptation mot par mot"
+      },
+      "reviewSummary": {
+        "topologyValid": true,
+        "images": 3,
+        "errors": 0,
+        "layoutMetrics": {
+          "clueCells": 27,
+          "singleClueCells": 22,
+          "doubleClueCells": 5,
+          "maxAdjacentClues": 4,
+          "adjacentCluePairs": 11,
+          "interiorAdjacentCluePairs": 2,
+          "adjacentClueRuns": [
+            {
+              "axis": "row",
+              "index": 0,
+              "start": 1,
+              "length": 3
+            },
+            {
+              "axis": "row",
+              "index": 0,
+              "start": 6,
+              "length": 3
+            },
+            {
+              "axis": "row",
+              "index": 1,
+              "start": 4,
+              "length": 2
+            },
+            {
+              "axis": "column",
+              "index": 0,
+              "start": 1,
+              "length": 3
+            },
+            {
+              "axis": "column",
+              "index": 0,
+              "start": 6,
+              "length": 4
+            },
+            {
+              "axis": "column",
+              "index": 1,
+              "start": 4,
+              "length": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "reference-normal-adult-01",
+      "columns": 9,
+      "rows": 10,
+      "difficulty": "normal",
+      "audience": "adultes grand public",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          9,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "reference-normal-adult-01:word:01",
+          "answer": "SI",
+          "clue": "Note après la",
+          "sourceClue": "Note après la",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "SI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:02",
+          "answer": "AN",
+          "clue": "Tour du calendrier",
+          "sourceClue": "Tour du calendrier",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "AN",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:03",
+          "answer": "EPIS",
+          "clue": "Têtes de blé",
+          "sourceClue": "Têtes de blé",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "EPIS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:04",
+          "answer": "MEGAPOLE",
+          "clue": "Ville géante",
+          "sourceClue": "Ville géante",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "MEGAPOLE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:05",
+          "answer": "AZIMUT",
+          "clue": "Angle de direction",
+          "sourceClue": "Angle de direction",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "AZIMUT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:06",
+          "answer": "TIR",
+          "clue": "Action de viser",
+          "sourceClue": "Action de viser",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "TIR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:07",
+          "answer": "RE",
+          "clue": "Note après do",
+          "sourceClue": "Note après do",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "RE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:08",
+          "answer": "ETAT",
+          "clue": "Nation organisée",
+          "sourceClue": "Nation organisée",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "ETAT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:09",
+          "answer": "AGE",
+          "clue": "Nombre d'années",
+          "sourceClue": "Nombre d'années",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "AGE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            5
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:10",
+          "answer": "ATTENUER",
+          "clue": "Rendre moins fort",
+          "sourceClue": "Rendre moins fort",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "ATTENUER",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:11",
+          "answer": "NEIGE",
+          "clue": "",
+          "sourceClue": "Indice illustré : neige",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "image-reviewed",
+          "sourceType": "image",
+          "sourceId": "twemoji-neige",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/neige.svg",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "NEIGE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/neige.svg",
+            "alt": "Neige",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:12",
+          "answer": "OR",
+          "clue": "Métal des médailles",
+          "sourceClue": "Métal des médailles",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "OR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            6
+          ],
+          "cells": [
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:13",
+          "answer": "ESCOMPTE",
+          "clue": "Réduction commerciale",
+          "sourceClue": "Réduction commerciale",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "ESCOMPTE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:14",
+          "answer": "AMAS",
+          "clue": "Tas compact",
+          "sourceClue": "Tas compact",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "AMAS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:15",
+          "answer": "NEZ",
+          "clue": "",
+          "sourceClue": "Indice illustré : nez",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "image-reviewed",
+          "sourceType": "image",
+          "sourceId": "twemoji-nez",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/nez.svg",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "NEZ",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/nez.svg",
+            "alt": "Nez",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:16",
+          "answer": "EPURE",
+          "clue": "Dessin technique",
+          "sourceClue": "Dessin technique",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "EPURE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:17",
+          "answer": "POT",
+          "clue": "Récipient en terre",
+          "sourceClue": "Récipient en terre",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "POT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:18",
+          "answer": "IL",
+          "clue": "Pronom masculin",
+          "sourceClue": "Pronom masculin",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "IL",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:19",
+          "answer": "SEC",
+          "clue": "Sans humidité",
+          "sourceClue": "Sans humidité",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "SEC",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:20",
+          "answer": "GITE",
+          "clue": "Logement de passage",
+          "sourceClue": "Logement de passage",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "GITE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            3
+          ],
+          "cells": [
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:21",
+          "answer": "AMI",
+          "clue": "Proche choisi",
+          "sourceClue": "Proche choisi",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "AMI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:22",
+          "answer": "CAGEOT",
+          "clue": "Caisse à légumes",
+          "sourceClue": "Caisse à légumes",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "CAGEOT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            7
+          ],
+          "cells": [
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:23",
+          "answer": "ON",
+          "clue": "Pronom indéfini",
+          "sourceClue": "Pronom indéfini",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "ON",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:24",
+          "answer": "RITES",
+          "clue": "Gestes cérémoniels",
+          "sourceClue": "Gestes cérémoniels",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "RITES",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:25",
+          "answer": "TAU",
+          "clue": "T grec",
+          "sourceClue": "T grec",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "TAU",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            6
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:26",
+          "answer": "TERRE",
+          "clue": "Notre planète",
+          "sourceClue": "Notre planète",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "TERRE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            8
+          ],
+          "cells": [
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:27",
+          "answer": "LEGO",
+          "clue": "Marque de briques",
+          "sourceClue": "Marque de briques",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "LEGO",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            4
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              9,
+              4
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:28",
+          "answer": "ANE",
+          "clue": "Cousin du cheval",
+          "sourceClue": "Cousin du cheval",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "ANE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:29",
+          "answer": "TIC",
+          "clue": "Geste involontaire",
+          "sourceClue": "Geste involontaire",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "TIC",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-01:word:30",
+          "answer": "NEM",
+          "clue": "Rouleau vietnamien",
+          "sourceClue": "Rouleau vietnamien",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "NEM",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            5
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ]
+        }
+      ],
+      "difficultyMix": {
+        "easy": 9,
+        "normal": 18,
+        "hard": 3
+      },
+      "imageCount": 2,
+      "publicationStatus": "owner-approved-staging",
+      "humanReview": {
+        "status": "approved",
+        "reviewedAt": "2026-07-14",
+        "note": "Grille normale approuvée par le propriétaire."
+      },
+      "provenance": {
+        "answers": "Lexique 3.83, filtrage de fréquence et revue mot par mot",
+        "clues": "Formulations originales MotMan, revue manuelle du 2026-07-14",
+        "geometry": "Silhouette directe distincte puis remplissage sous contraintes"
+      },
+      "reviewSummary": {
+        "topologyValid": true,
+        "images": 2,
+        "errors": 0,
+        "layoutMetrics": {
+          "clueCells": 25,
+          "singleClueCells": 20,
+          "doubleClueCells": 5,
+          "maxAdjacentClues": 4,
+          "adjacentCluePairs": 11,
+          "interiorAdjacentCluePairs": 2,
+          "adjacentClueRuns": [
+            {
+              "axis": "row",
+              "index": 0,
+              "start": 1,
+              "length": 2
+            },
+            {
+              "axis": "row",
+              "index": 0,
+              "start": 5,
+              "length": 4
+            },
+            {
+              "axis": "row",
+              "index": 1,
+              "start": 3,
+              "length": 2
+            },
+            {
+              "axis": "column",
+              "index": 0,
+              "start": 1,
+              "length": 4
+            },
+            {
+              "axis": "column",
+              "index": 0,
+              "start": 7,
+              "length": 3
+            },
+            {
+              "axis": "column",
+              "index": 1,
+              "start": 5,
+              "length": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "reference-normal-adult-02",
+      "columns": 9,
+      "rows": 10,
+      "difficulty": "normal",
+      "audience": "adultes, niveau grand public intermédiaire",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          5
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "reference-normal-adult-02:word:01",
+          "answer": "SI",
+          "clue": "Introduit une condition",
+          "sourceClue": "Introduit une condition",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "SI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:02",
+          "answer": "BAL",
+          "clue": "Soirée des débutantes",
+          "sourceClue": "Soirée des débutantes",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "BAL",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:03",
+          "answer": "AIR",
+          "clue": "Morceau à fredonner",
+          "sourceClue": "Morceau à fredonner",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "AIR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:04",
+          "answer": "EVIDENCE",
+          "clue": "S'impose naturellement",
+          "sourceClue": "S'impose naturellement",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "EVIDENCE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:05",
+          "answer": "SITOT",
+          "clue": "Sans aucun délai",
+          "sourceClue": "Sans aucun délai",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "SITOT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:06",
+          "answer": "IV",
+          "clue": "Quatre, à Rome",
+          "sourceClue": "Quatre, à Rome",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "IV",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            6
+          ],
+          "cells": [
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:07",
+          "answer": "AS",
+          "clue": "Carte ou champion",
+          "sourceClue": "Carte ou champion",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "AS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:08",
+          "answer": "SEL",
+          "clue": "Fleur de Guérande",
+          "sourceClue": "Fleur de Guérande",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "SEL",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:09",
+          "answer": "COTE",
+          "clue": "Valeur boursière",
+          "sourceClue": "Valeur boursière",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "COTE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:10",
+          "answer": "AME",
+          "clue": "Principe vital",
+          "sourceClue": "Principe vital",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "AME",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            5
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:11",
+          "answer": "CRI",
+          "clue": "Voix de détresse",
+          "sourceClue": "Voix de détresse",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "CRI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            4
+          ],
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:12",
+          "answer": "FIN",
+          "clue": "Dernier acte",
+          "sourceClue": "Dernier acte",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "FIN",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:13",
+          "answer": "BLE",
+          "clue": "Or des moissons",
+          "sourceClue": "Or des moissons",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "BLE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            5
+          ],
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:14",
+          "answer": "OR",
+          "clue": "But des alchimistes",
+          "sourceClue": "But des alchimistes",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "OR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            1
+          ],
+          "cells": [
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:15",
+          "answer": "FILS",
+          "clue": "Descendant masculin",
+          "sourceClue": "Descendant masculin",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "FILS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            4
+          ],
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:16",
+          "answer": "PIED",
+          "clue": "",
+          "sourceClue": "Indice illustré : pied",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "image-reviewed",
+          "sourceType": "image",
+          "sourceId": "twemoji-pied",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/pied.svg",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "PIED",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/pied.svg",
+            "alt": "Pied",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:17",
+          "answer": "NET",
+          "clue": "Sans bavure",
+          "sourceClue": "Sans bavure",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "NET",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            5
+          ],
+          "cells": [
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:18",
+          "answer": "BESACE",
+          "clue": "Sac de pèlerin",
+          "sourceClue": "Sac de pèlerin",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "BESACE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:19",
+          "answer": "AVISO",
+          "clue": "Navire d'escorte",
+          "sourceClue": "Navire d'escorte",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "AVISO",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:20",
+          "answer": "LIT",
+          "clue": "Meuble horizontal",
+          "sourceClue": "Meuble horizontal",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "LIT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:21",
+          "answer": "AN",
+          "clue": "Révolution terrestre",
+          "sourceClue": "Révolution terrestre",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "AN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:22",
+          "answer": "ICI",
+          "clue": "En ce lieu",
+          "sourceClue": "En ce lieu",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "ICI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:23",
+          "answer": "REVUE",
+          "clue": "Publication périodique",
+          "sourceClue": "Publication périodique",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "REVUE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:24",
+          "answer": "DOSE",
+          "clue": "Partie prescrite",
+          "sourceClue": "Partie prescrite",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "DOSE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:25",
+          "answer": "ETE",
+          "clue": "Temps des moissons",
+          "sourceClue": "Temps des moissons",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "ETE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:26",
+          "answer": "LARBIN",
+          "clue": "Domestique servile",
+          "sourceClue": "Domestique servile",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "LARBIN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            6
+          ],
+          "cells": [
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:27",
+          "answer": "TAIRE",
+          "clue": "Garder sous silence",
+          "sourceClue": "Garder sous silence",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "TAIRE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:28",
+          "answer": "MILLE",
+          "clue": "Dix centaines",
+          "sourceClue": "Dix centaines",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "MILLE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            7
+          ],
+          "cells": [
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:29",
+          "answer": "IA",
+          "clue": "Esprit artificiel",
+          "sourceClue": "Esprit artificiel",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "IA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:30",
+          "answer": "FOI",
+          "clue": "Vertu théologale",
+          "sourceClue": "Vertu théologale",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "FOI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            2
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-02:word:31",
+          "answer": "EST",
+          "clue": "Levant cardinal",
+          "sourceClue": "Levant cardinal",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-02",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "human-reviewed-general-adult",
+          "conceptGroup": "EST",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            8
+          ],
+          "cells": [
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        }
+      ],
+      "difficultyMix": {
+        "easy": 7,
+        "normal": 19,
+        "hard": 5
+      },
+      "imageCount": 1,
+      "publicationStatus": "owner-approved-staging",
+      "humanReview": {
+        "status": "approved",
+        "reviewedAt": "2026-07-14",
+        "note": "Grille approuvée puis reclassée en normal par le propriétaire."
+      },
+      "provenance": {
+        "answers": "Lexique 3.83, fréquence renforcée sur les croisements courts",
+        "clues": "Formulations originales MotMan, revue manuelle du 2026-07-14",
+        "geometry": "Silhouette directe distincte puis remplissage sous contraintes"
+      },
+      "reviewSummary": {
+        "topologyValid": true,
+        "images": 1,
+        "errors": 0,
+        "layoutMetrics": {
+          "clueCells": 27,
+          "singleClueCells": 23,
+          "doubleClueCells": 4,
+          "maxAdjacentClues": 6,
+          "adjacentCluePairs": 11,
+          "interiorAdjacentCluePairs": 2,
+          "adjacentClueRuns": [
+            {
+              "axis": "row",
+              "index": 0,
+              "start": 1,
+              "length": 3
+            },
+            {
+              "axis": "row",
+              "index": 0,
+              "start": 6,
+              "length": 3
+            },
+            {
+              "axis": "row",
+              "index": 1,
+              "start": 4,
+              "length": 2
+            },
+            {
+              "axis": "column",
+              "index": 0,
+              "start": 1,
+              "length": 6
+            },
+            {
+              "axis": "column",
+              "index": 1,
+              "start": 7,
+              "length": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "reference-normal-adult-03",
+      "columns": 9,
+      "rows": 10,
+      "difficulty": "normal",
+      "audience": "adultes, niveau grand public intermédiaire",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          5
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "reference-normal-adult-03:word:01",
+          "answer": "OS",
+          "clue": "Pièce du squelette",
+          "sourceClue": "Pièce du squelette",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "OS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:02",
+          "answer": "ANS",
+          "clue": "Tours du Soleil",
+          "sourceClue": "Tours du Soleil",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "ANS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:03",
+          "answer": "PRE",
+          "clue": "Domaine de Pan",
+          "sourceClue": "Domaine de Pan",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "PRE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:04",
+          "answer": "BOUCLIER",
+          "clue": "Attribut d'Athéna",
+          "sourceClue": "Attribut d'Athéna",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "BOUCLIER",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:05",
+          "answer": "UNIR",
+          "clue": "Faire alliance",
+          "sourceClue": "Faire alliance",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "UNIR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:06",
+          "answer": "EVE",
+          "clue": "Première exilée",
+          "sourceClue": "Première exilée",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "EVE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:07",
+          "answer": "TAC",
+          "clue": "Réponse du tic",
+          "sourceClue": "Réponse du tic",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "TAC",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:08",
+          "answer": "PECHE",
+          "clue": "Faute originelle",
+          "sourceClue": "Faute originelle",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "PECHE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:09",
+          "answer": "KARMA",
+          "clue": "Poids des actes",
+          "sourceClue": "Poids des actes",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "KARMA",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:10",
+          "answer": "CAP",
+          "clue": "Pointe marine",
+          "sourceClue": "Pointe marine",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "CAP",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:11",
+          "answer": "TRES",
+          "clue": "Fortement",
+          "sourceClue": "Fortement",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "TRES",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            4
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:12",
+          "answer": "AIL",
+          "clue": "Chasse-vampires",
+          "sourceClue": "Chasse-vampires",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "AIL",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:13",
+          "answer": "SENS",
+          "clue": "Facultés corporelles",
+          "sourceClue": "Facultés corporelles",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "SENS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            4
+          ],
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:14",
+          "answer": "SEIN",
+          "clue": "Giron maternel",
+          "sourceClue": "Giron maternel",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "SEIN",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:15",
+          "answer": "RUE",
+          "clue": "Plante amère",
+          "sourceClue": "Plante amère",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "RUE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            5
+          ],
+          "cells": [
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:16",
+          "answer": "ABUS",
+          "clue": "Excès de pouvoir",
+          "sourceClue": "Excès de pouvoir",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "ABUS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:17",
+          "answer": "NON",
+          "clue": "Mot du refus",
+          "sourceClue": "Mot du refus",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "NON",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:18",
+          "answer": "SUITE",
+          "clue": "Danses baroques",
+          "sourceClue": "Danses baroques",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "SUITE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:19",
+          "answer": "PIE",
+          "clue": "Oiseau de Rossini",
+          "sourceClue": "Oiseau de Rossini",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "PIE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:20",
+          "answer": "REVE",
+          "clue": "Songe nocturne",
+          "sourceClue": "Songe nocturne",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "REVE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:21",
+          "answer": "ERE",
+          "clue": "Temps géologique",
+          "sourceClue": "Temps géologique",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "ERE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:22",
+          "answer": "CRACK",
+          "clue": "Champion hippique",
+          "sourceClue": "Champion hippique",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "hard",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "CRACK",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:23",
+          "answer": "CHATS",
+          "clue": "Félins de Bastet",
+          "sourceClue": "Félins de Bastet",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "CHATS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:24",
+          "answer": "LA",
+          "clue": "Note du diapason",
+          "sourceClue": "Note du diapason",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "LA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:25",
+          "answer": "PLAIE",
+          "clue": "Fléau d'Égypte",
+          "sourceClue": "Fléau d'Égypte",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "PLAIE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:26",
+          "answer": "ERRER",
+          "clue": "Marcher sans but",
+          "sourceClue": "Marcher sans but",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "ERRER",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            6
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:27",
+          "answer": "TASSE",
+          "clue": "",
+          "sourceClue": "Indice illustré : tasse",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "image-reviewed",
+          "sourceType": "image",
+          "sourceId": "twemoji-tasse",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/tasse.svg",
+          "difficulty": "easy",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "TASSE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            8
+          ],
+          "cells": [
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/tasse.svg",
+            "alt": "Tasse",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:28",
+          "answer": "MENU",
+          "clue": "Carte du repas",
+          "sourceClue": "Carte du repas",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "easy",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "MENU",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:29",
+          "answer": "CAS",
+          "clue": "Sujet clinique",
+          "sourceClue": "Sujet clinique",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "CAS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ]
+        },
+        {
+          "wordId": "reference-normal-adult-03:word:30",
+          "answer": "PLI",
+          "clue": "Secret d'origami",
+          "sourceClue": "Secret d'origami",
+          "definitionStatus": "reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-original-normal-pilot-03",
+          "sourceUrl": "https://www.lexique.org/",
+          "difficulty": "normal",
+          "audienceEvidence": "owner-classified-general-adult",
+          "conceptGroup": "PLI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ]
+        }
+      ],
+      "difficultyMix": {
+        "easy": 7,
+        "hard": 5,
+        "normal": 18
+      },
+      "imageCount": 1,
+      "publicationStatus": "owner-approved-staging",
+      "humanReview": {
+        "status": "approved",
+        "reviewedAt": "2026-07-14",
+        "note": "Silhouette approuvée et contenu classé normal par le propriétaire."
+      },
+      "provenance": {
+        "answers": "Lexique 3.83, formes canoniques et fréquence minimale contrôlée",
+        "clues": "Formulations originales MotMan, classées normales par le propriétaire",
+        "geometry": "Recherche conjointe silhouette-remplissage, flèches directes uniquement"
+      },
+      "reviewSummary": {
+        "topologyValid": true,
+        "images": 1,
+        "errors": 0,
+        "layoutMetrics": {
+          "clueCells": 26,
+          "singleClueCells": 22,
+          "doubleClueCells": 4,
+          "maxAdjacentClues": 4,
+          "adjacentCluePairs": 12,
+          "interiorAdjacentCluePairs": 3,
+          "adjacentClueRuns": [
+            {
+              "axis": "row",
+              "index": 0,
+              "start": 1,
+              "length": 3
+            },
+            {
+              "axis": "row",
+              "index": 0,
+              "start": 6,
+              "length": 3
+            },
+            {
+              "axis": "row",
+              "index": 1,
+              "start": 4,
+              "length": 2
+            },
+            {
+              "axis": "column",
+              "index": 0,
+              "start": 1,
+              "length": 4
+            },
+            {
+              "axis": "column",
+              "index": 0,
+              "start": 7,
+              "length": 3
+            },
+            {
+              "axis": "column",
+              "index": 1,
+              "start": 5,
+              "length": 2
+            },
+            {
+              "axis": "column",
+              "index": 4,
+              "start": 7,
+              "length": 2
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

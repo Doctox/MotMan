@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f8f3e9" />
+  <title>MotMan · Laboratoire d’animations</title>
+  <style>
+    :root{font-family:Georgia,'Times New Roman',serif;color:#073e35;background:#dedfd7;color-scheme:light}
+    *{box-sizing:border-box}
+    body{margin:0;min-width:320px;background:#dedfd7}
+    button{font:inherit}
+    .shell{width:min(100%,920px);min-height:100dvh;margin:auto;padding:24px clamp(16px,4vw,42px) 42px;background:#fbf7ee radial-gradient(#d7c8ad55 .8px,transparent .8px);background-size:8px 8px;box-shadow:0 0 42px #173e3422}
+    header{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start;padding-bottom:22px;border-bottom:1px solid #d8ccb8}
+    .eyebrow{margin:0 0 7px;color:#ca4e2c;font:700 10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(30px,6vw,52px);font-weight:500;line-height:.98;letter-spacing:-.035em}
+    header p:last-child{max-width:570px;margin:12px 0 0;color:#5e6c66;font:400 12px/1.55 Arial,sans-serif}
+    .motion-toggle{min-width:126px;height:42px;padding:0 15px;border:1px solid #b8a98f;border-radius:22px;background:#fffaf1;color:#073e35;cursor:pointer;font:700 11px Arial,sans-serif;box-shadow:0 4px 12px #3f342817}
+    .summary{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 22px}
+    .summary span{padding:7px 10px;border:1px solid #d8ccb8;border-radius:18px;background:#fffaf3;color:#53655e;font:700 9px Arial,sans-serif;letter-spacing:.04em}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+    article{min-width:0;padding:13px 11px 14px;border:1px solid #d9ceba;border-radius:17px;background:#fffaf2;box-shadow:0 8px 22px #17382f12;text-align:center}
+    .stage{position:relative;width:min(100%,220px);aspect-ratio:1;margin:auto;display:grid;place-items:center;isolation:isolate}
+    .portrait{position:relative;z-index:1;width:47%;height:47%;border-radius:50%;object-fit:cover;background:#eee3d1;box-shadow:0 0 0 3px #fff9ed,0 0 0 5px #c8ae70,0 0 0 7px #fff9ed,0 0 0 8px #718d80}
+    .effect{position:absolute;z-index:2;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
+    .rarity{display:inline-flex;align-items:center;min-height:20px;padding:0 8px;border-radius:10px;background:#ece7db;color:#58645f;font:700 7px Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+    [data-rarity="singulier"] .rarity{background:#e7efe8;color:#54705d}
+    [data-rarity="rare"] .rarity{background:#dceceb;color:#266f6b}
+    [data-rarity="precieux"] .rarity{background:#f2e5c8;color:#866625}
+    [data-rarity="exceptionnel"] .rarity{background:#e1e8f1;color:#395d83}
+    [data-rarity="legendaire"] .rarity{background:#0b4a3f;color:#f4d98a}
+    [data-rarity="normal"]{order:1}[data-rarity="singulier"]{order:2}[data-rarity="rare"]{order:3}
+    [data-rarity="precieux"]{order:4}[data-rarity="exceptionnel"]{order:5}[data-rarity="legendaire"]{order:6}
+    h2{min-height:24px;margin:8px 0 2px;font-size:clamp(17px,2.4vw,22px);font-weight:600;line-height:1.08}
+    article p{min-height:30px;margin:5px auto 0;color:#67746f;font:400 9px/1.45 Arial,sans-serif}
+    footer{margin-top:23px;padding-top:15px;border-top:1px solid #d8ccb8;display:flex;justify-content:space-between;gap:16px;color:#6b756f;font:400 9px/1.5 Arial,sans-serif}
+    footer strong{color:#073e35}
+    @media(max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shell{padding-inline:12px}header{grid-template-columns:1fr}.motion-toggle{justify-self:start}.stage{width:min(100%,185px)}}
+    @media(max-width:370px){.grid{gap:8px}article{padding-inline:6px}.stage{width:154px}h2{font-size:16px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <p class="eyebrow">Laboratoire MotMan</p>
+        <h1>Animations de profil</h1>
+        <p>Vingt boucles raster transparentes, compilées en APNG. Aucun mouvement n’est produit par CSS ou SVG : chaque image contient sa propre animation.</p>
+      </div>
+      <button class="motion-toggle" type="button" aria-pressed="false">Figer les effets</button>
+    </header>
+
+    <div class="summary" aria-label="Caractéristiques du prototype">
+      <span>224 × 224 px</span><span>APNG transparent</span><span>Boucle native</span><span>Raster optimisé</span>
+    </div>
+
+    <section class="grid" aria-label="Comparaison des animations">
+      <article data-rarity="normal">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Éclat" /><img class="effect" src="/assets/animations/lab/eclat.png" data-apng="/assets/animations/lab/eclat.png" data-poster="/assets/animations/lab/eclat-poster.webp" alt="" /></div>
+        <span class="rarity">Normal</span><h2>Éclat</h2><p>Un reflet doré parcourt doucement le portrait.</p>
+      </article>
+      <article data-rarity="normal">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Étincelle" /><img class="effect" src="/assets/animations/lab/etincelle.png" data-apng="/assets/animations/lab/etincelle.png" data-poster="/assets/animations/lab/etincelle-poster.webp" alt="" /></div>
+        <span class="rarity">Normal</span><h2>Étincelle</h2><p>Une petite lumière s’ouvre puis se referme.</p>
+      </article>
+      <article data-rarity="normal">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Poussière d’or" /><img class="effect" src="/assets/animations/lab/poussiere-dor.png" data-apng="/assets/animations/lab/poussiere-dor.png" data-poster="/assets/animations/lab/poussiere-dor-poster.webp" alt="" /></div>
+        <span class="rarity">Normal</span><h2>Poussière d’or</h2><p>Quelques grains lumineux dérivent sans insister.</p>
+      </article>
+      <article data-rarity="normal">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Souffle" /><img class="effect" src="/assets/animations/lab/souffle.png" data-apng="/assets/animations/lab/souffle.png" data-poster="/assets/animations/lab/souffle-poster.webp" alt="" /></div>
+        <span class="rarity">Normal</span><h2>Souffle</h2><p>Trois courants légers effleurent le portrait.</p>
+      </article>
+      <article data-rarity="normal">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Halo" /><img class="effect" src="/assets/animations/lab/halo.png" data-apng="/assets/animations/lab/halo.png" data-poster="/assets/animations/lab/halo-poster.webp" alt="" /></div>
+        <span class="rarity">Normal</span><h2>Halo</h2><p>Un cercle doré respire autour de l’avatar.</p>
+      </article>
+      <article data-rarity="singulier">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Lucioles" /><img class="effect" src="/assets/animations/lab/lucioles.png" data-apng="/assets/animations/lab/lucioles.png" data-poster="/assets/animations/lab/lucioles-poster.webp" alt="" /></div>
+        <span class="rarity">Singulier</span><h2>Lucioles</h2><p>Quelques lumières dérivent puis s’éteignent doucement.</p>
+      </article>
+      <article data-rarity="singulier">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Brume irisée" /><img class="effect" src="/assets/animations/lab/brume-irisee.png" data-apng="/assets/animations/lab/brume-irisee.png" data-poster="/assets/animations/lab/brume-irisee-poster.webp" alt="" /></div>
+        <span class="rarity">Singulier</span><h2>Brume irisée</h2><p>Des nappes opalines respirent doucement.</p>
+      </article>
+      <article data-rarity="rare">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Plume" /><img class="effect" src="/assets/animations/lab/plume.png" data-apng="/assets/animations/lab/plume.png" data-poster="/assets/animations/lab/plume-poster.webp" alt="" /></div>
+        <span class="rarity">Rare</span><h2>Plume</h2><p>Une plume légère descend en suivant le vent.</p>
+      </article>
+      <article data-rarity="rare">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Feuille d’automne" /><img class="effect" src="/assets/animations/lab/feuille-automne.png" data-apng="/assets/animations/lab/feuille-automne.png" data-poster="/assets/animations/lab/feuille-automne-poster.webp" alt="" /></div>
+        <span class="rarity">Rare</span><h2>Feuilles d’automne</h2><p>Une pluie cuivrée tourbillonne doucement.</p>
+      </article>
+      <article data-rarity="rare">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Lune vagabonde" /><img class="effect" src="/assets/animations/lab/lune-vagabonde.png" data-apng="/assets/animations/lab/lune-vagabonde.png" data-poster="/assets/animations/lab/lune-vagabonde-poster.webp" alt="" /></div>
+        <span class="rarity">Rare</span><h2>Lune vagabonde</h2><p>Une lune nacrée passe avec ses étoiles.</p>
+      </article>
+      <article data-rarity="precieux">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Rosée" /><img class="effect" src="/assets/animations/lab/rosee.png" data-apng="/assets/animations/lab/rosee.png" data-poster="/assets/animations/lab/rosee-poster.webp" alt="" /></div>
+        <span class="rarity">Précieux</span><h2>Rosée</h2><p>Une goutte tombe et fait naître une onde délicate.</p>
+      </article>
+      <article data-rarity="precieux">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Prisme" /><img class="effect" src="/assets/animations/lab/prisme.png" data-apng="/assets/animations/lab/prisme.png" data-poster="/assets/animations/lab/prisme-poster.webp" alt="" /></div>
+        <span class="rarity">Précieux</span><h2>Prisme</h2><p>Des reflets irisés glissent sur le portrait.</p>
+      </article>
+      <article data-rarity="precieux">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Écume" /><img class="effect" src="/assets/animations/lab/ecume.png" data-apng="/assets/animations/lab/ecume.png" data-poster="/assets/animations/lab/ecume-poster.webp" alt="" /></div>
+        <span class="rarity">Précieux</span><h2>Écume</h2><p>Un ressac discret libère des bulles nacrées.</p>
+      </article>
+      <article data-rarity="singulier">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Constellation" /><img class="effect" src="/assets/animations/lab/constellation.png" data-apng="/assets/animations/lab/constellation.png" data-poster="/assets/animations/lab/constellation-poster.webp" alt="" /></div>
+        <span class="rarity">Singulier</span><h2>Constellation</h2><p>De petites étoiles apparaissent puis s’effacent doucement.</p>
+      </article>
+      <article data-rarity="exceptionnel">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Pétales" /><img class="effect" src="/assets/animations/lab/petales.png" data-apng="/assets/animations/lab/petales.png" data-poster="/assets/animations/lab/petales-poster.webp" alt="" /></div>
+        <span class="rarity">Exceptionnel</span><h2>Pétales</h2><p>Une pluie légère traverse naturellement le portrait.</p>
+      </article>
+      <article data-rarity="exceptionnel">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Papillons du songe" /><img class="effect" src="/assets/animations/lab/papillons-du-songe.png" data-apng="/assets/animations/lab/papillons-du-songe.png" data-poster="/assets/animations/lab/papillons-du-songe-poster.webp" alt="" /></div>
+        <span class="rarity">Exceptionnel</span><h2>Papillons du songe</h2><p>De petits papillons entrent, se croisent et repartent.</p>
+      </article>
+      <article data-rarity="exceptionnel">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Carpes célestes" /><img class="effect" src="/assets/animations/lab/carpes-celestes.png" data-apng="/assets/animations/lab/carpes-celestes.png" data-poster="/assets/animations/lab/carpes-celestes-poster.webp" alt="" /></div>
+        <span class="rarity">Exceptionnel</span><h2>Carpes célestes</h2><p>Deux carpes lumineuses nagent de concert.</p>
+      </article>
+      <article data-rarity="legendaire">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation L’Oiseau de lumière" /><img class="effect" src="/assets/animations/lab/oiseau-de-lumiere.png" data-apng="/assets/animations/lab/oiseau-de-lumiere.png" data-poster="/assets/animations/lab/oiseau-de-lumiere-poster.webp" alt="" /></div>
+        <span class="rarity">Légendaire</span><h2>L’Oiseau de lumière</h2><p>La lumière se rassemble, prend son envol puis se disperse.</p>
+      </article>
+      <article data-rarity="legendaire">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Serpent d’émeraude" /><img class="effect" src="/assets/animations/lab/serpent-emeraude.png" data-apng="/assets/animations/lab/serpent-emeraude.png" data-poster="/assets/animations/lab/serpent-emeraude-poster.webp" alt="" /></div>
+        <span class="rarity">Légendaire</span><h2>Serpent d’émeraude</h2><p>Une lumière verte s’incarne, ondule puis s’efface.</p>
+      </article>
+      <article data-rarity="legendaire">
+        <div class="stage"><img class="portrait" src="/assets/portrait-player.png" alt="Aperçu avec l’animation Dragon solaire" /><img class="effect" src="/assets/animations/lab/dragon-solaire.png" data-apng="/assets/animations/lab/dragon-solaire.png" data-poster="/assets/animations/lab/dragon-solaire-poster.webp" alt="" /></div>
+        <span class="rarity">Légendaire</span><h2>Dragon solaire</h2><p>La lumière forme un dragon avant de se disperser.</p>
+      </article>
+    </section>
+
+    <footer><span><strong>Prototype isolé :</strong> aucune animation n’est encore vendue dans le jeu.</span><span>Avatar et cadre identiques pour comparer uniquement le mouvement.</span></footer>
+  </main>
+  <script>
+    const toggle = document.querySelector('.motion-toggle');
+    const effects = [...document.querySelectorAll('.effect')];
+    toggle.addEventListener('click', () => {
+      const frozen = toggle.getAttribute('aria-pressed') !== 'true';
+      toggle.setAttribute('aria-pressed', String(frozen));
+      toggle.textContent = frozen ? 'Relancer les effets' : 'Figer les effets';
+      effects.forEach((effect) => {
+        effect.src = frozen ? effect.dataset.poster : `${effect.dataset.apng}?restart=${Date.now()}`;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "kind": "jdm-replacement-staging",
+  "policy": "Rejet par defaut; revue humaine de chaque relation avant publication.",
+  "seed": 15072026,
+  "grids": [],
+  "metrics": {
+    "grids": 0,
+    "answers": 0,
+    "uniqueAnswers": 0,
+    "rejectionCounts": {
+      "shape:too-many-length-3": 11,
+      "fill:unknown": 14
+    }
+  }
+}

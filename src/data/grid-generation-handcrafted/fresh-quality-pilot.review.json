@@ -1,0 +1,1296 @@
+{
+  "version": 1,
+  "kind": "fresh-quality-owner-review-pilot",
+  "publicationPolicy": "Non publié ; validation explicite du propriétaire requise.",
+  "batchMetrics": {
+    "grids": 1,
+    "answers": 29,
+    "uniqueAnswers": 29,
+    "lengthProfile": {
+      "2": 2,
+      "3": 12,
+      "4": 7,
+      "5": 5,
+      "6": 1,
+      "8": 2
+    },
+    "twoLetterAnswers": [
+      "CB",
+      "CV"
+    ],
+    "images": 1,
+    "manualDefinitions": 28,
+    "topologyValid": true,
+    "activeAnswerRepeats": [],
+    "activeFamilyRepeats": [],
+    "shapeIsNew": true
+  },
+  "grids": [
+    {
+      "id": "fresh-quality-pilot-01",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-fresh-quality-pilot",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "fresh-quality-pilot-01:word:01",
+          "answer": "CB",
+          "clue": "Carte bancaire",
+          "sourceClue": "Carte bancaire",
+          "sourceId": "motman-owner-review-20260715",
+          "sourceUrl": "https://www.banque-france.fr/en/node/415079",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CARTE_BANCAIRE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:02",
+          "answer": "ISBAS",
+          "clue": "Maisons russes",
+          "sourceClue": "CABANES RUSSES",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3876.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ISBAS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:03",
+          "answer": "MAINMISE",
+          "clue": "Emprise",
+          "sourceClue": "Emprise",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "jeuxdemots:MAINMISE:EMPRISE",
+          "semanticConflicts": [
+            "EMPRISE"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:04",
+          "answer": "ASSASSIN",
+          "clue": "Meurtrier",
+          "sourceClue": "Meurtrier",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "jeuxdemots:ASSASSIN:MEURTRIER",
+          "semanticConflicts": [
+            "MEURTRIER"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:05",
+          "answer": "LCI",
+          "clue": "La Chaîne Info",
+          "sourceClue": "CHAÎNE D'ACTUALITÉS",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3747.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "LCI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:06",
+          "answer": "BLAME",
+          "clue": "Réprimande",
+          "sourceClue": "FUSTIGE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1283.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BLAME",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:07",
+          "answer": "RASE",
+          "clue": "Coupe court",
+          "sourceClue": "BARBE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1351.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "RASE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:08",
+          "answer": "PAC",
+          "clue": "Politique agricole",
+          "sourceClue": "Politique agricole",
+          "sourceId": "commission-europeenne-pac",
+          "sourceUrl": "https://agriculture.ec.europa.eu/common-agricultural-policy_fr",
+          "sourceType": "authoritative-reference",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "POLITIQUE_AGRICOLE_COMMUNE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:09",
+          "answer": "TOUT",
+          "clue": "Entier",
+          "sourceClue": "ENTIER",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3792.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TOUT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            4
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:10",
+          "answer": "UVEE",
+          "clue": "Tunique oculaire",
+          "sourceClue": "TUNIQUE OCULAIRE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3729.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "UVEE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:11",
+          "answer": "POP",
+          "clue": "Musique populaire",
+          "sourceClue": "Musique populaire",
+          "sourceId": "cnrtl-pop",
+          "sourceUrl": "https://www.cnrtl.fr/definition/pop",
+          "sourceType": "authoritative-reference",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "MUSIQUE_POP",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            5
+          ],
+          "cells": [
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:12",
+          "answer": "SOT",
+          "clue": "Peu malin",
+          "sourceClue": "BÊTA",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3822.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SOT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:13",
+          "answer": "PAIE",
+          "clue": "Salaire",
+          "sourceClue": "RÉTRIBUTION",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3772.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PAIE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            4
+          ],
+          "cells": [
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:14",
+          "answer": "IMAM",
+          "clue": "Guide musulman",
+          "sourceClue": "CHEF RELIGIEUX",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "IMAM",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:15",
+          "answer": "SAS",
+          "clue": "Passage étanche",
+          "sourceClue": "PASSAGE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3754.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SAS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:16",
+          "answer": "BIS",
+          "clue": "Encore",
+          "sourceClue": "ENCORE !",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BIS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:17",
+          "answer": "ANANAS",
+          "clue": "",
+          "sourceClue": "FRUIT ANTILLAIS",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ANANAS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716",
+          "image": {
+            "asset": "/assets/clues/twemoji/ananas.svg",
+            "alt": "Ananas",
+            "source": "Twemoji",
+            "sourceUrl": "https://github.com/jdecked/twemoji/blob/main/assets/svg/1f34d.svg",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:18",
+          "answer": "SMS",
+          "clue": "Message mobile",
+          "sourceClue": "MESSAGE MOBILE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3831.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SMS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:19",
+          "answer": "GENIE",
+          "clue": "Esprit brillant",
+          "sourceClue": "SAVANT",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3740.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "GENIE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:20",
+          "answer": "ISLE",
+          "clue": "Rivière périgourdine",
+          "sourceClue": "COURS D'EAU",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1353.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ISLE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            6
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:21",
+          "answer": "SIC",
+          "clue": "Ainsi écrit",
+          "sourceClue": "C'EST AINSI",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1267.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SIC",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:22",
+          "answer": "CV",
+          "clue": "Parcours professionnel",
+          "sourceClue": "Parcours professionnel",
+          "sourceId": "academie-cv",
+          "sourceUrl": "https://www.dictionnaire-academie.fr/article/A9C5351-A",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CURRICULUM_VITAE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:23",
+          "answer": "BRAVO",
+          "clue": "Acclamation",
+          "sourceClue": "ACCLAMATION",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3831.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BRAVO",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:24",
+          "answer": "LACET",
+          "clue": "Cordon",
+          "sourceClue": "CORDON",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3978.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "LACET",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:25",
+          "answer": "MET",
+          "clue": "Dispose",
+          "sourceClue": "DISPOSE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3850.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "MET",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:26",
+          "answer": "QUOI",
+          "clue": "Mot interrogatif",
+          "sourceClue": "COMME CELA",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1501.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "QUOI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:27",
+          "answer": "PUS",
+          "clue": "Liquide infecté",
+          "sourceClue": "MAUVAISE HUMEUR",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1502.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PUS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:28",
+          "answer": "OPA",
+          "clue": "Offre d'achat",
+          "sourceClue": "OFFRE D'ACHAT",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3729.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "OPA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            6
+          ],
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        },
+        {
+          "wordId": "fresh-quality-pilot-01:word:29",
+          "answer": "TPE",
+          "clue": "Terminal de paiement",
+          "sourceClue": "Terminal de paiement",
+          "sourceId": "banque-de-france-tpe",
+          "sourceUrl": "https://www.banque-france.fr/system/files/2025-04/EI_2025.pdf",
+          "sourceType": "authoritative-reference",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TERMINAL_PAIEMENT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            8
+          ],
+          "cells": [
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "fresh-quality-pilot-20260716"
+        }
+      ],
+      "generationMetrics": {
+        "solver": "bitset-csp",
+        "nodes": 1000,
+        "elapsedSeconds": 1.296,
+        "reason": "solved"
+      },
+      "publicationStatus": "owner-review-required",
+      "reviewCycle": "2026-07-16",
+      "shapeFingerprint": "2c212cc667cb29f3",
+      "corpusPolicy": "full-central-placement-with-six-rescue-cap"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  src: url('/assets/fonts/dm-sans-latin-variable.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 900;
+  src: url('/assets/fonts/playfair-display-latin-variable.woff2') format('woff2-variations');
+}
+
+*{box-sizing:border-box}
+:root{font-family:'DM Sans',sans-serif;font-synthesis:none;background:#e7e3d8;color:#123e37}
+html,body,#root{min-height:100%}
+body{min-width:320px;min-height:100vh;margin:0;background:#deddd6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button,input,select{font:inherit;color:inherit}
+.app-loading{width:min(100%,430px);min-height:100dvh;margin:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;background:#fffaf0;color:#073f36;font:600 15px 'Playfair Display',serif}
+.app-loading svg{width:34px;height:34px;animation:appLoadingSpin 1.2s linear infinite}
+@keyframes appLoadingSpin{to{transform:rotate(360deg)}}
+[data-theme="dark"] .app-loading{background:#111b18;color:#edf5ef}
+@media(prefers-reduced-motion:reduce){.app-loading svg{animation:none}}
+.app-loading-error{padding:34px;text-align:center}.app-loading-error strong{font:600 25px 'Playfair Display',serif}.app-loading-error span{max-width:320px;color:#725f55;line-height:1.55}.app-loading-error button{min-width:170px;min-height:44px;margin-top:8px;border:1px solid #0b594c;border-radius:999px;background:#0b594c;color:#fffaf0;font-weight:700;box-shadow:0 8px 22px #073f3626}

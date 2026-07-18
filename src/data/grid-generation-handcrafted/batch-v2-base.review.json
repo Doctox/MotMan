@@ -1,0 +1,1444 @@
+{
+  "version": 1,
+  "kind": "batch-v2-base-owner-review",
+  "publicationPolicy": "Staging non publié ; répétitions du pool de remplacement bloquantes.",
+  "catalogModified": false,
+  "blacklistModified": false,
+  "sourceCandidateModified": false,
+  "metrics": {
+    "dimensions": "9x10",
+    "answers": 26,
+    "uniqueAnswers": 26,
+    "lengthProfile": {
+      "2": 2,
+      "3": 6,
+      "4": 7,
+      "5": 5,
+      "6": 1,
+      "8": 3,
+      "9": 2
+    },
+    "twoLetterAnswers": [
+      "LE",
+      "ET"
+    ],
+    "letterCells": 64,
+    "coveredLetterCells": 64,
+    "orphanLetterCells": 0,
+    "orphanSegments": 0,
+    "topologyValid": true,
+    "duplicateFamilyCount": 0,
+    "imageAnswers": [
+      "AIL",
+      "SAC",
+      "DUEL"
+    ],
+    "manualClueCount": 26,
+    "replacementAnswerRepeats": {},
+    "replacementFamilyRepeats": {},
+    "publicationEligible": true
+  },
+  "blacklistAudit": {
+    "hardAnswerHits": {
+      "rejectedAnswers": [],
+      "rejectedEasyAnswers": [],
+      "rejectedNormalAnswers": []
+    },
+    "hardAnswerHitCount": 0,
+    "rejectedPairHits": [],
+    "rejectedPairHitCount": 0,
+    "rotationCooldownHits": [],
+    "rotationCooldownHitCount": 0
+  },
+  "familyAudit": {
+    "lemmaByAnswer": {
+      "APPARENTS": "APPARENT",
+      "PREMATURE": "PREMATURE",
+      "PORES": "PORES",
+      "ETIRER": "ETIRER",
+      "LE": "LE",
+      "AIL": "AIL",
+      "INOX": "INOX",
+      "SET": "SET",
+      "APPELAIS": "APPELER",
+      "PROTEINE": "PROTEINE",
+      "PERI": "PERIR",
+      "LOT": "LOT",
+      "AMERE": "AMER",
+      "USURE": "USURE",
+      "TELES": "TELEVISION",
+      "RASE": "RASER",
+      "EDEN": "EDEN",
+      "TEST": "TEST",
+      "ET": "ET",
+      "RESTE": "RESTER",
+      "SAC": "SAC",
+      "NUS": "NU",
+      "DUEL": "DUEL",
+      "TRAVERSE": "TRAVERSER",
+      "SEC": "SEC",
+      "NETS": "NETS"
+    },
+    "duplicateFamilies": {},
+    "duplicateFamilyCount": 0
+  },
+  "editorialReview": {
+    "decision": "ready-for-owner-review",
+    "hardFailures": [],
+    "publicationBlockers": [],
+    "rejectionRecommendations": [],
+    "replacementPoolRepeatAudit": {
+      "references": [],
+      "answerRepeats": {},
+      "familyRepeats": {}
+    },
+    "accentDecisions": {
+      "PERI": {
+        "displayForm": "PÉRI",
+        "clue": "A succombé",
+        "decision": "accepted-complete-inflected-form",
+        "note": "Participe passé de périr ; l'accent est normalisé dans les cases."
+      }
+    },
+    "acceptedEditorialDoubts": {
+      "TELES": "Abréviation familière mais très courante de télévisions.",
+      "SET": "Terme sportif installé en français.",
+      "APPARENTS": "Adjectif pluriel autonome et clairement défini par Visibles."
+    },
+    "imagePolicy": "AIL, SAC et DUEL reprennent chacun leur entrée image-reviewed ; aucune autre image n'est ajoutée."
+  },
+  "grids": [
+    {
+      "id": "batch-v2-base-review-01",
+      "columns": 9,
+      "rows": 10,
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "batch-v2-base-review-01:word:01",
+          "answer": "APPARENTS",
+          "clue": "Visibles",
+          "sourceClue": "Visibles",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "conceptGroup": "APPARENT",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "apparents",
+          "sourceZipf": 2.88,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:02",
+          "answer": "PREMATURE",
+          "clue": "Trop précoce",
+          "sourceClue": "Trop précoce",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "conceptGroup": "PREMATURE",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "prématuré",
+          "sourceZipf": 3.31,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:03",
+          "answer": "PORES",
+          "clue": "Orifices cutanés",
+          "sourceClue": "Orifices cutanés",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "conceptGroup": "PORES",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "pores",
+          "sourceZipf": 3.17,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:04",
+          "answer": "ETIRER",
+          "clue": "Allonger en tirant",
+          "sourceClue": "Allonger en tirant",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          "conceptGroup": "ETIRER",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "étirer",
+          "sourceZipf": 3.09,
+          "activeUsesAtSearch": 1
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:05",
+          "answer": "LE",
+          "clue": "Article masculin",
+          "sourceClue": "Article masculin",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "conceptGroup": "LE",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "le",
+          "sourceZipf": 4.5,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:06",
+          "answer": "AIL",
+          "clue": "Plante condimentaire",
+          "sourceClue": "Plante condimentaire",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "image-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "image",
+          "sourceId": "twemoji-1f9c4",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f9c4.svg",
+          "license": "CC BY 4.0",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "conceptGroup": "AIL",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "ail",
+          "sourceZipf": 3.8,
+          "activeUsesAtSearch": 4,
+          "image": {
+            "asset": "/assets/clues/twemoji/ail.svg",
+            "alt": "Ail",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:07",
+          "answer": "INOX",
+          "clue": "Acier inoxydable",
+          "sourceClue": "Acier inoxydable",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "conceptGroup": "INOX",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "inox",
+          "sourceZipf": 3.14,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:08",
+          "answer": "SET",
+          "clue": "Manche de tennis",
+          "sourceClue": "Manche de tennis",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "conceptGroup": "SET",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "set",
+          "sourceZipf": 4.0,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:09",
+          "answer": "APPELAIS",
+          "clue": "Téléphonais",
+          "sourceClue": "Téléphonais",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "conceptGroup": "APPELER",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "appelais",
+          "sourceZipf": 3.04,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:10",
+          "answer": "PROTEINE",
+          "clue": "Molécule du vivant",
+          "sourceClue": "Molécule du vivant",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "conceptGroup": "PROTEINE",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "protéine",
+          "sourceZipf": 3.5,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:11",
+          "answer": "PERI",
+          "clue": "A succombé",
+          "sourceClue": "A succombé",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "conceptGroup": "PERIR",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "péri",
+          "sourceZipf": 3.63,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:12",
+          "answer": "LOT",
+          "clue": "Ensemble attribué",
+          "sourceClue": "Ensemble attribué",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "conceptGroup": "LOT",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "lot",
+          "sourceZipf": 4.42,
+          "activeUsesAtSearch": 2
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:13",
+          "answer": "AMERE",
+          "clue": "Au goût âpre",
+          "sourceClue": "Au goût âpre",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "conceptGroup": "AMER",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "amère",
+          "sourceZipf": 3.45,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:14",
+          "answer": "USURE",
+          "clue": "Dégradation progressive",
+          "sourceClue": "Dégradation progressive",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            6
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "conceptGroup": "USURE",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "usure",
+          "sourceZipf": 3.69,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:15",
+          "answer": "TELES",
+          "clue": "Postes de télévision",
+          "sourceClue": "Postes de télévision",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            8
+          ],
+          "cells": [
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "conceptGroup": "TELEVISION",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "télés",
+          "sourceZipf": 3.19,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:16",
+          "answer": "RASE",
+          "clue": "Coupe très court",
+          "sourceClue": "Coupe très court",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          "conceptGroup": "RASER",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "rase",
+          "sourceZipf": 3.57,
+          "activeUsesAtSearch": 1
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:17",
+          "answer": "EDEN",
+          "clue": "Jardin paradisiaque",
+          "sourceClue": "Jardin paradisiaque",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            5
+          ],
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "conceptGroup": "EDEN",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "eden",
+          "sourceZipf": 3.69,
+          "activeUsesAtSearch": 1
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:18",
+          "answer": "TEST",
+          "clue": "Épreuve de contrôle",
+          "sourceClue": "Épreuve de contrôle",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            7
+          ],
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "conceptGroup": "TEST",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "test",
+          "sourceZipf": 4.69,
+          "activeUsesAtSearch": 1
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:19",
+          "answer": "ET",
+          "clue": "Relie deux mots",
+          "sourceClue": "Relie deux mots",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          "conceptGroup": "ET",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "et",
+          "sourceZipf": 4.5,
+          "activeUsesAtSearch": 1
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:20",
+          "answer": "RESTE",
+          "clue": "Ce qui demeure",
+          "sourceClue": "Ce qui demeure",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "conceptGroup": "RESTER",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "reste",
+          "sourceZipf": 5.61,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:21",
+          "answer": "SAC",
+          "clue": "Contenant souple",
+          "sourceClue": "Contenant souple",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "image-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "image",
+          "sourceId": "twemoji-1f392",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f392.svg",
+          "license": "CC BY 4.0",
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "conceptGroup": "SAC_DOS",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "sac",
+          "sourceZipf": 4.8,
+          "activeUsesAtSearch": 4,
+          "image": {
+            "asset": "/assets/clues/twemoji/sac.svg",
+            "alt": "Sac",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:22",
+          "answer": "NUS",
+          "clue": "Sans vêtements",
+          "sourceClue": "Sans vêtements",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "conceptGroup": "NU",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "nus",
+          "sourceZipf": 3.97,
+          "activeUsesAtSearch": 1
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:23",
+          "answer": "DUEL",
+          "clue": "Combat singulier",
+          "sourceClue": "Combat singulier",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "image-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "image",
+          "sourceId": "twemoji-2694",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/2694.svg",
+          "license": "CC BY 4.0",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            4
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "conceptGroup": "DUEL",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "duel",
+          "sourceZipf": 4.02,
+          "activeUsesAtSearch": 1,
+          "image": {
+            "asset": "/assets/clues/twemoji/duel.svg",
+            "alt": "Duel",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:24",
+          "answer": "TRAVERSE",
+          "clue": "Coupe en deux",
+          "sourceClue": "Coupe en deux",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "conceptGroup": "TRAVERSER",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "traverse",
+          "sourceZipf": 4.24,
+          "activeUsesAtSearch": 0
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:25",
+          "answer": "SEC",
+          "clue": "Sans humidité",
+          "sourceClue": "Sans humidité",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "conceptGroup": "SEC",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "sec",
+          "sourceZipf": 4.44,
+          "activeUsesAtSearch": 2
+        },
+        {
+          "wordId": "batch-v2-base-review-01:word:26",
+          "answer": "NETS",
+          "clue": "Bien distincts",
+          "sourceClue": "Bien distincts",
+          "definitionStatus": "manually-edited",
+          "editorialStatus": "human-reviewed-awaiting-owner",
+          "manualReview": "strict-agent-editorial-pass-20260718",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-batch-v2-base-human-pass-20260718",
+          "sourceUrl": "",
+          "license": "MotMan original",
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            4
+          ],
+          "cells": [
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "conceptGroup": "NETS",
+          "semanticConflicts": [],
+          "editorialProfile": "motman-batch-v2-base-strict-pass",
+          "sourceSpelling": "nets",
+          "sourceZipf": 3.63,
+          "activeUsesAtSearch": 0
+        }
+      ],
+      "publicationStatus": "owner-review-required",
+      "editorialProfile": "motman-batch-v2-base-strict-pass",
+      "reviewCycle": "2026-07-18",
+      "layoutPolicy": "full-frame; free-interior; exactly-two-two-letter-answers",
+      "accentPolicy": "Accents ignored in answer cells; preserved in French clues; PERI represents PÉRI.",
+      "sourceCandidate": "output/quality/root-fixed-l.json",
+      "sourceShapeGridId": "common-flex-718334"
+    }
+  ]
+}

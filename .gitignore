@@ -1,0 +1,17 @@
+node_modules
+dist
+output
+.playwright-cli
+playwright-report
+test-results
+__pycache__
+*.pyc
+assets/source-originals
+src/data/sources
+*.log
+*.tsbuildinfo
+.env.local
+.env.*.local
+.motman.sqlite*
+.motman-social.json
+.motman-matches.json

@@ -1,0 +1,228 @@
+{
+  "version": 1,
+  "batch": "jdm-exhaustive-20260715-b",
+  "sourceDigest": "53567830b22eb7ff648a1ed987a7972c389cf9d3c9230234968e2807e646e115",
+  "counts": {
+    "accepted": 19,
+    "rejected": 6,
+    "doubt": 11
+  },
+  "decisions": [
+    {
+      "id": "JDM-B-01",
+      "answer": "TYPE",
+      "clue": "Individu",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-02",
+      "answer": "DEBUT",
+      "clue": "Aurore",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-03",
+      "answer": "GRAND",
+      "clue": "Important",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-04",
+      "answer": "ABSOLU",
+      "clue": "Total",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-05",
+      "answer": "BEAUTE",
+      "clue": "Charme",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-06",
+      "answer": "BILLET",
+      "clue": "Lettre",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-07",
+      "answer": "CHARME",
+      "clue": "Beauté",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-08",
+      "answer": "CINGLE",
+      "clue": "Toqué",
+      "decision": "reject"
+    },
+    {
+      "id": "JDM-B-09",
+      "answer": "EXAMEN",
+      "clue": "Analyse",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-10",
+      "answer": "EXIGER",
+      "clue": "Réclamer",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-11",
+      "answer": "FORMER",
+      "clue": "Composer",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-12",
+      "answer": "GAGNER",
+      "clue": "Obtenir",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-13",
+      "answer": "HAMEAU",
+      "clue": "Village",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-14",
+      "answer": "PASSER",
+      "clue": "Cesser",
+      "decision": "reject"
+    },
+    {
+      "id": "JDM-B-15",
+      "answer": "PAUVRE",
+      "clue": "Piètre",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-16",
+      "answer": "REGLER",
+      "clue": "Trancher",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-17",
+      "answer": "RIGIDE",
+      "clue": "Raide",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-18",
+      "answer": "SORTIR",
+      "clue": "Venir",
+      "decision": "reject"
+    },
+    {
+      "id": "JDM-B-19",
+      "answer": "SURGIR",
+      "clue": "Sourdre",
+      "decision": "reject"
+    },
+    {
+      "id": "JDM-B-20",
+      "answer": "TOMBER",
+      "clue": "Baisser",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-21",
+      "answer": "VIVANT",
+      "clue": "Vif",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-22",
+      "answer": "BAIGNER",
+      "clue": "Tremper",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-23",
+      "answer": "BAISSER",
+      "clue": "Tomber",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-24",
+      "answer": "EBAUCHE",
+      "clue": "Projet",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-25",
+      "answer": "REALITE",
+      "clue": "Vérité",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-26",
+      "answer": "SOURDRE",
+      "clue": "Surgir",
+      "decision": "reject"
+    },
+    {
+      "id": "JDM-B-27",
+      "answer": "TRIBUNE",
+      "clue": "Estrade",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-28",
+      "answer": "VILLAGE",
+      "clue": "Hameau",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-29",
+      "answer": "AVANTAGE",
+      "clue": "Bénéfice",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-30",
+      "answer": "AVENTURE",
+      "clue": "Incident",
+      "decision": "reject"
+    },
+    {
+      "id": "JDM-B-31",
+      "answer": "DEMARCHE",
+      "clue": "Port",
+      "decision": "doubt"
+    },
+    {
+      "id": "JDM-B-32",
+      "answer": "ETOUFFER",
+      "clue": "Réprimer",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-33",
+      "answer": "EXECUTER",
+      "clue": "Réaliser",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-34",
+      "answer": "FAILLITE",
+      "clue": "Échec",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-35",
+      "answer": "PENETRER",
+      "clue": "Percer",
+      "decision": "accept"
+    },
+    {
+      "id": "JDM-B-36",
+      "answer": "REALISER",
+      "clue": "Exécuter",
+      "decision": "accept"
+    }
+  ]
+}

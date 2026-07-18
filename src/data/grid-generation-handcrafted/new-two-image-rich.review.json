@@ -1,0 +1,2732 @@
+{
+  "version": 1,
+  "kind": "motman-two-free-craft-six-images-owner-review",
+  "publicationPolicy": "Non publié ; validation explicite du propriétaire requise.",
+  "hardRules": [
+    "9x10",
+    "zero orphan letter",
+    "declared contiguous paths",
+    "exact crossings"
+  ],
+  "metrics": {
+    "grids": 2,
+    "answers": 59,
+    "uniqueAnswers": 59,
+    "repeatedAnswersInsideBatch": [],
+    "images": 12,
+    "reviewedImageAnswersAvailable": 180,
+    "perGrid": [
+      {
+        "id": "image-rich-review-02",
+        "answers": 29,
+        "images": [
+          "AUTO",
+          "BD",
+          "CANARD",
+          "DUEL",
+          "TGV",
+          "TV"
+        ],
+        "lengthProfile": {
+          "2": 3,
+          "3": 10,
+          "4": 9,
+          "5": 3,
+          "6": 2,
+          "8": 1,
+          "9": 1
+        },
+        "activeRepeats": {
+          "TAU": 1,
+          "LCI": 1,
+          "UNE": 1,
+          "TPE": 1,
+          "TV": 1,
+          "CLUB": 1,
+          "ACNE": 1
+        },
+        "newAgainstActive": 22,
+        "topologyValid": true,
+        "orphanLetters": 0,
+        "layoutWarningsForOwnerReview": {
+          "too_many_adjacent_clue_pairs": 1
+        }
+      },
+      {
+        "id": "image-rich-review-03",
+        "answers": 30,
+        "images": [
+          "CD",
+          "PAIN",
+          "PC",
+          "PUB",
+          "SKI",
+          "SMS"
+        ],
+        "lengthProfile": {
+          "2": 3,
+          "3": 15,
+          "4": 5,
+          "5": 4,
+          "7": 1,
+          "8": 2
+        },
+        "activeRepeats": {
+          "PUS": 1,
+          "PLI": 1,
+          "SMS": 1,
+          "TENU": 1,
+          "PUB": 1,
+          "ALU": 1
+        },
+        "newAgainstActive": 24,
+        "topologyValid": true,
+        "orphanLetters": 0,
+        "layoutWarningsForOwnerReview": {
+          "too_many_adjacent_clue_pairs": 1
+        }
+      }
+    ]
+  },
+  "grids": [
+    {
+      "id": "image-rich-review-02",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-free-craft-six-images",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "image-rich-review-02:word:01",
+          "answer": "PS",
+          "clue": "Post-scriptum",
+          "sourceClue": "POST-SCRIPTUM",
+          "sourceId": "leparisien-rcijeux-short-reviewed",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3831.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:02",
+          "answer": "TITAN",
+          "clue": "Colosse",
+          "sourceClue": "COLOSSE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3912.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TITAN",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:03",
+          "answer": "POIL",
+          "clue": "Duvet",
+          "sourceClue": "Duvet",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "jeuxdemots:POIL:DUVET",
+          "semanticConflicts": [
+            "DUVET"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC0 relation; couple relu pour MotMan"
+        },
+        {
+          "wordId": "image-rich-review-02:word:04",
+          "answer": "TAU",
+          "clue": "T grec",
+          "sourceClue": "T GREC",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3723.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TAU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:05",
+          "answer": "ENSEIGNE",
+          "clue": "Étendard",
+          "sourceClue": "Étendard",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "jeuxdemots:ENSEIGNE:ETENDARD",
+          "semanticConflicts": [
+            "ETENDARD"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC0 relation; couple relu pour MotMan"
+        },
+        {
+          "wordId": "image-rich-review-02:word:06",
+          "answer": "SOS",
+          "clue": "À l'aide !",
+          "sourceClue": "À L'AIDE !",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_4011.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SOS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            1
+          ],
+          "cells": [
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:07",
+          "answer": "VIL",
+          "clue": "Vraiment bas",
+          "sourceClue": "VRAIMENT BAS",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3757.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "VIL",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:08",
+          "answer": "NIA",
+          "clue": "Refusa",
+          "sourceClue": "N'ACCEPTA PAS",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3870.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "NIA",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            2
+          ],
+          "cells": [
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:09",
+          "answer": "CANARD",
+          "clue": "",
+          "sourceClue": "PORTE-PLUMES",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1368.mfj",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CANARD",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/canard.svg",
+            "alt": "Canard",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC BY 4.0"
+        },
+        {
+          "wordId": "image-rich-review-02:word:10",
+          "answer": "LCI",
+          "clue": "Chaîne d'actualités",
+          "sourceClue": "CHAÎNE D'ACTUALITÉS",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3747.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "LCI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:11",
+          "answer": "AUTO",
+          "clue": "",
+          "sourceClue": "Indice illustré : auto",
+          "sourceId": "twemoji-1f697",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f697.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "AUTO",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            4
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/auto.svg",
+            "alt": "Auto",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC BY 4.0"
+        },
+        {
+          "wordId": "image-rich-review-02:word:12",
+          "answer": "UNE",
+          "clue": "Première page",
+          "sourceClue": "PREMIÈRE PAGE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3747.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "UNE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:13",
+          "answer": "BRUN",
+          "clue": "Bronzé",
+          "sourceClue": "BRONZÉ",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3806.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BRUN",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            4
+          ],
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:14",
+          "answer": "BERNE",
+          "clue": "Trompe",
+          "sourceClue": "ROULÉ",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3806.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BERNE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:15",
+          "answer": "BD",
+          "clue": "",
+          "sourceClue": "Bande dessinée",
+          "sourceId": "academie-bd",
+          "sourceUrl": "https://www.dictionnaire-academie.fr/article/A9B0306-B",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "BANDE_DESSINEE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            6
+          ],
+          "cells": [
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/bd.svg",
+            "alt": "Bd",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "courte relation lexicale relue"
+        },
+        {
+          "wordId": "image-rich-review-02:word:16",
+          "answer": "TPE",
+          "clue": "Terminal de paiement",
+          "sourceClue": "Terminal de paiement",
+          "sourceId": "motman-owner-review-20260715",
+          "sourceUrl": "https://esurfi.banque-france.fr/system/files/2024-03/guide_de_remplissage_a71dsp2.pdf",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TERMINAL_PAIEMENT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "indice original validé par le propriétaire"
+        },
+        {
+          "wordId": "image-rich-review-02:word:17",
+          "answer": "IONS",
+          "clue": "Atomes chargés",
+          "sourceClue": "ATOMES CHARGÉS",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3743.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "IONS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:18",
+          "answer": "TISONNIER",
+          "clue": "Pique-feu",
+          "sourceClue": "PIQUE-FEU",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3904.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TISONNIER",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:19",
+          "answer": "ALESIA",
+          "clue": "Oppidum gaulois",
+          "sourceClue": "OPPIDUM GAULOIS",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1360.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ALESIA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:20",
+          "answer": "DUEL",
+          "clue": "",
+          "sourceClue": "Indice illustré : duel",
+          "sourceId": "twemoji-2694",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/2694.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "DUEL",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/duel.svg",
+            "alt": "Duel",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "image-rich-review-02:word:21",
+          "answer": "TGV",
+          "clue": "",
+          "sourceClue": "Indice illustré : tgv",
+          "sourceId": "twemoji-1f684",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f684.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TGV",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            6
+          ],
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/tgv.svg",
+            "alt": "Tgv",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "image-rich-review-02:word:22",
+          "answer": "ANIS",
+          "clue": "Épice du pastis",
+          "sourceClue": "PLANTE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1245.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ANIS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            7
+          ],
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:23",
+          "answer": "TV",
+          "clue": "",
+          "sourceClue": "Télévision",
+          "sourceId": "larousse-television",
+          "sourceUrl": "https://www.larousse.fr/dictionnaires/francais/t%C3%A9l%C3%A9vision/77170",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TELEVISION",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/tv.svg",
+            "alt": "Tv",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "courte relation lexicale relue"
+        },
+        {
+          "wordId": "image-rich-review-02:word:24",
+          "answer": "ARABE",
+          "clue": "Bédouin",
+          "sourceClue": "BÉDOUIN",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1285.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ARABE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:25",
+          "answer": "CLUB",
+          "clue": "Société",
+          "sourceClue": "Société",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "jeuxdemots:CLUB:SOCIETE",
+          "semanticConflicts": [
+            "SOCIETE"
+          ],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC0 relation; couple relu pour MotMan"
+        },
+        {
+          "wordId": "image-rich-review-02:word:26",
+          "answer": "ACNE",
+          "clue": "Problème cutané",
+          "sourceClue": "PROBLÈME CUTANÉ",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3798.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ACNE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            2
+          ],
+          "cells": [
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:27",
+          "answer": "DUR",
+          "clue": "Pas mou",
+          "sourceClue": "Pas mou",
+          "sourceId": "lexique-editorial-review",
+          "sourceUrl": "http://www.lexique.org/databases/Lexique383/Lexique383.tsv",
+          "sourceType": "dictionary",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "DUR",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            6
+          ],
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "Lexique: CC BY-SA 4.0; indice original"
+        },
+        {
+          "wordId": "image-rich-review-02:word:28",
+          "answer": "ROND",
+          "clue": "Bien en chair",
+          "sourceClue": "CHARNU",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3803.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ROND",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            8
+          ],
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-02:word:29",
+          "answer": "TUB",
+          "clue": "Ancienne baignoire",
+          "sourceClue": "ANCIENNE BAIGNOIRE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3853.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TUB",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            7
+          ],
+          "cells": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        }
+      ],
+      "generationMetrics": {
+        "solver": "bitset-csp",
+        "nodes": 155,
+        "elapsedSeconds": 0.328,
+        "reason": "solved"
+      },
+      "publicationStatus": "owner-review-required",
+      "reviewCycle": "2026-07-16",
+      "corpusPolicy": "full-central-corpus-plus-human-editorial-pass"
+    },
+    {
+      "id": "image-rich-review-03",
+      "columns": 9,
+      "rows": 10,
+      "editorialProfile": "motman-free-craft-six-images",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "image-rich-review-03:word:01",
+          "answer": "PC",
+          "clue": "",
+          "sourceClue": "ORDINATEUR",
+          "sourceId": "leparisien-rcijeux-short-reviewed",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3990.mfj",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PC",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/pc.svg",
+            "alt": "Pc",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC BY 4.0"
+        },
+        {
+          "wordId": "image-rich-review-03:word:02",
+          "answer": "PUS",
+          "clue": "Liquide infecté",
+          "sourceClue": "MAUVAISE HUMEUR",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1502.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PUS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:03",
+          "answer": "PNG",
+          "clue": "Format d'image",
+          "sourceClue": "Format d'image",
+          "sourceId": "motman-owner-review-20260715",
+          "sourceUrl": "https://www.w3.org/TR/png-3/",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "FORMAT_IMAGE_PNG",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "indice original validé par le propriétaire"
+        },
+        {
+          "wordId": "image-rich-review-03:word:04",
+          "answer": "ALANGUIR",
+          "clue": "Affaiblir",
+          "sourceClue": "RENDRE FAIBLE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1249.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ALANGUIR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:05",
+          "answer": "IMMUABLE",
+          "clue": "Constant",
+          "sourceClue": "Constant",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "jeuxdemots:IMMUABLE:CONSTANT",
+          "semanticConflicts": [
+            "CONSTANT"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC0 relation; couple relu pour MotMan"
+        },
+        {
+          "wordId": "image-rich-review-03:word:06",
+          "answer": "PLI",
+          "clue": "Marque du tissu",
+          "sourceClue": "LEVÉE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1229.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PLI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            2
+          ],
+          "cells": [
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:07",
+          "answer": "VAS",
+          "clue": "Marches",
+          "sourceClue": "MARCHES",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3878.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "VAS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            1
+          ],
+          "cells": [
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:08",
+          "answer": "CPE",
+          "clue": "Conseiller scolaire",
+          "sourceClue": "Conseiller scolaire",
+          "sourceId": "motman-owner-review-20260715",
+          "sourceUrl": "https://www.education.gouv.fr/etre-conseiller-conseillere-principale-d-education-11459",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CONSEILLER_PRINCIPAL_EDUCATION",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            5
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "indice original validé par le propriétaire"
+        },
+        {
+          "wordId": "image-rich-review-03:word:09",
+          "answer": "CRU",
+          "clue": "Bon vin",
+          "sourceClue": "BON VIN",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3888.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CRU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            4
+          ],
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:10",
+          "answer": "SMS",
+          "clue": "",
+          "sourceClue": "Indice illustré : sms",
+          "sourceId": "twemoji-1f4f2",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4f2.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SMS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/sms.svg",
+            "alt": "Sms",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "image-rich-review-03:word:11",
+          "answer": "RIRA",
+          "clue": "S'amusera",
+          "sourceClue": "SERA HEUREUX",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3722.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "RIRA",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            4
+          ],
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:12",
+          "answer": "KO",
+          "clue": "Assommé",
+          "sourceClue": "ASSOMMÉ",
+          "sourceId": "leparisien-rcijeux-short-reviewed",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3928.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "KO",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            0
+          ],
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:13",
+          "answer": "FUSIL",
+          "clue": "Carabine",
+          "sourceClue": "Carabine",
+          "sourceId": "jeuxdemots-r_syn-sanitized",
+          "sourceUrl": "https://www.jeuxdemots.org/jdm-about.php",
+          "sourceType": "lexical-relation",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "jeuxdemots:FUSIL:CARABINE",
+          "semanticConflicts": [
+            "CARABINE"
+          ],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            8,
+            3
+          ],
+          "cells": [
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC0 relation; couple relu pour MotMan"
+        },
+        {
+          "wordId": "image-rich-review-03:word:14",
+          "answer": "IUT",
+          "clue": "Lieu d'études",
+          "sourceClue": "LIEU D'ÉTUDES",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "IUT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            0
+          ],
+          "cells": [
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:15",
+          "answer": "TENU",
+          "clue": "Mince",
+          "sourceClue": "MINCE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1310.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "TENU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            9,
+            4
+          ],
+          "cells": [
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:16",
+          "answer": "PAIN",
+          "clue": "",
+          "sourceClue": "BOULOT QUOTIDIEN",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_3_1419.mfj",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PAIN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/pain.svg",
+            "alt": "Pain",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC BY 4.0"
+        },
+        {
+          "wordId": "image-rich-review-03:word:17",
+          "answer": "ULM",
+          "clue": "Avion",
+          "sourceClue": "AVION",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3962.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ULM",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:18",
+          "answer": "SAMPANS",
+          "clue": "Bateaux chinois",
+          "sourceClue": "BATEAUX CHINOIS",
+          "sourceId": "ouestfrance-via-ychalier",
+          "sourceUrl": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SAMPANS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:19",
+          "answer": "PUB",
+          "clue": "",
+          "sourceClue": "Indice illustré : pub",
+          "sourceId": "twemoji-1f4e3",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f4e3.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PUB",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/pub.svg",
+            "alt": "Pub",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "image-rich-review-03:word:20",
+          "answer": "NIL",
+          "clue": "Fleuve d'Afrique",
+          "sourceClue": "Fleuve d'Afrique",
+          "sourceId": "motman-owner-review-20260715",
+          "sourceUrl": "https://www.larousse.fr/encyclopedie/riviere-lac/le_Nil/135315",
+          "sourceType": "editorial-original",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "FLEUVE_NIL",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            7
+          ],
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "indice original validé par le propriétaire"
+        },
+        {
+          "wordId": "image-rich-review-03:word:21",
+          "answer": "GREGE",
+          "clue": "Gris-beige",
+          "sourceClue": "GRIS-BEIGE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3948.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "GREGE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            8
+          ],
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:22",
+          "answer": "NULS",
+          "clue": "Sans valeur",
+          "sourceClue": "SANS VALEUR",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3791.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "NULS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            4
+          ],
+          "cells": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:23",
+          "answer": "GAI",
+          "clue": "Content",
+          "sourceClue": "CONTENT",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3853.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "GAI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            1,
+            5
+          ],
+          "cells": [
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:24",
+          "answer": "CD",
+          "clue": "",
+          "sourceClue": "DISQUE COMPACT",
+          "sourceId": "leparisien-rcijeux-short-reviewed",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3753.mfj",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CD",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC BY 4.0",
+          "image": {
+            "asset": "/assets/clues/twemoji/cd.svg",
+            "alt": "Cd",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          }
+        },
+        {
+          "wordId": "image-rich-review-03:word:25",
+          "answer": "CRISE",
+          "clue": "Épisode aigu",
+          "sourceClue": "ACCÈS PATHOLOGIQUE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_4_1354.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CRISE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            6
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:26",
+          "answer": "PURIN",
+          "clue": "Fumier liquide",
+          "sourceClue": "FUMIER LIQUIDE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3915.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "PURIN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            7
+          ],
+          "cells": [
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              9,
+              7
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:27",
+          "answer": "CRUT",
+          "clue": "Fut persuadé",
+          "sourceClue": "FUT CONVAINCU",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3820.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "CRUT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            5
+          ],
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              9,
+              5
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:28",
+          "answer": "SKI",
+          "clue": "",
+          "sourceClue": "Indice illustré : ski",
+          "sourceId": "twemoji-1f3bf",
+          "sourceUrl": "https://github.com/jdecked/twemoji/blob/master/assets/svg/1f3bf.svg",
+          "sourceType": "image",
+          "editorialStatus": "image-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "SKI",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            1
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              1
+            ]
+          ],
+          "image": {
+            "asset": "/assets/clues/twemoji/ski.svg",
+            "alt": "Ski",
+            "source": "Twemoji",
+            "license": "CC BY 4.0"
+          },
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716",
+          "license": "CC BY 4.0"
+        },
+        {
+          "wordId": "image-rich-review-03:word:29",
+          "answer": "MOU",
+          "clue": "Amorphe",
+          "sourceClue": "AMORPHE",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_1_3800.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "MOU",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            2
+          ],
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              2
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        },
+        {
+          "wordId": "image-rich-review-03:word:30",
+          "answer": "ALU",
+          "clue": "Métal léger",
+          "sourceClue": "MÉTAL LÉGER",
+          "sourceId": "leparisien-rcijeux",
+          "sourceUrl": "https://static.rcijeux.fr/drupal_game/leparisien/mfleches1/grids/mfleches_2_3726.mfj",
+          "sourceType": "crossword",
+          "editorialStatus": "human-reviewed",
+          "manualReview": "reviewed-awaiting-owner",
+          "conceptGroup": "ALU",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            6,
+            8
+          ],
+          "cells": [
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "definitionStatus": "manually-edited",
+          "editorialReviewId": "new-two-six-images-20260716"
+        }
+      ],
+      "generationMetrics": {
+        "solver": "bitset-csp",
+        "nodes": 317,
+        "elapsedSeconds": 0.578,
+        "reason": "solved"
+      },
+      "publicationStatus": "owner-review-required",
+      "reviewCycle": "2026-07-16",
+      "corpusPolicy": "full-central-corpus-plus-human-editorial-pass"
+    }
+  ]
+}

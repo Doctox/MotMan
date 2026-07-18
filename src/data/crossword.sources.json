@@ -1,0 +1,226 @@
+{
+  "version": 2,
+  "checkedOn": "2026-07-15",
+  "architecture": {
+    "name": "WebCrow CWDB",
+    "repository": "https://github.com/tommyiaqunisi/Webcrow",
+    "role": "Modèle de base de couples définition-réponse et de remplissage sous contraintes",
+    "frenchCorpusAccess": "Le corpus français décrit dans l'étude n'est pas distribué dans le dépôt public"
+  },
+  "sources": [
+    {
+      "id": "dbnary-fr-wiktionary",
+      "type": "lexicographic-relations",
+      "status": "active-staging-source",
+      "editorialFamily": "wiktionary-derived",
+      "publicationRights": "licensed-data-but-editorial-review-required",
+      "url": "https://kaiko.getalp.org/about-dbnary/",
+      "download": "https://kaiko.getalp.org/static/ontolex/latest/fr_dbnary_ontolex.ttl.bz2",
+      "license": "CC-BY-SA-3.0",
+      "role": "Relations de synonymie françaises sourcées; revue éditoriale obligatoire avant toute publication"
+    },
+    {
+      "id": "dbnary-fr-wiktionary-definitions",
+      "type": "lexicographic-definitions",
+      "status": "active-editorial-reservoir",
+      "editorialFamily": "wiktionary-derived",
+      "publicationRights": "CC-BY-SA data; short-clue editorial review required",
+      "url": "https://kaiko.getalp.org/about-dbnary/download/",
+      "download": "https://kaiko.getalp.org/static/ontolex/latest/fr_dbnary_ontolex.ttl.bz2",
+      "license": "CC-BY-SA-3.0",
+      "measuredDistinctAnswers": 15614,
+      "measuredSourceDefinitions": 34057,
+      "role": "Reservoir de sens source par sens; aucune definition longue n'est publiee directement comme indice mobile"
+    },
+    {
+      "id": "jeuxdemots-r_syn",
+      "type": "lexical-relation-suggestions",
+      "status": "active-review-suggestion-source",
+      "editorialFamily": "jeuxdemots-community",
+      "publicationRights": "open-data-with-attribution-recorded",
+      "url": "https://www.jeuxdemots.org/jdm-about.php",
+      "download": "https://www.jeuxdemots.org/JDM-LEXICALNET-FR/20260319-LEXICALNET-JEUXDEMOTS-R5.txt.zip",
+      "license": "CC0 / domaine public",
+      "role": "Suggestions de synonymes ponderees; jamais considerees jouables sans revue editoriale"
+    },
+    {
+      "id": "webcrow-fr",
+      "type": "crossword-corpus",
+      "status": "awaiting-access",
+      "editorialFamily": "webcrow-research",
+      "publicationRights": "not-cleared",
+      "paper": "https://arxiv.org/abs/2311.15626",
+      "role": "Source française prioritaire dès obtention du corpus"
+    },
+    {
+      "id": "ouestfrance-via-ychalier",
+      "type": "crossword-corpus",
+      "status": "active-prototype-source",
+      "editorialFamily": "rci-likely",
+      "editorialFamilyConfidence": "likely-not-proven-for-every-grid",
+      "providerEvidence": "https://www.rci-jeux.com/",
+      "publicationRights": "not-cleared",
+      "repository": "https://github.com/ychalier-rlv/mots-croises/tree/main/data",
+      "originalPublisher": "https://jeux.ouest-france.fr/jeux-de-lettres/mots-fleches/",
+      "role": "Couples français exacts issus de grilles publiées; aucune définition inventée"
+    },
+    {
+      "id": "leparisien-rcijeux",
+      "type": "crossword-corpus",
+      "status": "active-prototype-source",
+      "editorialFamily": "keesing-rci",
+      "publicationRights": "not-cleared",
+      "researchParser": "https://github.com/AlexandreEDMOND/flechebench",
+      "gridHost": "https://static.rcijeux.fr/drupal_game/leparisien/",
+      "role": "Grilles publiées avec couples exacts et difficulté éditoriale Force 1 à 4"
+    },
+    {
+      "id": "fortissimots",
+      "type": "professional-arrowword-corpus",
+      "status": "candidate-commercial-license",
+      "editorialFamily": "fortissimots-independent",
+      "url": "https://www.fortissimots.com/notre-offre/",
+      "quoteUrl": "https://www.fortissimots.com/devis/",
+      "advertisedArrowwordGrids": 2300,
+      "audiences": ["children", "adults"],
+      "difficultyScale": "force-1-to-4",
+      "delivery": "PDF haute définition annoncé; format de données structuré à négocier",
+      "publicationRights": "commercial-license-required",
+      "priority": 1,
+      "role": "Meilleure piste indépendante pour acheter des grilles ou couples relus, plusieurs niveaux et dimensions sur mesure"
+    },
+    {
+      "id": "les-mots-la-muse",
+      "type": "professional-custom-arrowwords",
+      "status": "candidate-commercial-commission",
+      "editorialFamily": "independent-verbicrucist",
+      "url": "https://lesmotslamuse.com/offre/",
+      "contact": "a.imbert@lesmotslamuse.com",
+      "delivery": "Création sur mesure pour presse et numérique; dimensions et niveau à spécifier",
+      "publicationRights": "commercial-license-required",
+      "priority": 2,
+      "role": "Piste de commande humaine pour un lot pilote 9×10 exactement conforme à MotMan"
+    },
+    {
+      "id": "keesing-rci-b2b",
+      "type": "professional-game-feed",
+      "status": "candidate-commercial-license",
+      "editorialFamily": "keesing-rci",
+      "url": "https://www.rci-jeux.com/",
+      "alternateUrl": "https://www.megastar.fr/pour-les-professionnels",
+      "delivery": "Jeux clés en main papier, web et mobile; modalités d'export à négocier",
+      "publicationRights": "commercial-license-required",
+      "priority": 3,
+      "role": "Voie officielle pour remplacer le prototype Le Parisien par un flux licencié; n'ajoute pas une famille éditoriale indépendante"
+    },
+    {
+      "id": "motsfleches-fr-krydsord",
+      "type": "professional-online-arrowwords",
+      "status": "candidate-contact-required",
+      "editorialFamily": "krydsord-scandinavian",
+      "url": "https://motsfleches.fr/",
+      "advertisedGrids": 100,
+      "difficultyLevels": 5,
+      "publicationRights": "not-cleared",
+      "priority": 4,
+      "role": "Famille éditoriale distincte avec grilles françaises rédigées par des professionnels; demander licence et export structuré"
+    },
+    {
+      "id": "oqp-modern-arrowwords",
+      "type": "community-reviewed-arrowwords",
+      "status": "candidate-permission-required",
+      "editorialFamily": "oqp-independent-modern",
+      "url": "https://oqp.fr/",
+      "contact": "team@comdeslezards.com",
+      "advertisedGridsPerIssue": 35,
+      "publicationRights": "written-permission-required",
+      "priority": 5,
+      "role": "Référence pour vocabulaire contemporain et validation communautaire; aucune copie sans accord"
+    },
+    {
+      "id": "cruciverbe-fr",
+      "type": "crossword-corpus",
+      "status": "candidate-contact-required",
+      "editorialFamily": "cruciverbe-database",
+      "publicationRights": "not-cleared",
+      "url": "https://cruciverbe.fr/definitions",
+      "advertisedDefinitions": 529962,
+      "role": "Vraies définitions de mots croisés; demander un export ou un accès en masse avant toute intégration"
+    },
+    {
+      "id": "dictionnaire-des-francophones",
+      "type": "lexicographic-validation",
+      "status": "candidate-open-data",
+      "url": "https://www.dictionnairedesfrancophones.org/",
+      "sparql": "https://www.dictionnairedesfrancophones.org/sparql",
+      "modelRepository": "https://gitlab.com/mnemotix/ddf/ddf-models",
+      "role": "Validation du sens, du registre et du français contemporain; ne remplace pas une définition de mots fléchés"
+    },
+    {
+      "id": "openlexicon-fr",
+      "type": "difficulty-metadata",
+      "status": "candidate-open-data",
+      "url": "https://www.lexique.org/",
+      "role": "Fréquence, concrétude et âge d'acquisition pour mieux distinguer facile, normal et difficile; aucune définition de jeu"
+    },
+    {
+      "id": "wordfreq-fr",
+      "type": "frequency-only",
+      "status": "active",
+      "repository": "https://github.com/rspeer/wordfreq",
+      "role": "Classement de difficulté uniquement; ne fournit aucune définition"
+    },
+    {
+      "id": "morphalou-3.1",
+      "type": "morphological-lexicon",
+      "status": "active-structural-staging",
+      "editorialFamily": "atilf-cnrs-universite-lorraine",
+      "publicationRights": "LGPL-LR; lexical forms only, no crossword clues",
+      "url": "https://hdl.handle.net/11403/morphalou/v3.1",
+      "downloadMirror": "https://huggingface.co/datasets/datasets-CNRS/Morphalou",
+      "license": "LGPL-LR",
+      "role": "Réservoir de formes lexicales pour fermer une silhouette fixe; aucune entrée n'est publiable sans indice court séparément sourcé et relu"
+    },
+    {
+      "id": "franceterme",
+      "type": "official-terminology",
+      "status": "candidate-open-data-selective",
+      "url": "https://www.data.gouv.fr/datasets/base-franceterme-termes-scientifiques-et-techniques-1",
+      "license": "Licence Ouverte / Open Licence 2.0",
+      "publicationRights": "open-data-with-attribution",
+      "lastVerifiedUpdate": "2026-03-13",
+      "role": "Ajouter après revue quelques termes modernes et grand public; ne pas importer en masse le vocabulaire technique"
+    },
+    {
+      "id": "eduscol-frequence-lexicale",
+      "type": "child-commonness-reference",
+      "status": "candidate-open-data-metadata",
+      "url": "https://eduscol.education.gouv.fr/6873/liste-de-frequence-lexicale",
+      "license": "Licence Ouverte / Etalab 2.0, sous réserve des exceptions signalées sur le site",
+      "publicationRights": "metadata-only",
+      "audience": "school",
+      "advertisedWords": 1500,
+      "role": "Prouver qu'une réponse appartient au vocabulaire scolaire fréquent; aucune définition de jeu n'en est recopiée"
+    },
+    {
+      "id": "emanulex",
+      "type": "child-written-frequency-reference",
+      "status": "research-only-noncommercial-license",
+      "url": "https://www.manulex.org/",
+      "license": "CC BY-NC-SA 3.0",
+      "publicationRights": "not-compatible-with-commercial-production-without-permission",
+      "audience": "grades-1-to-5",
+      "advertisedWordForms": 48886,
+      "advertisedLemmas": 23812,
+      "role": "Référence de recherche sur le vocabulaire adressé aux enfants; aucune donnée intégrée au produit sans autorisation"
+    },
+    {
+      "id": "twemoji",
+      "type": "image-clue",
+      "status": "active",
+      "repository": "https://github.com/jdecked/twemoji",
+      "license": "CC BY 4.0 pour les graphismes; MIT pour le code",
+      "role": "Indices illustrés validés, indépendants des définitions textuelles"
+    }
+  ]
+}

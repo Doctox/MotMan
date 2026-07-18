@@ -1,0 +1,570 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "kind": "avatar",
+      "id": "plume-motman",
+      "name": "Plume MotMan",
+      "rarity": "commun",
+      "pricePlumes": 0,
+      "availability": "starter",
+      "asset": "/assets/avatars/plume-motman.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "amina",
+      "name": "Amina",
+      "rarity": "commun",
+      "pricePlumes": 140,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/amina.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "malik",
+      "name": "Malik",
+      "rarity": "commun",
+      "pricePlumes": 140,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/malik.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "mei",
+      "name": "Mei",
+      "rarity": "commun",
+      "pricePlumes": 140,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/mei.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "kenji",
+      "name": "Kenji",
+      "rarity": "commun",
+      "pricePlumes": 140,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/kenji.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "ines",
+      "name": "Inès",
+      "rarity": "commun",
+      "pricePlumes": 140,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/ines.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "nael",
+      "name": "Naël",
+      "rarity": "commun",
+      "pricePlumes": 140,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/nael.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "camille",
+      "name": "Camille",
+      "rarity": "commun",
+      "pricePlumes": 140,
+      "availability": "epicerie",
+      "asset": "/assets/portrait-camille.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "alex",
+      "name": "Alex",
+      "rarity": "commun",
+      "pricePlumes": 140,
+      "availability": "epicerie",
+      "asset": "/assets/portrait-player.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "moka",
+      "name": "Moka",
+      "rarity": "singulier",
+      "pricePlumes": 180,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/moka.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "celeste",
+      "name": "Céleste",
+      "rarity": "singulier",
+      "pricePlumes": 180,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/celeste.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "roux",
+      "name": "Roux",
+      "rarity": "singulier",
+      "pricePlumes": 180,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/roux.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "machine-a-ecrire",
+      "name": "Machine à écrire",
+      "rarity": "rare",
+      "pricePlumes": 220,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/machine-a-ecrire.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "theiere",
+      "name": "Théière",
+      "rarity": "rare",
+      "pricePlumes": 220,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/theiere.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "livre-et-plume",
+      "name": "Livre & plume",
+      "rarity": "rare",
+      "pricePlumes": 220,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/livre-et-plume.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "couronne",
+      "name": "Couronne",
+      "rarity": "rare",
+      "pricePlumes": 220,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/couronne.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "pieces-dorees",
+      "name": "Pièces dorées",
+      "rarity": "rare",
+      "pricePlumes": 220,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/pieces-dorees.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "baguette-magique",
+      "name": "Baguette magique",
+      "rarity": "rare",
+      "pricePlumes": 220,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/baguette-magique.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "anneau-ancien",
+      "name": "Anneau ancien",
+      "rarity": "rare",
+      "pricePlumes": 220,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/anneau-ancien.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "easter-egg-chienne",
+      "name": "Chien",
+      "rarity": "singulier",
+      "pricePlumes": 180,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/easter-egg-chienne.webp"
+    },
+    {
+      "kind": "avatar",
+      "id": "easter-egg-gecko",
+      "name": "Gecko",
+      "rarity": "singulier",
+      "pricePlumes": 180,
+      "availability": "epicerie",
+      "asset": "/assets/avatars/easter-egg-gecko.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-ivoire",
+      "name": "Ivoire",
+      "rarity": "commun",
+      "pricePlumes": 0,
+      "availability": "starter",
+      "asset": null
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-sauge",
+      "name": "Sauge",
+      "rarity": "commun",
+      "pricePlumes": 120,
+      "availability": "epicerie",
+      "asset": null
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-terracotta",
+      "name": "Terre cuite",
+      "rarity": "commun",
+      "pricePlumes": 125,
+      "availability": "epicerie",
+      "asset": null
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-encre",
+      "name": "Encre",
+      "rarity": "commun",
+      "pricePlumes": 130,
+      "availability": "epicerie",
+      "asset": null
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-laiton",
+      "name": "Laiton",
+      "rarity": "commun",
+      "pricePlumes": 135,
+      "availability": "epicerie",
+      "asset": null
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-rosee",
+      "name": "Rosée",
+      "rarity": "singulier",
+      "pricePlumes": 160,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-rosee.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-coquelicot",
+      "name": "Coquelicot",
+      "rarity": "singulier",
+      "pricePlumes": 170,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-coquelicot.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-porcelaine",
+      "name": "Porcelaine",
+      "rarity": "singulier",
+      "pricePlumes": 180,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-porcelaine.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-herbier",
+      "name": "Herbier",
+      "rarity": "rare",
+      "pricePlumes": 210,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-herbier.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-maree",
+      "name": "Marée",
+      "rarity": "rare",
+      "pricePlumes": 230,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-maree.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-bibliotheque",
+      "name": "Bibliothèque",
+      "rarity": "rare",
+      "pricePlumes": 250,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-bibliotheque.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-braise",
+      "name": "Braise",
+      "rarity": "precieux",
+      "pricePlumes": 340,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-braise.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-royal",
+      "name": "Royal",
+      "rarity": "precieux",
+      "pricePlumes": 370,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-royal.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-encrier",
+      "name": "Encrier",
+      "rarity": "precieux",
+      "pricePlumes": 400,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-encrier.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-clair-de-lune",
+      "name": "Clair de lune",
+      "rarity": "exceptionnel",
+      "pricePlumes": 520,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-clair-de-lune.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-givre",
+      "name": "Givre",
+      "rarity": "exceptionnel",
+      "pricePlumes": 560,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-givre.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-aurore",
+      "name": "Aurore",
+      "rarity": "exceptionnel",
+      "pricePlumes": 600,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-aurore.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-constellation",
+      "name": "Constellation",
+      "rarity": "legendaire",
+      "pricePlumes": 780,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-constellation.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-dragon-dore",
+      "name": "Dragon doré",
+      "rarity": "legendaire",
+      "pricePlumes": 840,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-dragon-dore.webp"
+    },
+    {
+      "kind": "frame",
+      "id": "cadre-jardin-des-songes",
+      "name": "Jardin des songes",
+      "rarity": "legendaire",
+      "pricePlumes": 900,
+      "availability": "epicerie",
+      "asset": "/assets/frames/cadre-jardin-des-songes.webp"
+    },
+    {
+      "kind": "animation",
+      "id": "animation-none",
+      "name": "Sans animation",
+      "rarity": "commun",
+      "pricePlumes": 0,
+      "availability": "starter",
+      "asset": null
+    },
+    {
+      "kind": "animation",
+      "id": "eclat",
+      "name": "Éclat",
+      "rarity": "commun",
+      "pricePlumes": 120,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/eclat.png"
+    },
+    {
+      "kind": "animation",
+      "id": "etincelle",
+      "name": "Étincelle",
+      "rarity": "commun",
+      "pricePlumes": 125,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/etincelle.png"
+    },
+    {
+      "kind": "animation",
+      "id": "poussiere-dor",
+      "name": "Poussière d’or",
+      "rarity": "commun",
+      "pricePlumes": 130,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/poussiere-dor.png"
+    },
+    {
+      "kind": "animation",
+      "id": "souffle",
+      "name": "Souffle",
+      "rarity": "commun",
+      "pricePlumes": 135,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/souffle.png"
+    },
+    {
+      "kind": "animation",
+      "id": "halo",
+      "name": "Halo",
+      "rarity": "commun",
+      "pricePlumes": 140,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/halo.png"
+    },
+    {
+      "kind": "animation",
+      "id": "lucioles",
+      "name": "Lucioles",
+      "rarity": "singulier",
+      "pricePlumes": 175,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/lucioles.png"
+    },
+    {
+      "kind": "animation",
+      "id": "brume-irisee",
+      "name": "Brume irisée",
+      "rarity": "singulier",
+      "pricePlumes": 185,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/brume-irisee.png"
+    },
+    {
+      "kind": "animation",
+      "id": "constellation",
+      "name": "Constellation",
+      "rarity": "singulier",
+      "pricePlumes": 195,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/constellation.png"
+    },
+    {
+      "kind": "animation",
+      "id": "plume",
+      "name": "Plume",
+      "rarity": "rare",
+      "pricePlumes": 240,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/plume.png"
+    },
+    {
+      "kind": "animation",
+      "id": "feuille-automne",
+      "name": "Feuilles d’automne",
+      "rarity": "rare",
+      "pricePlumes": 255,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/feuille-automne.png"
+    },
+    {
+      "kind": "animation",
+      "id": "lune-vagabonde",
+      "name": "Lune vagabonde",
+      "rarity": "rare",
+      "pricePlumes": 270,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/lune-vagabonde.png"
+    },
+    {
+      "kind": "animation",
+      "id": "rosee",
+      "name": "Rosée",
+      "rarity": "precieux",
+      "pricePlumes": 370,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/rosee.png"
+    },
+    {
+      "kind": "animation",
+      "id": "prisme",
+      "name": "Prisme",
+      "rarity": "precieux",
+      "pricePlumes": 390,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/prisme.png"
+    },
+    {
+      "kind": "animation",
+      "id": "ecume",
+      "name": "Écume",
+      "rarity": "precieux",
+      "pricePlumes": 410,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/ecume.png"
+    },
+    {
+      "kind": "animation",
+      "id": "petales",
+      "name": "Pétales",
+      "rarity": "exceptionnel",
+      "pricePlumes": 560,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/petales.png"
+    },
+    {
+      "kind": "animation",
+      "id": "papillons-du-songe",
+      "name": "Papillons du songe",
+      "rarity": "exceptionnel",
+      "pricePlumes": 590,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/papillons-du-songe.png"
+    },
+    {
+      "kind": "animation",
+      "id": "carpes-celestes",
+      "name": "Carpes célestes",
+      "rarity": "exceptionnel",
+      "pricePlumes": 620,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/carpes-celestes.png"
+    },
+    {
+      "kind": "animation",
+      "id": "oiseau-de-lumiere",
+      "name": "L’Oiseau de lumière",
+      "rarity": "legendaire",
+      "pricePlumes": 820,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/oiseau-de-lumiere.png"
+    },
+    {
+      "kind": "animation",
+      "id": "serpent-emeraude",
+      "name": "Serpent d’émeraude",
+      "rarity": "legendaire",
+      "pricePlumes": 860,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/serpent-emeraude.png"
+    },
+    {
+      "kind": "animation",
+      "id": "dragon-solaire",
+      "name": "Dragon solaire",
+      "rarity": "legendaire",
+      "pricePlumes": 900,
+      "availability": "epicerie",
+      "asset": "/assets/animations/lab/dragon-solaire.png"
+    }
+  ],
+  "baskets": [
+    {
+      "id": "panier-epicerie",
+      "name": "Panier de l’Épicerie",
+      "pricePlumes": 999
+    }
+  ]
+}

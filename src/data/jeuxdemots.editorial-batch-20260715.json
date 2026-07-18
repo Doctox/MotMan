@@ -1,0 +1,2962 @@
+{
+  "version": 1,
+  "batch": "jdm-exhaustive-20260715-a",
+  "sourceDigest": "2a10d81d2c7985c0b062c090d440e616a7226d28a4d05d49c4b6083a7e6bded3",
+  "sourceCount": 421,
+  "reviewedAt": "2026-07-15",
+  "reviewedBy": "motman-editorial",
+  "counts": {
+    "accepted": 293,
+    "rejected": 117,
+    "doubt": 11
+  },
+  "decisions": [
+    {
+      "id": "JDM-A-001",
+      "answer": "GAZ",
+      "clue": "Pet",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-002",
+      "answer": "MOT",
+      "clue": "Terme",
+      "decision": "reject",
+      "reason": "réponse MOT volontairement écartée pour éviter sa surutilisation"
+    },
+    {
+      "id": "JDM-A-003",
+      "answer": "SON",
+      "clue": "Voix",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-004",
+      "answer": "SOU",
+      "clue": "Centime",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-005",
+      "answer": "TON",
+      "clue": "Style",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-006",
+      "answer": "VAL",
+      "clue": "Vallée",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-007",
+      "answer": "VIF",
+      "clue": "Prompt",
+      "decision": "reject",
+      "reason": "registre ou vocabulaire inadapté à une définition courte et naturelle"
+    },
+    {
+      "id": "JDM-A-008",
+      "answer": "BOIS",
+      "clue": "Forêt",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-009",
+      "answer": "BORD",
+      "clue": "Limite",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-010",
+      "answer": "CAFE",
+      "clue": "Bistrot",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-011",
+      "answer": "COUT",
+      "clue": "Prix",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-012",
+      "answer": "FAIT",
+      "clue": "Affaire",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-013",
+      "answer": "GARE",
+      "clue": "Station",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-014",
+      "answer": "GOUT",
+      "clue": "Penchant",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-015",
+      "answer": "MARE",
+      "clue": "Étang",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-016",
+      "answer": "PAYS",
+      "clue": "Terre",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-017",
+      "answer": "SOFA",
+      "clue": "Canapé",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-018",
+      "answer": "TIGE",
+      "clue": "Bâton",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-019",
+      "answer": "TUBE",
+      "clue": "Tuyau",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-020",
+      "answer": "TYPE",
+      "clue": "Homme",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-021",
+      "answer": "VICE",
+      "clue": "Défaut",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-022",
+      "answer": "VOIR",
+      "clue": "Découvrir",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-023",
+      "answer": "VOIX",
+      "clue": "Son",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-024",
+      "answer": "BAGUE",
+      "clue": "Anneau",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-025",
+      "answer": "BATON",
+      "clue": "Tige",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-026",
+      "answer": "BOIRE",
+      "clue": "Absorber",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-027",
+      "answer": "BOMBE",
+      "clue": "Festin",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-028",
+      "answer": "BUSTE",
+      "clue": "Torse",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-029",
+      "answer": "CEDER",
+      "clue": "Laisser",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-030",
+      "answer": "CHUTE",
+      "clue": "Faillite",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-031",
+      "answer": "CONGE",
+      "clue": "Vacances",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-032",
+      "answer": "COQUE",
+      "clue": "Coquille",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-033",
+      "answer": "DEBUT",
+      "clue": "Aurore",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-034",
+      "answer": "DELIT",
+      "clue": "Crime",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-035",
+      "answer": "DEMON",
+      "clue": "Diable",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-036",
+      "answer": "DIGUE",
+      "clue": "Jetée",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-037",
+      "answer": "DIVAN",
+      "clue": "Sofa",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-038",
+      "answer": "ECHEC",
+      "clue": "Faillite",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-039",
+      "answer": "EPOUX",
+      "clue": "Mari",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-040",
+      "answer": "FACON",
+      "clue": "Style",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-041",
+      "answer": "FETER",
+      "clue": "Célébrer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-042",
+      "answer": "FIRME",
+      "clue": "Boîte",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-043",
+      "answer": "FOULE",
+      "clue": "Masse",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-044",
+      "answer": "GAZON",
+      "clue": "Herbe",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-045",
+      "answer": "GOSSE",
+      "clue": "Enfant",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-046",
+      "answer": "GRAND",
+      "clue": "Beau",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-047",
+      "answer": "GRELE",
+      "clue": "Fin",
+      "decision": "reject",
+      "reason": "forme accentuée ou grammaticale ambiguë une fois affichée sans accents"
+    },
+    {
+      "id": "JDM-A-048",
+      "answer": "HERBE",
+      "clue": "Gazon",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-049",
+      "answer": "LARGE",
+      "clue": "Grand",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-050",
+      "answer": "LAVER",
+      "clue": "Nettoyer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-051",
+      "answer": "LOGIS",
+      "clue": "Maison",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-052",
+      "answer": "MALIN",
+      "clue": "Habile",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-053",
+      "answer": "MAMAN",
+      "clue": "Mère",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-054",
+      "answer": "MATIN",
+      "clue": "Aube",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-055",
+      "answer": "MENER",
+      "clue": "Diriger",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-056",
+      "answer": "MOITE",
+      "clue": "Humide",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-057",
+      "answer": "MOTIF",
+      "clue": "Cause",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-058",
+      "answer": "PAIRE",
+      "clue": "Couple",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-059",
+      "answer": "PAUSE",
+      "clue": "Repos",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-060",
+      "answer": "PECHE",
+      "clue": "Faute",
+      "decision": "reject",
+      "reason": "forme accentuée ou grammaticale ambiguë une fois affichée sans accents"
+    },
+    {
+      "id": "JDM-A-061",
+      "answer": "PIQUE",
+      "clue": "Cinglé",
+      "decision": "reject",
+      "reason": "forme accentuée ou grammaticale ambiguë une fois affichée sans accents"
+    },
+    {
+      "id": "JDM-A-062",
+      "answer": "POCHE",
+      "clue": "Sac",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-063",
+      "answer": "POSER",
+      "clue": "Placer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-064",
+      "answer": "REGNE",
+      "clue": "Trône",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-065",
+      "answer": "STEAK",
+      "clue": "Bifteck",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-066",
+      "answer": "STYLE",
+      "clue": "Ton",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-067",
+      "answer": "TACHE",
+      "clue": "Mission",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-068",
+      "answer": "TERME",
+      "clue": "Mot",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-069",
+      "answer": "THEME",
+      "clue": "Sujet",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-070",
+      "answer": "TOQUE",
+      "clue": "Cinglé",
+      "decision": "reject",
+      "reason": "forme accentuée ou grammaticale ambiguë une fois affichée sans accents"
+    },
+    {
+      "id": "JDM-A-071",
+      "answer": "TORSE",
+      "clue": "Buste",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-072",
+      "answer": "TRONE",
+      "clue": "Règne",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-073",
+      "answer": "TUYAU",
+      "clue": "Tube",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-074",
+      "answer": "VENIR",
+      "clue": "Arriver",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-075",
+      "answer": "VILLE",
+      "clue": "Cité",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-076",
+      "answer": "VIVRE",
+      "clue": "Demeurer",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-077",
+      "answer": "VOMIR",
+      "clue": "Cracher",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-078",
+      "answer": "ABSOLU",
+      "clue": "Entier",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-079",
+      "answer": "AGENCE",
+      "clue": "Bureau",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-080",
+      "answer": "AGITER",
+      "clue": "Troubler",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-081",
+      "answer": "BAGAGE",
+      "clue": "Attirail",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-082",
+      "answer": "BARRER",
+      "clue": "Fermer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-083",
+      "answer": "BEAUTE",
+      "clue": "Charme",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-084",
+      "answer": "BERGER",
+      "clue": "Pasteur",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-085",
+      "answer": "BESOIN",
+      "clue": "Pauvreté",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-086",
+      "answer": "BILLET",
+      "clue": "Lettre",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-087",
+      "answer": "BONDIR",
+      "clue": "Sauter",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-088",
+      "answer": "BOUCAN",
+      "clue": "Tapage",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-089",
+      "answer": "BREVET",
+      "clue": "Diplôme",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-090",
+      "answer": "CACHER",
+      "clue": "Couvrir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-091",
+      "answer": "CACHOT",
+      "clue": "Cellule",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-092",
+      "answer": "CESSER",
+      "clue": "Finir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-093",
+      "answer": "CHAIRE",
+      "clue": "Tribune",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-094",
+      "answer": "CHARGE",
+      "clue": "Poste",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-095",
+      "answer": "CHARME",
+      "clue": "Beauté",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-096",
+      "answer": "CHAUME",
+      "clue": "Paille",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-097",
+      "answer": "CINGLE",
+      "clue": "Timbré",
+      "decision": "reject",
+      "reason": "forme accentuée ou grammaticale ambiguë une fois affichée sans accents"
+    },
+    {
+      "id": "JDM-A-098",
+      "answer": "CONFUS",
+      "clue": "Obscur",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-099",
+      "answer": "COURIR",
+      "clue": "Filer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-100",
+      "answer": "COURSE",
+      "clue": "Trajet",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-101",
+      "answer": "CREVER",
+      "clue": "Claquer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-102",
+      "answer": "CROIRE",
+      "clue": "Supposer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-103",
+      "answer": "DEBRIS",
+      "clue": "Reste",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-104",
+      "answer": "DEFUNT",
+      "clue": "Mort",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-105",
+      "answer": "DELIRE",
+      "clue": "Folie",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-106",
+      "answer": "DETOUR",
+      "clue": "Tournant",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-107",
+      "answer": "DIABLE",
+      "clue": "Démon",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-108",
+      "answer": "DURETE",
+      "clue": "Sévérité",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-109",
+      "answer": "ECURIE",
+      "clue": "Étable",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-110",
+      "answer": "EGARER",
+      "clue": "Perdre",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-111",
+      "answer": "EGLISE",
+      "clue": "Temple",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-112",
+      "answer": "ETABLE",
+      "clue": "Écurie",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-113",
+      "answer": "EXAMEN",
+      "clue": "Étude",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-114",
+      "answer": "EXIGER",
+      "clue": "Demander",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-115",
+      "answer": "EXQUIS",
+      "clue": "Bon",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-116",
+      "answer": "FERMER",
+      "clue": "Barrer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-117",
+      "answer": "FIDELE",
+      "clue": "Exact",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-118",
+      "answer": "FONDER",
+      "clue": "Établir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-119",
+      "answer": "FORGER",
+      "clue": "Inventer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-120",
+      "answer": "FORMER",
+      "clue": "Faire",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-121",
+      "answer": "GAGNER",
+      "clue": "Toucher",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-122",
+      "answer": "GLUANT",
+      "clue": "Visqueux",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-123",
+      "answer": "HAMEAU",
+      "clue": "Village",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-124",
+      "answer": "HISSER",
+      "clue": "Élever",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-125",
+      "answer": "HUMEUR",
+      "clue": "Caprice",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-126",
+      "answer": "HUMIDE",
+      "clue": "Mouillé",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-127",
+      "answer": "IMPOLI",
+      "clue": "Grossier",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-128",
+      "answer": "INDICE",
+      "clue": "Preuve",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-129",
+      "answer": "INFAME",
+      "clue": "Honteux",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-130",
+      "answer": "JARGON",
+      "clue": "Argot",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-131",
+      "answer": "LIGNEE",
+      "clue": "Race",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-132",
+      "answer": "LIMITE",
+      "clue": "Bord",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-133",
+      "answer": "MACHIN",
+      "clue": "Chose",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-134",
+      "answer": "MINUTE",
+      "clue": "Instant",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-135",
+      "answer": "MIRAGE",
+      "clue": "Illusion",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-136",
+      "answer": "MONTER",
+      "clue": "Élever",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-137",
+      "answer": "MOURIR",
+      "clue": "Périr",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-138",
+      "answer": "NIVEAU",
+      "clue": "Étage",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-139",
+      "answer": "OPTION",
+      "clue": "Choix",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-140",
+      "answer": "PAILLE",
+      "clue": "Chaume",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-141",
+      "answer": "PARFUM",
+      "clue": "Odeur",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-142",
+      "answer": "PASSER",
+      "clue": "Finir",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-143",
+      "answer": "PATRON",
+      "clue": "Chef",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-144",
+      "answer": "PAUVRE",
+      "clue": "Petit",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-145",
+      "answer": "PERCER",
+      "clue": "Pénétrer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-146",
+      "answer": "PILIER",
+      "clue": "Colonne",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-147",
+      "answer": "PILOTE",
+      "clue": "Aviateur",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-148",
+      "answer": "POESIE",
+      "clue": "Vers",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-149",
+      "answer": "PRIERE",
+      "clue": "Demande",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-150",
+      "answer": "PRISON",
+      "clue": "Cellule",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-151",
+      "answer": "PROJET",
+      "clue": "Plan",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-152",
+      "answer": "PROMPT",
+      "clue": "Vif",
+      "decision": "reject",
+      "reason": "registre ou vocabulaire inadapté à une définition courte et naturelle"
+    },
+    {
+      "id": "JDM-A-153",
+      "answer": "RACINE",
+      "clue": "Source",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-154",
+      "answer": "RAISON",
+      "clue": "Sens",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-155",
+      "answer": "RAPIDE",
+      "clue": "Brusque",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-156",
+      "answer": "RATION",
+      "clue": "Portion",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-157",
+      "answer": "RECENT",
+      "clue": "Frais",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-158",
+      "answer": "REDIRE",
+      "clue": "Répéter",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-159",
+      "answer": "REGLER",
+      "clue": "Décider",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-160",
+      "answer": "RIGIDE",
+      "clue": "Sévère",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-161",
+      "answer": "RISQUE",
+      "clue": "Danger",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-162",
+      "answer": "SERMON",
+      "clue": "Discours",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-163",
+      "answer": "SITUER",
+      "clue": "Mettre",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-164",
+      "answer": "SOMBRE",
+      "clue": "Morne",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-165",
+      "answer": "SORTIR",
+      "clue": "Tirer",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-166",
+      "answer": "SURGIR",
+      "clue": "Naître",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-167",
+      "answer": "TACHER",
+      "clue": "Salir",
+      "decision": "reject",
+      "reason": "forme accentuée ou grammaticale ambiguë une fois affichée sans accents"
+    },
+    {
+      "id": "JDM-A-168",
+      "answer": "TAPAGE",
+      "clue": "Boucan",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-169",
+      "answer": "TEMPLE",
+      "clue": "Église",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-170",
+      "answer": "TENDRE",
+      "clue": "Sensible",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-171",
+      "answer": "TIMIDE",
+      "clue": "Indécis",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-172",
+      "answer": "TINTER",
+      "clue": "Sonner",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-173",
+      "answer": "TOMBER",
+      "clue": "Baisser",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-174",
+      "answer": "TOUFFE",
+      "clue": "Bouquet",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-175",
+      "answer": "TRACAS",
+      "clue": "Souci",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-176",
+      "answer": "TUNNEL",
+      "clue": "Galerie",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-177",
+      "answer": "UNIQUE",
+      "clue": "Seul",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-178",
+      "answer": "VANITE",
+      "clue": "Orgueil",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-179",
+      "answer": "VERSER",
+      "clue": "Payer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-180",
+      "answer": "VIVANT",
+      "clue": "Actif",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-181",
+      "answer": "ADOPTER",
+      "clue": "Suivre",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-182",
+      "answer": "AFFAIRE",
+      "clue": "Cas",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-183",
+      "answer": "AFFRONT",
+      "clue": "Injure",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-184",
+      "answer": "AMPLEUR",
+      "clue": "Largeur",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-185",
+      "answer": "ANALYSE",
+      "clue": "Examen",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-186",
+      "answer": "ANXIEUX",
+      "clue": "Inquiet",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-187",
+      "answer": "APPETIT",
+      "clue": "Désir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-188",
+      "answer": "AUREOLE",
+      "clue": "Halo",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-189",
+      "answer": "AVIDITE",
+      "clue": "Appétit",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-190",
+      "answer": "AVORTER",
+      "clue": "Échouer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-191",
+      "answer": "BAIGNER",
+      "clue": "Arroser",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-192",
+      "answer": "BAISSER",
+      "clue": "Tomber",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-193",
+      "answer": "BANQUET",
+      "clue": "Mets",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-194",
+      "answer": "BARAQUE",
+      "clue": "Cabane",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-195",
+      "answer": "BIFTECK",
+      "clue": "Steak",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-196",
+      "answer": "BISTROT",
+      "clue": "Café",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-197",
+      "answer": "BONJOUR",
+      "clue": "Salut",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-198",
+      "answer": "BOUFFER",
+      "clue": "Manger",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-199",
+      "answer": "BOUQUET",
+      "clue": "Touffe",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-200",
+      "answer": "BRUSQUE",
+      "clue": "Rapide",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-201",
+      "answer": "CAPITAL",
+      "clue": "Fonds",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-202",
+      "answer": "CASCADE",
+      "clue": "Saut",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-203",
+      "answer": "CHAMBRE",
+      "clue": "Pièce",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-204",
+      "answer": "CHARITE",
+      "clue": "Aumône",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-205",
+      "answer": "CHATEAU",
+      "clue": "Palais",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-206",
+      "answer": "CHEMISE",
+      "clue": "Dossier",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-207",
+      "answer": "CLAQUER",
+      "clue": "Crever",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-208",
+      "answer": "CLOTURE",
+      "clue": "Barrière",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-209",
+      "answer": "COFFRET",
+      "clue": "Cassette",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-210",
+      "answer": "COLLEGE",
+      "clue": "École",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-211",
+      "answer": "COMBLER",
+      "clue": "Remplir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-212",
+      "answer": "COMEDIE",
+      "clue": "Grimace",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-213",
+      "answer": "COMMODE",
+      "clue": "Facile",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-214",
+      "answer": "CONCEPT",
+      "clue": "Notion",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-215",
+      "answer": "COUTUME",
+      "clue": "Habitude",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-216",
+      "answer": "COUVRIR",
+      "clue": "Cacher",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-217",
+      "answer": "CRACHER",
+      "clue": "Vomir",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-218",
+      "answer": "CUVETTE",
+      "clue": "Bassin",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-219",
+      "answer": "DEBACLE",
+      "clue": "Ruine",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-220",
+      "answer": "DEFAIRE",
+      "clue": "Dégager",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-221",
+      "answer": "DELICAT",
+      "clue": "Mince",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-222",
+      "answer": "DERNIER",
+      "clue": "Final",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-223",
+      "answer": "DOSSIER",
+      "clue": "Chemise",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-224",
+      "answer": "DOUCEUR",
+      "clue": "Grâce",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-225",
+      "answer": "DOUTEUX",
+      "clue": "Incertain",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-226",
+      "answer": "DRAPEAU",
+      "clue": "Pavillon",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-227",
+      "answer": "DRESSER",
+      "clue": "Élever",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-228",
+      "answer": "EBAUCHE",
+      "clue": "Projet",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-229",
+      "answer": "ECHELLE",
+      "clue": "Degré",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-230",
+      "answer": "EDIFICE",
+      "clue": "Bâtiment",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-231",
+      "answer": "EMBETER",
+      "clue": "Ennuyer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-232",
+      "answer": "EMERGER",
+      "clue": "Paraître",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-233",
+      "answer": "EMOTION",
+      "clue": "Trouble",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-234",
+      "answer": "ENGRAIS",
+      "clue": "Fumier",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-235",
+      "answer": "ENTAMER",
+      "clue": "Attaquer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-236",
+      "answer": "ENTENTE",
+      "clue": "Accord",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-237",
+      "answer": "ENVOYER",
+      "clue": "Lancer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-238",
+      "answer": "ETAGERE",
+      "clue": "Tablette",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-239",
+      "answer": "EXERCER",
+      "clue": "Faire",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-240",
+      "answer": "FACHEUX",
+      "clue": "Ennuyeux",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-241",
+      "answer": "FATIGUE",
+      "clue": "Usagé",
+      "decision": "reject",
+      "reason": "forme accentuée ou grammaticale ambiguë une fois affichée sans accents"
+    },
+    {
+      "id": "JDM-A-242",
+      "answer": "FEBRILE",
+      "clue": "Fiévreux",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-243",
+      "answer": "FOURNIR",
+      "clue": "Procurer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-244",
+      "answer": "FRAGILE",
+      "clue": "Faible",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-245",
+      "answer": "FRIVOLE",
+      "clue": "Futile",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-246",
+      "answer": "FUGITIF",
+      "clue": "Éphémère",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-247",
+      "answer": "GESTION",
+      "clue": "Conduite",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-248",
+      "answer": "GRANDIR",
+      "clue": "Augmenter",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-249",
+      "answer": "GRIMACE",
+      "clue": "Comédie",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-250",
+      "answer": "GUEULER",
+      "clue": "Crier",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-251",
+      "answer": "HALEINE",
+      "clue": "Souffle",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-252",
+      "answer": "HOMMAGE",
+      "clue": "Respect",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-253",
+      "answer": "HONTEUX",
+      "clue": "Infâme",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-254",
+      "answer": "HORLOGE",
+      "clue": "Pendule",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-255",
+      "answer": "IMMONDE",
+      "clue": "Sordide",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-256",
+      "answer": "INUTILE",
+      "clue": "Vain",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-257",
+      "answer": "LARGEUR",
+      "clue": "Ampleur",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-258",
+      "answer": "LEOPARD",
+      "clue": "Panthère",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-259",
+      "answer": "LUGUBRE",
+      "clue": "Effrayant",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-260",
+      "answer": "MALADIE",
+      "clue": "Malaise",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-261",
+      "answer": "MALAISE",
+      "clue": "Maladie",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-262",
+      "answer": "MANQUER",
+      "clue": "Rater",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-263",
+      "answer": "MATELOT",
+      "clue": "Marin",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-264",
+      "answer": "MEDECIN",
+      "clue": "Docteur",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-265",
+      "answer": "METHODE",
+      "clue": "Procédé",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-266",
+      "answer": "MISSION",
+      "clue": "Tâche",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-267",
+      "answer": "MONTANT",
+      "clue": "Somme",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-268",
+      "answer": "MONTRER",
+      "clue": "Exprimer",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-269",
+      "answer": "MOUILLE",
+      "clue": "Humide",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-270",
+      "answer": "OBTENIR",
+      "clue": "Gagner",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-271",
+      "answer": "OFFENSE",
+      "clue": "Injure",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-272",
+      "answer": "ORAISON",
+      "clue": "Prière",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-273",
+      "answer": "PARADIS",
+      "clue": "Ciel",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-274",
+      "answer": "PASTEUR",
+      "clue": "Berger",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-275",
+      "answer": "PELOUSE",
+      "clue": "Gazon",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-276",
+      "answer": "PENDULE",
+      "clue": "Horloge",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-277",
+      "answer": "PORTION",
+      "clue": "Part",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-278",
+      "answer": "POSITIF",
+      "clue": "Certain",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-279",
+      "answer": "PREFERE",
+      "clue": "Favori",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-280",
+      "answer": "PREMIER",
+      "clue": "Primitif",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-281",
+      "answer": "PROCEDE",
+      "clue": "Méthode",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-282",
+      "answer": "PROFOND",
+      "clue": "Intense",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-283",
+      "answer": "PROGRES",
+      "clue": "Marche",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-284",
+      "answer": "QUALITE",
+      "clue": "Vertu",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-285",
+      "answer": "REALITE",
+      "clue": "Vérité",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-286",
+      "answer": "REJETER",
+      "clue": "Chasser",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-287",
+      "answer": "REPONSE",
+      "clue": "Réplique",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-288",
+      "answer": "REVELER",
+      "clue": "Signaler",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-289",
+      "answer": "REVISER",
+      "clue": "Corriger",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-290",
+      "answer": "ROULEAU",
+      "clue": "Cylindre",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-291",
+      "answer": "SECOUER",
+      "clue": "Agiter",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-292",
+      "answer": "SOCIETE",
+      "clue": "Groupe",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-293",
+      "answer": "SORCIER",
+      "clue": "Magicien",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-294",
+      "answer": "SORDIDE",
+      "clue": "Immonde",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-295",
+      "answer": "SOUPCON",
+      "clue": "Ombre",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-296",
+      "answer": "SOURDRE",
+      "clue": "Paraître",
+      "decision": "reject",
+      "reason": "registre ou vocabulaire inadapté à une définition courte et naturelle"
+    },
+    {
+      "id": "JDM-A-297",
+      "answer": "SUBLIME",
+      "clue": "Noble",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-298",
+      "answer": "SYSTEME",
+      "clue": "Méthode",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-299",
+      "answer": "TARTINE",
+      "clue": "Toast",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-300",
+      "answer": "TERRAIN",
+      "clue": "Champ",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-301",
+      "answer": "TORNADE",
+      "clue": "Tempête",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-302",
+      "answer": "TRAITER",
+      "clue": "Conclure",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-303",
+      "answer": "TRIBUNE",
+      "clue": "Chaire",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-304",
+      "answer": "TROUBLE",
+      "clue": "Émotion",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-305",
+      "answer": "VACARME",
+      "clue": "Bruit",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-306",
+      "answer": "VAINCRE",
+      "clue": "Enfoncer",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-307",
+      "answer": "VERMINE",
+      "clue": "Puce",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-308",
+      "answer": "VILLAGE",
+      "clue": "Hameau",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-309",
+      "answer": "VITESSE",
+      "clue": "Rapidité",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-310",
+      "answer": "VOYAGER",
+      "clue": "Circuler",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-311",
+      "answer": "ABSORBER",
+      "clue": "Boire",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-312",
+      "answer": "ALLIANCE",
+      "clue": "Union",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-313",
+      "answer": "AMBIANCE",
+      "clue": "Milieu",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-314",
+      "answer": "APPORTER",
+      "clue": "Amener",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-315",
+      "answer": "ASSASSIN",
+      "clue": "Meurtrier",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-316",
+      "answer": "ASSISTER",
+      "clue": "Aider",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-317",
+      "answer": "ASSOMMER",
+      "clue": "Fatiguer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-318",
+      "answer": "ATTAQUER",
+      "clue": "Entamer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-319",
+      "answer": "AVANTAGE",
+      "clue": "Faveur",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-320",
+      "answer": "AVENTURE",
+      "clue": "Accident",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-321",
+      "answer": "AVIATEUR",
+      "clue": "Pilote",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-322",
+      "answer": "BATIMENT",
+      "clue": "Immeuble",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-323",
+      "answer": "BLEUATRE",
+      "clue": "Bleu",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-324",
+      "answer": "BULLETIN",
+      "clue": "Billet",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-325",
+      "answer": "CAMARADE",
+      "clue": "Copain",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-326",
+      "answer": "CELEBRER",
+      "clue": "Fêter",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-327",
+      "answer": "CERVELLE",
+      "clue": "Cerveau",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-328",
+      "answer": "CLINIQUE",
+      "clue": "Hôpital",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-329",
+      "answer": "CLOCHARD",
+      "clue": "Vagabond",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-330",
+      "answer": "COMMERCE",
+      "clue": "Trafic",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-331",
+      "answer": "COMPOSER",
+      "clue": "Former",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-332",
+      "answer": "CONCLURE",
+      "clue": "Terminer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-333",
+      "answer": "CONDUITE",
+      "clue": "Gestion",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-334",
+      "answer": "CONFRERE",
+      "clue": "Collègue",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-335",
+      "answer": "CONTENIR",
+      "clue": "Retenir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-336",
+      "answer": "COQUILLE",
+      "clue": "Coque",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-337",
+      "answer": "CORRIDOR",
+      "clue": "Couloir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-338",
+      "answer": "CORRIGER",
+      "clue": "Réviser",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-339",
+      "answer": "CRAINDRE",
+      "clue": "Redouter",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-340",
+      "answer": "CYLINDRE",
+      "clue": "Rouleau",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-341",
+      "answer": "DEBATTRE",
+      "clue": "Discuter",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-342",
+      "answer": "DEBAUCHE",
+      "clue": "Vice",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-343",
+      "answer": "DEBORDER",
+      "clue": "Dépasser",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-344",
+      "answer": "DECLARER",
+      "clue": "Exprimer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-345",
+      "answer": "DECOUPER",
+      "clue": "Tailler",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-346",
+      "answer": "DEJEUNER",
+      "clue": "Dîner",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-347",
+      "answer": "DELIVRER",
+      "clue": "Libérer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-348",
+      "answer": "DEMANDER",
+      "clue": "Exiger",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-349",
+      "answer": "DEMARCHE",
+      "clue": "Port",
+      "decision": "doubt",
+      "reason": "nuance sémantique à conserver en doute"
+    },
+    {
+      "id": "JDM-A-350",
+      "answer": "DEPASSER",
+      "clue": "Déborder",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-351",
+      "answer": "DEPENSER",
+      "clue": "Dissiper",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-352",
+      "answer": "DERANGER",
+      "clue": "Troubler",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-353",
+      "answer": "DESIREUX",
+      "clue": "Avide",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-354",
+      "answer": "DESORDRE",
+      "clue": "Confusion",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-355",
+      "answer": "DETRESSE",
+      "clue": "Misère",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-356",
+      "answer": "DISCOURS",
+      "clue": "Sermon",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-357",
+      "answer": "DISSIPER",
+      "clue": "Dépenser",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-358",
+      "answer": "EBRANLER",
+      "clue": "Émouvoir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-359",
+      "answer": "EMBARRAS",
+      "clue": "Ennui",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-360",
+      "answer": "ENFERMER",
+      "clue": "Entourer",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-361",
+      "answer": "ENFONCER",
+      "clue": "Vaincre",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-362",
+      "answer": "ENNUYEUX",
+      "clue": "Pénible",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-363",
+      "answer": "ENTOURER",
+      "clue": "Enfermer",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-364",
+      "answer": "ETOUFFER",
+      "clue": "Arrêter",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-365",
+      "answer": "EXECUTER",
+      "clue": "Faire",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-366",
+      "answer": "FABRIQUE",
+      "clue": "Atelier",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-367",
+      "answer": "FAILLITE",
+      "clue": "Chute",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-368",
+      "answer": "FAMILIER",
+      "clue": "Intime",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-369",
+      "answer": "FIEVREUX",
+      "clue": "Fébrile",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-370",
+      "answer": "FLOTTANT",
+      "clue": "Instable",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-371",
+      "answer": "FRACTION",
+      "clue": "Division",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-372",
+      "answer": "GLORIEUX",
+      "clue": "Célèbre",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-373",
+      "answer": "HABILLER",
+      "clue": "Vêtir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-374",
+      "answer": "HARGNEUX",
+      "clue": "Maussade",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-375",
+      "answer": "HOMICIDE",
+      "clue": "Meurtre",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-376",
+      "answer": "IMMEUBLE",
+      "clue": "Bâtiment",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-377",
+      "answer": "INSTABLE",
+      "clue": "Fragile",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-378",
+      "answer": "INVENTER",
+      "clue": "Imaginer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-379",
+      "answer": "LEGITIME",
+      "clue": "Légal",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-380",
+      "answer": "LIMONADE",
+      "clue": "Soda",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-381",
+      "answer": "LUMINEUX",
+      "clue": "Brillant",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-382",
+      "answer": "MAGAZINE",
+      "clue": "Revue",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-383",
+      "answer": "MENSONGE",
+      "clue": "Blague",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-384",
+      "answer": "MONTAGNE",
+      "clue": "Mont",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-385",
+      "answer": "OBSTACLE",
+      "clue": "Barrière",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-386",
+      "answer": "ORDONNER",
+      "clue": "Disposer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-387",
+      "answer": "PANTHERE",
+      "clue": "Léopard",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-388",
+      "answer": "PARAITRE",
+      "clue": "Émerger",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-389",
+      "answer": "PARTAGER",
+      "clue": "Répartir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-390",
+      "answer": "PAVILLON",
+      "clue": "Drapeau",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-391",
+      "answer": "PENCHANT",
+      "clue": "Goût",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-392",
+      "answer": "PENETRER",
+      "clue": "Saisir",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-393",
+      "answer": "PLAISANT",
+      "clue": "Amusant",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-394",
+      "answer": "POSITION",
+      "clue": "Place",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-395",
+      "answer": "PRIMITIF",
+      "clue": "Brut",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-396",
+      "answer": "PROBLEME",
+      "clue": "Question",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-397",
+      "answer": "PROCURER",
+      "clue": "Fournir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-398",
+      "answer": "PRUDENCE",
+      "clue": "Sagesse",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-399",
+      "answer": "QUANTITE",
+      "clue": "Foule",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-400",
+      "answer": "QUESTION",
+      "clue": "Problème",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-401",
+      "answer": "RAPIDITE",
+      "clue": "Vitesse",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-402",
+      "answer": "REALISER",
+      "clue": "Faire",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-403",
+      "answer": "REDOUTER",
+      "clue": "Craindre",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-404",
+      "answer": "REGARDER",
+      "clue": "Voir",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-405",
+      "answer": "REGULIER",
+      "clue": "Normal",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-406",
+      "answer": "REPARTIR",
+      "clue": "Partager",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-407",
+      "answer": "REPLIQUE",
+      "clue": "Réponse",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-408",
+      "answer": "REPRIMER",
+      "clue": "Étouffer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-409",
+      "answer": "RESERVER",
+      "clue": "Garder",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-410",
+      "answer": "RETRAITE",
+      "clue": "Abri",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-411",
+      "answer": "SENSIBLE",
+      "clue": "Tendre",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-412",
+      "answer": "SONNETTE",
+      "clue": "Cloche",
+      "decision": "reject",
+      "reason": "relation contextuelle, trop large ou insuffisamment univoque après relecture"
+    },
+    {
+      "id": "JDM-A-413",
+      "answer": "SOULAGER",
+      "clue": "Calmer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-414",
+      "answer": "SUPPOSER",
+      "clue": "Croire",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-415",
+      "answer": "SUSCITER",
+      "clue": "Causer",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-416",
+      "answer": "TABLETTE",
+      "clue": "Étagère",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-417",
+      "answer": "TRIBUNAL",
+      "clue": "Cour",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-418",
+      "answer": "VACANCES",
+      "clue": "Congé",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-419",
+      "answer": "VAGABOND",
+      "clue": "Clochard",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-420",
+      "answer": "VISQUEUX",
+      "clue": "Gluant",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    },
+    {
+      "id": "JDM-A-421",
+      "answer": "VIVACITE",
+      "clue": "Fougue",
+      "decision": "accept",
+      "reason": "couple direct et devinable"
+    }
+  ]
+}

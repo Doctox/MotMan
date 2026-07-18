@@ -1,0 +1,200 @@
+{
+  "version": 2,
+  "assetFormat": {
+    "width": 1024,
+    "height": 1024,
+    "crop": "square",
+    "frameIncluded": false
+  },
+  "avatars": [
+    {
+      "id": "plume-motman",
+      "name": "Plume MotMan",
+      "kind": "object",
+      "asset": "/assets/avatars/plume-motman.webp",
+      "availability": "starter",
+      "pricePlumes": 0,
+      "tags": ["plume", "neutre", "motman"]
+    },
+    {
+      "id": "amina",
+      "name": "Amina",
+      "kind": "human",
+      "asset": "/assets/avatars/amina.webp",
+      "availability": "epicerie",
+      "pricePlumes": 140,
+      "tags": ["femme", "noire", "contemporain"]
+    },
+    {
+      "id": "malik",
+      "name": "Malik",
+      "kind": "human",
+      "asset": "/assets/avatars/malik.webp",
+      "availability": "epicerie",
+      "pricePlumes": 140,
+      "tags": ["homme", "noir", "contemporain"]
+    },
+    {
+      "id": "mei",
+      "name": "Mei",
+      "kind": "human",
+      "asset": "/assets/avatars/mei.webp",
+      "availability": "epicerie",
+      "pricePlumes": 140,
+      "tags": ["femme", "asiatique", "contemporain"]
+    },
+    {
+      "id": "kenji",
+      "name": "Kenji",
+      "kind": "human",
+      "asset": "/assets/avatars/kenji.webp",
+      "availability": "epicerie",
+      "pricePlumes": 140,
+      "tags": ["homme", "asiatique", "contemporain"]
+    },
+    {
+      "id": "ines",
+      "name": "Inès",
+      "kind": "human",
+      "asset": "/assets/avatars/ines.webp",
+      "availability": "epicerie",
+      "pricePlumes": 140,
+      "tags": ["femme", "metisse", "contemporain"]
+    },
+    {
+      "id": "nael",
+      "name": "Naël",
+      "kind": "human",
+      "asset": "/assets/avatars/nael.webp",
+      "availability": "epicerie",
+      "pricePlumes": 140,
+      "tags": ["homme", "metis", "contemporain"]
+    },
+    {
+      "id": "camille",
+      "name": "Camille",
+      "kind": "human",
+      "asset": "/assets/portrait-camille.webp",
+      "availability": "epicerie",
+      "pricePlumes": 140,
+      "tags": ["femme", "portrait", "classique"]
+    },
+    {
+      "id": "alex",
+      "name": "Alex",
+      "kind": "human",
+      "asset": "/assets/portrait-player.webp",
+      "availability": "epicerie",
+      "pricePlumes": 140,
+      "tags": ["homme", "portrait", "classique"]
+    },
+    {
+      "id": "moka",
+      "name": "Moka",
+      "kind": "animal",
+      "asset": "/assets/avatars/moka.webp",
+      "availability": "epicerie",
+      "pricePlumes": 180,
+      "tags": ["chat", "animal"]
+    },
+    {
+      "id": "celeste",
+      "name": "Céleste",
+      "kind": "animal",
+      "asset": "/assets/avatars/celeste.webp",
+      "availability": "epicerie",
+      "pricePlumes": 180,
+      "tags": ["chouette", "animal"]
+    },
+    {
+      "id": "roux",
+      "name": "Roux",
+      "kind": "animal",
+      "asset": "/assets/avatars/roux.webp",
+      "availability": "epicerie",
+      "pricePlumes": 180,
+      "tags": ["renard", "animal"]
+    },
+    {
+      "id": "machine-a-ecrire",
+      "name": "Machine à écrire",
+      "kind": "object",
+      "asset": "/assets/avatars/machine-a-ecrire.webp",
+      "availability": "epicerie",
+      "pricePlumes": 220,
+      "tags": ["objet", "ecriture", "vintage"]
+    },
+    {
+      "id": "theiere",
+      "name": "Théière",
+      "kind": "object",
+      "asset": "/assets/avatars/theiere.webp",
+      "availability": "epicerie",
+      "pricePlumes": 220,
+      "tags": ["objet", "the", "ceramique"]
+    },
+    {
+      "id": "livre-et-plume",
+      "name": "Livre & plume",
+      "kind": "object",
+      "asset": "/assets/avatars/livre-et-plume.webp",
+      "availability": "epicerie",
+      "pricePlumes": 220,
+      "tags": ["objet", "livre", "plume", "ecriture"]
+    },
+    {
+      "id": "couronne",
+      "name": "Couronne",
+      "kind": "object",
+      "asset": "/assets/avatars/couronne.webp",
+      "availability": "epicerie",
+      "pricePlumes": 220,
+      "tags": ["objet", "couronne", "royal"]
+    },
+    {
+      "id": "pieces-dorees",
+      "name": "Pièces dorées",
+      "kind": "object",
+      "asset": "/assets/avatars/pieces-dorees.webp",
+      "availability": "epicerie",
+      "pricePlumes": 220,
+      "tags": ["objet", "pieces", "tresor"]
+    },
+    {
+      "id": "baguette-magique",
+      "name": "Baguette magique",
+      "kind": "object",
+      "asset": "/assets/avatars/baguette-magique.webp",
+      "availability": "epicerie",
+      "pricePlumes": 220,
+      "tags": ["objet", "baguette", "magie"]
+    },
+    {
+      "id": "anneau-ancien",
+      "name": "Anneau ancien",
+      "kind": "object",
+      "asset": "/assets/avatars/anneau-ancien.webp",
+      "availability": "epicerie",
+      "pricePlumes": 220,
+      "tags": ["objet", "anneau", "relique", "fantastique"]
+    },
+    {
+      "id": "easter-egg-chienne",
+      "name": "Chien",
+      "kind": "animal",
+      "asset": "/assets/avatars/easter-egg-chienne.webp",
+      "availability": "epicerie",
+      "pricePlumes": 180,
+      "tags": ["animal", "chien", "easter-egg", "personnel"]
+    },
+    {
+      "id": "easter-egg-gecko",
+      "name": "Gecko",
+      "kind": "animal",
+      "asset": "/assets/avatars/easter-egg-gecko.webp",
+      "availability": "epicerie",
+      "pricePlumes": 180,
+      "tags": ["animal", "gecko", "easter-egg", "personnel"]
+    }
+  ]
+}

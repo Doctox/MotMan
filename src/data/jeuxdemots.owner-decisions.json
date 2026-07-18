@@ -1,0 +1,2116 @@
+{
+  "version": 1,
+  "sourceDigest": "ac56495da8d3ba81db3b1e6ce3b711609dac68056fbaeeb10e16f398282afcc3",
+  "reviewedAt": "2026-07-15",
+  "reviewedBy": "motman-owner",
+  "counts": {
+    "total": 299,
+    "reject": 166,
+    "accept": 133
+  },
+  "countsByCategory": {
+    "strict-doubt": {
+      "reject": 37,
+      "accept": 12
+    },
+    "borderline-doubt": {
+      "reject": 129,
+      "accept": 121
+    }
+  },
+  "decisions": [
+    {
+      "id": "S-001",
+      "answer": "AIDER",
+      "clue": "Servir",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-002",
+      "answer": "ARGENT",
+      "clue": "Monnaie",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-003",
+      "answer": "AUTORITE",
+      "clue": "Empire",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-004",
+      "answer": "BAGUETTE",
+      "clue": "Bâton",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-005",
+      "answer": "BARBARE",
+      "clue": "Sauvage",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-006",
+      "answer": "BARQUE",
+      "clue": "Bateau",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-007",
+      "answer": "BATON",
+      "clue": "Baguette",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-008",
+      "answer": "CABARET",
+      "clue": "Café",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-009",
+      "answer": "CAFE",
+      "clue": "Cabaret",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-010",
+      "answer": "CHUTE",
+      "clue": "Ruine",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-011",
+      "answer": "CONCLURE",
+      "clue": "Régler",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-012",
+      "answer": "CORDE",
+      "clue": "Fil",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-013",
+      "answer": "DEBUT",
+      "clue": "Seuil",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-014",
+      "answer": "DEFENSE",
+      "clue": "Rempart",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-015",
+      "answer": "EMPIRE",
+      "clue": "Autorité",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-016",
+      "answer": "FAIBLE",
+      "clue": "Petit",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-017",
+      "answer": "FLATTER",
+      "clue": "Caresser",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-018",
+      "answer": "FUGACE",
+      "clue": "Fugitif",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-019",
+      "answer": "FUGITIF",
+      "clue": "Fugace",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-020",
+      "answer": "HABITER",
+      "clue": "Vivre",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-021",
+      "answer": "HAUTEUR",
+      "clue": "Éminence",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-022",
+      "answer": "HISTOIRE",
+      "clue": "Conte",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-023",
+      "answer": "IMAGINER",
+      "clue": "Penser",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-024",
+      "answer": "LANGAGE",
+      "clue": "Langue",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-025",
+      "answer": "LANGUE",
+      "clue": "Langage",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-026",
+      "answer": "MAIGRE",
+      "clue": "Pauvre",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-027",
+      "answer": "NEGLIGER",
+      "clue": "Oublier",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-028",
+      "answer": "ORIGINE",
+      "clue": "Principe",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-029",
+      "answer": "PARAITRE",
+      "clue": "Surgir",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-030",
+      "answer": "PAUVRE",
+      "clue": "Maigre",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-031",
+      "answer": "PAYS",
+      "clue": "Région",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-032",
+      "answer": "PEINTURE",
+      "clue": "Tableau",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-033",
+      "answer": "PORTRAIT",
+      "clue": "Image",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-034",
+      "answer": "PRETRE",
+      "clue": "Abbé",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-035",
+      "answer": "PROCHAIN",
+      "clue": "Proche",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-036",
+      "answer": "PROCHE",
+      "clue": "Prochain",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-037",
+      "answer": "PRODUIT",
+      "clue": "Fruit",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-038",
+      "answer": "RAISON",
+      "clue": "Esprit",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-039",
+      "answer": "REGLER",
+      "clue": "Conclure",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-040",
+      "answer": "REPLI",
+      "clue": "Pli",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-041",
+      "answer": "SERVIR",
+      "clue": "Aider",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-042",
+      "answer": "SOLDAT",
+      "clue": "Guerrier",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-043",
+      "answer": "SURGIR",
+      "clue": "Paraître",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-044",
+      "answer": "TEMPETE",
+      "clue": "Ouragan",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-045",
+      "answer": "TRAINER",
+      "clue": "Flâner",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-046",
+      "answer": "TRAJET",
+      "clue": "Voyage",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "S-047",
+      "answer": "TRIPOTER",
+      "clue": "Manier",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-048",
+      "answer": "VIVRE",
+      "clue": "Habiter",
+      "category": "strict-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "S-049",
+      "answer": "VOYAGE",
+      "clue": "Trajet",
+      "category": "strict-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-001",
+      "answer": "GAGNER",
+      "clue": "Prendre",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-002",
+      "answer": "PRENDRE",
+      "clue": "Gagner",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-003",
+      "answer": "FACON",
+      "clue": "Manière",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-004",
+      "answer": "MAUVAIS",
+      "clue": "Cruel",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-005",
+      "answer": "TROMPER",
+      "clue": "Berner",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-006",
+      "answer": "EXPRIMER",
+      "clue": "Révéler",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-007",
+      "answer": "REVELER",
+      "clue": "Exprimer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-008",
+      "answer": "FORMER",
+      "clue": "Créer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-009",
+      "answer": "CHALEUR",
+      "clue": "Flamme",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-010",
+      "answer": "FLAMME",
+      "clue": "Chaleur",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-011",
+      "answer": "ANNONCER",
+      "clue": "Signaler",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-012",
+      "answer": "SIGNALER",
+      "clue": "Annoncer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-013",
+      "answer": "DETRUIRE",
+      "clue": "Anéantir",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-014",
+      "answer": "PRODUIRE",
+      "clue": "Créer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-015",
+      "answer": "GENTIL",
+      "clue": "Aimable",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-016",
+      "answer": "BATIR",
+      "clue": "Faire",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-017",
+      "answer": "FAIRE",
+      "clue": "Bâtir",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-018",
+      "answer": "TOURNURE",
+      "clue": "Aspect",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-019",
+      "answer": "TERRIBLE",
+      "clue": "Atroce",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-020",
+      "answer": "AFFREUX",
+      "clue": "Horrible",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-021",
+      "answer": "ENLEVER",
+      "clue": "Retirer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-022",
+      "answer": "RETIRER",
+      "clue": "Enlever",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-023",
+      "answer": "ASSOCIER",
+      "clue": "Joindre",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-024",
+      "answer": "JOINDRE",
+      "clue": "Associer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-025",
+      "answer": "DOULEUR",
+      "clue": "Peine",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-026",
+      "answer": "PEINE",
+      "clue": "Douleur",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-027",
+      "answer": "BETA",
+      "clue": "Bête",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-028",
+      "answer": "PENIBLE",
+      "clue": "Cruel",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-029",
+      "answer": "CHAGRIN",
+      "clue": "Ennui",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-030",
+      "answer": "HOMME",
+      "clue": "Individu",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-031",
+      "answer": "INDIVIDU",
+      "clue": "Homme",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-032",
+      "answer": "ABUSER",
+      "clue": "Berner",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-033",
+      "answer": "ATTACHER",
+      "clue": "Lier",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-034",
+      "answer": "BATAILLE",
+      "clue": "Combat",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-035",
+      "answer": "COMBAT",
+      "clue": "Bataille",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-036",
+      "answer": "SOMBRE",
+      "clue": "Triste",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-037",
+      "answer": "FRENESIE",
+      "clue": "Fureur",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-038",
+      "answer": "RETENIR",
+      "clue": "Arrêter",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-039",
+      "answer": "METTRE",
+      "clue": "Poser",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-040",
+      "answer": "POSER",
+      "clue": "Mettre",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-041",
+      "answer": "PERSONNE",
+      "clue": "Homme",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-042",
+      "answer": "SECOURS",
+      "clue": "Aide",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-043",
+      "answer": "AFFIRMER",
+      "clue": "Assurer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-044",
+      "answer": "STYLE",
+      "clue": "Genre",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-045",
+      "answer": "EXAGERER",
+      "clue": "Grossir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-046",
+      "answer": "GROSSIR",
+      "clue": "Exagérer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-047",
+      "answer": "QUANTITE",
+      "clue": "Masse",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-048",
+      "answer": "FATIGUER",
+      "clue": "Épuiser",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-049",
+      "answer": "AGITER",
+      "clue": "Remuer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-050",
+      "answer": "EXACT",
+      "clue": "Juste",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-051",
+      "answer": "BRIGAND",
+      "clue": "Bandit",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-052",
+      "answer": "VOLEUR",
+      "clue": "Brigand",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-053",
+      "answer": "PROMPT",
+      "clue": "Rapide",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-054",
+      "answer": "RAPIDE",
+      "clue": "Prompt",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-055",
+      "answer": "GRAS",
+      "clue": "Gros",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-056",
+      "answer": "GROS",
+      "clue": "Gras",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-057",
+      "answer": "MAIGRE",
+      "clue": "Petit",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-058",
+      "answer": "ADOUCIR",
+      "clue": "Apaiser",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-059",
+      "answer": "DROLE",
+      "clue": "Amusant",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-060",
+      "answer": "QUITTER",
+      "clue": "Partir",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-061",
+      "answer": "CONDUIRE",
+      "clue": "Mener",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-062",
+      "answer": "MENER",
+      "clue": "Conduire",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-063",
+      "answer": "FAIBLE",
+      "clue": "Médiocre",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-064",
+      "answer": "MEDIOCRE",
+      "clue": "Faible",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-065",
+      "answer": "RESSORT",
+      "clue": "Courage",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-066",
+      "answer": "EMBARRAS",
+      "clue": "Obstacle",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-067",
+      "answer": "OBSTACLE",
+      "clue": "Embarras",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-068",
+      "answer": "DESORDRE",
+      "clue": "Trouble",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-069",
+      "answer": "TROUBLE",
+      "clue": "Désordre",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-070",
+      "answer": "DELICAT",
+      "clue": "Léger",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-071",
+      "answer": "LEGER",
+      "clue": "Délicat",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-072",
+      "answer": "AGACER",
+      "clue": "Irriter",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-073",
+      "answer": "IRRITER",
+      "clue": "Agacer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-074",
+      "answer": "GROUPE",
+      "clue": "Clan",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-075",
+      "answer": "EXAMINER",
+      "clue": "Sonder",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-076",
+      "answer": "SONDER",
+      "clue": "Examiner",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-077",
+      "answer": "TAPAGE",
+      "clue": "Bruit",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-078",
+      "answer": "FABULEUX",
+      "clue": "Inouï",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-079",
+      "answer": "ROBUSTE",
+      "clue": "Solide",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-080",
+      "answer": "SOLIDE",
+      "clue": "Robuste",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-081",
+      "answer": "PROJET",
+      "clue": "Dessein",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-082",
+      "answer": "PERCANT",
+      "clue": "Aigu",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-083",
+      "answer": "ATTITUDE",
+      "clue": "Tenue",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-084",
+      "answer": "CHAHUT",
+      "clue": "Tapage",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-085",
+      "answer": "AVALER",
+      "clue": "Manger",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-086",
+      "answer": "MANGER",
+      "clue": "Avaler",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-087",
+      "answer": "METHODE",
+      "clue": "Moyen",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-088",
+      "answer": "MOYEN",
+      "clue": "Méthode",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-089",
+      "answer": "GROSSIER",
+      "clue": "Rustique",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-090",
+      "answer": "RUSTIQUE",
+      "clue": "Grossier",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-091",
+      "answer": "REUNION",
+      "clue": "Union",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-092",
+      "answer": "CONFLIT",
+      "clue": "Dispute",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-093",
+      "answer": "DISPUTE",
+      "clue": "Conflit",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-094",
+      "answer": "SVELTE",
+      "clue": "Mince",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-095",
+      "answer": "RENONCER",
+      "clue": "Quitter",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-096",
+      "answer": "ABSURDE",
+      "clue": "Insensé",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-097",
+      "answer": "FINIR",
+      "clue": "Mourir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-098",
+      "answer": "MOURIR",
+      "clue": "Finir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-099",
+      "answer": "VULGAIRE",
+      "clue": "Commun",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-100",
+      "answer": "HABILETE",
+      "clue": "Art",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-101",
+      "answer": "HAUSSER",
+      "clue": "Monter",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-102",
+      "answer": "MONTER",
+      "clue": "Hausser",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-103",
+      "answer": "FROTTER",
+      "clue": "Nettoyer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-104",
+      "answer": "NETTOYER",
+      "clue": "Frotter",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-105",
+      "answer": "FABLE",
+      "clue": "Conte",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-106",
+      "answer": "DIVISER",
+      "clue": "Séparer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-107",
+      "answer": "SEPARER",
+      "clue": "Diviser",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-108",
+      "answer": "TRUAND",
+      "clue": "Vaurien",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-109",
+      "answer": "EMOUVOIR",
+      "clue": "Toucher",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-110",
+      "answer": "TOUCHER",
+      "clue": "Émouvoir",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-111",
+      "answer": "FRAGMENT",
+      "clue": "Morceau",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-112",
+      "answer": "MORCEAU",
+      "clue": "Fragment",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-113",
+      "answer": "FILER",
+      "clue": "Fuir",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-114",
+      "answer": "ALLER",
+      "clue": "Courir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-115",
+      "answer": "COURIR",
+      "clue": "Aller",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-116",
+      "answer": "AIDER",
+      "clue": "Soutenir",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-117",
+      "answer": "SOUTENIR",
+      "clue": "Aider",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-118",
+      "answer": "PIQUE",
+      "clue": "Toqué",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-119",
+      "answer": "TOQUE",
+      "clue": "Piqué",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-120",
+      "answer": "DEMOLIR",
+      "clue": "Abîmer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-121",
+      "answer": "GRELE",
+      "clue": "Menu",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-122",
+      "answer": "MENU",
+      "clue": "Grêle",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-123",
+      "answer": "ANTIQUE",
+      "clue": "Ancien",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-124",
+      "answer": "LIMPIDE",
+      "clue": "Clair",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-125",
+      "answer": "MELANGER",
+      "clue": "Réunir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-126",
+      "answer": "DEMANDER",
+      "clue": "Réclamer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-127",
+      "answer": "DESSIN",
+      "clue": "Image",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-128",
+      "answer": "CONSUMER",
+      "clue": "Dévorer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-129",
+      "answer": "DEVORER",
+      "clue": "Consumer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-130",
+      "answer": "CEDER",
+      "clue": "Fléchir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-131",
+      "answer": "FLECHIR",
+      "clue": "Céder",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-132",
+      "answer": "CHARGE",
+      "clue": "Fonction",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-133",
+      "answer": "FONCTION",
+      "clue": "Charge",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-134",
+      "answer": "FOUILLER",
+      "clue": "Sonder",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-135",
+      "answer": "FAROUCHE",
+      "clue": "Sauvage",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-136",
+      "answer": "HEUREUX",
+      "clue": "Ravi",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-137",
+      "answer": "RAVI",
+      "clue": "Heureux",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-138",
+      "answer": "DEGAGER",
+      "clue": "Libérer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-139",
+      "answer": "MALHEUR",
+      "clue": "Épreuve",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-140",
+      "answer": "FRUSTE",
+      "clue": "Rustique",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-141",
+      "answer": "FACULTE",
+      "clue": "Capacité",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-142",
+      "answer": "PLACER",
+      "clue": "Situer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-143",
+      "answer": "SITUER",
+      "clue": "Placer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-144",
+      "answer": "ATTACHE",
+      "clue": "Lien",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-145",
+      "answer": "COUPER",
+      "clue": "Tailler",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-146",
+      "answer": "TAILLER",
+      "clue": "Couper",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-147",
+      "answer": "PAIX",
+      "clue": "Calme",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-148",
+      "answer": "FRAGILE",
+      "clue": "Précaire",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-149",
+      "answer": "PRECAIRE",
+      "clue": "Fragile",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-150",
+      "answer": "ABSOLU",
+      "clue": "Complet",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-151",
+      "answer": "COMPLET",
+      "clue": "Absolu",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-152",
+      "answer": "COUP",
+      "clue": "Blessure",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-153",
+      "answer": "ABSORBER",
+      "clue": "Avaler",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-154",
+      "answer": "COPIER",
+      "clue": "Imiter",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-155",
+      "answer": "HISTOIRE",
+      "clue": "Fable",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-156",
+      "answer": "ORIGINE",
+      "clue": "Source",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-157",
+      "answer": "IMBECILE",
+      "clue": "Crétin",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-158",
+      "answer": "SUPPLIER",
+      "clue": "Prier",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-159",
+      "answer": "COURS",
+      "clue": "Marche",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-160",
+      "answer": "CONSTANT",
+      "clue": "Immuable",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-161",
+      "answer": "IMMUABLE",
+      "clue": "Constant",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-162",
+      "answer": "PROFIT",
+      "clue": "Gain",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-163",
+      "answer": "MOTIF",
+      "clue": "Raison",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-164",
+      "answer": "RAISON",
+      "clue": "Motif",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-165",
+      "answer": "FIXE",
+      "clue": "Immuable",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-166",
+      "answer": "BENEFICE",
+      "clue": "Gain",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-167",
+      "answer": "EXAGERE",
+      "clue": "Excessif",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-168",
+      "answer": "EXCESSIF",
+      "clue": "Exagéré",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-169",
+      "answer": "DOUCEUR",
+      "clue": "Bonté",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-170",
+      "answer": "FURIEUX",
+      "clue": "Enragé",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-171",
+      "answer": "PARTIE",
+      "clue": "Portion",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-172",
+      "answer": "PORTION",
+      "clue": "Partie",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-173",
+      "answer": "AVANCER",
+      "clue": "Marcher",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-174",
+      "answer": "MARCHER",
+      "clue": "Avancer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-175",
+      "answer": "REVOLTE",
+      "clue": "Émeute",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-176",
+      "answer": "SUPPLICE",
+      "clue": "Torture",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-177",
+      "answer": "TORTURE",
+      "clue": "Supplice",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-178",
+      "answer": "PARAITRE",
+      "clue": "Poindre",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-179",
+      "answer": "POINDRE",
+      "clue": "Paraître",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-180",
+      "answer": "AFFAIRE",
+      "clue": "Action",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-181",
+      "answer": "BRULER",
+      "clue": "Griller",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-182",
+      "answer": "GRILLER",
+      "clue": "Brûler",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-183",
+      "answer": "HAUTAIN",
+      "clue": "Arrogant",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-184",
+      "answer": "SIGNE",
+      "clue": "Symbole",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-185",
+      "answer": "SYMBOLE",
+      "clue": "Signe",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-186",
+      "answer": "FRAYEUR",
+      "clue": "Effroi",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-187",
+      "answer": "BLESSER",
+      "clue": "Déchirer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-188",
+      "answer": "DECHIRER",
+      "clue": "Blesser",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-189",
+      "answer": "BEAUCOUP",
+      "clue": "Bien",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-190",
+      "answer": "PASSAGE",
+      "clue": "Voie",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-191",
+      "answer": "ACHEVER",
+      "clue": "Terminer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-192",
+      "answer": "QUALITE",
+      "clue": "Nature",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-193",
+      "answer": "ARMEE",
+      "clue": "Troupe",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-194",
+      "answer": "TEMPS",
+      "clue": "Période",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-195",
+      "answer": "TERNE",
+      "clue": "Morne",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-196",
+      "answer": "TEMPETE",
+      "clue": "Orage",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-197",
+      "answer": "FOURNIR",
+      "clue": "Pourvoir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-198",
+      "answer": "POURVOIR",
+      "clue": "Fournir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-199",
+      "answer": "AVENTURE",
+      "clue": "Fait",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-200",
+      "answer": "FAIT",
+      "clue": "Aventure",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-201",
+      "answer": "ARGENT",
+      "clue": "Fric",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-202",
+      "answer": "FRIC",
+      "clue": "Argent",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-203",
+      "answer": "EMERGER",
+      "clue": "Surgir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-204",
+      "answer": "SURGIR",
+      "clue": "Émerger",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-205",
+      "answer": "DEBAUCHE",
+      "clue": "Licence",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-206",
+      "answer": "DEMEURER",
+      "clue": "Habiter",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-207",
+      "answer": "HABITER",
+      "clue": "Demeurer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-208",
+      "answer": "BAISSER",
+      "clue": "Décliner",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-209",
+      "answer": "DECLINER",
+      "clue": "Baisser",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-210",
+      "answer": "ASSISTER",
+      "clue": "Servir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-211",
+      "answer": "SERVIR",
+      "clue": "Assister",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-212",
+      "answer": "TERME",
+      "clue": "Fin",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-213",
+      "answer": "MATIERE",
+      "clue": "Objet",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-214",
+      "answer": "OBJET",
+      "clue": "Matière",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-215",
+      "answer": "DETACHER",
+      "clue": "Séparer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-216",
+      "answer": "FAMEUX",
+      "clue": "Illustre",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-217",
+      "answer": "ILLUSTRE",
+      "clue": "Fameux",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-218",
+      "answer": "REFAIRE",
+      "clue": "Rétablir",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-219",
+      "answer": "RETABLIR",
+      "clue": "Refaire",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-220",
+      "answer": "RETENUE",
+      "clue": "Décence",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-221",
+      "answer": "TERRAIN",
+      "clue": "Terre",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-222",
+      "answer": "TREMPER",
+      "clue": "Mouiller",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-223",
+      "answer": "CHOQUER",
+      "clue": "Heurter",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-224",
+      "answer": "HEURTER",
+      "clue": "Choquer",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-225",
+      "answer": "TIRAGE",
+      "clue": "Obstacle",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-226",
+      "answer": "ANNONCE",
+      "clue": "Note",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-227",
+      "answer": "FORTUNE",
+      "clue": "Richesse",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-228",
+      "answer": "RICHESSE",
+      "clue": "Fortune",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-229",
+      "answer": "SOMMET",
+      "clue": "Haut",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-230",
+      "answer": "DIFFERER",
+      "clue": "Retarder",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-231",
+      "answer": "RETARDER",
+      "clue": "Différer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-232",
+      "answer": "DECIDER",
+      "clue": "Résoudre",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-233",
+      "answer": "RESOUDRE",
+      "clue": "Décider",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-234",
+      "answer": "DESIGNER",
+      "clue": "Nommer",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-235",
+      "answer": "NOMMER",
+      "clue": "Désigner",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-236",
+      "answer": "MODELE",
+      "clue": "Exemple",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-237",
+      "answer": "DESTINEE",
+      "clue": "Sort",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-238",
+      "answer": "LANCER",
+      "clue": "Émettre",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-239",
+      "answer": "DOMAINE",
+      "clue": "Terrain",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-240",
+      "answer": "HALTE",
+      "clue": "Arrêt",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-241",
+      "answer": "AFFRES",
+      "clue": "Angoisse",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-242",
+      "answer": "CORNE",
+      "clue": "Cor",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-243",
+      "answer": "HABITUDE",
+      "clue": "Usage",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-244",
+      "answer": "FAMILLE",
+      "clue": "Lignée",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-245",
+      "answer": "LIGNEE",
+      "clue": "Famille",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-246",
+      "answer": "MELODIE",
+      "clue": "Chant",
+      "category": "borderline-doubt",
+      "decision": "reject"
+    },
+    {
+      "id": "D-247",
+      "answer": "EPHEMERE",
+      "clue": "Fugace",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-248",
+      "answer": "FUGACE",
+      "clue": "Éphémère",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-249",
+      "answer": "PARFAIT",
+      "clue": "Achevé",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    },
+    {
+      "id": "D-250",
+      "answer": "REVENANT",
+      "clue": "Fantôme",
+      "category": "borderline-doubt",
+      "decision": "accept"
+    }
+  ]
+}
