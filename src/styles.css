@@ -613,6 +613,23 @@ body{overscroll-behavior-y:none}
 [data-theme="dark"] .clue.clue-tone-2{background:#303e35!important}
 [data-theme="dark"] .clue.clue-tone-3{background:#2d3d40!important}
 
+/* 7 × 8 readability scale — use the room gained by the compact board without
+   changing its geometry. Double clues stay slightly smaller because each one
+   only owns half a cell. */
+.clue{
+  font-size:clamp(6.5px,2.35vw,9.5px);
+  line-height:1.08;
+  padding:4px 3px;
+}
+.clue .clue-entry{padding:3px 7px 3px 2px;overflow-wrap:break-word;word-break:normal}
+.clue.double-clue{font-size:clamp(5.8px,1.95vw,8px)}
+.clue.double-clue .clue-entry{padding:2px 6px 2px 1px}
+.clue .clue-entry b{right:2px;bottom:1px;font-size:12px}
+.clue.double-clue .clue-entry b{font-size:10px}
+.letter-only{font-size:clamp(24px,8vw,32px)}
+.clue-image{width:min(78%,35px);height:min(78%,35px)}
+.double-clue .clue-image{width:min(70%,23px);height:min(70%,23px)}
+
 /* Reuse the real MotMan O: the full logo is cropped through background positioning. */
 .corner-block,.clue.corner-clue{
   position:relative;
