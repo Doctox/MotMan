@@ -17,6 +17,12 @@ function visibleFocusableElements(container: HTMLElement): HTMLElement[] {
     .filter(element => element.getClientRects().length > 0 && element.getAttribute('aria-hidden') !== 'true')
 }
 
+function opensVirtualKeyboard(element: HTMLElement): boolean {
+  if (element instanceof HTMLTextAreaElement || element.isContentEditable) return true
+  if (!(element instanceof HTMLInputElement)) return false
+  return !['button', 'checkbox', 'color', 'file', 'hidden', 'radio', 'range', 'reset', 'submit'].includes(element.type)
+}
+
 export function useDialogFocus<T extends HTMLElement>(onClose?: () => void): RefObject<T | null> {
   const dialogRef = useRef<T>(null)
   const closeRef = useRef(onClose)
@@ -35,8 +41,10 @@ export function useDialogFocus<T extends HTMLElement>(onClose?: () => void): Ref
 
     const focusFrame = window.requestAnimationFrame(() => {
       const preferred = dialog.querySelector<HTMLElement>('[data-dialog-autofocus]')
-      const first = visibleFocusableElements(dialog)[0]
-      ;(preferred ?? first ?? dialog).focus({ preventScroll: true })
+      const focusable = visibleFocusableElements(dialog)
+      const safePreferred = preferred && !opensVirtualKeyboard(preferred) ? preferred : null
+      const firstNonTypingControl = focusable.find(element => !opensVirtualKeyboard(element))
+      ;(safePreferred ?? firstNonTypingControl ?? dialog).focus({ preventScroll: true })
     })
 
     const handleKeyDown = (event: KeyboardEvent) => {

@@ -450,7 +450,7 @@ function EditGuestPanel({ identity, progress, cosmetics, close, save }: {
       <div className="mm-guest-preview"><CosmeticPortrait avatarId={avatarId} frameId={frameId} animationId={animationId} alt="Aperçu de votre avatar" /><span><strong>{normalized || 'Votre pseudo'}</strong><small>{progress.titles.find(title => title.id === titleId)?.name ?? `ID ${shortPlayerId(identity.playerId)}`}</small></span></div>
       <div className="mm-profile-editor-scroll">
       <label htmlFor="guest-display-name">Pseudo</label>
-      <input id="guest-display-name" data-dialog-autofocus value={displayName} maxLength={PLAYER_NAME_MAX_LENGTH} autoComplete="nickname" aria-invalid={!nameValidation.valid} aria-describedby="guest-display-name-help" onChange={event => setDisplayName(event.target.value)} />
+      <input id="guest-display-name" value={displayName} maxLength={PLAYER_NAME_MAX_LENGTH} autoComplete="nickname" aria-invalid={!nameValidation.valid} aria-describedby="guest-display-name-help" onChange={event => setDisplayName(event.target.value)} />
       <p id="guest-display-name-help" className={`mm-name-help ${nameValidation.valid ? 'valid' : 'invalid'}`} role="status">
         {nameValidation.valid ? `${Array.from(normalized).length}/${PLAYER_NAME_MAX_LENGTH}` : nameValidation.error}
       </p>
@@ -689,7 +689,7 @@ function AccountPanel({ identity, close, apply, notify }: {
       {identity.accountType === 'account' ? <>
         <div className="mm-account-current"><User /><span><strong>{identity.displayName}</strong><small>Synchronisé sur Android, Apple et PC</small></span></div>
         <label htmlFor="account-password">Définir ou changer le mot de passe</label>
-        <input id="account-password" data-dialog-autofocus type="password" minLength={10} maxLength={128} value={password} autoComplete="new-password" onChange={event => setPassword(event.target.value)} />
+        <input id="account-password" type="password" minLength={10} maxLength={128} value={password} autoComplete="new-password" onChange={event => setPassword(event.target.value)} />
         <p>10 caractères minimum.</p>
         {error ? <p className="mm-account-error" role="alert">{error}</p> : null}
         <button className="mm-save-guest" type="submit" disabled={busy || password.length < 10}>Enregistrer le mot de passe</button>
@@ -701,7 +701,7 @@ function AccountPanel({ identity, close, apply, notify }: {
           <button type="button" className={mode === 'recover' ? 'active' : ''} onClick={() => setMode('recover')}>Récupérer</button>
         </div>
         <label htmlFor="account-email">E-mail</label>
-        <input id="account-email" data-dialog-autofocus type="email" required value={email} autoComplete="email" onChange={event => setEmail(event.target.value)} />
+        <input id="account-email" type="email" required value={email} autoComplete="email" onChange={event => setEmail(event.target.value)} />
         {mode === 'create' ? <p>Votre profil invité sera conservé. Un lien protégera le compte avant de choisir son mot de passe.</p> : null}
         {mode === 'login' ? <><label htmlFor="account-login-password">Mot de passe</label><input id="account-login-password" type="password" required minLength={10} maxLength={128} value={password} autoComplete="current-password" onChange={event => setPassword(event.target.value)} /></> : null}
         {mode === 'recover' ? <p>Nous enverrons un lien sécurisé pour choisir un nouveau mot de passe.</p> : null}
