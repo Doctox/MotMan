@@ -22,7 +22,7 @@
       "kind": "human",
       "asset": "/assets/avatars/amina.webp",
       "availability": "epicerie",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "tags": ["femme", "noire", "contemporain"]
     },
     {
@@ -31,7 +31,7 @@
       "kind": "human",
       "asset": "/assets/avatars/malik.webp",
       "availability": "epicerie",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "tags": ["homme", "noir", "contemporain"]
     },
     {
@@ -40,7 +40,7 @@
       "kind": "human",
       "asset": "/assets/avatars/mei.webp",
       "availability": "epicerie",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "tags": ["femme", "asiatique", "contemporain"]
     },
     {
@@ -49,7 +49,7 @@
       "kind": "human",
       "asset": "/assets/avatars/kenji.webp",
       "availability": "epicerie",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "tags": ["homme", "asiatique", "contemporain"]
     },
     {
@@ -58,7 +58,7 @@
       "kind": "human",
       "asset": "/assets/avatars/ines.webp",
       "availability": "epicerie",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "tags": ["femme", "metisse", "contemporain"]
     },
     {
@@ -67,7 +67,7 @@
       "kind": "human",
       "asset": "/assets/avatars/nael.webp",
       "availability": "epicerie",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "tags": ["homme", "metis", "contemporain"]
     },
     {
@@ -76,7 +76,7 @@
       "kind": "human",
       "asset": "/assets/portrait-camille.webp",
       "availability": "epicerie",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "tags": ["femme", "portrait", "classique"]
     },
     {
@@ -85,7 +85,7 @@
       "kind": "human",
       "asset": "/assets/portrait-player.webp",
       "availability": "epicerie",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "tags": ["homme", "portrait", "classique"]
     },
     {
@@ -94,7 +94,7 @@
       "kind": "animal",
       "asset": "/assets/avatars/moka.webp",
       "availability": "epicerie",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "tags": ["chat", "animal"]
     },
     {
@@ -103,7 +103,7 @@
       "kind": "animal",
       "asset": "/assets/avatars/celeste.webp",
       "availability": "epicerie",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "tags": ["chouette", "animal"]
     },
     {
@@ -112,7 +112,7 @@
       "kind": "animal",
       "asset": "/assets/avatars/roux.webp",
       "availability": "epicerie",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "tags": ["renard", "animal"]
     },
     {
@@ -121,7 +121,7 @@
       "kind": "object",
       "asset": "/assets/avatars/machine-a-ecrire.webp",
       "availability": "epicerie",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "tags": ["objet", "ecriture", "vintage"]
     },
     {
@@ -130,7 +130,7 @@
       "kind": "object",
       "asset": "/assets/avatars/theiere.webp",
       "availability": "epicerie",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "tags": ["objet", "the", "ceramique"]
     },
     {
@@ -139,7 +139,7 @@
       "kind": "object",
       "asset": "/assets/avatars/livre-et-plume.webp",
       "availability": "epicerie",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "tags": ["objet", "livre", "plume", "ecriture"]
     },
     {
@@ -148,7 +148,7 @@
       "kind": "object",
       "asset": "/assets/avatars/couronne.webp",
       "availability": "epicerie",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "tags": ["objet", "couronne", "royal"]
     },
     {
@@ -157,7 +157,7 @@
       "kind": "object",
       "asset": "/assets/avatars/pieces-dorees.webp",
       "availability": "epicerie",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "tags": ["objet", "pieces", "tresor"]
     },
     {
@@ -166,7 +166,7 @@
       "kind": "object",
       "asset": "/assets/avatars/baguette-magique.webp",
       "availability": "epicerie",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "tags": ["objet", "baguette", "magie"]
     },
     {
@@ -175,7 +175,7 @@
       "kind": "object",
       "asset": "/assets/avatars/anneau-ancien.webp",
       "availability": "epicerie",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "tags": ["objet", "anneau", "relique", "fantastique"]
     },
     {
@@ -184,7 +184,7 @@
       "kind": "animal",
       "asset": "/assets/avatars/easter-egg-chienne.webp",
       "availability": "epicerie",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "tags": ["animal", "chien", "easter-egg", "personnel"]
     },
     {
@@ -193,7 +193,7 @@
       "kind": "animal",
       "asset": "/assets/avatars/easter-egg-gecko.webp",
       "availability": "epicerie",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "tags": ["animal", "gecko", "easter-egg", "personnel"]
     }
   ]

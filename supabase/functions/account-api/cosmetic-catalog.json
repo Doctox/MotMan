@@ -15,7 +15,7 @@
       "id": "amina",
       "name": "Amina",
       "rarity": "commun",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "availability": "epicerie",
       "asset": "/assets/avatars/amina.webp"
     },
@@ -24,7 +24,7 @@
       "id": "malik",
       "name": "Malik",
       "rarity": "commun",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "availability": "epicerie",
       "asset": "/assets/avatars/malik.webp"
     },
@@ -33,7 +33,7 @@
       "id": "mei",
       "name": "Mei",
       "rarity": "commun",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "availability": "epicerie",
       "asset": "/assets/avatars/mei.webp"
     },
@@ -42,7 +42,7 @@
       "id": "kenji",
       "name": "Kenji",
       "rarity": "commun",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "availability": "epicerie",
       "asset": "/assets/avatars/kenji.webp"
     },
@@ -51,7 +51,7 @@
       "id": "ines",
       "name": "Inès",
       "rarity": "commun",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "availability": "epicerie",
       "asset": "/assets/avatars/ines.webp"
     },
@@ -60,7 +60,7 @@
       "id": "nael",
       "name": "Naël",
       "rarity": "commun",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "availability": "epicerie",
       "asset": "/assets/avatars/nael.webp"
     },
@@ -69,7 +69,7 @@
       "id": "camille",
       "name": "Camille",
       "rarity": "commun",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "availability": "epicerie",
       "asset": "/assets/portrait-camille.webp"
     },
@@ -78,7 +78,7 @@
       "id": "alex",
       "name": "Alex",
       "rarity": "commun",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "availability": "epicerie",
       "asset": "/assets/portrait-player.webp"
     },
@@ -87,7 +87,7 @@
       "id": "moka",
       "name": "Moka",
       "rarity": "singulier",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "availability": "epicerie",
       "asset": "/assets/avatars/moka.webp"
     },
@@ -96,7 +96,7 @@
       "id": "celeste",
       "name": "Céleste",
       "rarity": "singulier",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "availability": "epicerie",
       "asset": "/assets/avatars/celeste.webp"
     },
@@ -105,7 +105,7 @@
       "id": "roux",
       "name": "Roux",
       "rarity": "singulier",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "availability": "epicerie",
       "asset": "/assets/avatars/roux.webp"
     },
@@ -114,7 +114,7 @@
       "id": "machine-a-ecrire",
       "name": "Machine à écrire",
       "rarity": "rare",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "availability": "epicerie",
       "asset": "/assets/avatars/machine-a-ecrire.webp"
     },
@@ -123,7 +123,7 @@
       "id": "theiere",
       "name": "Théière",
       "rarity": "rare",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "availability": "epicerie",
       "asset": "/assets/avatars/theiere.webp"
     },
@@ -132,7 +132,7 @@
       "id": "livre-et-plume",
       "name": "Livre & plume",
       "rarity": "rare",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "availability": "epicerie",
       "asset": "/assets/avatars/livre-et-plume.webp"
     },
@@ -141,7 +141,7 @@
       "id": "couronne",
       "name": "Couronne",
       "rarity": "rare",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "availability": "epicerie",
       "asset": "/assets/avatars/couronne.webp"
     },
@@ -150,7 +150,7 @@
       "id": "pieces-dorees",
       "name": "Pièces dorées",
       "rarity": "rare",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "availability": "epicerie",
       "asset": "/assets/avatars/pieces-dorees.webp"
     },
@@ -159,7 +159,7 @@
       "id": "baguette-magique",
       "name": "Baguette magique",
       "rarity": "rare",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "availability": "epicerie",
       "asset": "/assets/avatars/baguette-magique.webp"
     },
@@ -168,7 +168,7 @@
       "id": "anneau-ancien",
       "name": "Anneau ancien",
       "rarity": "rare",
-      "pricePlumes": 220,
+      "pricePlumes": 2200,
       "availability": "epicerie",
       "asset": "/assets/avatars/anneau-ancien.webp"
     },
@@ -177,7 +177,7 @@
       "id": "easter-egg-chienne",
       "name": "Chien",
       "rarity": "singulier",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "availability": "epicerie",
       "asset": "/assets/avatars/easter-egg-chienne.webp"
     },
@@ -186,7 +186,7 @@
       "id": "easter-egg-gecko",
       "name": "Gecko",
       "rarity": "singulier",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "availability": "epicerie",
       "asset": "/assets/avatars/easter-egg-gecko.webp"
     },
@@ -204,7 +204,7 @@
       "id": "cadre-sauge",
       "name": "Sauge",
       "rarity": "commun",
-      "pricePlumes": 120,
+      "pricePlumes": 1200,
       "availability": "epicerie",
       "asset": null
     },
@@ -213,7 +213,7 @@
       "id": "cadre-terracotta",
       "name": "Terre cuite",
       "rarity": "commun",
-      "pricePlumes": 125,
+      "pricePlumes": 1250,
       "availability": "epicerie",
       "asset": null
     },
@@ -222,7 +222,7 @@
       "id": "cadre-encre",
       "name": "Encre",
       "rarity": "commun",
-      "pricePlumes": 130,
+      "pricePlumes": 1300,
       "availability": "epicerie",
       "asset": null
     },
@@ -231,7 +231,7 @@
       "id": "cadre-laiton",
       "name": "Laiton",
       "rarity": "commun",
-      "pricePlumes": 135,
+      "pricePlumes": 1350,
       "availability": "epicerie",
       "asset": null
     },
@@ -240,7 +240,7 @@
       "id": "cadre-rosee",
       "name": "Rosée",
       "rarity": "singulier",
-      "pricePlumes": 160,
+      "pricePlumes": 1600,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-rosee.webp"
     },
@@ -249,7 +249,7 @@
       "id": "cadre-coquelicot",
       "name": "Coquelicot",
       "rarity": "singulier",
-      "pricePlumes": 170,
+      "pricePlumes": 1700,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-coquelicot.webp"
     },
@@ -258,7 +258,7 @@
       "id": "cadre-porcelaine",
       "name": "Porcelaine",
       "rarity": "singulier",
-      "pricePlumes": 180,
+      "pricePlumes": 1800,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-porcelaine.webp"
     },
@@ -267,7 +267,7 @@
       "id": "cadre-herbier",
       "name": "Herbier",
       "rarity": "rare",
-      "pricePlumes": 210,
+      "pricePlumes": 2100,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-herbier.webp"
     },
@@ -276,7 +276,7 @@
       "id": "cadre-maree",
       "name": "Marée",
       "rarity": "rare",
-      "pricePlumes": 230,
+      "pricePlumes": 2300,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-maree.webp"
     },
@@ -285,7 +285,7 @@
       "id": "cadre-bibliotheque",
       "name": "Bibliothèque",
       "rarity": "rare",
-      "pricePlumes": 250,
+      "pricePlumes": 2500,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-bibliotheque.webp"
     },
@@ -294,7 +294,7 @@
       "id": "cadre-braise",
       "name": "Braise",
       "rarity": "precieux",
-      "pricePlumes": 340,
+      "pricePlumes": 3400,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-braise.webp"
     },
@@ -303,7 +303,7 @@
       "id": "cadre-royal",
       "name": "Royal",
       "rarity": "precieux",
-      "pricePlumes": 370,
+      "pricePlumes": 3700,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-royal.webp"
     },
@@ -312,7 +312,7 @@
       "id": "cadre-encrier",
       "name": "Encrier",
       "rarity": "precieux",
-      "pricePlumes": 400,
+      "pricePlumes": 4000,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-encrier.webp"
     },
@@ -321,7 +321,7 @@
       "id": "cadre-clair-de-lune",
       "name": "Clair de lune",
       "rarity": "exceptionnel",
-      "pricePlumes": 520,
+      "pricePlumes": 5200,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-clair-de-lune.webp"
     },
@@ -330,7 +330,7 @@
       "id": "cadre-givre",
       "name": "Givre",
       "rarity": "exceptionnel",
-      "pricePlumes": 560,
+      "pricePlumes": 5600,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-givre.webp"
     },
@@ -339,7 +339,7 @@
       "id": "cadre-aurore",
       "name": "Aurore",
       "rarity": "exceptionnel",
-      "pricePlumes": 600,
+      "pricePlumes": 6000,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-aurore.webp"
     },
@@ -348,7 +348,7 @@
       "id": "cadre-constellation",
       "name": "Constellation",
       "rarity": "legendaire",
-      "pricePlumes": 780,
+      "pricePlumes": 7800,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-constellation.webp"
     },
@@ -357,7 +357,7 @@
       "id": "cadre-dragon-dore",
       "name": "Dragon doré",
       "rarity": "legendaire",
-      "pricePlumes": 840,
+      "pricePlumes": 8400,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-dragon-dore.webp"
     },
@@ -366,7 +366,7 @@
       "id": "cadre-jardin-des-songes",
       "name": "Jardin des songes",
       "rarity": "legendaire",
-      "pricePlumes": 900,
+      "pricePlumes": 9000,
       "availability": "epicerie",
       "asset": "/assets/frames/cadre-jardin-des-songes.webp"
     },
@@ -384,7 +384,7 @@
       "id": "eclat",
       "name": "Éclat",
       "rarity": "commun",
-      "pricePlumes": 120,
+      "pricePlumes": 1200,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/eclat.png"
     },
@@ -393,7 +393,7 @@
       "id": "etincelle",
       "name": "Étincelle",
       "rarity": "commun",
-      "pricePlumes": 125,
+      "pricePlumes": 1250,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/etincelle.png"
     },
@@ -402,7 +402,7 @@
       "id": "poussiere-dor",
       "name": "Poussière d’or",
       "rarity": "commun",
-      "pricePlumes": 130,
+      "pricePlumes": 1300,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/poussiere-dor.png"
     },
@@ -411,7 +411,7 @@
       "id": "souffle",
       "name": "Souffle",
       "rarity": "commun",
-      "pricePlumes": 135,
+      "pricePlumes": 1350,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/souffle.png"
     },
@@ -420,7 +420,7 @@
       "id": "halo",
       "name": "Halo",
       "rarity": "commun",
-      "pricePlumes": 140,
+      "pricePlumes": 1400,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/halo.png"
     },
@@ -429,7 +429,7 @@
       "id": "lucioles",
       "name": "Lucioles",
       "rarity": "singulier",
-      "pricePlumes": 175,
+      "pricePlumes": 1750,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/lucioles.png"
     },
@@ -438,7 +438,7 @@
       "id": "brume-irisee",
       "name": "Brume irisée",
       "rarity": "singulier",
-      "pricePlumes": 185,
+      "pricePlumes": 1850,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/brume-irisee.png"
     },
@@ -447,7 +447,7 @@
       "id": "constellation",
       "name": "Constellation",
       "rarity": "singulier",
-      "pricePlumes": 195,
+      "pricePlumes": 1950,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/constellation.png"
     },
@@ -456,7 +456,7 @@
       "id": "plume",
       "name": "Plume",
       "rarity": "rare",
-      "pricePlumes": 240,
+      "pricePlumes": 2400,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/plume.png"
     },
@@ -465,7 +465,7 @@
       "id": "feuille-automne",
       "name": "Feuilles d’automne",
       "rarity": "rare",
-      "pricePlumes": 255,
+      "pricePlumes": 2550,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/feuille-automne.png"
     },
@@ -474,7 +474,7 @@
       "id": "lune-vagabonde",
       "name": "Lune vagabonde",
       "rarity": "rare",
-      "pricePlumes": 270,
+      "pricePlumes": 2700,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/lune-vagabonde.png"
     },
@@ -483,7 +483,7 @@
       "id": "rosee",
       "name": "Rosée",
       "rarity": "precieux",
-      "pricePlumes": 370,
+      "pricePlumes": 3700,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/rosee.png"
     },
@@ -492,7 +492,7 @@
       "id": "prisme",
       "name": "Prisme",
       "rarity": "precieux",
-      "pricePlumes": 390,
+      "pricePlumes": 3900,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/prisme.png"
     },
@@ -501,7 +501,7 @@
       "id": "ecume",
       "name": "Écume",
       "rarity": "precieux",
-      "pricePlumes": 410,
+      "pricePlumes": 4100,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/ecume.png"
     },
@@ -510,7 +510,7 @@
       "id": "petales",
       "name": "Pétales",
       "rarity": "exceptionnel",
-      "pricePlumes": 560,
+      "pricePlumes": 5600,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/petales.png"
     },
@@ -519,7 +519,7 @@
       "id": "papillons-du-songe",
       "name": "Papillons du songe",
       "rarity": "exceptionnel",
-      "pricePlumes": 590,
+      "pricePlumes": 5900,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/papillons-du-songe.png"
     },
@@ -528,7 +528,7 @@
       "id": "carpes-celestes",
       "name": "Carpes célestes",
       "rarity": "exceptionnel",
-      "pricePlumes": 620,
+      "pricePlumes": 6200,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/carpes-celestes.png"
     },
@@ -537,7 +537,7 @@
       "id": "oiseau-de-lumiere",
       "name": "L’Oiseau de lumière",
       "rarity": "legendaire",
-      "pricePlumes": 820,
+      "pricePlumes": 8200,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/oiseau-de-lumiere.png"
     },
@@ -546,7 +546,7 @@
       "id": "serpent-emeraude",
       "name": "Serpent d’émeraude",
       "rarity": "legendaire",
-      "pricePlumes": 860,
+      "pricePlumes": 8600,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/serpent-emeraude.png"
     },
@@ -555,7 +555,7 @@
       "id": "dragon-solaire",
       "name": "Dragon solaire",
       "rarity": "legendaire",
-      "pricePlumes": 900,
+      "pricePlumes": 9000,
       "availability": "epicerie",
       "asset": "/assets/animations/lab/dragon-solaire.png"
     }

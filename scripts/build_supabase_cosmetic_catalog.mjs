@@ -37,7 +37,7 @@ function exportedArray(source, name) {
 
 const sourceText = await readFile(sourcePath, 'utf8')
 const avatarFile = JSON.parse(await readFile(avatarPath, 'utf8'))
-const avatarPrices = { human: 140, animal: 180, object: 220 }
+const avatarPrices = { human: 1_400, animal: 1_800, object: 2_200 }
 const avatarRarity = avatar => avatar.kind === 'human' ? 'commun' : avatar.kind === 'animal' ? 'singulier' : 'rare'
 const items = [
   ...avatarFile.avatars.map(avatar => ({
