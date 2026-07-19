@@ -2,14 +2,14 @@ import { describe, expect, it } from 'vitest'
 import {
   canUseHint,
   canUseReroll,
-  drawUniqueRackFromBag,
+  drawRackFromBag,
   evaluateTurn,
   gameWordCellIndexes,
   hasTurnStarted,
   hintCandidates,
   isTurnSubmissionExpired,
   keepRackLettersAfterTurn,
-  replenishUniqueRack,
+  replenishRackFromNeeds,
   shouldForfeitAfterInactivity,
   type GameRuleGrid,
 } from './gameRules'
@@ -119,40 +119,39 @@ describe('indice et chevalet', () => {
     expect(candidates).toEqual([{ cellIndex: 6, letter: 'R', rackIndex: 1 }])
   })
 
-  it('garde un chevalet unique et évite d’abord les lettres fraîchement jouées', () => {
-    const rack = replenishUniqueRack({
+  it('conserve les doublons utiles et évite d’abord les lettres fraîchement jouées', () => {
+    const rack = replenishRackFromNeeds({
       neededLetters: ['A', 'A', 'B', 'C', 'D', 'E'],
       currentLetters: ['A', 'A', 'X'],
       avoidLetters: ['B'],
       chooseIndex: () => 0,
     })
-    expect(rack).toEqual(['A', 'C', 'D', 'E', 'B'])
-    expect(new Set(rack).size).toBe(rack.length)
+    expect(rack).toEqual(['A', 'A', 'C', 'D', 'E'])
   })
 
   it('distribue les deux chevalets depuis un seul sac sans inventer de lettre', () => {
     const initialBag = ['E', 'A', 'B', 'C', 'D', 'F']
-    const first = drawUniqueRackFromBag({ letterBag: initialBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
-    const second = drawUniqueRackFromBag({ letterBag: first.letterBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
+    const first = drawRackFromBag({ letterBag: initialBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
+    const second = drawRackFromBag({ letterBag: first.letterBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
 
     expect([...first.rack, ...second.rack, ...second.letterBag].sort()).toEqual([...initialBag].sort())
     expect([...first.rack, ...second.rack].filter(letter => letter === 'E')).toHaveLength(1)
     expect(second.letterBag).toEqual([])
   })
 
-  it('autorise la même lettre chez les deux joueurs seulement si la grille en demande plusieurs', () => {
+  it('peut distribuer plusieurs exemplaires au même joueur si le sac les contient', () => {
     const initialBag = ['E', 'E', 'A', 'B', 'C', 'D']
-    const first = drawUniqueRackFromBag({ letterBag: initialBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
-    const second = drawUniqueRackFromBag({ letterBag: first.letterBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
+    const first = drawRackFromBag({ letterBag: initialBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
+    const second = drawRackFromBag({ letterBag: first.letterBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
 
-    expect(first.rack).toContain('E')
-    expect(second.rack).toContain('E')
+    expect(first.rack).toEqual(['E', 'E', 'A'])
+    expect(second.rack).toEqual(['B', 'C', 'D'])
     expect([...first.rack, ...second.rack].filter(letter => letter === 'E')).toHaveLength(2)
   })
 
   it('remet les lettres relancées dans le sac avant un nouveau tirage', () => {
     const oldRack = ['A', 'B']
-    const rerolled = drawUniqueRackFromBag({
+    const rerolled = drawRackFromBag({
       letterBag: ['C', 'D', ...oldRack],
       currentLetters: [],
       avoidLetters: oldRack,

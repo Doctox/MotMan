@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { botThinkingDelayMs, createBotPersona, planBotMove, type BotSkill } from '../../../src/botOpponents.ts'
 import {
-  canUseHint, canUseReroll, drawUniqueRackFromBag, evaluateTurn, hintCandidates, keepRackLettersAfterTurn, REWARD_STEP_MS,
+  canUseHint, canUseReroll, drawRackFromBag, evaluateTurn, hintCandidates, keepRackLettersAfterTurn, REWARD_STEP_MS,
   shouldForfeitAfterInactivity, type GameRuleGrid, type GameRuleWord,
 } from '../../../src/gameRules.ts'
 import { calculateFeatherReward } from '../../../src/progressionRewards.ts'
@@ -95,13 +95,10 @@ function ensureSharedLetterBag(grid: GameRuleGrid, state: State): boolean {
   const normalizedRacks: Record<string, string[]> = { ...state.racks }
 
   for (const playerId of state.playerIds) {
-    const seen = new Set<string>()
     normalizedRacks[playerId] = (state.racks[playerId] ?? []).filter(letter => {
-      if (seen.has(letter)) return false
       const index = available.indexOf(letter)
       if (index < 0) return false
       available.splice(index, 1)
-      seen.add(letter)
       return true
     })
   }
@@ -114,7 +111,7 @@ function ensureSharedLetterBag(grid: GameRuleGrid, state: State): boolean {
 
 function refill(grid: GameRuleGrid, state: State, playerId: string, current: string[], avoid: Iterable<string> = []): string[] {
   ensureSharedLetterBag(grid, state)
-  const drawn = drawUniqueRackFromBag({
+  const drawn = drawRackFromBag({
     letterBag: state.letterBag ?? [], currentLetters: current, avoidLetters: avoid,
     chooseIndex: (pool, position) => hash(`${playerId}:${Object.keys(state.board).length}:${position}:${pool.join('')}`) % pool.length,
   })

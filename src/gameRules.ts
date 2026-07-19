@@ -131,7 +131,7 @@ export function hintCandidates(
       : []))
 }
 
-export function replenishUniqueRack({
+export function replenishRackFromNeeds({
   neededLetters,
   currentLetters,
   avoidLetters = [],
@@ -146,27 +146,26 @@ export function replenishUniqueRack({
 }): string[] {
   const remaining = [...neededLetters]
   const rack: string[] = []
-  const seen = new Set<string>()
   const avoided = new Set(avoidLetters)
 
   for (const letter of currentLetters) {
-    if (seen.has(letter) || rack.length >= count) continue
+    if (rack.length >= count) continue
     const neededIndex = remaining.indexOf(letter)
     if (neededIndex < 0) continue
     rack.push(letter)
-    seen.add(letter)
     remaining.splice(neededIndex, 1)
   }
 
-  const available = [...new Set(remaining.filter(letter => !seen.has(letter) && !avoided.has(letter)))]
-  const fallback = [...new Set(remaining.filter(letter => !seen.has(letter) && avoided.has(letter)))]
-  while (rack.length < count && (available.length > 0 || fallback.length > 0)) {
-    const pool = available.length > 0 ? available : fallback
+  while (rack.length < count && remaining.length > 0) {
+    const preferred = remaining.filter(letter => !avoided.has(letter))
+    const pool = preferred.length > 0 ? preferred : remaining
     const requestedIndex = chooseIndex?.(pool, rack.length) ?? Math.floor(Math.random() * pool.length)
     const safeIndex = Math.abs(Math.floor(requestedIndex)) % pool.length
-    const [letter] = pool.splice(safeIndex, 1)
+    const letter = pool[safeIndex]
+    const remainingIndex = remaining.indexOf(letter)
+    if (remainingIndex < 0) break
+    remaining.splice(remainingIndex, 1)
     rack.push(letter)
-    seen.add(letter)
   }
   return rack
 }
@@ -181,7 +180,7 @@ export type SharedRackDraw = {
  * bag when dealt, so two players can only receive the same letter when the
  * unfinished board genuinely needs that letter more than once.
  */
-export function drawUniqueRackFromBag({
+export function drawRackFromBag({
   letterBag,
   currentLetters,
   avoidLetters = [],
@@ -196,19 +195,16 @@ export function drawUniqueRackFromBag({
 }): SharedRackDraw {
   const remaining = [...letterBag]
   const rack: string[] = []
-  const seen = new Set<string>()
   const avoided = new Set(avoidLetters)
 
   for (const letter of currentLetters) {
-    if (seen.has(letter) || rack.length >= count) continue
+    if (rack.length >= count) continue
     rack.push(letter)
-    seen.add(letter)
   }
 
   while (rack.length < count) {
-    const preferred = [...new Set(remaining.filter(letter => !seen.has(letter) && !avoided.has(letter)))]
-    const fallback = [...new Set(remaining.filter(letter => !seen.has(letter) && avoided.has(letter)))]
-    const pool = preferred.length > 0 ? preferred : fallback
+    const preferred = remaining.filter(letter => !avoided.has(letter))
+    const pool = preferred.length > 0 ? preferred : remaining
     if (!pool.length) break
     const requestedIndex = chooseIndex?.(pool, rack.length) ?? Math.floor(Math.random() * pool.length)
     const safeIndex = Math.abs(Math.floor(requestedIndex)) % pool.length
@@ -217,7 +213,6 @@ export function drawUniqueRackFromBag({
     if (bagIndex < 0) break
     remaining.splice(bagIndex, 1)
     rack.push(letter)
-    seen.add(letter)
   }
 
   return { rack, letterBag: remaining }

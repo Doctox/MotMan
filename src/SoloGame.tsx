@@ -10,7 +10,7 @@ import { BoardWordHighlight, type BoardWordHighlightState } from './BoardWordHig
 import { awardExperience, type ExperienceAward } from './playerProgress'
 import { GameResultScreen } from './GameResultScreen'
 import { botThinkingDelayMs, createBotPersona, planBotMove, refillBotRack, type BotSkill } from './botOpponents'
-import { canUseReroll, evaluateTurn, gameWordCellIndexes, hintCandidates, replenishUniqueRack, REWARD_EFFECT_LIFETIME_MS, REWARD_STEP_MS } from './gameRules'
+import { canUseReroll, evaluateTurn, gameWordCellIndexes, hintCandidates, replenishRackFromNeeds, REWARD_EFFECT_LIFETIME_MS, REWARD_STEP_MS } from './gameRules'
 import { ClueZoom } from './ClueZoom'
 import { haptic, playEffect } from './sensoryPreferences'
 import { useDragGhost } from './useDragGhost'
@@ -61,13 +61,18 @@ function compactClue(text: string): string {
 
 function drawTiles(grid: GeneratedGrid, locked: Record<number, string>, count: number): Tile[] {
   const neededLetters = grid.cells.flatMap((cell, index) => cell.kind === 'letter' && !locked[index] ? [cell.solution] : [])
-  return replenishUniqueRack({ neededLetters, currentLetters: [], count }).map(makeTile)
+  return replenishRackFromNeeds({ neededLetters, currentLetters: [], count }).map(makeTile)
 }
 
 function reconcileRack(grid: GeneratedGrid, locked: Record<number, string>, current: Tile[], count = 5, avoidLetters: Iterable<string> = []): Tile[] {
   const neededLetters = grid.cells.flatMap((cell, index) => cell.kind === 'letter' && !locked[index] ? [cell.solution] : [])
-  const letters = replenishUniqueRack({ neededLetters, currentLetters: current.map(tile => tile.letter), avoidLetters, count })
-  return letters.map(letter => current.find(tile => tile.letter === letter) ?? makeTile(letter))
+  const letters = replenishRackFromNeeds({ neededLetters, currentLetters: current.map(tile => tile.letter), avoidLetters, count })
+  const reusableTiles = [...current]
+  return letters.map(letter => {
+    const reusableIndex = reusableTiles.findIndex(tile => tile.letter === letter)
+    if (reusableIndex < 0) return makeTile(letter)
+    return reusableTiles.splice(reusableIndex, 1)[0]
+  })
 }
 
 function wordCellIndexes(grid: GeneratedGrid, word: GeneratedGrid['words'][number]): number[] {

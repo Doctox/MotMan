@@ -10,7 +10,7 @@ import { gridCellIndex, resolveGridDimensions, type GridDimensionsSource } from 
 import {
   canUseHint,
   canUseReroll,
-  drawUniqueRackFromBag,
+  drawRackFromBag,
   evaluateTurn,
   gameWordCellIndexes,
   hasTurnStarted,
@@ -270,13 +270,10 @@ function ensureSharedLetterBag(match: StoredMatch): void {
   const normalizedRacks: Record<string, string[]> = { ...match.racks }
 
   for (const playerId of match.playerIds) {
-    const seen = new Set<string>()
     normalizedRacks[playerId] = (match.racks[playerId] ?? []).filter(letter => {
-      if (seen.has(letter)) return false
       const index = available.indexOf(letter)
       if (index < 0) return false
       available.splice(index, 1)
-      seen.add(letter)
       return true
     })
   }
@@ -288,7 +285,7 @@ function ensureSharedLetterBag(match: StoredMatch): void {
 
 function replenishRack(match: StoredMatch, playerId: string, current: string[], avoidLetters: Iterable<string> = []): string[] {
   ensureSharedLetterBag(match)
-  const drawn = drawUniqueRackFromBag({
+  const drawn = drawRackFromBag({
     letterBag: match.letterBag ?? [],
     currentLetters: current,
     avoidLetters,

@@ -1,7 +1,7 @@
 import {
   evaluateTurn,
   keepRackLettersAfterTurn,
-  replenishUniqueRack,
+  replenishRackFromNeeds,
   type GamePlacement,
   type GameRuleGrid,
 } from './gameRules.ts'
@@ -84,7 +84,7 @@ export function refillBotRack({
   avoidLetters?: Iterable<string>
   seed: string
 }): string[] {
-  return replenishUniqueRack({
+  return replenishRackFromNeeds({
     neededLetters: neededLetters(grid, occupiedCells),
     currentLetters,
     avoidLetters,

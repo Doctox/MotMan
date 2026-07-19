@@ -73,7 +73,7 @@ describe('adversaires bot', () => {
     for (const letter of correctLetters) expect(plan.rackAfter.filter(item => item === letter).length).toBeLessThanOrEqual(1)
   })
 
-  it('compose un chevalet cache sans doublons inutiles', () => {
+  it('compose un chevalet cache uniquement avec les lettres encore utiles', () => {
     const rack = refillBotRack({
       grid,
       occupiedCells: [],
@@ -81,7 +81,10 @@ describe('adversaires bot', () => {
       seed: 'fresh-rack',
     })
 
-    expect(new Set(rack).size).toBe(rack.length)
+    const needed = grid.cells.flatMap(cell => cell.kind === 'letter' && cell.solution ? [cell.solution] : [])
+    for (const letter of new Set(rack)) {
+      expect(rack.filter(item => item === letter).length).toBeLessThanOrEqual(needed.filter(item => item === letter).length)
+    }
   })
 
   it('reste moins agressif en niveau debutant', () => {
