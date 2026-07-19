@@ -147,7 +147,10 @@ async function view(admin: ReturnType<typeof createClient>, row: MatchRow, viewe
 }
 
 async function getGrid(admin: ReturnType<typeof createClient>, gridId: string): Promise<CatalogGrid> {
-  const { data, error } = await admin.from('server_grid_catalog').select('payload').eq('id', gridId).eq('active', true).single()
+  // `active` controls the pool used to create new matches. An already-created
+  // match must remain resolvable after a catalogue rotation, otherwise one old
+  // match can make the whole lobby fail and hide pending invitations.
+  const { data, error } = await admin.from('server_grid_catalog').select('payload').eq('id', gridId).single()
   if (error || !data) throw new Error('Grille introuvable.')
   return data.payload as CatalogGrid
 }

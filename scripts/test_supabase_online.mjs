@@ -128,9 +128,22 @@ await invoke(alice, 'social-api', { action: 'request', friendCode: bobAccount.id
 const bobSocial = (await invoke(bob, 'social-api', { action: 'state' })).state
 assert.equal(bobSocial.incoming.length, 1)
 await invoke(bob, 'social-api', { action: 'respond', requestId: bobSocial.incoming[0].id, decision: 'accept' })
+
+// Both invitation rhythms must reach the guest lobby. Declining the realtime
+// invitation keeps the remainder of this scenario focused on one active match.
+await invoke(alice, 'match-api', { action: 'create', targetId: bob.user.id, pace: 'realtime' })
+const realtimeLobby = await invoke(bob, 'match-api', { action: 'state' })
+const realtimeInvitation = realtimeLobby.incoming.find(invitation => invitation.pace === 'realtime')
+assert.ok(realtimeInvitation, 'L\u2019invitation en temps limite doit apparaitre chez l\u2019ami')
+const declinedRealtime = await invoke(bob, 'match-api', {
+  action: 'respond', invitationId: realtimeInvitation.id, decision: 'decline',
+})
+assert.equal(declinedRealtime.incoming.some(invitation => invitation.id === realtimeInvitation.id), false)
+
 await invoke(alice, 'match-api', { action: 'create', targetId: bob.user.id, pace: 'async' })
 const bobLobby = await invoke(bob, 'match-api', { action: 'state' })
 assert.equal(bobLobby.incoming.length, 1)
+assert.equal(bobLobby.incoming[0].pace, 'async', 'L\u2019invitation en temps illimite doit apparaitre chez l\u2019ami')
 const accepted = await invoke(bob, 'match-api', { action: 'respond', invitationId: bobLobby.incoming[0].id, decision: 'accept' })
 assert.equal(accepted.active.length, 1)
 const friendMatchId = accepted.active[0].id
