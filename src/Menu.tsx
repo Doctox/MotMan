@@ -200,13 +200,6 @@ function PlayAccordion({ id, icon, title, open, toggle, children }: {
   </section>
 }
 
-function PlayGroup({ title, children }: { title: string; children: ReactNode }) {
-  return <section className="mm-play-group" aria-label={title}>
-    <h3>{title}</h3>
-    <div className="mm-play-group-body">{children}</div>
-  </section>
-}
-
 const SOLO_LEVELS: Array<{ id: GridDifficulty; label: string; available: boolean }> = [
   { id: 'easy', label: 'Facile', available: true },
   { id: 'normal', label: 'Normal', available: true },
@@ -255,6 +248,7 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
     const next = openSection === id ? null : id
     setOpenSection(next)
     if (next === 'solo') setOpenMultiplayerSection(null)
+    if (next === 'multiplayer' && !openMultiplayerSection) setOpenMultiplayerSection('normal')
     if (!next) return
     window.requestAnimationFrame(() => {
       document.getElementById(`mm-${id}-accordion`)?.scrollIntoView({
@@ -266,11 +260,10 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
 
   const toggleMultiplayerSection = (id: PlaySectionId) => {
     setOpenMultiplayerSection(current => current === id ? null : id)
-    setOpenSection(null)
+    setOpenSection('multiplayer')
   }
 
   return <div className="mm-page mm-play-page">
-    <PlayGroup title="Solo">
     <PlayAccordion id="solo" icon={<Play />} title="Solo" open={openSection === 'solo'} toggle={toggleSection}>
       <div className="mm-solo-options">
         <span>Niveau du bot</span>
@@ -292,9 +285,9 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
         }}>{soloBusy ? 'Préparation…' : 'Jouer'} <ChevronRight /></button>
       </div>
     </PlayAccordion>
-    </PlayGroup>
 
-    <PlayGroup title="Multijoueur">
+    <PlayAccordion id="multiplayer" icon={<Swords />} title="Multijoueur" open={openSection === 'multiplayer'} toggle={toggleSection}>
+      <div className="mm-multiplayer-menu">
     <PlayAccordion id="normal" icon={<Trophy />} title="Normal" open={openMultiplayerSection === 'normal'} toggle={toggleMultiplayerSection}>
       <MatchmakingRow icon={<Clock3 />} title="Temps limité" subtitle={realtimeSearching ? 'Un adversaire est recherché…' : '45 s par tour'} searching={realtimeSearching} disabled={searchBusy !== null} start={() => void beginSearch('realtime')} cancel={() => void stopSearch('realtime')} />
       <MatchmakingRow icon={<Hourglass />} title="Temps illimité" subtitle={asyncSearching ? 'Vous pouvez revenir plus tard' : '24 h par tour'} searching={asyncSearching} disabled={searchBusy !== null} start={() => void beginSearch('async')} cancel={() => void stopSearch('async')} />
@@ -324,16 +317,17 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
         <span><strong>{invitation.guest?.displayName ?? 'Votre ami'}</strong><small>{invitation.pace === 'async' ? 'Temps illimité' : 'Temps limité'} · Invitation envoyée…</small></span>
         <button type="button" disabled={matchBusy !== null} onClick={async () => { setMatchBusy(invitation.id); await cancelInvite(invitation.id); setMatchBusy(null) }}>Annuler</button>
       </div>)}
-      {social.friends.length ? social.friends.map(friend => {
+          {social.friends.length ? social.friends.map(friend => {
         const alreadyInvited = lobby.outgoing.some(invitation => invitation.guestId === friend.playerId)
         return <div className="mm-match-friend-row" key={friend.playerId}>
           <span className="mm-home-friend-avatar"><SocialPortrait user={friend} small /><i className={friend.activity} /></span>
           <span><strong>{friend.displayName}</strong><small>{presenceLabel(friend.activity)}</small></span>
           <button type="button" disabled={friendPace === 'realtime' && (!friend.online || friend.activity === 'playing') || alreadyInvited || matchBusy !== null} onClick={async () => { setMatchBusy(friend.playerId); await invite(friend.playerId, friendPace); setMatchBusy(null) }}>{alreadyInvited ? 'Envoyée' : friendPace === 'realtime' && friend.activity === 'playing' ? 'En jeu' : 'Inviter'}</button>
         </div>
-      }) : <button type="button" className="mm-match-add-friend" onClick={openFriends}><UserPlus /><span><strong>Ajouter un ami</strong><small>Ajoutez un joueur avec son code ami.</small></span><ChevronRight /></button>}
+          }) : <button type="button" className="mm-match-add-friend" onClick={openFriends}><UserPlus /><span><strong>Ajouter un ami</strong><small>Ajoutez un joueur avec son code ami.</small></span><ChevronRight /></button>}
+        </PlayAccordion>
+      </div>
     </PlayAccordion>
-    </PlayGroup>
   </div>
 }
 
