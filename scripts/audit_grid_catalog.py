@@ -1,4 +1,4 @@
-"""Fail fast when a generated MotMan catalog violates its playable contract."""
+﻿"""Fail fast when a generated MotMan catalog violates its playable contract."""
 from __future__ import annotations
 
 import argparse
@@ -23,9 +23,9 @@ def main() -> None:
     parser.add_argument("--expected-normal", type=int)
     parser.add_argument("--expected-hard", type=int)
     parser.add_argument("--report-json", type=Path,
-                        help="rapport cellulaire complet, y compris les 81 cases")
+                        help="rapport cellulaire complet, y compris les 56 cases")
     parser.add_argument("--report-html", type=Path,
-                        help="rendu 9×9 autonome pour la revue humaine")
+                        help="rendu 7x8 autonome pour la revue humaine")
     parser.add_argument("--allow-legacy-word-ids", action="store_true",
                         help="diagnostic seulement : infère les wordId absents")
     args = parser.parse_args()
@@ -286,3 +286,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

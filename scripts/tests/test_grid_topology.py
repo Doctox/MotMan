@@ -10,44 +10,41 @@ SCRIPTS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPTS))
 
 from grid_topology import audit_grid_topology, render_topology_html  # noqa: E402
-from build_handcrafted_reference_grids import build_normal_03  # noqa: E402
 
 
 def valid_grid() -> dict:
-    clue_cells = [[0, col] for col in range(9)] + [[row, 0] for row in range(1, 9)]
+    clue_cells = [[0, col] for col in range(7)] + [[row, 0] for row in range(1, 8)]
     letters = [
-        "ABCDEFGH",
-        "BCDEFGHI",
-        "CDEFGHIJ",
-        "DEFGHIJK",
-        "EFGHIJKL",
-        "FGHIJKLM",
-        "GHIJKLMN",
-        "HIJKLMNO",
+        "ABCDEF",
+        "BCDEFG",
+        "CDEFGH",
+        "DEFGHI",
+        "EFGHIJ",
+        "FGHIJK",
+        "GHIJKL",
     ]
     words = []
     for row, answer in enumerate(letters, start=1):
         words.append({
             "wordId": f"h{row}", "answer": answer, "clue": f"Ligne {row}",
             "direction": "across", "clueCell": [row, 0],
-            "cells": [[row, col] for col in range(1, 9)],
+            "cells": [[row, col] for col in range(1, 7)],
         })
-    for col in range(1, 9):
+    for col in range(1, 7):
         answer = "".join(row[col - 1] for row in letters)
         words.append({
             "wordId": f"v{col}", "answer": answer, "clue": f"Colonne {col}",
             "direction": "down", "clueCell": [0, col],
-            "cells": [[row, col] for row in range(1, 9)],
+            "cells": [[row, col] for row in range(1, 8)],
         })
-    return {"id": "test-grid", "size": 9, "clueCells": clue_cells, "words": words}
+    return {"id": "test-grid", "columns": 7, "rows": 8, "clueCells": clue_cells, "words": words}
 
 
 def codes(report: dict) -> set[str]:
     return {error["code"] for error in report["errors"]}
 
 
-def valid_rectangular_grid() -> dict:
-    columns, rows = 9, 10
+def valid_rectangular_grid(columns: int = 9, rows: int = 10) -> dict:
     clue_cells = [[0, col] for col in range(columns)] + [
         [row, 0] for row in range(1, rows)
     ]
@@ -67,29 +64,29 @@ def valid_rectangular_grid() -> dict:
             "cells": [[row, col] for row in range(1, rows)],
         })
     return {
-        "id": "test-grid-9x10", "columns": columns, "rows": rows,
+        "id": f"test-grid-{columns}x{rows}", "columns": columns, "rows": rows,
         "clueCells": clue_cells, "words": words,
     }
 
 
 class GridTopologyTests(unittest.TestCase):
-    def test_complete_grid_is_valid_and_reports_81_cells(self) -> None:
+    def test_complete_grid_is_valid_and_reports_56_cells(self) -> None:
         report = audit_grid_topology(valid_grid(), enforce_layout=False)
         self.assertTrue(report["valid"], report["errors"])
-        self.assertEqual(81, len(report["cells"]))
+        self.assertEqual(56, len(report["cells"]))
         centre = next(cell for cell in report["cells"] if (cell["row"], cell["col"]) == (4, 4))
         self.assertEqual(["h4", "v4"], centre["wordIds"])
 
-    def test_rectangular_9_by_10_grid_reports_90_cells(self) -> None:
-        report = audit_grid_topology(valid_rectangular_grid(), enforce_layout=False)
-        self.assertTrue(report["valid"], report["errors"])
-        self.assertEqual((9, 10), (report["columns"], report["rows"]))
-        self.assertEqual(90, len(report["cells"]))
+    def test_rectangular_9_by_10_grid_is_rejected(self) -> None:
+        report = audit_grid_topology(valid_rectangular_grid(9, 10), enforce_layout=False)
+        self.assertFalse(report["valid"])
+        self.assertIn("invalid_dimensions", codes(report))
 
-    def test_three_interior_adjacent_clue_pairs_are_allowed(self) -> None:
-        report = audit_grid_topology(build_normal_03())
+    def test_compact_7_by_8_grid_reports_56_cells(self) -> None:
+        report = audit_grid_topology(valid_rectangular_grid(7, 8), enforce_layout=False)
         self.assertTrue(report["valid"], report["errors"])
-        self.assertEqual(3, report["layoutMetrics"]["interiorAdjacentCluePairs"])
+        self.assertEqual((7, 8), (report["columns"], report["rows"]))
+        self.assertEqual(56, len(report["cells"]))
 
     def test_definition_borders_are_allowed_but_missing_doubles_are_blocking(self) -> None:
         report = audit_grid_topology(valid_grid())
@@ -115,7 +112,7 @@ class GridTopologyTests(unittest.TestCase):
         grid["words"] = [word for word in grid["words"] if word["wordId"] != "h4"]
         report = audit_grid_topology(grid)
         self.assertIn("orphan_segment", codes(report))
-        self.assertEqual([[4, col] for col in range(1, 9)], report["orphanSegments"][0]["cells"])
+        self.assertEqual([[4, col] for col in range(1, 7)], report["orphanSegments"][0]["cells"])
 
     def test_crossing_letters_must_match(self) -> None:
         grid = valid_grid()
@@ -149,7 +146,7 @@ class GridTopologyTests(unittest.TestCase):
         html = render_topology_html([report])
         self.assertIn("Comment lire la grille", html)
         self.assertIn("Afficher les solutions", html)
-        self.assertIn("data-path='1-1,1-2,1-3,1-4,1-5,1-6,1-7,1-8'", html)
+        self.assertIn("data-path='1-1,1-2,1-3,1-4,1-5,1-6'", html)
         self.assertIn("class='selection-status'", html)
         self.assertIn("class='step-number'", html)
         self.assertIn("Liste humaine des réponses et trajets", html)

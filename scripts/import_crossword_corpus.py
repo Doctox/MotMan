@@ -129,10 +129,8 @@ def pair_score(answer: str, clue: str) -> float:
 def pair_is_eligible(answer: str, clue: str, rejected_pairs: set[tuple[str, str]]) -> bool:
     tokens = clue_tokens(clue)
     clue_key = normalize_clue_key(clue)
-    # A 9x10 board naturally has nine-letter vertical answers.  The former
-    # eight-letter ceiling came from the retired 9x9 length target and made
-    # otherwise clean silhouettes depend on unsourced placement rescues.
-    if not 2 <= len(answer) <= 9 or not 1 <= len(tokens) <= 2:
+    # The active compact board never needs answers longer than seven letters.
+    if not 2 <= len(answer) <= 7 or not 1 <= len(tokens) <= 2:
         return False
     if answer in WEAK_ANSWERS or answer in VULGAR_OR_SENSITIVE:
         return False

@@ -1,4 +1,4 @@
-"""Strict rectangular arrowword topology validation and review rendering.
+﻿"""Strict rectangular arrowword topology validation and review rendering.
 
 This module deliberately knows nothing about vocabulary quality.  Its contract is
 geometric: every visible run is declared, every arrow starts the declared path,
@@ -14,8 +14,7 @@ from typing import Iterable
 from editorial_quality import editorial_errors, grid_semantic_errors
 
 
-LEGACY_SIZE = 9
-SUPPORTED_DIMENSIONS = {(9, 9), (9, 10)}  # (columns, rows)
+SUPPORTED_DIMENSIONS = {(7, 8)}  # (columns, rows)
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTIONS = {"across": (0, 1), "down": (1, 0)}
 ARROW_STARTS = {
@@ -62,9 +61,8 @@ def audit_grid_topology(
 ) -> dict:
     """Return a serialisable, cell-level topology report for one catalog grid."""
     grid_id = str(grid.get("id", "<sans-id>"))
-    legacy_size = grid.get("size")
-    columns = grid.get("columns", legacy_size)
-    rows = grid.get("rows", legacy_size)
+    columns = grid.get("columns")
+    rows = grid.get("rows")
     errors: list[dict] = []
 
     def reject(code: str, message: str, **details: object) -> None:
@@ -74,11 +72,11 @@ def audit_grid_topology(
 
     if not isinstance(columns, int) or not isinstance(rows, int):
         reject("invalid_dimensions", "rows et columns doivent être des entiers")
-        columns = rows = LEGACY_SIZE
+        columns, rows = 7, 8
     elif (columns, rows) not in SUPPORTED_DIMENSIONS:
         reject(
             "invalid_dimensions",
-            f"grille {columns}×{rows}, formats acceptés : 9×9 ou 9×10",
+            f"grille {columns}×{rows}, format accepté : 7×8",
         )
 
     raw_clues = grid.get("clueCells", [])
@@ -563,3 +561,4 @@ document.querySelectorAll('.grid-review').forEach(section => {{
   }});
 }});
 </script></body></html>"""
+

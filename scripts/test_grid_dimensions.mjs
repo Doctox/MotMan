@@ -20,12 +20,12 @@ try {
   const { generateGrid, generateGridById, validateGrid } = generatorModule
   const { isCatalogGridPlayable } = policyModule
 
-  assert.deepEqual(resolveGridDimensions({ size: 9 }), { columns: 9, rows: 9 })
   assert.deepEqual(resolveGridDimensions({ columns: 7, rows: 8 }), { columns: 7, rows: 8 })
-  assert.deepEqual(resolveGridDimensions({ size: 9, rows: 10 }), { columns: 9, rows: 10 })
   assert.equal(gridCellIndex({ columns: 7, rows: 8 }, 7, 6), 55)
   assert.deepEqual(gridCellCoordinates({ columns: 7, rows: 8 }, 55), { row: 7, column: 6 })
   assert.throws(() => resolveGridDimensions({ columns: 9 }), /invalides/)
+  assert.throws(() => resolveGridDimensions({ size: 9 }), /invalides/)
+  assert.throws(() => resolveGridDimensions({ columns: 9, rows: 10 }), /invalides/)
 
   const cells = Array.from({ length: 56 }, () => ({ kind: 'clue', entries: [] }))
   const answer = 'CHAT'

@@ -6,14 +6,16 @@ function validDimension(value: number | undefined): value is number {
 }
 
 /**
- * Resolves the rectangular grid contract. Runtime catalogues are expected to
- * provide explicit `columns` and `rows`; `size` remains accepted only for
- * old local fixtures and migration tooling.
+ * Resolves the current MotMan grid contract.
+ *
+ * The playable game is now 7 columns by 8 rows only. The old scalar `size`
+ * field is intentionally rejected so a retired catalogue cannot slip
+ * back into runtime through a legacy fallback.
  */
 export function resolveGridDimensions(source: GridDimensionsSource): GridDimensions {
-  const columns = source.columns ?? source.size
-  const rows = source.rows ?? source.size
-  if (!validDimension(columns) || !validDimension(rows)) {
+  const columns = source.columns
+  const rows = source.rows
+  if (source.size !== undefined || !validDimension(columns) || !validDimension(rows) || columns !== 7 || rows !== 8) {
     throw new Error('Dimensions de grille invalides')
   }
   return { columns, rows }

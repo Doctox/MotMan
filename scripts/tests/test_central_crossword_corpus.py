@@ -137,12 +137,6 @@ class CentralCrosswordCorpusTests(unittest.TestCase):
             <= set(index[0][2])
         )
 
-    def test_nine_letter_source_answers_are_available_for_9x10(self) -> None:
-        entries = generator.load_entries()
-        nine_letter = [entry for entry in entries if entry["length"] == 9]
-        self.assertGreaterEqual(len(nine_letter), 1_000)
-        self.assertTrue(all(entry.get("sourceClue") for entry in nine_letter))
-
     def test_reviewed_images_survive_a_jeuxdemots_canonical_text_pair(self) -> None:
         entries = {entry["answer"]: entry for entry in generator.load_entries()}
         horse = entries["CHEVAL"]
