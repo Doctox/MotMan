@@ -6,8 +6,9 @@ function validDimension(value: number | undefined): value is number {
 }
 
 /**
- * Resolves the rectangular grid contract while keeping the historical
- * `size` field readable for every published 9x9 catalogue entry.
+ * Resolves the rectangular grid contract. Runtime catalogues are expected to
+ * provide explicit `columns` and `rows`; `size` remains accepted only for
+ * old local fixtures and migration tooling.
  */
 export function resolveGridDimensions(source: GridDimensionsSource): GridDimensions {
   const columns = source.columns ?? source.size

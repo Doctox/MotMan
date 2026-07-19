@@ -10,7 +10,7 @@ import { selectGridForPlayers } from '../../../src/gridSelection.ts'
 type Pace = 'realtime' | 'async'
 type Mode = 'solo' | 'friend' | 'normal'
 type CatalogWord = { wordId?: string; answer: string; clue?: string; image?: unknown; direction: 'across' | 'down'; arrow?: string; clueCell: number[]; cells: number[][] }
-type CatalogGrid = { id: string; columns?: number; rows?: number; size?: number; clueCells: number[][]; words: CatalogWord[] }
+type CatalogGrid = { id: string; columns: number; rows: number; clueCells: number[][]; words: CatalogWord[] }
 type Bot = { playerId: string; displayName: string; level: number; skill: BotSkill; avatarId: string; frameId: string }
 type Turn = {
   id: string; kind: 'played' | 'timeout'; playerId: string; turnNumber: number; correct: number[]; wrong: number[];
@@ -48,8 +48,9 @@ function hash(text: string): number {
 }
 
 function dimensions(grid: CatalogGrid) {
-  const columns = grid.columns ?? grid.size ?? 9
-  const rows = grid.rows ?? grid.size ?? 9
+  const columns = grid.columns
+  const rows = grid.rows
+  if (!Number.isInteger(columns) || !Number.isInteger(rows) || columns <= 0 || rows <= 0) throw new Error(`Dimensions invalides pour ${grid.id}`)
   return { columns, rows }
 }
 

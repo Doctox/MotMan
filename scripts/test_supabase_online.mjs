@@ -76,7 +76,10 @@ await new Promise(resolve => setTimeout(resolve, Math.max(0, Date.parse(match.tu
 const rack = match.racks[alice.user.id]
 const sourceGrid = runtimeCatalog.grids.find(grid => grid.id === match.gridId)
 assert.ok(sourceGrid, `Grille ${match.gridId} absente du catalogue de test`)
-const columns = sourceGrid.columns ?? sourceGrid.size ?? 9
+const columns = Number(sourceGrid.columns)
+const rows = Number(sourceGrid.rows)
+assert.equal(columns, 7)
+assert.equal(rows, 8)
 const solution = new Map()
 for (const word of sourceGrid.words) {
   word.cells.forEach(([row, column], offset) => solution.set(row * columns + column, word.answer[offset]))

@@ -21,35 +21,37 @@ try {
   const { isCatalogGridPlayable } = policyModule
 
   assert.deepEqual(resolveGridDimensions({ size: 9 }), { columns: 9, rows: 9 })
-  assert.deepEqual(resolveGridDimensions({ columns: 9, rows: 10 }), { columns: 9, rows: 10 })
+  assert.deepEqual(resolveGridDimensions({ columns: 7, rows: 8 }), { columns: 7, rows: 8 })
   assert.deepEqual(resolveGridDimensions({ size: 9, rows: 10 }), { columns: 9, rows: 10 })
-  assert.equal(gridCellIndex({ columns: 9, rows: 10 }, 9, 8), 89)
-  assert.deepEqual(gridCellCoordinates({ columns: 9, rows: 10 }, 89), { row: 9, column: 8 })
+  assert.equal(gridCellIndex({ columns: 7, rows: 8 }, 7, 6), 55)
+  assert.deepEqual(gridCellCoordinates({ columns: 7, rows: 8 }, 55), { row: 7, column: 6 })
   assert.throws(() => resolveGridDimensions({ columns: 9 }), /invalides/)
 
-  const cells = Array.from({ length: 90 }, () => ({ kind: 'clue', entries: [] }))
+  const cells = Array.from({ length: 56 }, () => ({ kind: 'clue', entries: [] }))
   const answer = 'CHAT'
   const word = { answer, clue: 'Félin', difficulty: 1, theme: 'test', id: 'pilot:word:1', row: 1, col: 1, direction: 'across' }
   answer.split('').forEach((solution, offset) => {
-    cells[gridCellIndex({ columns: 9, rows: 10 }, 1, 1 + offset)] = { kind: 'letter', solution, wordIds: [word.id] }
+    cells[gridCellIndex({ columns: 7, rows: 8 }, 1, 1 + offset)] = { kind: 'letter', solution, wordIds: [word.id] }
   })
-  const validation = validateGrid({ columns: 9, rows: 10, cells, words: [word] })
+  const validation = validateGrid({ columns: 7, rows: 8, cells, words: [word] })
   assert.equal(validation.valid, true, validation.errors.join('; '))
   assert.equal(validation.score, 100)
 
-  assert.ok(catalog.version >= 4)
-  assert.ok(catalog.grids.length >= 30)
-  assert.ok(catalog.grids.every(grid => grid.columns === 9 && grid.rows === 10 && grid.size === undefined))
+  assert.ok(catalog.version >= 15)
+  assert.equal(catalog.grids.length, 10)
+  assert.ok(catalog.grids.every(grid => grid.columns === 7 && grid.rows === 8 && grid.size === undefined))
   assert.ok(catalog.grids.every(grid => grid.difficulty === undefined))
-  assert.ok(catalog.grids.reduce((count, grid) => count + grid.words.filter(word => word.image).length, 0) >= 48)
+  assert.equal(catalog.grids.reduce((count, grid) => count + grid.words.filter(word => word.image).length, 0), 50)
   assert.equal(new Set(catalog.grids.map(grid => grid.id)).size, catalog.grids.length)
   const playableSources = catalog.grids.filter(isCatalogGridPlayable)
   const storedQuarantines = catalog.grids.filter(grid => blacklist.quarantinedGridIds.includes(grid.id))
   assert.equal(playableSources.length, catalog.grids.length - storedQuarantines.length)
-  assert.ok(playableSources.length > 0)
+  assert.equal(playableSources.length, 10)
   for (const source of playableSources) {
     const generated = await generateGridById(source.id)
-    assert.equal(generated.cells.length, 90)
+    assert.equal(generated.cells.length, 56)
+    assert.equal(generated.columns, 7)
+    assert.equal(generated.rows, 8)
     assert.equal(generated.validation.valid, true, `${source.id}: ${generated.validation.errors.join('; ')}`)
     assert.equal(generated.version, `offline-catalog-${catalog.version}`)
   }
@@ -58,7 +60,7 @@ try {
     chosenIds.add((await generateGrid(seed, seed % 2 ? 'easy' : 'hard')).id)
   }
   assert.equal(chosenIds.size, playableSources.length)
-  const excludedIds = playableSources.slice(0, 12).map(grid => grid.id)
+  const excludedIds = playableSources.slice(0, 3).map(grid => grid.id)
   const availableSources = playableSources.filter(grid => !excludedIds.includes(grid.id))
   const chosenAfterExclusion = new Set()
   for (let seed = 0; seed < availableSources.length; seed += 1) {
@@ -68,7 +70,7 @@ try {
   }
   assert.equal(chosenAfterExclusion.size, availableSources.length)
 
-  console.log(`Catalogue v${catalog.version} : ${catalog.grids.length} grilles 9x10 stockées, ${playableSources.length} jouables, toutes atteignables par le tirage et indexation jusqu'à 89 validée.`)
+  console.log(`Catalogue v${catalog.version} : ${catalog.grids.length} grilles 7x8 stockées, ${playableSources.length} jouables, toutes atteignables par le tirage et indexation jusqu'à 55 validée.`)
 } finally {
   await vite.close()
 }

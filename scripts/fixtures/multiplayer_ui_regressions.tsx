@@ -23,9 +23,9 @@ function MultiplayerUiRegressions() {
       <div className="player player-you"><span className="avatar">VO</span><span><small>Vous</small><strong>18</strong></span></div>
     </section>
     <section className="board-wrap">
-      <div className="board" data-testid="regression-board" style={{ '--board-columns': 9, '--board-rows': 10, '--board-aspect': '9 / 10' } as CSSProperties}>
-        {Array.from({ length: 90 }, (_, index) => <div className="cell slot" key={index} />)}
-        <StableBoardLetters cellCount={90} board={board} provisional={provisional} playerId="me" hiddenCell={null} draggedTileId={null} />
+      <div className="board" data-testid="regression-board" style={{ '--board-columns': 7, '--board-rows': 8, '--board-aspect': '7 / 8' } as CSSProperties}>
+        {Array.from({ length: 56 }, (_, index) => <div className="cell slot" key={index} />)}
+        <StableBoardLetters cellCount={56} board={board} provisional={provisional} playerId="me" hiddenCell={null} draggedTileId={null} />
       </div>
     </section>
     <section className="rack-area">
