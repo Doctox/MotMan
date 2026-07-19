@@ -674,6 +674,10 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   width:46px;height:46px;flex:0 0 46px;border-radius:50%;
   box-shadow:0 2px 7px #49391f16;
 }
+/* Decorative frames extend beyond the 46px portrait box. Reserve that visual
+   footprint toward the name so large cosmetics never crowd the identity. */
+.scoreboard .player:first-child .game-portrait:is(.has-frame-art,.has-avatar-animation){margin-right:8px}
+.scoreboard .player:last-child .game-portrait:is(.has-frame-art,.has-avatar-animation){margin-left:8px}
 .scoreboard .player .avatar{font-size:10px}
 .scoreboard .player.active{
   transform:none;border-width:1px;
