@@ -248,7 +248,6 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
     const next = openSection === id ? null : id
     setOpenSection(next)
     if (next === 'solo') setOpenMultiplayerSection(null)
-    if (next === 'multiplayer' && !openMultiplayerSection) setOpenMultiplayerSection('normal')
     if (!next) return
     window.requestAnimationFrame(() => {
       document.getElementById(`mm-${id}-accordion`)?.scrollIntoView({
