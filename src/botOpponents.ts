@@ -4,7 +4,7 @@ import {
   replenishUniqueRack,
   type GamePlacement,
   type GameRuleGrid,
-} from './gameRules'
+} from './gameRules.ts'
 
 export type BotSkill = 'beginner' | 'regular' | 'expert'
 
