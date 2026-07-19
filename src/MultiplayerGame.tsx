@@ -19,8 +19,9 @@ import { loadPlayerCosmetics } from './cosmetics'
 import { CosmeticPortrait } from './CosmeticPortrait'
 import { canUseReroll, gameWordCellIndexes, REWARD_EFFECT_LIFETIME_MS, REWARD_STEP_MS } from './gameRules'
 import { startAdaptivePolling } from './adaptivePolling'
+import { createMatchRackTiles, type RackTile } from './rackTiles'
 
-type Tile = { id: string; letter: string }
+type Tile = RackTile
 type ScoreEffect = { id: string; kind: 'letter' | 'word'; label: string; owner: 'player' | 'bot'; cellIndex: number }
 type HintFlight = { letter: string; cellIndex: number; fromX: number; fromY: number; deltaX: number; deltaY: number }
 const DIFFICULTY_LABELS = { easy: 'Facile', normal: 'Normale', hard: 'Difficile' } as const
@@ -267,7 +268,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   const opponentName = match?.bot?.displayName ?? opponent?.displayName ?? 'Votre adversaire'
   const { ghostRef, moveGhost, stopGhost } = useDragGhost()
   opponentNameRef.current = opponentName
-  const rack = useMemo<Tile[]>(() => (match?.racks[playerId] ?? []).map(letter => ({ id: `duel-${match?.turnNumber ?? 0}-${letter}`, letter })), [match?.racks, match?.turnNumber, playerId])
+  const rack = useMemo<Tile[]>(() => createMatchRackTiles(match?.racks[playerId] ?? [], match?.turnNumber ?? 0), [match?.racks, match?.turnNumber, playerId])
   const placedIds = useMemo(() => new Set(Object.values(provisional).map(tile => tile.id)), [provisional])
   const focusedWordCells = useMemo(() => {
     if (!expandedClue || !grid) return new Set<number>()
@@ -680,7 +681,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     </div></section> : null}
     {match.status === 'active' ? <>
       <section className={`rack-area ${!isMyTurn ? 'duel-rack-waiting' : ''}`}><div className="rack-heading"><strong>{isMyTurn ? 'Vos lettres' : `${opponentName} joue…`}</strong><span>{isMyTurn ? `${rack.length - placedIds.size} disponible${rack.length - placedIds.size > 1 ? 's' : ''}` : 'Préparez votre prochain coup'}</span></div><div className={`rack ${dropTarget === -1 ? 'rack-drop' : ''} ${rackRolling ? 'is-rerolling' : ''}`} data-rack="true" aria-label="Lettres disponibles">
-        {rack.map(tile => <div className="rack-slot" key={tile.id}>{!placedIds.has(tile.id) ? <button type="button" data-rack-letter={tile.letter} disabled={!canAct || resolving} aria-label={`Lettre ${tile.letter}`} className={`rack-letter ${selected?.id === tile.id ? 'selected' : ''} ${drag?.tile.id === tile.id ? 'drag-source' : ''}`} onClick={() => setSelected(current => current?.id === tile.id ? null : tile)} onPointerDown={event => pointerDown(event, tile, 'rack')} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerCancel}>{tile.letter}</button> : null}</div>)}
+        {rack.map(tile => <div className="rack-slot" key={tile.id}>{!placedIds.has(tile.id) ? <button type="button" data-rack-letter={tile.letter} data-rack-id={tile.id} disabled={!canAct || resolving} aria-label={`Lettre ${tile.letter}`} className={`rack-letter ${selected?.id === tile.id ? 'selected' : ''} ${drag?.tile.id === tile.id ? 'drag-source' : ''}`} onClick={() => setSelected(current => current?.id === tile.id ? null : tile)} onPointerDown={event => pointerDown(event, tile, 'rack')} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerCancel}>{tile.letter}</button> : null}</div>)}
         {Array.from({ length: Math.max(0, 5 - rack.length) }, (_, index) => <div className="rack-slot" aria-hidden="true" key={`empty-${index}`} />)}
         <button className="reroll-button" type="button" onClick={() => void rerollRack()} disabled={!canAct || resolving || rerollRequesting || rerollUsedInMatch || Object.keys(provisional).length > 0} aria-label={rerollUsedInMatch ? 'Relance déjà utilisée pendant cette partie' : 'Relancer les lettres'} title={rerollUsedInMatch ? 'Relance déjà utilisée' : 'Relancer les lettres'}><Shuffle /></button>
       </div></section>
