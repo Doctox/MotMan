@@ -111,7 +111,7 @@ export function ShopPage({ cosmetics, setCosmetics, back, notify }: {
   return <div className="mm-page mm-shop-page">
     <section className="mm-shop-toolbar">
       <button type="button" onClick={back} aria-label="Retour au profil"><ArrowLeft /></button>
-      <b><Feather />{cosmetics.plumes}</b>
+      <b><Feather />{cosmetics.plumes.toLocaleString('fr-FR')}</b>
     </section>
     <div className="mm-shop-tabs" role="tablist" aria-label="Rayons de L’Épicerie">
       <button type="button" role="tab" aria-selected={tab === 'avatars'} className={tab === 'avatars' ? 'active' : ''} onClick={() => setTab('avatars')}><User />Avatars</button>

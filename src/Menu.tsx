@@ -37,6 +37,7 @@ type Theme = 'light' | 'dark' | 'system'
 
 const LazyShopPage = lazy(() => import('./ShopPage').then(module => ({ default: module.ShopPage })))
 const LazyLegalPanel = lazy(() => import('./LegalPanel').then(module => ({ default: module.LegalPanel })))
+const frenchNumber = new Intl.NumberFormat('fr-FR')
 
 function useResolvedTheme(theme: Theme) {
   useEffect(() => {
@@ -127,7 +128,13 @@ function HomePage({ identity, progress, cosmetics, social, lobby, play, openFrie
   return <div className="mm-page mm-home-page">
     <section className="mm-home-profile-card">
       <CosmeticPortrait avatarId={cosmetics.equippedAvatarId} frameId={cosmetics.equippedFrameId} animationId={cosmetics.equippedAnimationId} alt="Votre avatar" />
-      <div className="mm-home-profile-copy"><h1>{identity.displayName}</h1><span>Niveau {progress.level}</span><small>Rang actuel</small><strong>Non classé</strong></div>
+      <div className="mm-home-profile-copy">
+        <div className="mm-home-profile-heading">
+          <h1>{identity.displayName}</h1>
+          <span className="mm-home-feathers" aria-label={`${frenchNumber.format(cosmetics.plumes)} plumes`}><Feather aria-hidden="true" /><b>{frenchNumber.format(cosmetics.plumes)}</b></span>
+        </div>
+        <span>Niveau {progress.level}</span><small>Rang actuel</small><strong>Non classé</strong>
+      </div>
       <div className="mm-home-xp"><span>{progress.level >= MAX_PLAYER_LEVEL ? 'Niveau max' : `${progress.xp} / ${xpGoal} XP`}</span><i><b style={{ width: `${xpPercent}%` }} /></i></div>
     </section>
     <section className="mm-attention">
@@ -394,7 +401,7 @@ function ProfilePage({ identity, progress, cosmetics, edit, openShop, openAccoun
     <button type="button" className="mm-grocery-entry" onClick={openShop}>
       <span className="mm-grocery-basket"><ShoppingBasket /></span>
       <span><small>Collection & trouvailles</small><strong>L’Épicerie</strong></span>
-      <b><Feather />{cosmetics.plumes}</b><ChevronRight />
+      <b><Feather />{frenchNumber.format(cosmetics.plumes)}</b><ChevronRight />
     </button>
     <section className="mm-stats"><div><Trophy /><strong>{progress.wins}</strong><span>Victoires</span></div><i /><div><Shield /><strong>{progress.losses}</strong><span>Défaites</span></div></section>
     <button type="button" className="mm-account" onClick={openAccount}><User /><span><strong>{identity.accountType === 'account' ? 'Compte synchronisé' : 'Compte invité'}</strong><small>Code ami {identity.friendCode ?? shortPlayerId(identity.playerId)}</small></span><b>{identity.accountType === 'account' ? 'Gérer' : 'Créer un compte'}</b><ChevronRight /></button>
