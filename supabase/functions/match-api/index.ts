@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import { createBotPersona, planBotMove, type BotSkill } from '../../../src/botOpponents.ts'
+import { botThinkingDelayMs, createBotPersona, planBotMove, type BotSkill } from '../../../src/botOpponents.ts'
 import {
   canUseHint, canUseReroll, evaluateTurn, hintCandidates, keepRackLettersAfterTurn, replenishUniqueRack, REWARD_STEP_MS,
   shouldForfeitAfterInactivity, type GameRuleGrid, type GameRuleWord,
@@ -384,7 +384,7 @@ Deno.serve(async request => {
       if (row.status !== 'active') return row
       const grid = await getGrid(admin, row.grid_id)
       if (row.state.bot?.playerId === row.current_player_id) {
-        const delay = 10_000 + hash(`${row.id}:${row.turn_number}:think`) % 10_001
+        const delay = botThinkingDelayMs(`${row.id}:${row.turn_number}`)
         if (Date.now() >= new Date(row.turn_started_at).getTime() + delay) {
           applyTurn(row, grid, row.current_player_id, botPlacements(row, grid)); row = await persist(admin, row); await awardFinished(admin, row)
         }

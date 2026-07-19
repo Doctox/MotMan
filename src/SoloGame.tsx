@@ -9,7 +9,7 @@ import { BoardScoreEffects } from './BoardScoreEffects'
 import { BoardWordHighlight, type BoardWordHighlightState } from './BoardWordHighlight'
 import { awardExperience, type ExperienceAward } from './playerProgress'
 import { GameResultScreen } from './GameResultScreen'
-import { createBotPersona, planBotMove, refillBotRack, type BotSkill } from './botOpponents'
+import { botThinkingDelayMs, createBotPersona, planBotMove, refillBotRack, type BotSkill } from './botOpponents'
 import { canUseReroll, evaluateTurn, gameWordCellIndexes, hintCandidates, replenishUniqueRack, REWARD_EFFECT_LIFETIME_MS, REWARD_STEP_MS } from './gameRules'
 import { ClueZoom } from './ClueZoom'
 import { haptic, playEffect } from './sensoryPreferences'
@@ -31,11 +31,6 @@ const makeTile = (letter: string): Tile => ({ id: `tile-${Date.now()}-${tileSequ
 const makeSoloAwardId = () => `solo:${Date.now()}:${Math.random().toString(36).slice(2)}`
 const SOLO_BOT_SKILLS: Record<GridDifficulty, BotSkill> = { easy: 'beginner', normal: 'regular', hard: 'expert' }
 const makeSoloOpponent = (difficulty: GridDifficulty) => createBotPersona(`${Date.now()}:${Math.random()}`, SOLO_BOT_SKILLS[difficulty])
-const BOT_THINKING_SECONDS: Record<BotSkill, readonly [number, number]> = {
-  beginner: [10, 20],
-  regular: [10, 20],
-  expert: [10, 20],
-}
 const TURN_READY_DURATION_MS = 1_800
 const SOLO_GRID_HISTORY_KEY = 'motman-recent-solo-grids-v4'
 const SOLO_GRID_HISTORY_LIMIT = 12
@@ -329,11 +324,10 @@ function GameScreen({ difficulty, pace, initialGrid, onExit, onHome }: { difficu
   }
 
   const queueBotTurn = () => {
-    const [minimumThinking, maximumThinking] = BOT_THINKING_SECONDS[opponent.skill]
-    const thinkingSeconds = minimumThinking + Math.floor(Math.random() * (maximumThinking - minimumThinking + 1))
+    const thinkingDelay = botThinkingDelayMs(`solo:${grid.id}:${validations}:${opponent.displayName}`)
     setBotTurn(true)
     // The opponent owns a normal 45-second turn, just like a human. Its move
-    // begins after a believable 10-20 second pause instead of exposing a
+    // begins after a short, believable pause instead of exposing a
     // separate artificial "bot timer".
     setTurnSeconds(45)
     setSelected(null)
@@ -425,7 +419,7 @@ function GameScreen({ difficulty, pace, initialGrid, onExit, onHome }: { difficu
       }
       if (attempts.length) placeNext(0)
       else botTimer.current = window.setTimeout(finishTurn, 650)
-    }, thinkingSeconds * 1000)
+    }, thinkingDelay)
   }
 
   const placeTile = (tile: Tile, index: number, origin: 'rack' | number = 'rack') => {

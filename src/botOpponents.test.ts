@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { planBotMove, refillBotRack, type BotPersona } from './botOpponents'
+import { BOT_THINKING_MAX_MS, BOT_THINKING_MIN_MS, botThinkingDelayMs, planBotMove, refillBotRack, type BotPersona } from './botOpponents'
 import type { GameRuleGrid } from './gameRules'
 
 const expert: BotPersona = {
@@ -93,6 +93,33 @@ describe('adversaires bot', () => {
       seed: 'beginner-tempo',
     })
 
-    expect(plan.attempts.length).toBeLessThanOrEqual(2)
+    expect(plan.attempts.length).toBeLessThanOrEqual(3)
+  })
+
+  it('joue après une réflexion courte de quatre à huit secondes', () => {
+    const delays = Array.from({ length: 100 }, (_, index) => botThinkingDelayMs(`match:${index}`))
+
+    expect(Math.min(...delays)).toBeGreaterThanOrEqual(BOT_THINKING_MIN_MS)
+    expect(Math.max(...delays)).toBeLessThanOrEqual(BOT_THINKING_MAX_MS)
+    expect(new Set(delays).size).toBeGreaterThan(20)
+  })
+
+  it('rend chaque niveau sensiblement plus combatif que le précédent', () => {
+    const regular: BotPersona = { ...expert, skill: 'regular', level: 26 }
+    const personas = [beginner, regular, expert]
+    const averages = personas.map(persona => {
+      const correct = Array.from({ length: 200 }, (_, index) => planBotMove({
+        grid,
+        occupiedCells: [0, 1],
+        rackLetters: ['S', 'C', 'H', 'A', 'T'],
+        persona,
+        seed: `combat:${index}`,
+      }).attempts.filter(attempt => attempt.correct).length)
+      return correct.reduce((total, count) => total + count, 0) / correct.length
+    })
+
+    expect(averages[0]).toBeGreaterThan(1.5)
+    expect(averages[1]).toBeGreaterThan(averages[0] + 0.8)
+    expect(averages[2]).toBeGreaterThan(averages[1] + 0.7)
   })
 })

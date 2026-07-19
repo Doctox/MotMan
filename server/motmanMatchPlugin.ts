@@ -5,7 +5,7 @@ import type { IncomingMessage, ServerResponse } from 'node:http'
 import type { Plugin } from 'vite'
 import catalog from '../src/data/runtime.grid.catalog.json'
 import { isCatalogGridPlayable } from '../src/gridCatalogPolicy'
-import { botTuning, createBotPersona, type BotSkill } from '../src/botOpponents'
+import { botThinkingDelayMs, createBotPersona, planBotMove, type BotSkill } from '../src/botOpponents'
 import { gridCellIndex, resolveGridDimensions, type GridDimensionsSource } from '../src/gridDimensions'
 import {
   canUseHint,
@@ -397,51 +397,30 @@ function createBotProfile(sourceId: string): BotProfile {
   return { playerId: `bot_${randomUUID()}`, ...createBotPersona(sourceId) }
 }
 
-function completionPotential(match: StoredMatch, cellIndex: number): number {
-  const grid = gridForMatch(match)
-  return grid.words.reduce((score, word) => {
-    const cells = wordIndexes(grid, word)
-    return cells.includes(cellIndex) && cells.every(index => index === cellIndex || Boolean(match.board[index])) ? score + word.answer.length : score
-  }, 0)
-}
-
 function botPlacements(match: StoredMatch): Array<{ cellIndex: number; letter: string }> {
   const bot = match.bot
   if (!bot) return []
-  const solution = gridSolution(gridForMatch(match))
-  const openCells = [...solution.keys()].filter(cellIndex => !match.board[cellIndex])
+  const grid = gridForMatch(match)
   const rack = match.racks[bot.playerId] ?? []
-  const tuning = botTuning(bot)
-  const range = tuning.maxLetters - tuning.minLetters + 1
-  const targetCount = Math.min(rack.length, openCells.length, tuning.minLetters + hash(`${match.id}:${match.turnNumber}:count`) % range)
-  const placements: Array<{ cellIndex: number; letter: string }> = []
-  const usedCells = new Set<number>()
-  for (const letter of [...rack].sort((left, right) => hash(`${match.id}:${match.turnNumber}:${left}`) - hash(`${match.id}:${match.turnNumber}:${right}`))) {
-    if (placements.length >= targetCount) break
-    const correctCells = openCells
-      .filter(cellIndex => !usedCells.has(cellIndex) && solution.get(cellIndex) === letter)
-      .sort((left, right) => bot.skill === 'beginner'
-        ? hash(`${match.id}:${match.turnNumber}:${left}`) - hash(`${match.id}:${match.turnNumber}:${right}`)
-        : completionPotential(match, right) - completionPotential(match, left))
-    const shouldSucceed = hash(`${match.id}:${match.turnNumber}:${letter}:accuracy`) % 100 < tuning.accuracy
-    const wrongCells = openCells.filter(cellIndex => !usedCells.has(cellIndex) && solution.get(cellIndex) !== letter)
-    const cellIndex = shouldSucceed && correctCells.length
-      ? correctCells[0]
-      : wrongCells[hash(`${match.id}:${match.turnNumber}:${letter}:wrong`) % Math.max(1, wrongCells.length)] ?? correctCells[0]
-    if (cellIndex === undefined) continue
-    placements.push({ cellIndex, letter })
-    usedCells.add(cellIndex)
-  }
-  return placements
+  const botScore = match.scores[bot.playerId] ?? 0
+  const bestOpponentScore = Math.max(...match.playerIds
+    .filter(playerId => playerId !== bot.playerId)
+    .map(playerId => match.scores[playerId] ?? 0), 0)
+  return planBotMove({
+    grid: ruleGrid(grid),
+    occupiedCells: Object.keys(match.board).map(Number),
+    rackLetters: rack,
+    persona: bot,
+    seed: `${match.id}:${match.turnNumber}:${rack.join('')}`,
+    scoreGap: bestOpponentScore - botScore,
+  }).attempts.map(attempt => ({ cellIndex: attempt.cellIndex, letter: attempt.letter }))
 }
 
 function resolveReadyBots(now = Date.now()): boolean {
   let changed = false
   for (const match of database.matches) {
     if (match.status !== 'active' || !match.bot || match.currentPlayerId !== match.bot.playerId) continue
-    const minimumDelay = 10_000
-    const delayVariation = 10_001
-    const thinkingDelay = minimumDelay + hash(`${match.id}:${match.turnNumber}:thinking`) % delayVariation
+    const thinkingDelay = botThinkingDelayMs(`${match.id}:${match.turnNumber}`)
     if (now < new Date(match.turnStartedAt).getTime() + TURN_READY_DURATION_MS + thinkingDelay) continue
     applyPlayedTurn(match, match.bot.playerId, sanitizePlacements(match, match.bot.playerId, botPlacements(match)))
     changed = true

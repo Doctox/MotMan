@@ -31,6 +31,9 @@ export type BotMovePlan = {
   rackAfter: string[]
 }
 
+export const BOT_THINKING_MIN_MS = 4_000
+export const BOT_THINKING_MAX_MS = 8_000
+
 export const BOT_NAMES = ['Léa', 'Hugo', 'Inès', 'Nathan', 'Zoé', 'Lucas', 'Manon', 'Adam', 'Jade', 'Théo', 'Clara', 'Noé', 'Lina', 'Gabriel'] as const
 export const BOT_AVATAR_IDS = ['amina', 'malik', 'mei', 'kenji', 'ines', 'nael', 'camille', 'alex'] as const
 export const BOT_FRAME_IDS = ['cadre-ivoire', 'cadre-sauge', 'cadre-terracotta', 'cadre-encre', 'cadre-laiton'] as const
@@ -39,6 +42,10 @@ function hash(text: string): number {
   let value = 2166136261
   for (const character of text) value = Math.imul(value ^ character.charCodeAt(0), 16777619)
   return value >>> 0
+}
+
+export function botThinkingDelayMs(seed: string): number {
+  return BOT_THINKING_MIN_MS + hash(`${seed}:thinking`) % (BOT_THINKING_MAX_MS - BOT_THINKING_MIN_MS + 1)
 }
 
 export function createBotPersona(seed: string, preferredSkill?: BotSkill): BotPersona {
@@ -53,9 +60,9 @@ export function createBotPersona(seed: string, preferredSkill?: BotSkill): BotPe
 }
 
 export function botTuning(persona: BotPersona): BotTuning {
-  if (persona.skill === 'beginner') return { accuracy: 68, minLetters: 1, maxLetters: 2, wordBonusWeight: 1.4, pressureGap: 10 }
-  if (persona.skill === 'regular') return { accuracy: 84, minLetters: 2, maxLetters: 4, wordBonusWeight: 1.9, pressureGap: 7 }
-  return { accuracy: 95, minLetters: 3, maxLetters: 5, wordBonusWeight: 2.5, pressureGap: 4 }
+  if (persona.skill === 'beginner') return { accuracy: 78, minLetters: 2, maxLetters: 3, wordBonusWeight: 2, pressureGap: 8 }
+  if (persona.skill === 'regular') return { accuracy: 91, minLetters: 3, maxLetters: 4, wordBonusWeight: 2.8, pressureGap: 6 }
+  return { accuracy: 98, minLetters: 4, maxLetters: 5, wordBonusWeight: 3.6, pressureGap: 4 }
 }
 
 function neededLetters(grid: GameRuleGrid, occupiedCells: Iterable<number>): string[] {
@@ -114,7 +121,7 @@ export function planBotMove({
   const tuning = botTuning(persona)
   const occupied = new Set(occupiedCells)
   const rack = [...rackLetters]
-  const pressureBoost = scoreGap >= tuning.pressureGap ? 1 : 0
+  const pressureBoost = scoreGap >= tuning.pressureGap * 2 ? 2 : scoreGap >= tuning.pressureGap ? 1 : 0
   const minLetters = Math.min(tuning.maxLetters, tuning.minLetters + pressureBoost)
   const maxLetters = Math.min(5, tuning.maxLetters + pressureBoost)
   const span = Math.max(1, maxLetters - minLetters + 1)
@@ -128,20 +135,31 @@ export function planBotMove({
       if (cell.kind !== 'letter' || cell.solution !== letter || occupied.has(cellIndex) || blockedThisTurn.has(cellIndex)) return []
       const evaluation = evaluateTurn({ grid, occupiedBefore: occupied, placements: [{ cellIndex, letter }] })
       const wordPoints = evaluation.wordBonuses.reduce((total, word) => total + word.points, 0)
-      const crossingPressure = grid.words.filter(word => {
+      const relatedWords = grid.words.filter(word => {
         const cells = word.cells?.map(([row, column]) => row * grid.columns + column) ?? []
         return cells.includes(cellIndex)
-      }).length
-      const score = evaluation.scoreGained * 10 + wordPoints * tuning.wordBonusWeight + crossingPressure + (hash(`${seed}:jitter:${step}:${cellIndex}`) % 7) / 10
+      })
+      const crossingPressure = relatedWords.length
+      const progressPressure = relatedWords.reduce((total, word) => {
+        const indexes = word.cells?.map(([row, column]) => row * grid.columns + column) ?? []
+        if (!indexes.length) return total
+        const filledAfter = indexes.filter(index => occupied.has(index) || index === cellIndex).length
+        return total + (filledAfter * filledAfter) / indexes.length
+      }, 0)
+      const score = evaluation.scoreGained * 12
+        + wordPoints * tuning.wordBonusWeight * 3
+        + crossingPressure * 1.5
+        + progressPressure * tuning.wordBonusWeight
+        + (hash(`${seed}:jitter:${step}:${cellIndex}`) % 5) / 10
       return [{ cellIndex, letter, score }]
     }))
 
     if (!candidates.length) break
     candidates.sort((left, right) => right.score - left.score)
-    const choiceWindow = persona.skill === 'beginner' ? Math.min(3, candidates.length) : persona.skill === 'regular' ? Math.min(2, candidates.length) : 1
+    const choiceWindow = persona.skill === 'beginner' ? Math.min(2, candidates.length) : 1
     const chosen = candidates[hash(`${seed}:choice:${step}`) % choiceWindow]
     const correctRoll = hash(`${seed}:accuracy:${step}:${chosen.cellIndex}`) % 100
-    const isCorrect = correctRoll < tuning.accuracy
+    const isCorrect = correctRoll < Math.min(99, tuning.accuracy + pressureBoost * 3)
     if (isCorrect) {
       attempts.push({ cellIndex: chosen.cellIndex, letter: chosen.letter, correct: true })
       correctPlacements.push({ cellIndex: chosen.cellIndex, letter: chosen.letter })
