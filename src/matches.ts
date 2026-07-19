@@ -2,10 +2,21 @@ import type { SocialUser } from './social'
 import type { GeneratedGrid } from './generator'
 import { hasSupabaseSession } from './supabaseClient'
 import { invokeSupabaseFunction } from './supabaseFunctions'
+import type { MatchHistoryOutcome } from './matchHistory'
 
 export type MatchPace = 'realtime' | 'async'
 export type MatchMode = 'solo' | 'friend' | 'normal'
 export type MatchSearch = { id: string; pace: MatchPace; createdAt: string }
+export type MatchHistoryEntry = {
+  id: string
+  mode: 'solo' | 'multiplayer'
+  pace: MatchPace
+  outcome: MatchHistoryOutcome
+  score: number
+  opponentScore: number
+  opponentName: string | null
+  completedAt: string
+}
 export type MatchBot = { playerId: string; displayName: string; level: number; skill: 'beginner' | 'regular' | 'expert'; avatarId: string; frameId: string }
 
 export type MatchInvitation = {
@@ -69,8 +80,8 @@ export type MatchState = {
   grid?: GeneratedGrid
 }
 
-export type MatchLobbyState = { incoming: MatchInvitation[]; outgoing: MatchInvitation[]; active: MatchState[]; searches: MatchSearch[] }
-export const EMPTY_MATCH_LOBBY: MatchLobbyState = { incoming: [], outgoing: [], active: [], searches: [] }
+export type MatchLobbyState = { incoming: MatchInvitation[]; outgoing: MatchInvitation[]; active: MatchState[]; searches: MatchSearch[]; recent: MatchHistoryEntry[] }
+export const EMPTY_MATCH_LOBBY: MatchLobbyState = { incoming: [], outgoing: [], active: [], searches: [], recent: [] }
 const localTestServer = import.meta.env.VITE_MOTMAN_LOCAL_TEST_SERVER === 'true'
 
 async function localMatch<T>(path: string, body?: Record<string, unknown>): Promise<T> {

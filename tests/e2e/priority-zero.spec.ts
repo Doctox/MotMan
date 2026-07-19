@@ -170,7 +170,7 @@ test('deux téléphones conservent la même lettre après validation', async ({ 
   try {
     await expect(playerOne.page.locator('.turn-ready-flash')).toBeVisible()
     await expect(playerOne.page.locator('.turn-ready-flash')).toBeHidden()
-    await playerOne.page.getByRole('button', { name: `Lettre ${placement.letter}` }).click({ force: true })
+    await playerOne.page.getByRole('button', { name: `Lettre ${placement.letter}` }).first().click({ force: true })
     await playerOne.page.locator(`[data-cell="${placement.cellIndex}"]`).click({ force: true })
     await playerOne.page.getByRole('button', { name: 'Valider' }).click({ force: true })
 

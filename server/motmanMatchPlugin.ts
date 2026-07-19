@@ -519,7 +519,26 @@ function lobbyState(playerId: string) {
   const outgoing = database.invitations.filter(invitation => invitation.hostId === playerId && invitation.status === 'pending').map(invitationView)
   const active = database.matches.filter(match => match.status === 'active' && match.playerIds.includes(playerId)).map(publicMatch)
   const searches = database.searches.filter(search => search.playerId === playerId).map(({ id, pace, createdAt }) => ({ id, pace, createdAt }))
-  return { incoming, outgoing, active, searches }
+  const recent = database.matches
+    .filter(match => match.status === 'finished' && match.playerIds.includes(playerId))
+    .sort((left, right) => new Date(right.updatedAt).getTime() - new Date(left.updatedAt).getTime())
+    .slice(0, 5)
+    .map(match => {
+      const opponentId = match.playerIds.find(id => id !== playerId) ?? ''
+      const interrupted = match.finishReason === 'forfeit' || match.finishReason === 'timeout'
+      const won = match.winnerId === playerId
+      return {
+        id: match.id,
+        mode: 'multiplayer' as const,
+        pace: match.pace,
+        outcome: interrupted ? won ? 'opponent-abandoned' : 'abandon' : match.winnerId === null ? 'draw' : won ? 'win' : 'loss',
+        score: Math.max(0, match.scores[playerId] ?? 0),
+        opponentScore: Math.max(0, match.scores[opponentId] ?? 0),
+        opponentName: match.bot?.playerId === opponentId ? match.bot.displayName : publicUser(opponentId)?.displayName ?? null,
+        completedAt: match.updatedAt,
+      }
+    })
+  return { incoming, outgoing, active, searches, recent }
 }
 
 function selectGridForPlayers(hostId: string, guestId: string, sourceId: string, now: Date): CatalogGrid {

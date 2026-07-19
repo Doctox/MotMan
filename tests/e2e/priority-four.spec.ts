@@ -38,3 +38,22 @@ test('L’Épicerie ne monte que les animations visibles', async ({ page }, test
 
   await page.screenshot({ path: `output/quality/p4-shop-${testInfo.project.name}.png`, fullPage: false })
 })
+
+test('les derniers matchs libèrent la place quand un mode de jeu est ouvert', async ({ page }) => {
+  await page.goto('/#jouer')
+
+  const history = page.getByLabel('Historique des cinq derniers matchs')
+  const historyShell = page.locator('.mm-recent-history')
+  const solo = page.locator('#mm-solo-accordion > .mm-panel-heading')
+  const multiplayer = page.locator('#mm-multiplayer-accordion > .mm-panel-heading')
+
+  await expect(history).toBeVisible()
+  await solo.click()
+  await expect(historyShell).toHaveAttribute('aria-hidden', 'true')
+  await expect(historyShell).toHaveCSS('opacity', '0')
+  await solo.click()
+  await expect(history).toBeVisible()
+  await multiplayer.click()
+  await expect(historyShell).toHaveAttribute('aria-hidden', 'true')
+  await expect(historyShell).toHaveCSS('opacity', '0')
+})

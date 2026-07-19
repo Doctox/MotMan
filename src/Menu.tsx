@@ -1,6 +1,6 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import {
-  ArrowLeft, Ban, BarChart3, Check, ChevronRight, Clock3, Copy, Gamepad2, Settings, Home,
+  ArrowLeft, Ban, BarChart3, Check, ChevronRight, Clock3, Copy, Gamepad2, Settings, Home, History,
   Hourglass, LogIn, Moon, Music2, Pencil, Play, Shield, Sun, Swords,
   Trophy, User, UserMinus, UserPlus, Users, Vibrate, Volume2, X, Menu as MenuIcon,
   Feather, FileText, ShoppingBasket,
@@ -19,8 +19,9 @@ import {
 } from './social'
 import {
   cancelMatchInvitation, cancelNormalSearch, createInstantMatch, EMPTY_MATCH_LOBBY, loadMatchLobby,
-  respondToMatchInvitation, searchNormalMatch, type MatchInvitation, type MatchLobbyState, type MatchPace, type MatchState,
+  respondToMatchInvitation, searchNormalMatch, type MatchHistoryEntry, type MatchInvitation, type MatchLobbyState, type MatchPace, type MatchState,
 } from './matches'
+import { matchHistoryDateLabel, matchHistoryResultLabel, matchHistoryTone } from './matchHistory'
 import { useSensoryPreferences } from './sensoryPreferences'
 import { useDialogFocus } from './useDialogFocus'
 import { getAnimation, getAvatar, getFrame, loadPlayerCosmetics, type PlayerCosmetics } from './cosmetics'
@@ -213,6 +214,25 @@ const SOLO_LEVELS: Array<{ id: GridDifficulty; label: string; available: boolean
   { id: 'hard', label: 'Difficile', available: true },
 ]
 
+function RecentMatchHistory({ matches, visible }: { matches: MatchHistoryEntry[]; visible: boolean }) {
+  return <div className={`mm-recent-history ${visible ? 'is-visible' : ''}`} aria-hidden={!visible} inert={!visible}>
+    <section className="mm-recent-history-card" aria-label="Historique des cinq derniers matchs">
+      <header><span><History /></span><div><h2>Derniers matchs</h2><small>Vos cinq résultats les plus récents</small></div></header>
+      {matches.length ? <div className="mm-recent-match-list">
+        {matches.slice(0, 5).map(match => {
+          const tone = matchHistoryTone(match.outcome)
+          const opponentName = match.opponentName ?? (match.mode === 'solo' ? 'Adversaire solo' : 'Adversaire')
+          return <article className="mm-recent-match-row" key={match.id}>
+            <span className={`mm-recent-outcome ${tone}`}>{tone === 'won' ? 'V' : tone === 'drawn' ? 'N' : 'D'}</span>
+            <span className="mm-recent-match-copy"><strong>{opponentName}</strong><small>{matchHistoryResultLabel(match.outcome)} · {match.mode === 'solo' ? 'Solo' : 'Multijoueur'} · {match.pace === 'async' ? 'Illimité' : 'Limité'}</small></span>
+            <span className="mm-recent-match-score"><b>{match.score}<i>–</i>{match.opponentScore}</b><small>{matchHistoryDateLabel(match.completedAt)}</small></span>
+          </article>
+        })}
+      </div> : <div className="mm-recent-history-empty"><History /><strong>Aucun match terminé</strong><small>Vos prochaines parties apparaîtront ici.</small></div>}
+    </section>
+  </div>
+}
+
 function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelInvite, searchMatch, cancelSearch, resumeMatch, openFriends }: {
   identity: GuestIdentity
   onStartSolo: (difficulty: GridDifficulty, pace: MatchPace) => Promise<void>
@@ -335,6 +355,7 @@ function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelIn
         </PlayAccordion>
       </div>
     </PlayAccordion>
+    <RecentMatchHistory matches={lobby.recent} visible={openSection === null} />
   </div>
 }
 

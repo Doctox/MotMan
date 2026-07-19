@@ -330,6 +330,9 @@ function playerOutcome(row: MatchRow, playerId: string) {
 async function recordMatchHistory(admin: ReturnType<typeof createClient>, row: MatchRow, playerId: string) {
   if (row.status !== 'finished' || playerId === row.state.bot?.playerId) return
   const opponentId = row.state.playerIds.find(id => id !== playerId) ?? ''
+  const opponentName = row.state.bot?.playerId === opponentId
+    ? row.state.bot.displayName
+    : (await profile(admin, opponentId))?.displayName ?? null
   const { error } = await admin.from('grid_player_history').upsert({
     user_id: playerId,
     play_key: `match:${row.id}`,
@@ -341,6 +344,7 @@ async function recordMatchHistory(admin: ReturnType<typeof createClient>, row: M
     completed: row.finish_reason === 'completed',
     score: Math.max(0, row.state.scores[playerId] ?? 0),
     opponent_score: Math.max(0, row.state.scores[opponentId] ?? 0),
+    opponent_name: opponentName,
     duration_seconds: Math.max(0, Math.round((new Date(row.updated_at).getTime() - new Date(row.created_at).getTime()) / 1000)),
     completed_at: row.updated_at,
     updated_at: nowIso(),
@@ -427,7 +431,16 @@ Deno.serve(async request => {
       const { data: outgoingRows } = await admin.from('server_match_invitations').select('*').eq('host_id', user.id).eq('status', 'pending').gt('expires_at', nowIso())
       const invitationView = async (item: Record<string, unknown>) => ({ id: item.id, hostId: item.host_id, guestId: item.guest_id, pace: item.pace, createdAt: item.created_at, expiresAt: item.expires_at, status: item.status, matchId: item.match_id, host: await profile(admin, String(item.host_id)), guest: await profile(admin, String(item.guest_id)) })
       const { data: searches } = await admin.from('server_match_searches').select('*').eq('user_id', user.id)
-      return { incoming: await Promise.all((incomingRows ?? []).map(invitationView)), outgoing: await Promise.all((outgoingRows ?? []).map(invitationView)), active: await Promise.all(rows.map(row => view(admin, row, user.id))), searches: (searches ?? []).map(item => ({ id: item.id, pace: item.pace, createdAt: item.created_at })) }
+      const { data: recentRows, error: recentError } = await admin.from('grid_player_history')
+        .select('id,mode,pace,outcome,score,opponent_score,opponent_name,completed_at')
+        .eq('user_id', user.id).order('completed_at', { ascending: false }).limit(5)
+      if (recentError) throw recentError
+      const recent = (recentRows ?? []).map(item => ({
+        id: item.id, mode: item.mode, pace: item.pace, outcome: item.outcome,
+        score: item.score, opponentScore: item.opponent_score,
+        opponentName: item.opponent_name, completedAt: item.completed_at,
+      }))
+      return { incoming: await Promise.all((incomingRows ?? []).map(invitationView)), outgoing: await Promise.all((outgoingRows ?? []).map(invitationView)), active: await Promise.all(rows.map(row => view(admin, row, user.id))), searches: (searches ?? []).map(item => ({ id: item.id, pace: item.pace, createdAt: item.created_at })), recent }
     }
 
     if (action === 'state') {
