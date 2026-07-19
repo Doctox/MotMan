@@ -60,7 +60,7 @@ await invoke(alice, 'social-api', { action: 'report', targetId: bob.user.id, rea
 const created = await invoke(alice, 'match-api', { action: 'solo', difficulty: 'normal', pace: 'realtime' })
 const match = created.match
 assert.equal(match.mode, 'solo')
-assert.ok(match.grid && match.grid.columns >= 9 && match.grid.rows >= 9)
+assert.ok(match.grid && match.grid.columns === 7 && match.grid.rows === 8)
 assert.ok(match.grid.words.every(word => /^•+$/.test(word.answer)), 'Une réponse réelle a fui dans la grille publique')
 assert.ok(match.grid.cells.every(cell => cell.kind !== 'letter' || cell.solution === ''), 'Une solution de cellule a fui')
 assert.deepEqual(Object.keys(match.racks), [alice.user.id], 'Le client a reçu un chevalet adverse')
@@ -140,6 +140,21 @@ assert.deepEqual(Object.keys(aliceFriend.racks), [alice.user.id])
 assert.deepEqual(Object.keys(bobFriend.racks), [bob.user.id])
 assert.equal(aliceFriend.racks[bob.user.id], undefined)
 assert.equal(bobFriend.racks[alice.user.id], undefined)
+const friendSourceGrid = runtimeCatalog.grids.find(grid => grid.id === aliceFriend.gridId)
+assert.ok(friendSourceGrid, `Grille ${aliceFriend.gridId} absente du catalogue de test`)
+const neededInventory = new Map()
+for (const word of friendSourceGrid.words) {
+  word.cells.forEach(([row, column], offset) => neededInventory.set(
+    row * friendSourceGrid.columns + column,
+    word.answer[offset],
+  ))
+}
+const neededCounts = [...neededInventory.values()].reduce((counts, letter) => counts.set(letter, (counts.get(letter) ?? 0) + 1), new Map())
+const dealtCounts = [...aliceFriend.racks[alice.user.id], ...bobFriend.racks[bob.user.id]]
+  .reduce((counts, letter) => counts.set(letter, (counts.get(letter) ?? 0) + 1), new Map())
+for (const [letter, count] of dealtCounts) {
+  assert.ok(count <= (neededCounts.get(letter) ?? 0), `Le sac a distribuÃ© trop de ${letter} (${count})`)
+}
 
 // Bob abandons while Alice owns the turn. This must remain possible in an
 // asynchronous game, but an instant arranged forfeit must not mint rewards.

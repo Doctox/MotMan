@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { botThinkingDelayMs, createBotPersona, planBotMove, type BotSkill } from '../../../src/botOpponents.ts'
 import {
-  canUseHint, canUseReroll, evaluateTurn, hintCandidates, keepRackLettersAfterTurn, replenishUniqueRack, REWARD_STEP_MS,
+  canUseHint, canUseReroll, drawUniqueRackFromBag, evaluateTurn, hintCandidates, keepRackLettersAfterTurn, REWARD_STEP_MS,
   shouldForfeitAfterInactivity, type GameRuleGrid, type GameRuleWord,
 } from '../../../src/gameRules.ts'
 import { calculateFeatherReward } from '../../../src/progressionRewards.ts'
@@ -20,7 +20,7 @@ type Turn = {
 }
 type State = {
   invitationId: string | null; difficulty: 'easy' | 'normal' | 'hard'; playerIds: [string, string]; bot: Bot | null;
-  board: Record<string, { letter: string; playerId: string }>; racks: Record<string, string[]>; scores: Record<string, number>;
+  board: Record<string, { letter: string; playerId: string }>; racks: Record<string, string[]>; letterBag?: string[]; scores: Record<string, number>;
   productiveTurns: Record<string, number>; inactivity: Record<string, number>;
   rackCompletions: Record<string, number>;
   hint: { playerId: string; cellIndex: number; letter: string; turnNumber: number } | null;
@@ -89,11 +89,37 @@ function neededLetters(grid: GameRuleGrid, board: State['board']): string[] {
   return grid.cells.flatMap((cell, index) => cell.kind === 'letter' && !board[String(index)] && cell.solution ? [cell.solution] : [])
 }
 
+function ensureSharedLetterBag(grid: GameRuleGrid, state: State): boolean {
+  if (Array.isArray(state.letterBag)) return false
+  const available = neededLetters(grid, state.board)
+  const normalizedRacks: Record<string, string[]> = { ...state.racks }
+
+  for (const playerId of state.playerIds) {
+    const seen = new Set<string>()
+    normalizedRacks[playerId] = (state.racks[playerId] ?? []).filter(letter => {
+      if (seen.has(letter)) return false
+      const index = available.indexOf(letter)
+      if (index < 0) return false
+      available.splice(index, 1)
+      seen.add(letter)
+      return true
+    })
+  }
+
+  state.racks = normalizedRacks
+  state.letterBag = available
+  for (const playerId of state.playerIds) state.racks[playerId] = refill(grid, state, playerId, state.racks[playerId] ?? [])
+  return true
+}
+
 function refill(grid: GameRuleGrid, state: State, playerId: string, current: string[], avoid: Iterable<string> = []): string[] {
-  return replenishUniqueRack({
-    neededLetters: neededLetters(grid, state.board), currentLetters: current, avoidLetters: avoid,
+  ensureSharedLetterBag(grid, state)
+  const drawn = drawUniqueRackFromBag({
+    letterBag: state.letterBag ?? [], currentLetters: current, avoidLetters: avoid,
     chooseIndex: (pool, position) => hash(`${playerId}:${Object.keys(state.board).length}:${position}:${pool.join('')}`) % pool.length,
   })
+  state.letterBag = drawn.letterBag
+  return drawn.rack
 }
 
 async function profile(admin: ReturnType<typeof createClient>, id: string) {
@@ -174,7 +200,7 @@ async function createMatch(admin: ReturnType<typeof createClient>, hostId: strin
   const endsAt = new Date(startedAt.getTime() + (pace === 'realtime' ? REALTIME_TURN_MS : ASYNC_TURN_MS))
   const state: State = {
     invitationId, difficulty: bot?.skill === 'beginner' ? 'easy' : bot?.skill === 'expert' ? 'hard' : 'normal',
-    playerIds: [hostId, guestId], bot, board: {}, racks: {}, scores: { [hostId]: 0, [guestId]: 0 },
+    playerIds: [hostId, guestId], bot, board: {}, racks: {}, letterBag: neededLetters(rules, {}), scores: { [hostId]: 0, [guestId]: 0 },
     productiveTurns: { [hostId]: 0, [guestId]: 0 }, inactivity: { [hostId]: 0, [guestId]: 0 },
     rackCompletions: { [hostId]: 0, [guestId]: 0 },
     hint: null, hintUsed: {}, rerollUsed: {}, lastTurn: null,
@@ -383,6 +409,7 @@ Deno.serve(async request => {
     const resolveRow = async (row: MatchRow) => {
       if (row.status !== 'active') return row
       const grid = await getGrid(admin, row.grid_id)
+      const initializedBag = ensureSharedLetterBag(ruleGrid(grid), row.state)
       if (row.state.bot?.playerId === row.current_player_id) {
         const delay = botThinkingDelayMs(`${row.id}:${row.turn_number}`)
         if (Date.now() >= new Date(row.turn_started_at).getTime() + delay) {
@@ -390,7 +417,7 @@ Deno.serve(async request => {
         }
       } else if (Date.now() >= new Date(row.turn_ends_at).getTime() + GRACE_MS) {
         timeoutTurn(row); row = await persist(admin, row); await awardFinished(admin, row)
-      }
+      } else if (initializedBag) row = await persist(admin, row)
       return row
     }
 
@@ -533,7 +560,9 @@ Deno.serve(async request => {
       }
     } else if (action === 'reroll') {
       if (!canUseReroll({ alreadyUsed: Boolean(row.state.rerollUsed[user.id]), pendingPlacements: 0, hintActive: Boolean(row.state.hint) })) return json(409, { error: 'Le mélange n’est plus disponible.' })
-      row.state.rerollUsed[user.id] = true; row.state.racks[user.id] = refill(ruleGrid(grid), row.state, user.id, [], row.state.racks[user.id] ?? [])
+      const currentRack = row.state.racks[user.id] ?? []
+      row.state.letterBag = [...(row.state.letterBag ?? []), ...currentRack]
+      row.state.rerollUsed[user.id] = true; row.state.racks[user.id] = refill(ruleGrid(grid), row.state, user.id, [], currentRack)
     } else return json(404, { error: 'Action inconnue.' })
     row = await persist(admin, row); await awardFinished(admin, row)
     const result = row.state.lastTurn

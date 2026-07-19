@@ -10,13 +10,13 @@ import { gridCellIndex, resolveGridDimensions, type GridDimensionsSource } from 
 import {
   canUseHint,
   canUseReroll,
+  drawUniqueRackFromBag,
   evaluateTurn,
   gameWordCellIndexes,
   hasTurnStarted,
   hintCandidates,
   isTurnSubmissionExpired,
   keepRackLettersAfterTurn,
-  replenishUniqueRack,
   REWARD_STEP_MS,
   shouldForfeitAfterInactivity,
   type GameRuleGrid,
@@ -80,6 +80,7 @@ type StoredMatch = {
   turnEndsAt: string
   board: Record<string, { letter: string; playerId: string }>
   racks: Record<string, string[]>
+  letterBag?: string[]
   scores: Record<string, number>
   productiveTurns: Record<string, number>
   inactivity: Record<string, number>
@@ -93,7 +94,7 @@ type StoredMatch = {
   createdAt: string
   updatedAt: string
 }
-type MatchDatabase = { version: 4; invitations: MatchInvitation[]; matches: StoredMatch[]; searches: MatchSearch[] }
+type MatchDatabase = { version: 5; invitations: MatchInvitation[]; matches: StoredMatch[]; searches: MatchSearch[] }
 
 function numericEnvironment(name: string, fallback: number, minimum: number): number {
   const parsed = Number(process.env[name])
@@ -117,7 +118,7 @@ const REALTIME_BOT_MATCH_DELAY_MS = Math.max(1_000, Number(process.env.MOTMAN_RE
 const ASYNC_BOT_MATCH_DELAY_MS = Math.max(1_000, Number(process.env.MOTMAN_ASYNC_BOT_DELAY_MS) || 30_000)
 const MAX_ASYNC_MATCHES = 3
 const RECENT_GRID_HISTORY_LIMIT = 12
-const EMPTY_DATABASE: MatchDatabase = { version: 4, invitations: [], matches: [], searches: [] }
+const EMPTY_DATABASE: MatchDatabase = { version: 5, invitations: [], matches: [], searches: [] }
 const grids = (catalog.grids as CatalogGrid[]).filter(isCatalogGridPlayable)
 const gridIds = new Set(grids.map(grid => grid.id))
 if (!grids.length) throw new Error('Le catalogue actif ne contient aucune grille jouable.')
@@ -126,9 +127,9 @@ function loadMatchDatabase(): MatchDatabase {
   try {
     if (!existsSync(MATCH_DATABASE_PATH)) return structuredClone(EMPTY_DATABASE)
     const parsed = JSON.parse(readFileSync(MATCH_DATABASE_PATH, 'utf8')) as Partial<MatchDatabase> & { version?: number }
-    if (![1, 2, 3, 4].includes(parsed.version ?? 0) || !Array.isArray(parsed.invitations) || !Array.isArray(parsed.matches)) return structuredClone(EMPTY_DATABASE)
+    if (![1, 2, 3, 4, 5].includes(parsed.version ?? 0) || !Array.isArray(parsed.invitations) || !Array.isArray(parsed.matches)) return structuredClone(EMPTY_DATABASE)
     const loaded: MatchDatabase = {
-      version: 4,
+      version: 5,
       invitations: parsed.invitations,
       matches: parsed.matches.filter(match => gridIds.has(match.gridId)),
       searches: Array.isArray(parsed.searches) ? parsed.searches : [],
@@ -147,6 +148,7 @@ function loadMatchDatabase(): MatchDatabase {
       }
       match.inactivity ??= Object.fromEntries(match.playerIds.map(playerId => [playerId, 0]))
       match.productiveTurns ??= Object.fromEntries(match.playerIds.map(playerId => [playerId, 0]))
+      match.racks ??= {}
       match.hintUsed ??= {}
       match.rerollUsed ??= {}
       if (match.lastTurn) {
@@ -154,6 +156,7 @@ function loadMatchDatabase(): MatchDatabase {
         match.lastTurn.inactivityCount ??= 0
         match.lastTurn.wrongPlacements ??= []
       }
+      ensureSharedLetterBag(match)
     })
     return loaded
   } catch {
@@ -260,15 +263,39 @@ function hash(text: string): number {
   return value >>> 0
 }
 
-function replenishRack(match: StoredMatch, playerId: string, current: string[], avoidLetters: Iterable<string> = []): string[] {
+function ensureSharedLetterBag(match: StoredMatch): void {
+  if (Array.isArray(match.letterBag)) return
   const solution = gridSolution(gridForMatch(match))
-  const needed = [...solution.entries()].flatMap(([index, letter]) => match.board[index] ? [] : [letter])
-  return replenishUniqueRack({
-    neededLetters: needed,
+  const available = [...solution.entries()].flatMap(([index, letter]) => match.board[index] ? [] : [letter])
+  const normalizedRacks: Record<string, string[]> = { ...match.racks }
+
+  for (const playerId of match.playerIds) {
+    const seen = new Set<string>()
+    normalizedRacks[playerId] = (match.racks[playerId] ?? []).filter(letter => {
+      if (seen.has(letter)) return false
+      const index = available.indexOf(letter)
+      if (index < 0) return false
+      available.splice(index, 1)
+      seen.add(letter)
+      return true
+    })
+  }
+
+  match.racks = normalizedRacks
+  match.letterBag = available
+  for (const playerId of match.playerIds) match.racks[playerId] = replenishRack(match, playerId, match.racks[playerId] ?? [])
+}
+
+function replenishRack(match: StoredMatch, playerId: string, current: string[], avoidLetters: Iterable<string> = []): string[] {
+  ensureSharedLetterBag(match)
+  const drawn = drawUniqueRackFromBag({
+    letterBag: match.letterBag ?? [],
     currentLetters: current,
     avoidLetters,
     chooseIndex: (pool, position) => hash(`${match.id}:${playerId}:${match.turnNumber}:${position}`) % pool.length,
   })
+  match.letterBag = drawn.letterBag
+  return drawn.rack
 }
 
 function publicGrid(grid: CatalogGrid) {
@@ -311,8 +338,9 @@ function publicGrid(grid: CatalogGrid) {
 }
 
 function publicMatch(match: StoredMatch) {
+  const { letterBag: _privateLetterBag, ...safeMatch } = match
   const players = match.playerIds.map(playerId => playerId === match.bot?.playerId ? botUser(match.bot) : publicUser(playerId)).filter(Boolean)
-  return { ...match, players, grid: publicGrid(gridForMatch(match)) }
+  return { ...safeMatch, players, grid: publicGrid(gridForMatch(match)) }
 }
 
 function finishMatch(match: StoredMatch, winnerId: string | null, reason: StoredMatch['finishReason']): void {
@@ -522,7 +550,7 @@ function createMatch(hostId: string, guestId: string, mode: MatchMode, pace: Mat
     id: randomUUID(), invitationId, mode, pace, gridId: grid.id, difficulty,
     playerIds: [hostId, guestId], bot, currentPlayerId: hostId, turnNumber: 1,
     turnStartedAt: now.toISOString(), turnEndsAt: new Date(now.getTime() + TURN_READY_DURATION_MS + (pace === 'async' ? ASYNC_TURN_DURATION_MS : REALTIME_TURN_DURATION_MS)).toISOString(),
-    board: {}, racks: {}, scores: { [hostId]: 0, [guestId]: 0 },
+    board: {}, racks: {}, letterBag: [...gridSolution(grid).values()], scores: { [hostId]: 0, [guestId]: 0 },
     productiveTurns: { [hostId]: 0, [guestId]: 0 },
     inactivity: { [hostId]: 0, [guestId]: 0 }, hint: null,
     hintUsed: {}, rerollUsed: {}, lastTurn: null, status: 'active', winnerId: null, finishReason: null,
@@ -714,6 +742,7 @@ async function handleMatchRequest(request: IncomingMessage, response: ServerResp
     })
     if (!rerollAllowed) return sendJson(response, 409, { error: 'Relance déjà utilisée ou indisponible pendant ce tour.' })
     const currentRack = match.racks[playerId] ?? []
+    match.letterBag = [...(match.letterBag ?? []), ...currentRack]
     match.racks[playerId] = replenishRack(match, playerId, [], currentRack)
     match.rerollUsed[playerId] = true
     match.updatedAt = new Date().toISOString()

@@ -171,6 +171,58 @@ export function replenishUniqueRack({
   return rack
 }
 
+export type SharedRackDraw = {
+  rack: string[]
+  letterBag: string[]
+}
+
+/**
+ * Draws a rack from the match-wide bag. Every occurrence is removed from the
+ * bag when dealt, so two players can only receive the same letter when the
+ * unfinished board genuinely needs that letter more than once.
+ */
+export function drawUniqueRackFromBag({
+  letterBag,
+  currentLetters,
+  avoidLetters = [],
+  count = RACK_SIZE,
+  chooseIndex,
+}: {
+  letterBag: readonly string[]
+  currentLetters: readonly string[]
+  avoidLetters?: Iterable<string>
+  count?: number
+  chooseIndex?: (pool: readonly string[], position: number) => number
+}): SharedRackDraw {
+  const remaining = [...letterBag]
+  const rack: string[] = []
+  const seen = new Set<string>()
+  const avoided = new Set(avoidLetters)
+
+  for (const letter of currentLetters) {
+    if (seen.has(letter) || rack.length >= count) continue
+    rack.push(letter)
+    seen.add(letter)
+  }
+
+  while (rack.length < count) {
+    const preferred = [...new Set(remaining.filter(letter => !seen.has(letter) && !avoided.has(letter)))]
+    const fallback = [...new Set(remaining.filter(letter => !seen.has(letter) && avoided.has(letter)))]
+    const pool = preferred.length > 0 ? preferred : fallback
+    if (!pool.length) break
+    const requestedIndex = chooseIndex?.(pool, rack.length) ?? Math.floor(Math.random() * pool.length)
+    const safeIndex = Math.abs(Math.floor(requestedIndex)) % pool.length
+    const letter = pool[safeIndex]
+    const bagIndex = remaining.indexOf(letter)
+    if (bagIndex < 0) break
+    remaining.splice(bagIndex, 1)
+    rack.push(letter)
+    seen.add(letter)
+  }
+
+  return { rack, letterBag: remaining }
+}
+
 /**
  * Removes only letters accepted by the board from the rack. Incorrect
  * placements stay available for the player's next turn.

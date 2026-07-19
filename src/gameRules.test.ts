@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   canUseHint,
   canUseReroll,
+  drawUniqueRackFromBag,
   evaluateTurn,
   gameWordCellIndexes,
   hasTurnStarted,
@@ -127,6 +128,40 @@ describe('indice et chevalet', () => {
     })
     expect(rack).toEqual(['A', 'C', 'D', 'E', 'B'])
     expect(new Set(rack).size).toBe(rack.length)
+  })
+
+  it('distribue les deux chevalets depuis un seul sac sans inventer de lettre', () => {
+    const initialBag = ['E', 'A', 'B', 'C', 'D', 'F']
+    const first = drawUniqueRackFromBag({ letterBag: initialBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
+    const second = drawUniqueRackFromBag({ letterBag: first.letterBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
+
+    expect([...first.rack, ...second.rack, ...second.letterBag].sort()).toEqual([...initialBag].sort())
+    expect([...first.rack, ...second.rack].filter(letter => letter === 'E')).toHaveLength(1)
+    expect(second.letterBag).toEqual([])
+  })
+
+  it('autorise la même lettre chez les deux joueurs seulement si la grille en demande plusieurs', () => {
+    const initialBag = ['E', 'E', 'A', 'B', 'C', 'D']
+    const first = drawUniqueRackFromBag({ letterBag: initialBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
+    const second = drawUniqueRackFromBag({ letterBag: first.letterBag, currentLetters: [], count: 3, chooseIndex: () => 0 })
+
+    expect(first.rack).toContain('E')
+    expect(second.rack).toContain('E')
+    expect([...first.rack, ...second.rack].filter(letter => letter === 'E')).toHaveLength(2)
+  })
+
+  it('remet les lettres relancées dans le sac avant un nouveau tirage', () => {
+    const oldRack = ['A', 'B']
+    const rerolled = drawUniqueRackFromBag({
+      letterBag: ['C', 'D', ...oldRack],
+      currentLetters: [],
+      avoidLetters: oldRack,
+      count: 2,
+      chooseIndex: () => 0,
+    })
+
+    expect(rerolled.rack).toEqual(['C', 'D'])
+    expect(rerolled.letterBag.sort()).toEqual(oldRack)
   })
 
   it('retire uniquement les lettres correctes et rend les lettres refusées au chevalet', () => {
