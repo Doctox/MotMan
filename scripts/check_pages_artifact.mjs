@@ -9,6 +9,7 @@ assert.ok(existsSync(indexPath), 'Le build GitHub Pages est absent : dist/index.
 const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1]
 const expectedBase = repositoryName ? `/${repositoryName}/` : '/'
 const html = readFileSync(indexPath, 'utf8')
+const legalDirectory = resolve(distributionDirectory, 'legal')
 
 assert.match(html, /<div\s+id=["']root["']><\/div>/, 'Le point de montage React est absent du build.')
 assert.ok(!/https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?/i.test(html), 'Le build contient une adresse de serveur local.')
@@ -30,4 +31,15 @@ for (const reference of assets) {
   assert.ok(relativePath && existsSync(resolve(distributionDirectory, relativePath)), `Ressource construite introuvable : ${reference}`)
 }
 
-console.log(`Artefact GitHub Pages valide : base ${expectedBase}, ${assets.length} ressources CSS/JS vérifiées.`)
+const legalDocuments = ['confidentialite.html', 'conditions.html', 'credits.html', 'suppression-compte.html']
+for (const documentName of legalDocuments) {
+  const documentPath = resolve(legalDirectory, documentName)
+  assert.ok(existsSync(documentPath), `Document légal absent du build : legal/${documentName}`)
+  const documentHtml = readFileSync(documentPath, 'utf8')
+  assert.ok(!/(?:href|src)=["']\/legal\//i.test(documentHtml), `Chemin légal absolu incompatible avec GitHub Pages : legal/${documentName}`)
+  assert.ok(!/href=["']\/assets\//i.test(documentHtml), `Chemin d’asset absolu incompatible avec GitHub Pages : legal/${documentName}`)
+}
+
+assert.ok(existsSync(resolve(legalDirectory, 'legal.css')), 'Feuille de style légale absente du build.')
+
+console.log(`Artefact GitHub Pages valide : base ${expectedBase}, ${assets.length} ressources CSS/JS et ${legalDocuments.length} documents légaux vérifiés.`)

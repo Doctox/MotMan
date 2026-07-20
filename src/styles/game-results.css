@@ -1,0 +1,72 @@
+
+/* --------------------------------------------------------------------------
+   Tactile clarity pass
+   The active answer is readable behind its compact clue card, while pointer
+   movement only animates the lifted tile and never disturbs board geometry.
+   -------------------------------------------------------------------------- */
+.drag-ghost{
+  contain:layout paint;will-change:left,top,rotate,opacity;
+  transform-origin:50% 80%;transition:rotate .08s linear!important;
+}
+.board.has-clue-focus .slot{
+  opacity:.66;filter:saturate(.72);
+  transition:opacity .22s ease,filter .22s ease,background-color .22s ease,box-shadow .22s ease;
+}
+.board.has-clue-focus .slot.clue-focus{
+  z-index:12;opacity:1;filter:none;background:#fff4d7!important;
+  box-shadow:inset 0 0 0 2px #cfa84f,0 0 12px #cfa84f3d;
+}
+.board.has-clue-focus .slot.clue-focus .letter-only{color:#075044}
+.clue-zoom-backdrop{
+  background:#071e1a3d;backdrop-filter:blur(1.2px);-webkit-backdrop-filter:blur(1.2px);
+}
+.app-shell.is-resolving .board{
+  box-shadow:0 5px 17px #3c352322,0 0 0 2px #c8a65f24;
+}
+.app-shell.is-resolving .rack-area{opacity:.82;transition:opacity .24s ease}
+.app-shell.is-finished .board{box-shadow:0 7px 22px #1f5a432b,0 0 0 2px #74a88b35}
+[data-theme="dark"] .board.has-clue-focus .slot.clue-focus{
+  background:#493f24!important;box-shadow:inset 0 0 0 2px #d1ad59,0 0 12px #d1ad5933;
+}
+[data-theme="dark"] .board.has-clue-focus .slot.clue-focus .letter-only{color:#f2e5b7}
+@media(prefers-reduced-motion:reduce){
+  .board.has-clue-focus .slot,.app-shell.is-resolving .rack-area{transition:none!important}
+  .drag-ghost{rotate:0deg!important;transition:none!important}
+}
+
+.app-shell.is-finished .feedback-panel>*{
+  animation:finishContentIn .48s var(--motion) both;
+}
+.app-shell.is-finished .feedback-panel>*:nth-child(2){animation-delay:.08s}
+.app-shell.is-finished .feedback-panel>*:nth-child(3){animation-delay:.16s}
+.app-shell.is-finished .feedback-panel>*:nth-child(4){animation-delay:.24s}
+.app-shell.is-finished .feedback-panel>*:nth-child(n+5){animation-delay:.3s}
+@keyframes finishContentIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.app-shell.is-finished .feedback-panel>*{animation:none!important}}
+
+/* Mobile scroll remains available when a gesture starts on the board. */
+body{overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.app-shell{overflow:visible}
+.slot{touch-action:pan-y}
+.letter-only.locked{touch-action:pan-y;cursor:default}
+@media(max-width:699px){
+  .app-shell{padding-bottom:calc(34px + env(safe-area-inset-bottom))}
+}
+
+/* The result screen offers the next action immediately without making grid feedback mandatory. */
+.solo-result,.multiplayer-result{display:grid;gap:13px}
+.solo-result h2,.multiplayer-result h2{margin-bottom:0}
+.experience-pending{min-height:86px;display:grid;place-items:center;margin:0;color:#71817b!important}
+.end-game-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2px}
+.end-game-actions .new-game,.end-game-home{width:100%;height:45px;margin:0;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:700;cursor:pointer}
+.end-game-actions .new-game{font:700 13px 'DM Sans',sans-serif}
+.end-game-actions button svg{width:17px;height:17px}
+.end-game-actions button:disabled{cursor:wait;opacity:.72}
+.end-game-home{border:1px solid #b8c6bf;background:#fffdf7;color:var(--green);box-shadow:0 3px 9px #29473f10;transition:transform .16s var(--motion),border-color .16s ease,background .16s ease}
+.end-game-home:hover{transform:translateY(-1px);border-color:#719386;background:#f5faf6}
+.end-game-home:active{transform:translateY(1px)}
+.result-feedback{padding-top:12px;border-top:1px solid #e1d6c2}
+.result-feedback>p{margin:0}
+[data-theme="dark"] .end-game-home{background:#22322d;border-color:#50635a;color:#e8f3ec}
+[data-theme="dark"] .result-feedback{border-color:#4d5c55}
+@media(max-width:360px){.end-game-actions{grid-template-columns:1fr}.end-game-actions .new-game,.end-game-home{height:42px}}

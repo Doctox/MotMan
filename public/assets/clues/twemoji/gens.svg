@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" role="img" aria-label="Groupe de personnes">
+  <circle cx="18" cy="9" r="6" fill="#F4C7A1"/>
+  <circle cx="7" cy="13" r="4.5" fill="#D99E82"/>
+  <circle cx="29" cy="13" r="4.5" fill="#FFDC5D"/>
+  <path d="M8 33c0-8 4-13 10-13s10 5 10 13H8z" fill="#3B88C3"/>
+  <path d="M0 33c0-6 2.8-10 7-10 2 0 3.8.9 5 2.5-1.2 2-1.8 4.5-1.8 7.5H0z" fill="#77B255"/>
+  <path d="M36 33c0-6-2.8-10-7-10-2 0-3.8.9-5 2.5 1.2 2 1.8 4.5 1.8 7.5H36z" fill="#AA8ED6"/>
+</svg>

@@ -7,6 +7,9 @@ import {
 import { calculateFeatherReward } from '../../../src/progressionRewards.ts'
 import { selectGridForPlayers } from '../../../src/gridSelection.ts'
 import { MATCH_STATE_CONFLICT_CODE } from '../../../src/matchConflict.ts'
+import { createHttpResponder, logServerError } from '../_shared/http.ts'
+import { queuePush, sendPushToUser } from '../_shared/pushNotifications.ts'
+import { enforceRateLimits, RateLimitExceededError } from '../_shared/rateLimit.ts'
 
 type Pace = 'realtime' | 'async'
 type Mode = 'solo' | 'friend' | 'normal'
@@ -45,8 +48,6 @@ const ASYNC_TURN_MS = 24 * 60 * 60 * 1000
 const READY_MS = 1_800
 const GRACE_MS = 2_000
 const BOT_SEARCH_MS = 30_000
-const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'authorization, apikey, content-type, x-client-info', 'Access-Control-Allow-Methods': 'POST, OPTIONS' }
-const json = (status: number, body: unknown) => new Response(JSON.stringify(body), { status, headers: { ...cors, 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
 const nowIso = () => new Date().toISOString()
 
 function hash(text: string): number {
@@ -147,6 +148,45 @@ async function profile(admin: ReturnType<typeof createClient>, id: string) {
 
 function botUser(bot: Bot) {
   return { playerId: bot.playerId, displayName: bot.displayName, code: `BOT${String(bot.level).padStart(2, '0')}`, online: true, activity: 'playing', avatarId: bot.avatarId, frameId: bot.frameId }
+}
+
+function notifyCurrentTurn(admin: ReturnType<typeof createClient>, row: MatchRow): void {
+  if (row.status !== 'active' || row.pace !== 'async' || row.state.bot?.playerId === row.current_player_id) return
+  queuePush(sendPushToUser(admin, row.current_player_id, {
+    title: 'C’est à vous',
+    body: 'Votre adversaire a joué. À vous de compléter la grille.',
+    data: { type: 'match_turn', matchId: row.id },
+    tag: `match-${row.id}`,
+  }))
+}
+
+function notifyFriendInvitation(
+  admin: ReturnType<typeof createClient>,
+  guestId: string,
+  invitationId: string,
+  inviterName: string,
+  pace: Pace,
+): void {
+  queuePush(sendPushToUser(admin, guestId, {
+    title: `Invitation de ${inviterName}`,
+    body: pace === 'async' ? 'Vous propose une partie en temps illimité.' : 'Vous propose une partie en temps limité.',
+    data: { type: 'friend_invitation', invitationId },
+    tag: `invitation-${invitationId}`,
+  }))
+}
+
+function notifyInvitationAccepted(
+  admin: ReturnType<typeof createClient>,
+  hostId: string,
+  matchId: string,
+  guestName: string,
+): void {
+  queuePush(sendPushToUser(admin, hostId, {
+    title: 'Invitation acceptée',
+    body: `${guestName} a accepté votre invitation. C’est à vous de jouer.`,
+    data: { type: 'invitation_accepted', matchId },
+    tag: `match-${matchId}`,
+  }))
 }
 
 async function view(admin: ReturnType<typeof createClient>, row: MatchRow, viewerId: string, grid?: CatalogGrid) {
@@ -348,7 +388,13 @@ async function persist(admin: ReturnType<typeof createClient>, row: MatchRow) {
   return data as MatchRow
 }
 
-async function matchConflictResponse(admin: ReturnType<typeof createClient>, row: MatchRow, playerId: string, grid?: CatalogGrid) {
+async function matchConflictResponse(
+  admin: ReturnType<typeof createClient>,
+  row: MatchRow,
+  playerId: string,
+  grid: CatalogGrid | undefined,
+  json: (status: number, body: unknown, extraHeaders?: Record<string, string>) => Response,
+) {
   const currentGrid = grid ?? await getGrid(admin, row.grid_id)
   return json(409, {
     code: MATCH_STATE_CONFLICT_CODE,
@@ -422,7 +468,10 @@ async function awardFinished(admin: ReturnType<typeof createClient>, row: MatchR
 }
 
 Deno.serve(async request => {
-  if (request.method === 'OPTIONS') return new Response('ok', { headers: cors })
+  const http = createHttpResponder(request, Deno.env.get('MOTMAN_ALLOWED_ORIGINS'))
+  const { json } = http
+  if (request.method === 'OPTIONS') return http.preflight()
+  if (!http.originAllowed) return json(403, { error: 'Origine non autorisée.', code: 'ORIGIN_NOT_ALLOWED' })
   if (request.method !== 'POST') return json(405, { error: 'Méthode non autorisée.' })
   const authorization = request.headers.get('Authorization') ?? ''
   const url = Deno.env.get('SUPABASE_URL')!
@@ -438,6 +487,8 @@ Deno.serve(async request => {
   const action = typeof body.action === 'string' ? body.action : 'state'
 
   try {
+    const targetId = typeof body.targetId === 'string' ? body.targetId : undefined
+    await enforceRateLimits(admin, 'match', user.id, user.is_anonymous === true, action, targetId)
     const activeRows = async () => {
       const { data: participants } = await admin.from('match_participants').select('match_id').eq('user_id', user.id)
       const ids = (participants ?? []).map(item => item.match_id)
@@ -449,6 +500,8 @@ Deno.serve(async request => {
     const resolveRow = async (row: MatchRow) => {
       try {
         if (row.status !== 'active') return row
+        const previousPlayerId = row.current_player_id
+        let turnAdvanced = false
         const grid = await getGrid(admin, row.grid_id)
         const rules = ruleGrid(grid)
         const initializedBag = ensureSharedLetterBag(rules, row.state)
@@ -456,11 +509,12 @@ Deno.serve(async request => {
         if (row.state.bot?.playerId === row.current_player_id) {
           const delay = botThinkingDelayMs(`${row.id}:${row.turn_number}`)
           if (Date.now() >= new Date(row.turn_started_at).getTime() + delay) {
-            applyTurn(row, grid, row.current_player_id, botPlacements(row, grid)); row = await persist(admin, row); await awardFinished(admin, row)
+            applyTurn(row, grid, row.current_player_id, botPlacements(row, grid)); row = await persist(admin, row); turnAdvanced = true; await awardFinished(admin, row)
           }
         } else if (Date.now() >= new Date(row.turn_ends_at).getTime() + GRACE_MS) {
-          timeoutTurn(row); row = await persist(admin, row); await awardFinished(admin, row)
+          timeoutTurn(row); row = await persist(admin, row); turnAdvanced = true; await awardFinished(admin, row)
         } else if (initializedBag || initializedFinale) row = await persist(admin, row)
+        if (turnAdvanced && row.current_player_id !== previousPlayerId) notifyCurrentTurn(admin, row)
         return row
       } catch (error) {
         // Polling, Realtime and a simultaneous action can all notice the same
@@ -513,7 +567,12 @@ Deno.serve(async request => {
       if (await playersBlocked(admin, user.id, targetId)) return json(409, { error: 'Cette invitation ne peut pas être envoyée.' })
       const { data: friendship } = await admin.from('friendships').select('left_user_id').eq('left_user_id', left).eq('right_user_id', right).maybeSingle()
       if (!friendship) return json(403, { error: 'Ce joueur n’est pas dans vos amis.' })
-      await admin.from('server_match_invitations').insert({ host_id: user.id, guest_id: targetId, pace, expires_at: new Date(Date.now() + (pace === 'async' ? 7 * 86400000 : 120000)).toISOString() })
+      const { data: invitation, error: invitationError } = await admin.from('server_match_invitations')
+        .insert({ host_id: user.id, guest_id: targetId, pace, expires_at: new Date(Date.now() + (pace === 'async' ? 7 * 86400000 : 120000)).toISOString() })
+        .select('id').single()
+      if (invitationError || !invitation) throw invitationError ?? new Error('Invitation non créée.')
+      const inviter = await profile(admin, user.id)
+      notifyFriendInvitation(admin, targetId, invitation.id, inviter?.displayName ?? 'Un ami', pace)
       return json(200, await lobby())
     }
 
@@ -524,6 +583,8 @@ Deno.serve(async request => {
       if (body.decision === 'accept') {
         const created = await createMatch(admin, invitation.host_id, user.id, 'friend', invitation.pace, invitation.id, null)
         await admin.from('server_match_invitations').update({ status: 'accepted', match_id: created.row.id }).eq('id', invitation.id)
+        const guest = await profile(admin, user.id)
+        notifyInvitationAccepted(admin, invitation.host_id, created.row.id, guest?.displayName ?? 'Votre ami')
       } else await admin.from('server_match_invitations').update({ status: 'declined' }).eq('id', invitation.id)
       return json(200, await lobby())
     }
@@ -548,6 +609,7 @@ Deno.serve(async request => {
       if (other) {
         const created = await createMatch(admin, String(other.user_id), user.id, 'normal', pace, null, null); matchId = created.row.id
         await admin.from('server_match_searches').delete().in('id', [String(other.id)])
+        notifyCurrentTurn(admin, created.row)
       } else await admin.from('server_match_searches').upsert({ user_id: user.id, pace, updated_at: nowIso() }, { onConflict: 'user_id,pace' })
       return json(200, { lobby: await lobby(), matchId })
     }
@@ -586,7 +648,7 @@ Deno.serve(async request => {
     }
     const mutatesMatch = action === 'turn' || action === 'hint' || action === 'reroll' || action === 'forfeit'
     if (mutatesMatch && typeof body.knownUpdatedAt === 'string' && body.knownUpdatedAt !== row.updated_at) {
-      return matchConflictResponse(admin, row, user.id, grid)
+      return matchConflictResponse(admin, row, user.id, grid, json)
     }
     if (row.status !== 'active') return json(200, { match: await view(admin, row, user.id, grid) })
     if (action === 'forfeit') {
@@ -597,6 +659,7 @@ Deno.serve(async request => {
     if (row.current_player_id !== user.id) return json(409, { error: 'Ce n’est pas votre tour.', match: await view(admin, row, user.id, grid) })
     if (Date.now() < new Date(row.turn_started_at).getTime()) return json(409, { error: 'Le tour n’a pas encore commencé.' })
 
+    const previousPlayerId = row.current_player_id
     if (action === 'turn') {
       if (Number(body.turnNumber) !== row.turn_number) return json(409, { error: 'Ce tour est déjà terminé.', match: await view(admin, row, user.id, grid) })
       const placements = Array.isArray(body.placements) ? body.placements as Array<{ cellIndex: number; letter: string }> : []
@@ -627,13 +690,21 @@ Deno.serve(async request => {
       row.state.rerollUsed[user.id] = true; row.state.racks[user.id] = refill(ruleGrid(grid), row.state, user.id, [], currentRack)
     } else return json(404, { error: 'Action inconnue.' })
     row = await persist(admin, row); await awardFinished(admin, row)
+    if (action === 'turn' && row.current_player_id !== previousPlayerId) notifyCurrentTurn(admin, row)
     const result = row.state.lastTurn
     return json(200, action === 'turn' ? { match: await view(admin, row, user.id, grid), result } : { match: await view(admin, row, user.id, grid) })
   } catch (error) {
-    if (error instanceof MatchStateConflictError) {
-      return matchConflictResponse(admin, error.latest, user.id)
+    if (error instanceof RateLimitExceededError) {
+      return json(429, { error: 'Trop de requêtes. Réessayez dans un instant.', code: 'RATE_LIMITED', retryAfter: error.retryAfterSeconds }, { 'Retry-After': String(error.retryAfterSeconds) })
     }
-    console.error(error)
-    return json(500, { error: error instanceof Error ? error.message : 'Erreur de partie.' })
+    if (error instanceof MatchStateConflictError) {
+      return matchConflictResponse(admin, error.latest, user.id, undefined, json)
+    }
+    const reference = logServerError('match-api', error, { action, userId: user.id })
+    return json(500, {
+      error: 'La partie n’a pas pu être synchronisée. Réessayez.',
+      code: 'MATCH_SERVICE_UNAVAILABLE',
+      reference,
+    })
   }
 })

@@ -85,3 +85,5 @@ $$;
 
 revoke execute on function public.server_award_progress(uuid, text, text, text, integer, integer)
   from public, anon, authenticated;
+
+;

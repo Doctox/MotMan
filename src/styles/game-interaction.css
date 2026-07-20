@@ -1,0 +1,342 @@
+
+/* --------------------------------------------------------------------------
+   Reference direction — game surface
+   -------------------------------------------------------------------------- */
+.app-shell{padding:calc(10px + env(safe-area-inset-top)) 17px calc(17px + env(safe-area-inset-bottom))}
+.app-shell>header{height:69px;position:relative;grid-template-columns:44px 1fr 44px}
+.app-shell>header:after{bottom:5px;width:130px;height:9px}
+.game-brand-logo{width:min(188px,72%);height:44px}
+.app-shell>header button{width:44px;height:44px;border:0;color:#fff8e9;background:var(--green);box-shadow:0 4px 11px #073f3628}
+.app-shell>header button svg{width:19px}
+
+.scoreboard{grid-template-columns:minmax(0,1fr) 84px minmax(0,1fr);gap:8px;align-items:center;margin:8px 0 20px}
+.player{
+  min-width:0;min-height:70px;padding:6px 7px;justify-content:flex-start;gap:7px;
+  border:1px solid #dfd1b9;border-radius:12px;background:var(--surface);box-shadow:0 3px 10px #49391f10;
+}
+.player:last-child{flex-direction:row-reverse;text-align:right}
+.player.active{border-color:#c8a86b}
+.game-portrait{
+  width:48px;height:48px;flex:0 0 48px;overflow:hidden;border-radius:50%;
+  border:1px solid #c79a43;background:#f3ead8;box-shadow:0 0 0 2px var(--surface);
+}
+.game-portrait img{display:block;width:100%;height:100%;object-fit:cover}
+.player .avatar{width:36px;height:36px;flex:0 0 36px;border:1px solid #d8bd84;background:#f3eadc}
+.player small{max-width:62px;font:600 10px/1.05 'Playfair Display',serif}
+.player strong{margin-top:2px;font:600 22px/1 'Playfair Display',serif;color:var(--terra)}
+.player:last-child strong{color:var(--green)}
+.turn{
+  position:relative;width:76px;height:76px;min-height:76px;justify-self:center;padding:5px;
+  border:3px solid var(--terra);border-radius:50%;background:var(--surface);color:var(--green);
+  box-shadow:0 0 0 3px var(--paper),0 4px 13px #49391f14;overflow:visible;
+}
+.turn small{position:absolute;left:50%;width:108px;translate:-50% 0;color:var(--green);font-size:6px;opacity:.7;white-space:nowrap}
+.turn-timer{font:600 34px/.85 'Playfair Display',serif;color:var(--green)}
+.turn.urgent .turn-timer{color:var(--terra)}
+.turn strong{
+  position:absolute;z-index:5;left:50%;width:max-content;max-width:132px;min-width:76px;translate:-50% 0;
+  padding:4px 9px;border-radius:13px;background:var(--green);color:#fffaf0;
+  font:600 8px/1.05 'DM Sans',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  box-shadow:0 3px 8px #073f3628;
+}
+.instruction{margin:0 0 8px;font-size:12px}
+.duel-instruction{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.duel-live{padding:3px 6px;border-color:#dfc3b6;border-radius:10px;background:#fff5ee;font-size:7px}
+
+.board{border-radius:8px;box-shadow:0 5px 15px #3c352312}
+.board-wrap{margin-bottom:11px}
+.clue{font-weight:600}.clue:nth-child(4n+1){background:#f4ded5}.clue:nth-child(4n+2){background:#f5e9c4}.clue:nth-child(4n+3){background:#e9ece1}
+.rack-area{padding-top:9px}
+.rack{border-radius:10px;background:#f1eadf;box-shadow:inset 0 1px 4px #66482210}
+.rack-slot{border-radius:8px;background:#ece2d4}.rack-letter{border-radius:8px;background:#fffaf0}
+.turn-actions{width:100%;margin-top:11px}
+.hint-button,.validate{height:47px;border-radius:8px;font-family:'Playfair Display',serif;font-size:15px}
+.hint-button{border:1px solid var(--green);background:var(--paper);box-shadow:0 3px 8px #49341e12}
+.validate{width:100%;margin:0;border-radius:8px;background:linear-gradient(180deg,#db5b35,#c94d29);font-size:16px;box-shadow:inset 0 1px 0 #ffffff35,0 3px 0 #9e3b22,0 7px 12px #74301e1c}
+
+[data-theme="dark"] .turn{background:#18241f;color:#edf5ef;box-shadow:0 0 0 3px #111b18,0 4px 13px #0005}
+[data-theme="dark"] .turn-timer,[data-theme="dark"] .turn small{color:#edf5ef}
+[data-theme="dark"] .player{background:#18241f;border-color:#40524b}
+[data-theme="dark"] .game-portrait{box-shadow:0 0 0 2px #18241f}
+[data-theme="dark"] .rack{background:#1d2c27}
+
+@media(max-height:780px){
+  .app-shell>header{height:53px}.game-brand-logo{height:36px}
+  .scoreboard{margin:5px 0 15px}.player{min-height:58px}.game-portrait{width:40px;height:40px;flex-basis:40px}
+  .turn{width:64px;height:64px;min-height:64px}.turn-timer{font-size:29px}
+  .instruction{font-size:11px}.board-wrap{margin-bottom:6px}
+  .rack-area{padding-top:5px}.rack{height:54px}.rack-slot{height:44px}.rack-letter{font-size:26px}
+  .turn-actions{margin-top:7px}.hint-button,.validate{height:41px}
+}
+@media(max-width:370px){
+  .app-shell{padding-inline:11px}.scoreboard{grid-template-columns:minmax(0,1fr) 70px minmax(0,1fr);gap:4px}
+  .player{padding-inline:4px;gap:4px}.game-portrait{width:41px;height:41px;flex-basis:41px}.player small{max-width:47px}.player strong{font-size:19px}
+  .turn{width:64px;height:64px;min-height:64px}.turn-timer{font-size:28px}.turn strong{top:58px;max-width:112px}.turn small{bottom:66px}
+  .turn-actions{grid-template-columns:100px 1fr}
+}
+
+/* A single visual language for turn ownership in solo and live matches. */
+.player>span:last-child{position:relative;min-width:0}
+.player em{display:block;max-width:66px;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 6px/1 'DM Sans',sans-serif;font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:#8b7251}
+[data-theme="dark"] .player em{color:#c8b48f}
+
+/* Approved composition: five ivory tiles + one dark-green shuffle square. */
+.rack{grid-template-columns:repeat(5,minmax(0,1fr)) 52px;gap:6px}
+.turn-actions{grid-template-columns:minmax(112px,.82fr) minmax(0,1.35fr);gap:10px}
+.reroll-button{
+  align-self:stretch;min-width:0;width:100%;height:auto;min-height:0;margin:0 0 1px;border:1px solid #07382f;border-radius:9px;
+  background:linear-gradient(145deg,#13594a,#073f36);color:#fff7e8;
+  display:grid;place-items:center;padding:0;
+  box-shadow:inset 0 1px 0 #ffffff2b,0 4px 8px #073f3638;
+  cursor:pointer;
+  transition:transform .18s var(--motion),box-shadow .18s ease,filter .18s ease;
+}
+.reroll-button svg{width:23px;height:23px;stroke-width:2.2;color:currentColor;transition:transform .42s var(--motion)}
+.reroll-button:hover:not(:disabled){transform:translateY(-2px);box-shadow:inset 0 1px 0 #ffffff2b,0 7px 13px #073f3645}
+.reroll-button:hover:not(:disabled) svg{transform:rotate(26deg)}
+.reroll-button:active:not(:disabled){transform:translateY(1px) scale(.98)}
+.reroll-button:disabled{opacity:.38;cursor:default;box-shadow:none;filter:saturate(.45)}
+.rack.is-rerolling .rack-slot{animation:rackRenew .58s var(--motion) both}
+.rack.is-rerolling .rack-slot:nth-child(2){animation-delay:.035s}.rack.is-rerolling .rack-slot:nth-child(3){animation-delay:.07s}.rack.is-rerolling .rack-slot:nth-child(4){animation-delay:.105s}.rack.is-rerolling .rack-slot:nth-child(5){animation-delay:.14s}
+@keyframes rackRenew{0%{opacity:.35;transform:translateY(8px) rotate(-2deg)}58%{opacity:1;transform:translateY(-4px) rotate(1deg)}100%{transform:translateY(0) rotate(0)}}
+[data-theme="dark"] .reroll-button{background:linear-gradient(145deg,#26715f,#0c4c40);border-color:#4f8b79;color:#fff4dc;box-shadow:0 4px 9px #0006}
+@media(max-width:360px){.rack{grid-template-columns:repeat(5,minmax(0,1fr)) 44px;gap:5px}.turn-actions{grid-template-columns:minmax(94px,.82fr) minmax(0,1.35fr);gap:7px}}
+@media(prefers-reduced-motion:reduce){.rack.is-rerolling .rack-slot{animation:none!important}.reroll-button svg{transition:none}}
+.player-turn-marker{
+  display:block;margin-top:4px;padding:2px 5px;border-radius:999px;background:#e5f1e8;color:#0d654c;
+  font:800 6px/1 'DM Sans',sans-serif;font-style:normal;letter-spacing:.08em;text-align:center;white-space:nowrap;
+}
+.player:not(.player-you) .player-turn-marker{background:#f8e2d8;color:#a84424}
+.player.player-you.active{
+  border-color:#58a081;background:#f1f8f0;box-shadow:0 0 0 2px #2d89613a,0 7px 18px #1c604424;
+}
+.player.player-you.active .game-portrait,.player.player-you.active .avatar{box-shadow:0 0 0 3px #d8eee0,0 0 0 4px #2d8961}
+
+/* A stable visual layer prevents WebKit/Android grid repaints from hiding letters. */
+.multiplayer-shell .confirmed-letter,.multiplayer-shell .stable-provisional-letter{
+  position:relative;z-index:7;color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;
+}
+.multiplayer-shell .confirmed-board-layer{
+  isolation:isolate;contain:layout style;transform:translateZ(0);backface-visibility:hidden;-webkit-font-smoothing:antialiased;
+}
+.confirmed-board-letter-spacer{min-width:0;min-height:0}
+.confirmed-board-letter.provisional-effect{color:#087457!important;-webkit-text-fill-color:#087457!important}
+[data-theme="dark"] .confirmed-board-letter.provisional-effect{color:#79d8ad!important;-webkit-text-fill-color:#79d8ad!important}
+
+@media(max-width:370px){
+  .player-turn-marker{font-size:5.5px;padding-inline:4px}
+}
+
+/* Reward effects sit in one board-level layer so adjacent cells cannot crop them. */
+.board{position:relative}
+.board-effects-layer{position:absolute;z-index:70;inset:0;overflow:visible;pointer-events:none}
+.board-effects-layer .board-score-effect{
+  position:absolute;left:0;top:0;transform:translate(-50%,-50%);margin:0;
+  animation:boardRewardPop 1.18s var(--motion) forwards;
+}
+.board-effects-layer .board-score-effect.letter{
+  width:22px!important;height:22px!important;min-width:22px!important;max-width:22px!important;
+  min-height:22px!important;max-height:22px!important;padding:0!important;border-width:1.5px!important;
+  border-radius:50%!important;font:800 11px/1 'DM Sans',sans-serif!important;
+}
+.board-effects-layer .board-score-effect.word{
+  width:27px!important;height:27px!important;min-width:27px!important;max-width:27px!important;
+  padding:0!important;border-radius:50%!important;font:800 11px/1 'DM Sans',sans-serif!important;
+}
+@keyframes boardRewardPop{
+  0%{opacity:0;scale:.58;filter:blur(1px)}
+  18%{opacity:1;scale:1.12;filter:blur(0)}
+  38%,74%{opacity:1;scale:1}
+  100%{opacity:0;translate:0 -14px;scale:.94}
+}
+
+/* Keep completed-word ribbons elegant and inside their actual letter cells. */
+.slot.word-highlight.word-across{box-shadow:inset 0 1.5px 0 var(--word-color),inset 0 -1.5px 0 var(--word-color)!important}
+.slot.word-highlight.word-across.word-start{box-shadow:inset 1.5px 0 0 var(--word-color),inset 0 1.5px 0 var(--word-color),inset 0 -1.5px 0 var(--word-color)!important}
+.slot.word-highlight.word-across.word-end{box-shadow:inset -1.5px 0 0 var(--word-color),inset 0 1.5px 0 var(--word-color),inset 0 -1.5px 0 var(--word-color)!important}
+.slot.word-highlight.word-down{box-shadow:inset 1.5px 0 0 var(--word-color),inset -1.5px 0 0 var(--word-color)!important}
+.slot.word-highlight.word-down.word-start{box-shadow:inset 1.5px 0 0 var(--word-color),inset -1.5px 0 0 var(--word-color),inset 0 1.5px 0 var(--word-color)!important}
+.slot.word-highlight.word-down.word-end{box-shadow:inset 1.5px 0 0 var(--word-color),inset -1.5px 0 0 var(--word-color),inset 0 -1.5px 0 var(--word-color)!important}
+
+/* Optical centering and real breathing room around the central turn clock. */
+.scoreboard{margin-bottom:31px}
+.turn-timer{
+  position:absolute;inset:0;place-items:center;margin:0;
+  font-variant-numeric:tabular-nums;line-height:1;
+}
+.turn small{bottom:calc(100% + 6px)}
+.turn strong{top:calc(100% + 7px)}
+
+/* Player rewards use the same premium filled treatment as Camille. */
+.board-effects-layer .board-score-effect.letter.player{
+  background:#16845f!important;color:#fff!important;border-color:#8bd3b8!important;
+  box-shadow:0 4px 12px #0b624844,0 0 0 2px #fffaf0cc!important;
+}
+
+@media(max-height:780px){
+  .scoreboard{margin-bottom:27px}
+  .turn small{bottom:calc(100% + 5px)}
+  .turn strong{top:calc(100% + 6px)}
+}
+
+/* Final reward geometry: one isolated, conflict-free circle for every score. */
+.board-effects-layer>.reward-bubble{
+  position:absolute;z-index:1;display:flex!important;align-items:center!important;justify-content:center!important;
+  inline-size:24px!important;block-size:24px!important;min-inline-size:24px!important;max-inline-size:24px!important;
+  min-block-size:24px!important;max-block-size:24px!important;box-sizing:border-box!important;padding:0!important;margin:0!important;
+  overflow:visible;white-space:nowrap;border:1.5px solid #8bd3b8;border-radius:50%!important;
+  background:#16845f;color:#fff;box-shadow:0 4px 12px #0b624844,0 0 0 2px #fffaf0cc;
+  transform:translate(-50%,-50%);transform-origin:center;animation:rewardBubblePop 1.14s var(--motion) forwards;
+  font-family:'DM Sans',sans-serif!important;font-size:11px!important;font-weight:800!important;line-height:1!important;
+}
+.board-effects-layer>.reward-bubble--bot{background:#cf572c;border-color:#ffc09f;box-shadow:0 4px 12px #963b2444,0 0 0 2px #fffaf0cc}
+.board-effects-layer>.reward-bubble--word{
+  inline-size:26px!important;block-size:26px!important;min-inline-size:26px!important;max-inline-size:26px!important;
+  min-block-size:26px!important;max-block-size:26px!important;
+  transform:translate(calc(-100% - 3px),-50%);
+  border-color:#d9bc73;box-shadow:0 5px 13px #073f3650,0 0 0 2px #fffaf0cc;
+}
+.board-effects-layer>.reward-bubble--word.reward-bubble--bot{border-color:#e7bd74;box-shadow:0 5px 13px #9c3a2450,0 0 0 2px #fffaf0cc}
+.reward-bubble__value{
+  display:block;inline-size:100%;text-align:center;line-height:1!important;letter-spacing:-.15px;
+  transform:none;font:inherit;color:inherit;
+}
+@keyframes rewardBubblePop{
+  0%{opacity:0;scale:.58;filter:blur(1px)}
+  12%{opacity:1;scale:1.1;filter:blur(0)}
+  30%,76%{opacity:1;scale:1}
+  100%{opacity:0;translate:0 -13px;scale:.94}
+}
+[data-theme="dark"] .board-effects-layer>.reward-bubble{box-shadow:0 5px 13px #0007,0 0 0 2px #17231fcc}
+
+/* Optical centring of Playfair numerals inside the circular clock. */
+.turn-timer{
+  display:flex;align-items:center;justify-content:center;padding:0;
+  translate:0 -6px;text-align:center;
+}
+
+/* Confirmed letters keep a readable owner colour after reward animations. */
+.slot.confirmed-player{background:#f1faf4}
+.letter-only.confirmed-letter.owned-by-player{color:#087457!important}
+.letter-only.confirmed-letter.owned-by-opponent{color:#bd4b28!important}
+[data-theme="dark"] .slot.confirmed-player{background:#193c33}
+[data-theme="dark"] .letter-only.confirmed-letter.owned-by-player{color:#79d8ad!important}
+[data-theme="dark"] .letter-only.confirmed-letter.owned-by-opponent{color:#ff9b73!important}
+
+@media(prefers-reduced-motion:reduce){
+  .board-effects-layer>.reward-bubble{animation:none!important;opacity:1!important;filter:none!important}
+}
+
+/* End-of-game experience: compact, readable and shared by Solo and duels. */
+.experience-reward{
+  margin:15px 0 18px;padding:13px 14px 12px;border:1px solid #d8c79d;border-radius:14px;
+  background:linear-gradient(145deg,#fff9e9,#f3ead6);text-align:left;box-shadow:0 5px 15px #49391f12;
+  animation:experienceRewardIn .48s var(--motion) both;
+}
+.experience-reward-heading,.experience-level,.experience-breakdown span{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.experience-reward-heading>span{font:600 13px 'Playfair Display',serif;color:var(--green)}
+.experience-reward-heading>strong{font:700 20px 'Playfair Display',serif;color:#b74726}
+.experience-breakdown{display:grid;gap:3px;margin:8px 0 10px;padding:7px 0;border-top:1px solid #dfd3bd;border-bottom:1px solid #dfd3bd}
+.experience-breakdown span{font-size:10px;color:#5d6d67}.experience-breakdown b{color:var(--green);font-size:11px}
+.experience-level span{font:600 12px 'Playfair Display',serif}.experience-level strong{font-size:10px;color:#b74726}.experience-level small{font-size:9px;color:#687a74}
+.experience-progress{display:block;height:7px;margin-top:7px;overflow:hidden;border-radius:7px;background:#ded5c2}
+.experience-progress b{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#0b6f57,#2ba174);transition:width .75s var(--motion)}
+.experience-plumes{width:max-content;margin:-2px 0 8px auto;padding:4px 8px;border:1px solid #dcc88f;border-radius:14px;background:#f8edca;color:#72561f;display:flex;align-items:center;gap:4px;font-size:10px;font-weight:800}.experience-plumes svg{width:13px;height:13px;color:#b88a2d}
+.experience-feather-breakdown{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin:-2px 0 9px;padding:7px 9px;border-radius:9px;background:#fbf5e7}.experience-feather-breakdown span{display:flex;justify-content:space-between;gap:5px;color:#725f4f;font-size:8px}.experience-feather-breakdown b{color:#8c6924;font-size:9px}
+.experience-title-unlocked{margin-top:11px;padding:9px 11px;border:1px solid #d9c17d;border-radius:12px;background:linear-gradient(135deg,#fffaf0,#f6e9bd);display:flex;align-items:center;gap:9px;box-shadow:0 7px 18px #765c1e1c}.experience-title-unlocked>svg{width:20px;color:#b48a25}.experience-title-unlocked>span{display:flex;flex-direction:column}.experience-title-unlocked small{color:#8e6f2e;font-size:7px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.experience-title-unlocked strong{font:600 15px 'Playfair Display',serif;color:var(--green)}
+[data-theme="dark"] .experience-plumes{border-color:#75653a;background:#3e3725;color:#edd48a}
+[data-theme="dark"] .experience-feather-breakdown{background:#302f25}[data-theme="dark"] .experience-feather-breakdown b{color:#d2b264}[data-theme="dark"] .experience-title-unlocked{border-color:#75653a;background:linear-gradient(135deg,#353426,#2b3028)}
+@keyframes experienceRewardIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
+[data-theme="dark"] .experience-reward{background:linear-gradient(145deg,#25342f,#2e352d);border-color:#74694c}
+[data-theme="dark"] .experience-breakdown{border-color:#4d5c55}
+[data-theme="dark"] .experience-reward-heading>span,[data-theme="dark"] .experience-breakdown b{color:#8ad6b4}
+[data-theme="dark"] .experience-reward-heading>strong,[data-theme="dark"] .experience-level strong{color:#ff9b73}
+@media(prefers-reduced-motion:reduce){.experience-reward{animation:none!important}.experience-progress b{transition:none!important}}
+
+/* Asynchronous duel uses the same board with a calmer, readable clock. */
+.turn.async-turn .turn-timer{font-size:21px;letter-spacing:0;translate:0 0;text-indent:.06em}
+.duel-live.async{color:#176b55;border-color:#a9cbbd;background:#eff8f3;animation:none}
+.duel-live.async svg{width:10px;height:10px}
+[data-theme="dark"] .duel-live.async{color:#93d7bc;border-color:#446b5e;background:#20352d}
+
+/* One browser-independent rectangle replaces the old case-by-case word ribbon. */
+.board-word-highlight-layer{position:absolute;z-index:60;inset:0;overflow:visible;pointer-events:none}
+.board-word-highlight{
+  position:absolute;display:block;box-sizing:border-box;border:2px solid #1a9a6b;border-radius:7px;
+  background:#36b47a14;box-shadow:0 0 0 1px #fffaf0b8,0 3px 10px #08745730;
+  transform-origin:center;animation:wholeWordReward 1.38s var(--motion) both;
+}
+.board-word-highlight--bot{border-color:#d25c32;background:#e8733f14;box-shadow:0 0 0 1px #fffaf0b8,0 3px 10px #a13c1d30}
+.word-reward-cell--player{background:#edf9f1!important}
+.word-reward-cell--bot{background:#fff0e8!important}
+.word-reward-cell .letter-only{position:relative;z-index:61}
+.multiplayer-shell .word-reward-cell .confirmed-letter,.multiplayer-shell .word-reward-cell .stable-provisional-letter{z-index:61}
+@keyframes wholeWordReward{
+  0%{opacity:0;transform:scale(.985)}
+  18%{opacity:1;transform:scale(1.012)}
+  42%,82%{opacity:1;transform:scale(1)}
+  100%{opacity:.2;transform:scale(1)}
+}
+[data-theme="dark"] .word-reward-cell--player{background:#193c33!important}
+[data-theme="dark"] .word-reward-cell--bot{background:#482a20!important}
+[data-theme="dark"] .board-word-highlight{box-shadow:0 0 0 1px #17231fcc,0 3px 11px #0007}
+
+/* Essential feedback stays visible when Apple/desktop disables motion. */
+.board,.rack,.rack-letter,.letter-only{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+@media(prefers-reduced-motion:reduce){
+  .board-word-highlight{animation:none!important;opacity:1!important}
+  .turn-ready-flash{animation:turnReadyFlashReduced 1.8s linear forwards!important;transform:none!important}
+  .turn-ready-flash span{animation:turnReadyHeartbeatReduced 1.8s linear forwards!important;transform:none!important}
+}
+@keyframes turnReadyFlashReduced{0%{opacity:0}10%,78%{opacity:1}100%{opacity:0}}
+@keyframes turnReadyHeartbeatReduced{0%{opacity:.45}10%{opacity:1}22%{opacity:.72}38%{opacity:1}51%,78%{opacity:.88}100%{opacity:0}}
+
+/* Adjacent clue cells use an explicit checker palette, independent of DOM order. */
+.clue.clue-tone-0{background:#f5dfd6!important}
+.clue.clue-tone-1{background:#f6e9c5!important}
+.clue.clue-tone-2{background:#e5ece2!important}
+.clue.clue-tone-3{background:#e2eef0!important}
+[data-theme="dark"] .clue.clue-tone-0{background:#49332e!important}
+[data-theme="dark"] .clue.clue-tone-1{background:#48402a!important}
+[data-theme="dark"] .clue.clue-tone-2{background:#303e35!important}
+[data-theme="dark"] .clue.clue-tone-3{background:#2d3d40!important}
+
+/* 7 × 8 readability scale — use the room gained by the compact board without
+   changing its geometry. Double clues stay slightly smaller because each one
+   only owns half a cell. */
+.clue{
+  font-size:clamp(7px,2.55vw,10.2px);
+  line-height:1.08;
+  padding:4px 3px;
+}
+.clue .clue-entry{padding:3px 7px 3px 2px;overflow-wrap:break-word;word-break:normal}
+.clue.double-clue{font-size:clamp(5.8px,1.95vw,8px)}
+.clue.double-clue .clue-entry{padding:2px 6px 2px 1px}
+.clue .clue-entry b{right:2px;bottom:1px;font-size:12px}
+.clue.double-clue .clue-entry b{font-size:10px}
+.letter-only{font-size:clamp(24px,8vw,32px)}
+.clue-image{width:min(78%,35px);height:min(78%,35px)}
+.double-clue .clue-image{width:min(70%,23px);height:min(70%,23px)}
+
+[data-text-size="large"] .clue{font-size:clamp(7.8px,2.85vw,11.3px);line-height:1.05}
+[data-text-size="large"] .clue.double-clue{font-size:clamp(6.4px,2.25vw,9px)}
+[data-text-size="large"] .instruction,[data-text-size="large"] .rack-heading{font-size:1.08em}
+[data-text-size="large"] .player span,[data-text-size="large"] .turn small,[data-text-size="large"] .turn strong{font-size:1.08em}
+[data-text-size="large"] .hint-button,[data-text-size="large"] .validate{font-size:1.06em}
+
+/* Reuse the real MotMan O: the full logo is cropped through background positioning. */
+.corner-block,.clue.corner-clue{
+  position:relative;
+  background-color:#fbf7ec!important;
+  background-image:url('../assets/motman-logo-v2.webp')!important;
+  background-repeat:no-repeat!important;
+  background-size:auto 110%!important;
+  background-position:24.2% center!important;
+  color:transparent!important;
+  box-shadow:inset 0 0 0 1px #0a342c1c;
+}
+.corner-block:before,.corner-block:after,
+.clue.corner-clue:before,.clue.corner-clue:after{
+  content:none!important;
+  display:none!important;
+}

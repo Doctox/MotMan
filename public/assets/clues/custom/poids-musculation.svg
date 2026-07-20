@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Poids de musculation</title>
+  <rect x="21" y="43" width="54" height="10" rx="5" fill="#52565C"/>
+  <rect x="8" y="28" width="13" height="40" rx="4" fill="#202226"/>
+  <rect x="22" y="34" width="11" height="28" rx="3" fill="#30343A"/>
+  <rect x="75" y="28" width="13" height="40" rx="4" fill="#202226"/>
+  <rect x="63" y="34" width="11" height="28" rx="3" fill="#30343A"/>
+  <path fill="#70757C" d="M41 42h14v12H41z"/>
+  <path fill="none" stroke="#111316" stroke-linecap="round" stroke-width="4" d="M8 72h80" opacity=".25"/>
+</svg>

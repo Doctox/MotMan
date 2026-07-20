@@ -23,4 +23,4 @@ $$;
 
 -- The UNIQUE(user_id, idempotency_key) constraint already owns an identical
 -- index, so retaining this manually-created copy only increases write cost.
-drop index if exists public.economy_transactions_user_idempotency_uidx;
+drop index if exists public.economy_transactions_user_idempotency_uidx;;

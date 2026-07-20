@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
 
+def motmanKeystorePath = System.getenv('MOTMAN_KEYSTORE_PATH')
+def motmanKeystorePassword = System.getenv('MOTMAN_KEYSTORE_PASSWORD')
+def motmanKeyAlias = System.getenv('MOTMAN_KEY_ALIAS')
+def motmanKeyPassword = System.getenv('MOTMAN_KEY_PASSWORD')
+def motmanReleaseSigningReady = motmanKeystorePath && motmanKeystorePassword && motmanKeyAlias && motmanKeyPassword
+def servicesJSON = file('google-services.json')
+def firebaseReady = servicesJSON.exists() && servicesJSON.length() > 0
+
 android {
     namespace "com.motman.game"
     compileSdk rootProject.ext.compileSdkVersion
@@ -16,9 +24,22 @@ android {
             ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        if (motmanReleaseSigningReady) {
+            release {
+                storeFile file(motmanKeystorePath)
+                storePassword motmanKeystorePassword
+                keyAlias motmanKeyAlias
+                keyPassword motmanKeyPassword
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
+            if (motmanReleaseSigningReady) {
+                signingConfig signingConfigs.release
+            }
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -36,6 +57,10 @@ dependencies {
     implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
     implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
     implementation project(':capacitor-android')
+    if (firebaseReady) {
+        implementation platform('com.google.firebase:firebase-bom:34.15.0')
+        implementation 'com.google.firebase:firebase-crashlytics'
+    }
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
@@ -45,10 +70,10 @@ dependencies {
 apply from: 'capacitor.build.gradle'
 
 try {
-    def servicesJSON = file('google-services.json')
-    if (servicesJSON.text) {
+    if (firebaseReady) {
         apply plugin: 'com.google.gms.google-services'
+        apply plugin: 'com.google.firebase.crashlytics'
     }
 } catch(Exception e) {
-    logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+    logger.info("google-services.json not found, Firebase plugins not applied. Push Notifications and Crashlytics won't work")
 }

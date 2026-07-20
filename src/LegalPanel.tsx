@@ -19,10 +19,10 @@ export function LegalPanel({ close }: { close: () => void }) {
       <div className="mm-legal-scroll">
         {tab === 'privacy' ? <article>
           <h3>Politique de confidentialité</h3><p className="mm-legal-version">Version du 20 juillet 2026</p>
-          <h4>Données utilisées</h4><p>MotMan traite les informations nécessaires au compte et au jeu : adresse e-mail lorsque vous créez un compte, pseudo, apparence du profil, progression, collection, parties, scores, amis, avis de grille et éventuels signalements.</p>
+          <h4>Données utilisées</h4><p>MotMan traite les informations nécessaires au compte et au jeu : adresse e-mail lorsque vous créez un compte, pseudo, apparence du profil, progression, collection, parties, scores, amis, avis de grille, éventuels signalements et jeton technique de notification si vous les autorisez.</p>
           <h4>Pourquoi</h4><p>Ces données servent à authentifier les joueurs, synchroniser leur progression, organiser les parties, prévenir les abus, répondre aux signalements et améliorer la qualité des grilles.</p>
-          <h4>Stockage et partage</h4><p>Les données en ligne sont hébergées par Supabase. L’appareil conserve aussi un cache local pour les préférences et la continuité de jeu. MotMan ne vend pas les données, n’affiche pas de publicité ciblée et ne transmet pas les profils à des annonceurs.</p>
-          <h4>Durée et droits</h4><p>Les informations sont conservées pendant la durée nécessaire au fonctionnement du compte, à la sécurité et aux obligations applicables. Vous pouvez supprimer immédiatement votre compte depuis Paramètres → Compte, ou demander sa suppression hors de l’application.</p>
+          <h4>Stockage et partage</h4><p>Les données en ligne sont hébergées par Supabase. Cloudflare Turnstile protège la création des comptes invités contre les robots et les abus. Firebase Cloud Messaging, service de Google, achemine les notifications de tours et d’invitations vers les appareils qui les autorisent. L’appareil conserve aussi un cache local pour les préférences et la continuité de jeu. MotMan ne vend pas les données, n’affiche pas de publicité ciblée et ne transmet pas les profils à des annonceurs.</p>
+          <h4>Durée et droits</h4><p>Les informations sont conservées pendant la durée nécessaire au fonctionnement du compte, à la sécurité et aux obligations applicables. Les comptes invités non liés et inactifs depuis 30 jours sont supprimés automatiquement. Vous pouvez supprimer immédiatement votre compte depuis Paramètres → Compte, ou demander sa suppression hors de l’application.</p>
           <a className="mm-legal-document" href={assetUrl('/legal/suppression-compte.html')} target="_blank" rel="noreferrer"><FileText />Supprimer un compte MotMan</a>
           <h4>Responsable</h4><p>Le responsable du traitement est Jean-Marie PEETERS, éditeur indépendant de MotMan. Contact : <a href="mailto:docteurtox@gmail.com">docteurtox@gmail.com</a>.</p>
           <h4>Jeunes joueurs</h4><p>MotMan est conseillé à partir de 7 ans. En France, lorsqu’un joueur a moins de 15 ans, la création et l’utilisation d’un compte en ligne nécessitent l’accord conjoint de l’enfant et d’un titulaire de l’autorité parentale.</p>
@@ -43,7 +43,7 @@ export function LegalPanel({ close }: { close: () => void }) {
           <h4>Illustrations d’indices</h4><p>Une partie des pictogrammes provient de Twemoji, sous licence CC BY 4.0. Les crédits détaillés restent associés aux indices concernés dans le catalogue éditorial.</p>
           <h4>Ressources lexicales</h4><p>Le travail éditorial s’appuie notamment sur Lexique, des ressources lexicales ouvertes et des références de mots fléchés citées dans le corpus de recherche. Les définitions publiées sont relues ou réécrites pour MotMan.</p>
           <h4>Logiciels libres</h4><p>MotMan utilise notamment React, Vite, Lucide, Supabase et Capacitor selon leurs licences respectives. Les fichiers de licence des polices et les attributions des images sont conservés dans le paquet de l’application.</p>
-          <a className="mm-legal-document" href="/legal/credits.html" target="_blank" rel="noreferrer"><FileText />Ouvrir la version détaillée</a>
+          <a className="mm-legal-document" href={assetUrl('/legal/credits.html')} target="_blank" rel="noreferrer"><FileText />Ouvrir la version détaillée</a>
         </article> : null}
       </div>
     </section>

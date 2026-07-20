@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Cutter</title>
+  <desc id="desc">Cutter jaune avec une lame métallique segmentée sortie</desc>
+  <path d="M27 137 98 98l24 30-76 49Z" fill="#d9e2e7" stroke="#58666e" stroke-width="7" stroke-linejoin="round"/>
+  <path d="m52 126 11 17m16-33 12 18" stroke="#8b989f" stroke-width="5"/>
+  <path d="m94 94 22-12 115 80-23 43-126-82Z" fill="#f5b921" stroke="#5c4a1e" stroke-width="8" stroke-linejoin="round"/>
+  <path d="m118 99 85 59" fill="none" stroke="#ffe083" stroke-width="10" stroke-linecap="round"/>
+  <rect x="139" y="111" width="35" height="24" rx="8" transform="rotate(35 139 111)" fill="#4f5960" stroke="#30383d" stroke-width="5"/>
+  <path d="m192 176 17 11" stroke="#4f3c13" stroke-width="8" stroke-linecap="round"/>
+</svg>

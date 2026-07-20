@@ -229,3 +229,5 @@ revoke execute on function public.server_award_progress(uuid,text,text,text,inte
 revoke execute on function public.server_award_progress(uuid,text,text,text,integer,integer) from public,anon,authenticated;
 grant execute on function public.server_award_progress(uuid,text,text,text,integer,integer,jsonb) to service_role;
 grant execute on function public.server_award_progress(uuid,text,text,text,integer,integer) to service_role;
+
+;

@@ -11,7 +11,8 @@ declare global {
 
 const scriptId = 'motman-turnstile-script'
 const scriptUrl = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
-// This is a public browser key, not the private Turnstile secret.
+// Turnstile site keys are public. Keeping the production key as a fallback makes
+// GitHub Pages and native builds safe even when no build variable is injected.
 const productionSiteKey = '0x4AAAAAAD559OXTbbx2uJOM'
 let scriptPromise: Promise<TurnstileWidget> | null = null
 

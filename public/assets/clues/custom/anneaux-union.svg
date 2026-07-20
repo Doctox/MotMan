@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Deux anneaux unis</title>
+  <circle cx="38" cy="48" r="24" fill="none" stroke="#E3A719" stroke-width="10"/>
+  <path fill="none" stroke="#FFF1A8" stroke-linecap="round" stroke-width="3" d="M25 31a22 22 0 0 1 23-3"/>
+  <path fill="none" stroke="#C88605" stroke-linecap="round" stroke-width="10" d="M45 67a24 24 0 1 0 4-41"/>
+  <path fill="none" stroke="#F1C844" stroke-linecap="round" stroke-width="10" d="M54 27a24 24 0 0 0-7 38"/>
+  <path fill="none" stroke="#FFF1A8" stroke-linecap="round" stroke-width="3" d="M58 29a22 22 0 0 1 17 12"/>
+</svg>

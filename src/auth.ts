@@ -100,9 +100,21 @@ export async function finishPlayerAccount(password: string): Promise<AuthRespons
 }
 
 export async function loginPlayerAccount(email: string, password: string): Promise<AuthResponse> {
+  if (isNativeRuntime()) {
+    await import('./nativePushNotifications').then(module => module.detachStoredPushDevice()).catch(() => undefined)
+  }
   const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password })
-  if (error) throw new Error('E-mail ou mot de passe incorrect.')
-  return accountAction('state')
+  if (error) {
+    if (isNativeRuntime()) {
+      void import('./nativePushNotifications').then(module => module.syncStoredPushDevice()).catch(() => undefined)
+    }
+    throw new Error('E-mail ou mot de passe incorrect.')
+  }
+  const account = await accountAction('state')
+  if (isNativeRuntime()) {
+    void import('./nativePushNotifications').then(module => module.syncStoredPushDevice()).catch(() => undefined)
+  }
+  return account
 }
 
 export async function authenticateWithGoogle(): Promise<void> {
@@ -132,13 +144,24 @@ export async function recoverPlayerAccount(email: string): Promise<void> {
 }
 
 export async function logoutPlayerAccount(): Promise<GuestIdentity> {
+  if (isNativeRuntime()) {
+    await import('./nativePushNotifications').then(module => module.detachStoredPushDevice()).catch(() => undefined)
+  }
   await supabase.auth.signOut()
   clearPlayerDataFromDevice()
-  return bootstrapPlayerSession()
+  const identity = await bootstrapPlayerSession()
+  if (isNativeRuntime()) {
+    void import('./nativePushNotifications').then(module => module.syncStoredPushDevice()).catch(() => undefined)
+  }
+  return identity
 }
 
 export async function deletePlayerAccount(confirmation: string): Promise<AuthResponse> {
   if (confirmation !== 'SUPPRIMER') throw new Error('Écrivez SUPPRIMER pour confirmer.')
+
+  if (isNativeRuntime()) {
+    await import('./nativePushNotifications').then(module => module.detachStoredPushDevice()).catch(() => undefined)
+  }
 
   if (localTestServer) {
     const response = await fetch('/api/auth/delete', {
@@ -156,6 +179,9 @@ export async function deletePlayerAccount(confirmation: string): Promise<AuthRes
 
   clearPlayerDataFromDevice()
   const identity = await bootstrapPlayerSession()
+  if (isNativeRuntime()) {
+    void import('./nativePushNotifications').then(module => module.syncStoredPushDevice()).catch(() => undefined)
+  }
   return { identity }
 }
 

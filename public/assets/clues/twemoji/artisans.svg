@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" role="img" aria-label="Artisans avec leurs outils">
+  <circle cx="10" cy="12" r="5" fill="#F4C7A1"/>
+  <circle cx="26" cy="12" r="5" fill="#D99E82"/>
+  <path d="M4 11c.5-6 3-8 6-8s5.5 2 6 8H4z" fill="#FFCC4D"/>
+  <path d="M20 11c.5-6 3-8 6-8s5.5 2 6 8H20z" fill="#F4900C"/>
+  <path d="M1 34c0-9 3-15 9-15s9 6 9 15H1z" fill="#3B88C3"/>
+  <path d="M17 34c0-9 3-15 9-15s9 6 9 15H17z" fill="#77B255"/>
+  <path d="M8 22h4v12H8z" fill="#CCD6DD"/>
+  <path d="M5 23h10v4H5z" fill="#66757F"/>
+  <path d="M26 20l3 2-8 12-3-2z" fill="#CCD6DD"/>
+  <path d="M27 18l5 4-2 3-5-4z" fill="#66757F"/>
+</svg>

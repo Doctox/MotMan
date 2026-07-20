@@ -1,12 +1,8 @@
 import { createClient } from '@supabase/supabase-js'
 import { validatePlayerName } from '../../../src/playerNamePolicy.ts'
 import { basketRarityProbabilities, type RewardRarity } from '../../../src/progressionRewards.ts'
-
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, apikey, content-type, x-client-info',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-}
+import { createHttpResponder, logServerError } from '../_shared/http.ts'
+import { enforceRateLimits, RateLimitExceededError } from '../_shared/rateLimit.ts'
 
 const starterItems = {
   avatar: 'plume-motman',
@@ -27,16 +23,30 @@ function cosmeticInput(body: Record<string, unknown>): { kind: CosmeticKind; id:
   return kind && id ? { kind, id } : null
 }
 
-function json(status: number, body: unknown) {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { ...corsHeaders, 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' },
-  })
-}
-
 function normalizeName(value: unknown): { valid: boolean; name: string; error?: string } {
   const checked = validatePlayerName(typeof value === 'string' ? value : '')
   return { valid: checked.valid, name: checked.normalized, error: checked.error }
+}
+
+function pushToken(value: unknown): string | null {
+  if (typeof value !== 'string') return null
+  const token = value.trim()
+  return token.length >= 20 && token.length <= 4096 && /^[A-Za-z0-9._:-]+$/.test(token) ? token : null
+}
+
+function publicAccountBusinessError(error: unknown): string | null {
+  const rawMessage = error instanceof Error
+    ? error.message
+    : error && typeof error === 'object' && 'message' in error && typeof error.message === 'string'
+      ? error.message
+      : ''
+  const message = rawMessage.toLocaleLowerCase('fr')
+  if (message.includes('manque quelques plumes')) return 'Vous n’avez pas assez de plumes.'
+  if (message.includes('déjà possédé')) return 'Cet objet est déjà dans votre collection.'
+  if (message.includes('collection est déjà complète')) return 'Votre collection est déjà complète.'
+  if (message.includes('panier') && message.includes('disponible')) return 'Ce panier n’est plus disponible.'
+  if (message.includes('objet') && message.includes('disponible')) return 'Cet objet n’est plus disponible.'
+  return null
 }
 
 function experienceGoal(level: number): number {
@@ -129,7 +139,10 @@ async function accountState(admin: ReturnType<typeof createClient>, userId: stri
 }
 
 Deno.serve(async request => {
-  if (request.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders })
+  const http = createHttpResponder(request, Deno.env.get('MOTMAN_ALLOWED_ORIGINS'))
+  const { json } = http
+  if (request.method === 'OPTIONS') return http.preflight()
+  if (!http.originAllowed) return json(403, { error: 'Origine non autorisée.', code: 'ORIGIN_NOT_ALLOWED' })
   if (request.method !== 'POST') return json(405, { error: 'Méthode non autorisée.' })
   const authorization = request.headers.get('Authorization') ?? ''
   const token = authorization.replace(/^Bearer\s+/i, '')
@@ -149,6 +162,7 @@ Deno.serve(async request => {
   const action = typeof body.action === 'string' ? body.action : 'state'
 
   try {
+    await enforceRateLimits(admin, 'account', user.id, user.is_anonymous === true, action)
     if (action === 'delete-account') {
       if (body.confirmation !== 'SUPPRIMER') return json(400, { error: 'Confirmation incorrecte.' })
 
@@ -167,6 +181,28 @@ Deno.serve(async request => {
       const { error: deleteError } = await admin.auth.admin.deleteUser(user.id)
       if (deleteError) throw deleteError
       return json(200, { deleted: true })
+    } else if (action === 'register-push-device') {
+      const token = pushToken(body.token)
+      const platform = body.platform === 'android' || body.platform === 'ios' ? body.platform : null
+      if (!token || !platform || body.appId !== 'com.motman.game') return json(400, { error: 'Appareil invalide.' })
+      const now = new Date().toISOString()
+      const { error } = await admin.from('push_devices').upsert({
+        user_id: user.id,
+        token,
+        platform,
+        app_id: 'com.motman.game',
+        enabled: true,
+        last_seen_at: now,
+        updated_at: now,
+      }, { onConflict: 'token' })
+      if (error) throw error
+      return json(200, { registered: true })
+    } else if (action === 'unregister-push-device') {
+      const token = pushToken(body.token)
+      if (!token) return json(400, { error: 'Appareil invalide.' })
+      const { error } = await admin.from('push_devices').delete().eq('user_id', user.id).eq('token', token)
+      if (error) throw error
+      return json(200, { unregistered: true })
     } else if (action === 'bootstrap') {
       const { data: profile } = await admin.from('profiles').select('legacy_imported_at').eq('id', user.id).single()
       if (profile && !profile.legacy_imported_at) {
@@ -225,8 +261,16 @@ Deno.serve(async request => {
     } else if (action !== 'state') return json(404, { error: 'Action inconnue.' })
     return json(200, await accountState(admin, user.id))
   } catch (error) {
-    console.error(error)
-    const message = error instanceof Error ? error.message : 'Erreur du compte.'
-    return json(message.includes('plumes') || message.includes('posséd') || message.includes('collection') || message.includes('indisponible') ? 400 : 500, { error: message })
+    if (error instanceof RateLimitExceededError) {
+      return json(429, { error: 'Trop de requêtes. Réessayez dans un instant.', code: 'RATE_LIMITED', retryAfter: error.retryAfterSeconds }, { 'Retry-After': String(error.retryAfterSeconds) })
+    }
+    const businessError = publicAccountBusinessError(error)
+    if (businessError) return json(400, { error: businessError, code: 'ACCOUNT_ACTION_REJECTED' })
+    const reference = logServerError('account-api', error, { action, userId: user.id })
+    return json(500, {
+      error: 'Le compte est momentanément indisponible. Réessayez.',
+      code: 'ACCOUNT_SERVICE_UNAVAILABLE',
+      reference,
+    })
   }
 })

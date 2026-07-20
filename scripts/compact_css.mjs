@@ -1,7 +1,18 @@
 import fs from 'node:fs'
+import path from 'node:path'
 import postcss from 'postcss'
 
-const files = ['src/styles.css', 'src/menu.css']
+const cssFilesIn = directory => fs.readdirSync(directory)
+  .filter(file => file.endsWith('.css'))
+  .sort()
+  .map(file => path.join(directory, file))
+
+const files = [
+  'src/base.css',
+  'src/game-options.css',
+  ...cssFilesIn('src/styles'),
+  ...cssFilesIn('src/menu'),
+]
 const shouldWrite = process.argv.includes('--write')
 
 function atRuleContext(node) {

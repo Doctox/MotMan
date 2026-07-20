@@ -1,217 +1,42 @@
-import { memo, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
-import { ArrowLeft, Check, Feather, Heart, HeartCrack, House, Hourglass, Lightbulb, Settings, Shuffle, Wifi } from 'lucide-react'
-import { assetUrl } from './assetUrl'
-import type { ClueEntry, GeneratedGrid } from './generator'
-import { loadPlayerIdentity, playerInitials } from './playerIdentity'
-import { forfeitMatch, loadMatch, playMatchTurn, requestMatchHint, rerollMatchRack, submitMatchGridFeedback, type MatchState, type MatchTurn } from './matches'
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
+import { ArrowLeft, Check, Hourglass, Lightbulb, Settings, Shuffle, Wifi } from 'lucide-react'
 import './styles.css'
-import { GameOptionsOverlay, ReportPlayerOverlay } from './GameOverlays'
-import { reportPlayer, setSocialPresence } from './social'
+import { startAdaptivePolling, type AdaptivePollingController } from './adaptivePolling'
+import { assetUrl } from './assetUrl'
 import { BoardScoreEffects } from './BoardScoreEffects'
 import { BoardWordHighlight, type BoardWordHighlightState } from './BoardWordHighlight'
-import type { ExperienceAward } from './playerProgress'
-import { refreshPlayerAccount } from './auth'
-import { GameResultScreen } from './GameResultScreen'
 import { ClueZoom } from './ClueZoom'
-import { haptic, playEffect } from './sensoryPreferences'
-import { useDragGhost } from './useDragGhost'
 import { loadPlayerCosmetics } from './cosmetics'
-import { CosmeticPortrait } from './CosmeticPortrait'
+import { GameOptionsOverlay, ReportPlayerOverlay } from './GameOverlays'
 import { canUseReroll, gameWordCellIndexes, REWARD_EFFECT_LIFETIME_MS, REWARD_STEP_MS } from './gameRules'
-import { startAdaptivePolling, type AdaptivePollingController } from './adaptivePolling'
-import { createMatchRackTiles, type RackTile } from './rackTiles'
+import type { ClueEntry, GeneratedGrid } from './generator'
+import { matchStateFromConflict } from './matchConflict'
+import {
+  forfeitMatch, loadMatch, playMatchTurn, requestMatchHint, rerollMatchRack,
+  type MatchState, type MatchTurn,
+} from './matches'
 import { subscribeToMatchUpdates } from './matchRealtime'
 import { matchPollDelay } from './matchSyncPolicy'
-import { matchStateFromConflict } from './matchConflict'
+import { loadPlayerIdentity, playerInitials } from './playerIdentity'
+import { createMatchRackTiles, type RackTile } from './rackTiles'
+import { haptic, playEffect } from './sensoryPreferences'
+import { reportPlayer, setSocialPresence } from './social'
+import { useDragGhost } from './useDragGhost'
+import { DuelPlayer, LeaveMatchPanel, ResultPanel } from './game/DuelPresentation'
+import { compactClue, sameNumberRecord } from './game/gameDisplay'
+import { StableBoardLetters } from './game/StableBoardLetters'
+import { TurnTimer, useTurnPhase } from './game/TurnTiming'
+
+export { LeaveMatchPanel } from './game/DuelPresentation'
+export { StableBoardLetters } from './game/StableBoardLetters'
 
 type Tile = RackTile
 type ScoreEffect = { id: string; kind: 'letter' | 'word'; label: string; owner: 'player' | 'bot'; cellIndex: number }
 type HintFlight = { letter: string; cellIndex: number; fromX: number; fromY: number; deltaX: number; deltaY: number }
+
 const DIFFICULTY_LABELS = { easy: 'Facile', normal: 'Normale', hard: 'Difficile' } as const
-let multiplayerEffectSequence = 0
 const TURN_READY_DURATION_MS = 1_800
-const ASYNC_TURN_DURATION_SECONDS = 24 * 60 * 60
-
-function turnClockLabel(seconds: number, async: boolean): string {
-  if (!async) return String(Math.min(45, seconds))
-  const visibleSeconds = Math.min(ASYNC_TURN_DURATION_SECONDS, seconds)
-  if (visibleSeconds >= 3_600) return `${Math.ceil(visibleSeconds / 3_600)}h`
-  if (visibleSeconds >= 60) return `${Math.ceil(visibleSeconds / 60)}m`
-  return `${visibleSeconds}s`
-}
-
-type TurnPhase = { started: boolean; expired: boolean; urgent: boolean }
-
-function phaseAt(match: MatchState | null, instant = Date.now()): TurnPhase {
-  if (!match || match.status !== 'active') return { started: false, expired: false, urgent: false }
-  const startsAt = new Date(match.turnStartedAt).getTime()
-  const endsAt = new Date(match.turnEndsAt).getTime()
-  const started = instant >= startsAt
-  const expired = instant >= endsAt
-  return { started, expired, urgent: match.pace === 'realtime' && started && !expired && endsAt - instant <= 10_000 }
-}
-
-function useTurnPhase(match: MatchState | null): TurnPhase {
-  const [phase, setPhase] = useState<TurnPhase>(() => phaseAt(match))
-  useEffect(() => {
-    const update = () => {
-      const next = phaseAt(match)
-      setPhase(current => current.started === next.started && current.expired === next.expired && current.urgent === next.urgent ? current : next)
-    }
-    update()
-    if (!match || match.status !== 'active') return
-    const now = Date.now()
-    const startsAt = new Date(match.turnStartedAt).getTime()
-    const endsAt = new Date(match.turnEndsAt).getTime()
-    const boundaries = [startsAt, match.pace === 'realtime' ? endsAt - 10_000 : 0, endsAt]
-      .filter(boundary => boundary > now)
-      .map(boundary => window.setTimeout(update, boundary - now + 8))
-    return () => boundaries.forEach(timer => window.clearTimeout(timer))
-  }, [match?.id, match?.pace, match?.status, match?.turnEndsAt, match?.turnNumber, match?.turnStartedAt])
-  return phase
-}
-
-function TurnTimer({ match, resolving, started }: { match: MatchState; resolving: boolean; started: boolean }) {
-  const labelAt = () => {
-    if (match.status !== 'active' || resolving || !started) return '—'
-    const seconds = Math.max(0, Math.ceil((new Date(match.turnEndsAt).getTime() - Date.now()) / 1_000))
-    return turnClockLabel(seconds, match.pace === 'async')
-  }
-  const [label, setLabel] = useState(labelAt)
-  useEffect(() => {
-    const update = () => setLabel(current => {
-      const next = labelAt()
-      return current === next ? current : next
-    })
-    update()
-    if (match.status !== 'active' || resolving || !started) return
-    const timer = window.setInterval(update, 250)
-    return () => window.clearInterval(timer)
-  }, [match.pace, match.status, match.turnEndsAt, match.turnNumber, resolving, started])
-  return <span className="turn-timer">{label}</span>
-}
-
-function sameNumberRecord(left: Record<string, number>, right: Record<string, number>): boolean {
-  const leftKeys = Object.keys(left)
-  const rightKeys = Object.keys(right)
-  return leftKeys.length === rightKeys.length && leftKeys.every(key => left[key] === right[key])
-}
-
-export const StableBoardLetters = memo(function StableBoardLetters({
-  cellCount,
-  board,
-  provisional,
-  failed,
-  playerId,
-  hiddenCell,
-  draggedTileId,
-}: {
-  cellCount: number
-  board: MatchState['board']
-  provisional: Record<number, Tile>
-  failed?: Record<number, string>
-  playerId: string
-  hiddenCell: number | null
-  draggedTileId: string | null
-}) {
-  return <div className="confirmed-board-layer" aria-hidden="true">
-    {Array.from({ length: cellCount }, (_, index) => {
-      const confirmed = board[index]
-      const pending = provisional[index]
-      const failedLetter = failed?.[index]
-      if (failedLetter) {
-        return <span className="confirmed-board-letter failed-board-letter" key={index}>{failedLetter}</span>
-      }
-      if (confirmed && hiddenCell !== index) {
-        return <span className={`confirmed-board-letter ${confirmed.playerId === playerId ? 'player-effect' : 'opponent-effect'}`} key={index}>{confirmed.letter}</span>
-      }
-      if (!confirmed && pending && pending.id !== draggedTileId) {
-        return <span className="confirmed-board-letter provisional-effect" key={index}>{pending.letter}</span>
-      }
-      return <span className="confirmed-board-letter-spacer" key={index} />
-    })}
-  </div>
-})
-
-function compactClue(text: string): string {
-  const firstIdea = text.split(/[;.(]/, 1)[0].split(/, dont |, qui |, où /i, 1)[0].trim()
-  if (firstIdea.length <= 19) return firstIdea
-  const words = firstIdea.split(/\s+/)
-  let compact = ''
-  for (const word of words) {
-    if (`${compact} ${word}`.trim().length > 17) break
-    compact = `${compact} ${word}`.trim()
-  }
-  return `${compact || firstIdea.slice(0, 17)}…`
-}
-
-function DuelPlayer({ name, score, active, initials, avatarId, frameId, animationId, player, detail }: { name: string; score: number; active: boolean; initials: string; avatarId?: string; frameId?: string; animationId?: string; player?: boolean; detail?: string }) {
-  return <div className={`player ${active ? 'active' : ''} ${player ? 'player-you' : ''}`}>{avatarId ? <CosmeticPortrait avatarId={avatarId} frameId={frameId ?? 'cadre-ivoire'} animationId={animationId} alt="" className="game-portrait" /> : <span className="avatar">{initials}</span>}<span><small>{name}</small>{detail ? <em>{detail}</em> : null}<strong className="score-value" key={score}>{score}</strong></span></div>
-}
-
-function ResultPanel({ match, playerId, opponentName, onExit, onHome }: { match: MatchState; playerId: string; opponentName: string; onExit: () => void; onHome: () => void }) {
-  const [feedbackSent, setFeedbackSent] = useState(false)
-  const [feedbackSending, setFeedbackSending] = useState(false)
-  const [feedbackError, setFeedbackError] = useState<string | null>(null)
-  const [experienceAward, setExperienceAward] = useState<ExperienceAward | null>(null)
-  const won = match.winnerId === playerId
-  const draw = match.winnerId === null && match.finishReason === 'completed'
-  const title = draw ? 'Égalité !' : won ? 'Victoire !' : 'Partie terminée'
-  const detail = match.finishReason === 'timeout'
-    ? won ? `${opponentName} n’a pas réagi pendant trois de ses tours.` : 'Vous avez laissé expirer trois de vos tours.'
-    : match.finishReason === 'forfeit'
-      ? won ? `${opponentName} a quitté la partie.` : 'Vous avez abandonné la partie.'
-      : draw ? 'Vous terminez avec le même score.' : won ? 'Vous avez rempli la grille avec le meilleur score.' : `${opponentName} remporte cette grille.`
-  const sendFeedback = async (quality: 'yes' | 'no') => {
-    if (feedbackSending || feedbackSent) return
-    setFeedbackSending(true)
-    setFeedbackError(null)
-    try {
-      await submitMatchGridFeedback(playerId, match.id, quality)
-      setFeedbackSent(true)
-    } catch (reason) {
-      setFeedbackError(reason instanceof Error ? reason.message : 'Votre avis n’a pas pu être envoyé.')
-    } finally {
-      setFeedbackSending(false)
-    }
-  }
-  useEffect(() => {
-    let active = true
-    void refreshPlayerAccount().then(response => {
-      const award = response.progress?.experienceAwards.find(candidate => candidate.id === `server:match:${match.id}`) ?? null
-      if (active) setExperienceAward(award)
-    }).catch(() => undefined)
-    haptic(won ? [18, 32, 18, 55, 28] : 24)
-    playEffect(won ? 'word' : 'score')
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })
-    return () => { active = false }
-  }, [match.id, won])
-  const opponentId = match.playerIds.find(id => id !== playerId) ?? ''
-  return <GameResultScreen
-    outcome={draw ? 'draw' : won ? 'win' : 'loss'}
-    title={title}
-    detail={detail}
-    playerScore={match.scores[playerId] ?? 0}
-    opponentScore={match.scores[opponentId] ?? 0}
-    opponentName={opponentName}
-    award={experienceAward}
-  >
-    <div className="result-feedback">
-      <p className="duel-feedback-label">{feedbackSent ? 'Merci pour votre retour !' : 'Cette grille était-elle agréable ?'}</p>
-      {!feedbackSent ? <div className="feedback-actions"><button type="button" disabled={feedbackSending} onClick={() => void sendFeedback('yes')}><Heart />Oui</button><button type="button" disabled={feedbackSending} onClick={() => void sendFeedback('no')}><HeartCrack />Non</button></div> : null}
-      {feedbackError ? <p className="result-feedback-error" role="alert">{feedbackError}</p> : null}
-    </div>
-    <div className="end-game-actions">
-      <button type="button" className="new-game" onClick={onExit}><Feather />Nouvelle partie</button>
-      <button type="button" className="end-game-home" onClick={onHome}><House />Retour à l’accueil</button>
-    </div>
-  </GameResultScreen>
-}
-
-export function LeaveMatchPanel({ opponentName, isAsync = false, cancel, continueLater, leave }: { opponentName: string; isAsync?: boolean; cancel: () => void; continueLater?: () => void; leave: () => void }) {
-  return <div className="mm-modal-layer mm-pause-layer"><section className="mm-pause duel-leave"><h2>Quitter la partie ?</h2><p>{isAsync ? 'Vous pouvez la reprendre plus tard ou l’abandonner définitivement.' : `${opponentName} remportera la partie par abandon.`}</p><button type="button" onClick={cancel}>Continuer à jouer</button>{isAsync && continueLater ? <button type="button" className="secondary" onClick={continueLater}>Reprendre plus tard</button> : null}<button type="button" className="danger" onClick={leave}>Abandonner la partie</button></section></div>
-}
+let multiplayerEffectSequence = 0
 
 export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: string; onExit: () => void; onHome: () => void }) {
   const identity = useRef(loadPlayerIdentity())

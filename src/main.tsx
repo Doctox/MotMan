@@ -2,6 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './base.css'
 import { isNativeRuntime } from './nativeRuntime'
+import { initializeSensoryPreferences } from './sensoryPreferences'
+
+initializeSensoryPreferences()
 
 if (isNativeRuntime()) {
   void import('./nativeAuthBridge').then(module => module.initializeNativeAuthBridge())
@@ -14,6 +17,11 @@ void Promise.all([import('./auth'), import('./App')]).then(async ([auth, app]) =
   await auth.bootstrapPlayerSession()
   const App = app.App
   root.render(<React.StrictMode><App /></React.StrictMode>)
+  if (isNativeRuntime()) {
+    void import('./nativePushNotifications')
+      .then(module => module.initializeNativePushNotifications())
+      .catch(error => console.error('Initialisation des notifications impossible', error))
+  }
 }).catch(reason => {
   const message = reason instanceof Error ? reason.message : 'Connexion à MotMan impossible.'
   root.render(<main className="app-loading app-loading-error" role="alert"><strong>MotMan est momentanément indisponible</strong><span>{message}</span><button type="button" onClick={() => location.reload()}>Réessayer</button></main>)

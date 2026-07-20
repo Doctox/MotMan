@@ -1,10 +1,12 @@
 import { createClient } from '@supabase/supabase-js'
-
-const cors = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'authorization, apikey, content-type, x-client-info', 'Access-Control-Allow-Methods': 'POST, OPTIONS' }
-const json = (status: number, body: unknown) => new Response(JSON.stringify(body), { status, headers: { ...cors, 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
+import { createHttpResponder, logServerError } from '../_shared/http.ts'
+import { enforceRateLimits, RateLimitExceededError } from '../_shared/rateLimit.ts'
 
 Deno.serve(async request => {
-  if (request.method === 'OPTIONS') return new Response('ok', { headers: cors })
+  const http = createHttpResponder(request, Deno.env.get('MOTMAN_ALLOWED_ORIGINS'))
+  const { json } = http
+  if (request.method === 'OPTIONS') return http.preflight()
+  if (!http.originAllowed) return json(403, { error: 'Origine non autorisée.', code: 'ORIGIN_NOT_ALLOWED' })
   if (request.method !== 'POST') return json(405, { error: 'Méthode non autorisée.' })
   const authorization = request.headers.get('Authorization') ?? ''
   const url = Deno.env.get('SUPABASE_URL')!
@@ -40,6 +42,7 @@ Deno.serve(async request => {
   }
 
   try {
+    await enforceRateLimits(admin, 'social', user.id, user.is_anonymous === true, action)
     if (action === 'state' || action === 'presence') {
       await admin.from('profiles').update({ activity: body.activity === 'playing' ? 'playing' : 'online', last_seen: new Date().toISOString() }).eq('id', user.id)
     } else if (action === 'request') {
@@ -103,7 +106,14 @@ Deno.serve(async request => {
     }
     return json(200, action === 'presence' ? { ok: true } : { ok: true, state: await state() })
   } catch (error) {
-    console.error(error)
-    return json(500, { error: error instanceof Error ? error.message : 'Erreur sociale.' })
+    if (error instanceof RateLimitExceededError) {
+      return json(429, { error: 'Trop de requêtes. Réessayez dans un instant.', code: 'RATE_LIMITED', retryAfter: error.retryAfterSeconds }, { 'Retry-After': String(error.retryAfterSeconds) })
+    }
+    const reference = logServerError('social-api', error, { action, userId: user.id })
+    return json(500, {
+      error: 'Le service Amis est momentanément indisponible. Réessayez.',
+      code: 'SOCIAL_SERVICE_UNAVAILABLE',
+      reference,
+    })
   }
 })

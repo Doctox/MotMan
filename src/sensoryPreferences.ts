@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useState } from 'react'
 
 export type SensoryPreferences = {
-  music: boolean
   effects: boolean
   vibration: boolean
+  largeText: boolean
 }
 
 export type GameEffect = 'place' | 'score' | 'word' | 'error' | 'turn' | 'reroll'
 
 const STORAGE_KEY = 'motman-sensory-preferences-v1'
 const CHANGE_EVENT = 'motman:sensory-preferences'
-const DEFAULTS: SensoryPreferences = { music: true, effects: true, vibration: true }
+const DEFAULTS: SensoryPreferences = { effects: true, vibration: true, largeText: false }
 
 let audioContext: AudioContext | null = null
 
@@ -18,17 +18,26 @@ export function loadSensoryPreferences(): SensoryPreferences {
   try {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '{}') as Partial<SensoryPreferences>
     return {
-      music: typeof stored.music === 'boolean' ? stored.music : DEFAULTS.music,
       effects: typeof stored.effects === 'boolean' ? stored.effects : DEFAULTS.effects,
       vibration: typeof stored.vibration === 'boolean' ? stored.vibration : DEFAULTS.vibration,
+      largeText: typeof stored.largeText === 'boolean' ? stored.largeText : DEFAULTS.largeText,
     }
   } catch {
     return { ...DEFAULTS }
   }
 }
 
+export function applySensoryPreferences(preferences: SensoryPreferences): void {
+  document.documentElement.dataset.textSize = preferences.largeText ? 'large' : 'normal'
+}
+
+export function initializeSensoryPreferences(): void {
+  applySensoryPreferences(loadSensoryPreferences())
+}
+
 export function saveSensoryPreferences(preferences: SensoryPreferences): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences))
+  applySensoryPreferences(preferences)
   window.dispatchEvent(new CustomEvent<SensoryPreferences>(CHANGE_EVENT, { detail: preferences }))
 }
 

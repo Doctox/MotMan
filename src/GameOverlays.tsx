@@ -1,8 +1,8 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react'
-import { ChevronRight, Moon, Music2, Pause, RefreshCw, Settings, ShieldAlert, Sun, Vibrate, Volume2, X } from 'lucide-react'
+import { ChevronRight, Moon, Pause, RefreshCw, Settings, ShieldAlert, Sun, Type, Vibrate, Volume2, X } from 'lucide-react'
 import { useSensoryPreferences } from './sensoryPreferences'
 import { useDialogFocus } from './useDialogFocus'
-import './menu.css'
+import './game-options.css'
 
 type Theme = 'light' | 'dark' | 'system'
 
@@ -41,7 +41,7 @@ export function GameOptionsOverlay({ close, newGrid, report }: { close: () => vo
     <section ref={dialogRef} className="mm-settings mm-game-options" role="dialog" aria-modal="true" aria-label="Paramètres de la partie" tabIndex={-1}>
       <header><h2>Paramètres</h2><button type="button" onClick={close} aria-label="Fermer"><X /></button></header>
       <div className="mm-theme-choice" role="group" aria-label="Thème"><button type="button" className={theme === 'light' ? 'active' : ''} aria-pressed={theme === 'light'} onClick={() => setTheme('light')}><Sun />Clair</button><button type="button" className={theme === 'dark' ? 'active' : ''} aria-pressed={theme === 'dark'} onClick={() => setTheme('dark')}><Moon />Sombre</button><button type="button" className={theme === 'system' ? 'active' : ''} aria-pressed={theme === 'system'} onClick={() => setTheme('system')}><Settings />Système</button></div>
-      <Toggle icon={<Music2 />} label="Musique" checked={preferences.music} setChecked={value => setPreference('music', value)} />
+      <Toggle icon={<Type />} label="Texte plus grand" checked={preferences.largeText} setChecked={value => setPreference('largeText', value)} />
       <Toggle icon={<Volume2 />} label="Effets" checked={preferences.effects} setChecked={value => setPreference('effects', value)} />
       <Toggle icon={<Vibrate />} label="Vibrations" checked={preferences.vibration} setChecked={value => setPreference('vibration', value)} />
       {newGrid ? <button className="mm-settings-link" type="button" onClick={() => { newGrid(); close() }}><RefreshCw /><span>Nouvelle grille<small>Recommencer une partie</small></span><ChevronRight /></button> : null}

@@ -4,4 +4,5 @@
     <string name="title_activity_main">MotMan</string>
     <string name="package_name">com.motman.game</string>
     <string name="custom_url_scheme">com.motman.game</string>
+    <string name="default_notification_channel_id">motman_turns</string>
 </resources>

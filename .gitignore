@@ -12,6 +12,12 @@ src/data/sources
 *.tsbuildinfo
 .env.local
 .env.*.local
+firebase-adminsdk-*.json
+firebase-service-account*.json
+android/app/google-services.json
+*.jks
+*.keystore
+*.aab
 .motman.sqlite*
 .motman-social.json
 .motman-matches.json

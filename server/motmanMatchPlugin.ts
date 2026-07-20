@@ -1,129 +1,43 @@
 import { randomUUID } from 'node:crypto'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
-import { resolve } from 'node:path'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import type { Plugin } from 'vite'
-import catalog from '../src/data/runtime.grid.catalog.json'
-import { isCatalogGridPlayable } from '../src/gridCatalogPolicy'
-import { botThinkingDelayMs, createBotPersona, planBotMove, type BotSkill } from '../src/botOpponents'
-import { gridCellIndex, resolveGridDimensions, type GridDimensionsSource } from '../src/gridDimensions'
+import { botThinkingDelayMs, createBotPersona, planBotMove } from '../src/botOpponents'
 import {
   canUseHint,
   canUseReroll,
   drawRackFromBag,
   evaluateTurn,
-  gameWordCellIndexes,
   hasTurnStarted,
   hintCandidates,
   isTurnSubmissionExpired,
   keepRackLettersAfterTurn,
   prepareFinalSprintRacks,
   RACK_SIZE,
-  REWARD_STEP_MS,
   shouldForfeitAfterInactivity,
-  type GameRuleGrid,
-  type GameRuleWord,
 } from '../src/gameRules'
 import { database as accountDatabase, type DatabaseUser } from './motmanDatabase'
+import {
+  ASYNC_BOT_MATCH_DELAY_MS,
+  ASYNC_SEARCH_DURATION_MS,
+  ASYNC_TURN_DURATION_MS,
+  MATCH_DATABASE_PATH,
+  MAX_ASYNC_MATCHES,
+  MIN_REVEAL_DURATION_MS,
+  REALTIME_BOT_MATCH_DELAY_MS,
+  REALTIME_SEARCH_STALE_MS,
+  REALTIME_TURN_DURATION_MS,
+  RECENT_GRID_HISTORY_LIMIT,
+  REVEAL_STEP_MS,
+  TURN_READY_DURATION_MS,
+  TURN_SUBMIT_GRACE_MS,
+} from './match/config'
+import { gridById, gridIds, gridSolution, grids, hash, publicGrid, ruleGrid, wordIndexes } from './match/gridCatalog'
+import { sendJson } from './match/http'
+import { handleMatchRequest } from './match/requestHandler'
+import type { BotProfile, CatalogGrid, MatchDatabase, MatchInvitation, MatchMode, MatchPace, StoredMatch, StoredTurn } from './match/types'
 
-type CatalogWord = {
-  wordId?: string
-  answer: string
-  clue?: string
-  image?: unknown
-  direction: 'across' | 'down'
-  arrow?: string
-  clueCell: number[]
-  cells: number[][]
-}
-type CatalogGrid = GridDimensionsSource & { id: string; clueCells?: number[][]; words: CatalogWord[] }
-type MatchInvitation = {
-  id: string
-  hostId: string
-  guestId: string
-  pace: MatchPace
-  createdAt: string
-  expiresAt: string
-  status: 'pending' | 'accepted' | 'declined' | 'cancelled' | 'expired'
-  matchId?: string
-}
-type MatchPace = 'realtime' | 'async'
-type MatchMode = 'friend' | 'normal'
-type MatchSearch = { id: string; playerId: string; pace: MatchPace; createdAt: string; updatedAt: string }
-type BotProfile = { playerId: string; displayName: string; level: number; skill: BotSkill; avatarId: string; frameId: string }
-type StoredTurn = {
-  id: string
-  kind: 'played' | 'timeout'
-  playerId: string
-  turnNumber: number
-  correct: number[]
-  wrong: number[]
-  wrongPlacements: Array<{ cellIndex: number; letter: string }>
-  aidedCell: number | null
-  letterPoints: number
-  wordBonuses: Array<{ cells: number[]; points: number; direction: 'across' | 'down' }>
-  rackBonus: number
-  scoreGained: number
-  inactivityCount: number
-  createdAt: string
-}
-type StoredMatch = {
-  id: string
-  invitationId: string | null
-  mode: MatchMode
-  pace: MatchPace
-  gridId: string
-  difficulty: 'easy' | 'normal' | 'hard'
-  playerIds: [string, string]
-  bot: BotProfile | null
-  currentPlayerId: string
-  turnNumber: number
-  turnStartedAt: string
-  turnEndsAt: string
-  board: Record<string, { letter: string; playerId: string }>
-  racks: Record<string, string[]>
-  letterBag?: string[]
-  scores: Record<string, number>
-  productiveTurns: Record<string, number>
-  inactivity: Record<string, number>
-  hint: { playerId: string; cellIndex: number; letter: string; turnNumber: number } | null
-  hintUsed: Record<string, boolean | number>
-  rerollUsed: Record<string, boolean | number>
-  lastTurn: StoredTurn | null
-  status: 'active' | 'finished'
-  winnerId: string | null
-  finishReason: 'completed' | 'timeout' | 'forfeit' | null
-  createdAt: string
-  updatedAt: string
-}
-type MatchDatabase = { version: 5; invitations: MatchInvitation[]; matches: StoredMatch[]; searches: MatchSearch[] }
-
-function numericEnvironment(name: string, fallback: number, minimum: number): number {
-  const parsed = Number(process.env[name])
-  return Number.isFinite(parsed) ? Math.max(minimum, parsed) : fallback
-}
-
-const MATCH_DATABASE_PATH = resolve(process.env.MOTMAN_MATCH_DATABASE_PATH ?? '.motman-matches.json')
-const REALTIME_TURN_DURATION_MS = numericEnvironment('MOTMAN_TURN_DURATION_MS', 45_000, 250)
-const ASYNC_TURN_DURATION_MS = numericEnvironment('MOTMAN_ASYNC_TURN_DURATION_MS', 24 * 60 * 60 * 1_000, 1_000)
-const TURN_READY_DURATION_MS = numericEnvironment('MOTMAN_TURN_READY_DURATION_MS', 1_800, 0)
-// A short server grace period lets a phone submit the move displayed at 00:00
-// without a simultaneous polling request turning it into a timeout first.
-const TURN_SUBMIT_GRACE_MS = numericEnvironment('MOTMAN_TURN_GRACE_MS', 2_000, 0)
-const REVEAL_STEP_MS = numericEnvironment('MOTMAN_REVEAL_STEP_MS', REWARD_STEP_MS, 0)
-const MIN_REVEAL_DURATION_MS = numericEnvironment('MOTMAN_MIN_REVEAL_DURATION_MS', 700, 0)
-const INVITATION_DURATION_MS = 120_000
-const ASYNC_INVITATION_DURATION_MS = 7 * 24 * 60 * 60 * 1_000
-const REALTIME_SEARCH_STALE_MS = 45_000
-const ASYNC_SEARCH_DURATION_MS = 7 * 24 * 60 * 60 * 1_000
-const REALTIME_BOT_MATCH_DELAY_MS = Math.max(1_000, Number(process.env.MOTMAN_REALTIME_BOT_DELAY_MS) || 30_000)
-const ASYNC_BOT_MATCH_DELAY_MS = Math.max(1_000, Number(process.env.MOTMAN_ASYNC_BOT_DELAY_MS) || 30_000)
-const MAX_ASYNC_MATCHES = 3
-const RECENT_GRID_HISTORY_LIMIT = 12
 const EMPTY_DATABASE: MatchDatabase = { version: 5, invitations: [], matches: [], searches: [] }
-const grids = (catalog.grids as CatalogGrid[]).filter(isCatalogGridPlayable)
-const gridIds = new Set(grids.map(grid => grid.id))
-if (!grids.length) throw new Error('Le catalogue actif ne contient aucune grille jouable.')
 
 function loadMatchDatabase(): MatchDatabase {
   try {
@@ -172,25 +86,6 @@ function saveDatabase(): void {
   writeFileSync(MATCH_DATABASE_PATH, `${JSON.stringify(database, null, 2)}\n`, 'utf8')
 }
 
-function sendJson(response: ServerResponse, status: number, payload: unknown): void {
-  response.statusCode = status
-  response.setHeader('Content-Type', 'application/json; charset=utf-8')
-  response.setHeader('Cache-Control', 'no-store')
-  response.end(JSON.stringify(payload))
-}
-
-function sendNoContent(response: ServerResponse): void {
-  response.statusCode = 204
-  response.setHeader('Cache-Control', 'no-store')
-  response.end()
-}
-
-async function readBody(request: IncomingMessage): Promise<Record<string, unknown>> {
-  const chunks: Uint8Array[] = []
-  for await (const chunk of request) chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk)
-  return chunks.length ? JSON.parse(Buffer.concat(chunks).toString('utf8')) as Record<string, unknown> : {}
-}
-
 function cleanPlayerId(value: unknown): string {
   return typeof value === 'string' && /^guest_[0-9a-f-]{16,}$/i.test(value) ? value : ''
 }
@@ -218,51 +113,7 @@ function areFriends(left: string, right: string): boolean {
 }
 
 function gridForMatch(match: StoredMatch): CatalogGrid {
-  const grid = grids.find(candidate => candidate.id === match.gridId)
-  if (!grid) throw new Error('La grille de cette partie est introuvable.')
-  return grid
-}
-
-const ruleGridCache = new Map<string, GameRuleGrid>()
-
-function ruleWord(word: CatalogWord): GameRuleWord {
-  return {
-    ...word,
-    cells: word.cells.map(([row, column]) => [row, column] as const),
-  }
-}
-
-function ruleGrid(grid: CatalogGrid): GameRuleGrid {
-  const cached = ruleGridCache.get(grid.id)
-  if (cached) return cached
-  const dimensions = resolveGridDimensions(grid)
-  const cells: GameRuleGrid['cells'][number][] = Array.from(
-    { length: dimensions.columns * dimensions.rows },
-    () => ({ kind: 'clue' }),
-  )
-  grid.words.forEach(word => word.cells.forEach(([row, column], offset) => {
-    cells[gridCellIndex(dimensions, row, column)] = { kind: 'letter', solution: word.answer[offset] }
-  }))
-  const created: GameRuleGrid = { ...dimensions, cells, words: grid.words.map(ruleWord) }
-  ruleGridCache.set(grid.id, created)
-  return created
-}
-
-function gridSolution(grid: CatalogGrid): Map<number, string> {
-  const dimensions = resolveGridDimensions(grid)
-  const solution = new Map<number, string>()
-  grid.words.forEach(word => word.cells.forEach(([row, col], offset) => solution.set(gridCellIndex(dimensions, row, col), word.answer[offset])))
-  return solution
-}
-
-function wordIndexes(grid: CatalogGrid, word: CatalogWord): number[] {
-  return gameWordCellIndexes(ruleGrid(grid), ruleWord(word))
-}
-
-function hash(text: string): number {
-  let value = 2166136261
-  for (const character of text) value = Math.imul(value ^ character.charCodeAt(0), 16777619)
-  return value >>> 0
+  return gridById(match.gridId)
 }
 
 function ensureSharedLetterBag(match: StoredMatch): void {
@@ -311,45 +162,6 @@ function replenishRack(match: StoredMatch, playerId: string, current: string[], 
   })
   match.letterBag = drawn.letterBag
   return drawn.rack
-}
-
-function publicGrid(grid: CatalogGrid) {
-  const { columns, rows } = resolveGridDimensions(grid)
-  const cells: Array<Record<string, unknown>> = Array.from(
-    { length: columns * rows },
-    () => ({ kind: 'clue', entries: [] }),
-  )
-  const clueIndexes = new Set((grid.clueCells ?? grid.words.map(word => word.clueCell))
-    .map(([row, column]) => gridCellIndex({ columns, rows }, row, column)))
-  for (let index = 0; index < cells.length; index += 1) {
-    if (!clueIndexes.has(index)) cells[index] = { kind: 'letter', solution: '', wordIds: [] }
-  }
-  const words = grid.words.map((word, index) => {
-    const id = word.wordId ?? `${grid.id}:word:${index}`
-    const clueIndex = gridCellIndex({ columns, rows }, word.clueCell[0], word.clueCell[1])
-    const clueCell = cells[clueIndex]
-    const entries = Array.isArray(clueCell.entries) ? clueCell.entries as unknown[] : []
-    entries.push({
-      text: word.clue ?? '', image: word.image, direction: word.direction,
-      arrow: word.arrow ?? (word.direction === 'across' ? 'right' : 'down'), wordId: id,
-    })
-    clueCell.entries = entries
-    for (const [row, column] of word.cells) {
-      const cell = cells[gridCellIndex({ columns, rows }, row, column)]
-      const wordIds = Array.isArray(cell.wordIds) ? cell.wordIds as string[] : []
-      wordIds.push(id)
-      cell.wordIds = wordIds
-    }
-    const [row, col] = word.cells[0]
-    return {
-      id, answer: '•'.repeat(word.answer.length), clue: word.clue ?? '', image: word.image,
-      difficulty: 1, theme: 'catalogue', row, col, direction: word.direction, length: word.answer.length,
-    }
-  })
-  return {
-    id: grid.id, columns, rows, difficulty: 'normal', cells, words,
-    seed: hash(grid.id), version: 'local-test-v1', validation: { valid: true, errors: [], score: 100 },
-  }
 }
 
 function publicMatch(match: StoredMatch) {
@@ -596,238 +408,15 @@ function createMatch(hostId: string, guestId: string, mode: MatchMode, pace: Mat
   return match
 }
 
-async function handleMatchRequest(request: IncomingMessage, response: ServerResponse): Promise<void> {
-  const url = new URL(request.url ?? '/', 'http://motman.local')
-  const route = url.pathname.replace(/^\/api\/matches\/?/, '').replace(/^\/+/, '')
-
-  if (request.method === 'GET' && route === 'state') {
-    const playerId = cleanPlayerId(url.searchParams.get('playerId'))
-    if (!playerId) return sendJson(response, 400, { error: 'Identité invalide.' })
-    const liveSearch = database.searches.find(search => search.playerId === playerId && search.pace === 'realtime')
-    if (liveSearch) liveSearch.updatedAt = new Date().toISOString()
-    return sendJson(response, 200, lobbyState(playerId))
-  }
-
-  if (request.method === 'GET' && route.startsWith('match/')) {
-    resolveExpired()
-    const playerId = cleanPlayerId(url.searchParams.get('playerId'))
-    const matchId = route.slice('match/'.length)
-    const match = database.matches.find(candidate => candidate.id === matchId && candidate.playerIds.includes(playerId))
-    if (!match) return sendJson(response, 404, { error: 'Partie introuvable.' })
-    if (ensureFinalSprintRacks(match)) {
-      match.updatedAt = new Date().toISOString()
-      saveDatabase()
-    }
-    if (url.searchParams.get('since') === match.updatedAt) return sendNoContent(response)
-    return sendJson(response, 200, publicMatch(match))
-  }
-
-  if (request.method !== 'POST') return sendJson(response, 405, { error: 'Méthode non autorisée.' })
-  let body: Record<string, unknown>
-  try { body = await readBody(request) } catch { return sendJson(response, 400, { error: 'Requête invalide.' }) }
-  const playerId = cleanPlayerId(body.playerId)
-  if (!playerId || !publicUser(playerId)) return sendJson(response, 400, { error: 'Profil joueur invalide.' })
-
-  if (route === 'unregister') {
-    database.invitations = database.invitations.filter(invitation => invitation.hostId !== playerId && invitation.guestId !== playerId)
-    database.matches = database.matches.filter(match => !match.playerIds.includes(playerId))
-    database.searches = database.searches.filter(search => search.playerId !== playerId)
-    saveDatabase()
-    return sendJson(response, 200, { ok: true })
-  }
-
-  if (route === 'create') {
-    resolveExpired()
-    const targetId = cleanPlayerId(body.targetId)
-    const pace: MatchPace | '' = body.pace === 'realtime' ? 'realtime' : body.pace === 'async' ? 'async' : ''
-    if (!pace) return sendJson(response, 400, { error: 'Rythme de partie invalide.' })
-    const target = publicUser(targetId)
-    if (!target || !areFriends(playerId, targetId)) return sendJson(response, 404, { error: 'Cet ami est introuvable.' })
-    if (pace === 'realtime' && !target.online) return sendJson(response, 409, { error: `${target.displayName} est hors ligne.` })
-    if (pace === 'realtime' && (activeMatches(playerId, 'realtime').length || activeMatches(targetId, 'realtime').length))
-      return sendJson(response, 409, { error: 'Un des joueurs est déjà en partie.' })
-    const existing = database.invitations.find(invitation => invitation.status === 'pending' &&
-      ((invitation.hostId === playerId && invitation.guestId === targetId) || (invitation.hostId === targetId && invitation.guestId === playerId)))
-    if (!existing) {
-      const createdAt = new Date()
-      const invitationDuration = pace === 'async' ? ASYNC_INVITATION_DURATION_MS : INVITATION_DURATION_MS
-      database.invitations.push({ id: randomUUID(), hostId: playerId, guestId: targetId, pace, createdAt: createdAt.toISOString(), expiresAt: new Date(createdAt.getTime() + invitationDuration).toISOString(), status: 'pending' })
-      saveDatabase()
-    }
-    return sendJson(response, 200, lobbyState(playerId))
-  }
-
-  if (route === 'respond') {
-    resolveExpired()
-    const invitationId = typeof body.invitationId === 'string' ? body.invitationId : ''
-    const decision = body.decision === 'accept' ? 'accept' : body.decision === 'decline' ? 'decline' : ''
-    const invitation = database.invitations.find(candidate => candidate.id === invitationId && candidate.guestId === playerId && candidate.status === 'pending')
-    if (!invitation || !decision) return sendJson(response, 404, { error: 'Cette invitation n’est plus disponible.' })
-    if (decision === 'decline') invitation.status = 'declined'
-    else {
-      if (invitation.pace === 'realtime' && (activeMatches(invitation.hostId, 'realtime').length || activeMatches(invitation.guestId, 'realtime').length))
-        return sendJson(response, 409, { error: 'Un des joueurs est déjà en partie.' })
-      const match = createMatch(invitation.hostId, invitation.guestId, 'friend', invitation.pace, invitation.id, invitation.id)
-      database.matches.push(match)
-      invitation.status = 'accepted'
-      invitation.matchId = match.id
-    }
-    saveDatabase()
-    return sendJson(response, 200, lobbyState(playerId))
-  }
-
-  if (route === 'cancel') {
-    const invitationId = typeof body.invitationId === 'string' ? body.invitationId : ''
-    const invitation = database.invitations.find(candidate => candidate.id === invitationId && candidate.hostId === playerId && candidate.status === 'pending')
-    if (!invitation) return sendJson(response, 404, { error: 'Cette invitation n’existe plus.' })
-    invitation.status = 'cancelled'
-    saveDatabase()
-    return sendJson(response, 200, lobbyState(playerId))
-  }
-
-  if (route === 'search' || route === 'search/cancel') {
-    resolveExpired()
-    const pace: MatchPace | '' = body.pace === 'realtime' ? 'realtime' : body.pace === 'async' ? 'async' : ''
-    if (!pace) return sendJson(response, 400, { error: 'Rythme de partie invalide.' })
-    if (route === 'search/cancel') {
-      database.searches = database.searches.filter(search => search.playerId !== playerId || search.pace !== pace)
-      saveDatabase()
-      return sendJson(response, 200, lobbyState(playerId))
-    }
-    if (pace === 'realtime' && activeMatches(playerId, 'realtime').length)
-      return sendJson(response, 409, { error: 'Vous avez déjà une partie en temps réel.' })
-    if (pace === 'async' && activeMatches(playerId, 'async').length >= MAX_ASYNC_MATCHES)
-      return sendJson(response, 409, { error: 'Vous avez déjà trois parties asynchrones.' })
-    const candidate = [...database.searches]
-      .filter(search => search.playerId !== playerId && search.pace === pace)
-      .filter(search => pace === 'realtime'
-        ? Date.now() - new Date(search.updatedAt).getTime() < REALTIME_SEARCH_STALE_MS && activeMatches(search.playerId, 'realtime').length === 0
-        : activeMatches(search.playerId, 'async').length < MAX_ASYNC_MATCHES)
-      .sort((left, right) => new Date(left.createdAt).getTime() - new Date(right.createdAt).getTime())[0]
-    if (candidate) {
-      const match = createMatch(candidate.playerId, playerId, 'normal', pace, candidate.id)
-      database.matches.push(match)
-      database.searches = database.searches.filter(search => search.id !== candidate.id && !(search.playerId === playerId && search.pace === pace))
-      saveDatabase()
-      return sendJson(response, 200, { lobby: lobbyState(playerId), matchId: match.id })
-    }
-    const existing = database.searches.find(search => search.playerId === playerId && search.pace === pace)
-    if (!existing) {
-      const createdAt = new Date().toISOString()
-      database.searches.push({ id: randomUUID(), playerId, pace, createdAt, updatedAt: createdAt })
-    } else existing.updatedAt = new Date().toISOString()
-    saveDatabase()
-    return sendJson(response, 200, { lobby: lobbyState(playerId), matchId: null })
-  }
-
-  const matchId = typeof body.matchId === 'string' ? body.matchId : ''
-  // A turn submission is resolved before expiry. Other actions may safely
-  // advance every expired match first.
-  if (route !== 'turn') resolveExpired()
-  let match = database.matches.find(candidate => candidate.id === matchId && candidate.playerIds.includes(playerId))
-  if (!match) return sendJson(response, 404, { error: 'Partie introuvable.' })
-  if (ensureFinalSprintRacks(match)) {
-    match.updatedAt = new Date().toISOString()
-    saveDatabase()
-  }
-  if (route === 'turn' && match.status === 'active' && isTurnSubmissionExpired(Date.now(), new Date(match.turnEndsAt).getTime(), TURN_SUBMIT_GRACE_MS)) {
-    resolveExpired()
-    match = database.matches.find(candidate => candidate.id === matchId && candidate.playerIds.includes(playerId))
-    if (!match) return sendJson(response, 404, { error: 'Partie introuvable.' })
-  }
-
-  const requestedTurnNumber = Number(body.turnNumber)
-  if (route === 'turn' && Number.isInteger(requestedTurnNumber) && match.lastTurn?.playerId === playerId && match.lastTurn.turnNumber === requestedTurnNumber) {
-    return sendJson(response, 200, { match: publicMatch(match), result: match.lastTurn })
-  }
-  if (match.status !== 'active') return sendJson(response, 409, { error: 'Cette partie est terminée.', match: publicMatch(match) })
-
-  if (route === 'forfeit') {
-    const winner = match.playerIds.find(id => id !== playerId) ?? null
-    finishMatch(match, winner, 'forfeit')
-    saveDatabase()
-    return sendJson(response, 200, publicMatch(match))
-  }
-
-  if (match.currentPlayerId !== playerId) return sendJson(response, 409, { error: 'Ce n’est pas votre tour.', match: publicMatch(match) })
-  if (!hasTurnStarted(Date.now(), new Date(match.turnStartedAt).getTime())) {
-    return sendJson(response, 409, { error: 'Le prochain tour commence après les résultats.', match: publicMatch(match) })
-  }
-
-  if (route === 'hint') {
-    if (!canUseHint(Boolean(match.hintUsed[playerId]))) return sendJson(response, 409, { error: 'Indice déjà utilisé pendant cette partie.' })
-    const currentGrid = gridForMatch(match)
-    const solution = gridSolution(currentGrid)
-    const rack = match.racks[playerId] ?? []
-    const candidates = hintCandidates(ruleGrid(currentGrid), rack, Object.keys(match.board).map(Number))
-    if (!candidates.length) return sendJson(response, 409, { error: 'Aucun indice disponible.' })
-    const selected = candidates[hash(`${match.id}:${playerId}:${match.turnNumber}:hint`) % candidates.length]
-    match.hint = { playerId, cellIndex: selected.cellIndex, letter: selected.letter, turnNumber: match.turnNumber }
-    match.hintUsed[playerId] = true
-    match.board[selected.cellIndex] = { letter: selected.letter, playerId }
-    const hintedLetterIndex = rack.indexOf(selected.letter)
-    match.racks[playerId] = rack.filter((_, index) => index !== hintedLetterIndex)
-    match.updatedAt = new Date().toISOString()
-    if ([...solution.keys()].every(index => match.board[index])) {
-      const [left, right] = match.playerIds
-      const winner = match.scores[left] === match.scores[right] ? null : match.scores[left] > match.scores[right] ? left : right
-      finishMatch(match, winner, 'completed')
-    } else ensureFinalSprintRacks(match)
-    saveDatabase()
-    return sendJson(response, 200, publicMatch(match))
-  }
-
-  if (route === 'reroll') {
-    const rerollAllowed = canUseReroll({
-      alreadyUsed: Boolean(match.rerollUsed[playerId]),
-      pendingPlacements: 0,
-      hintActive: match.hint?.playerId === playerId && match.hint.turnNumber === match.turnNumber,
-    })
-    if (!rerollAllowed) return sendJson(response, 409, { error: 'Relance déjà utilisée ou indisponible pendant ce tour.' })
-    const currentRack = match.racks[playerId] ?? []
-    match.letterBag = [...(match.letterBag ?? []), ...currentRack]
-    match.racks[playerId] = replenishRack(match, playerId, [], currentRack)
-    match.rerollUsed[playerId] = true
-    match.updatedAt = new Date().toISOString()
-    saveDatabase()
-    return sendJson(response, 200, publicMatch(match))
-  }
-
-  if (route !== 'turn') return sendJson(response, 404, { error: 'Action inconnue.' })
-  if (Number.isInteger(requestedTurnNumber) && requestedTurnNumber !== match.turnNumber) {
-    return sendJson(response, 409, { error: 'Ce tour est déjà terminé.', match: publicMatch(match) })
-  }
-  const placements = Array.isArray(body.placements) ? body.placements : []
-  const sanitized = sanitizePlacements(match, playerId, placements)
-
-  // Reaching zero with placed letters validates them exactly like the button.
-  // Reaching zero without a placement remains a genuine inactivity timeout.
-  if (body.automatic === true && sanitized.length === 0) {
-    const inactivityCount = (match.inactivity[playerId] ?? 0) + 1
-    match.inactivity[playerId] = inactivityCount
-    const occurredAt = new Date()
-    match.lastTurn = {
-      id: randomUUID(), kind: 'timeout', playerId, turnNumber: match.turnNumber,
-      correct: [], wrong: [], wrongPlacements: [], aidedCell: null, letterPoints: 0,
-      wordBonuses: [], rackBonus: 0, scoreGained: 0, inactivityCount,
-      createdAt: occurredAt.toISOString(),
-    }
-    match.hint = null
-    match.updatedAt = occurredAt.toISOString()
-    const opponentId = match.playerIds.find(id => id !== playerId) ?? null
-    if (shouldForfeitAfterInactivity(inactivityCount)) finishMatch(match, opponentId, 'timeout')
-    else startNextTurn(match, occurredAt, match.lastTurn)
-    saveDatabase()
-    return sendJson(response, 200, { match: publicMatch(match), result: match.lastTurn })
-  }
-  const result = applyPlayedTurn(match, playerId, sanitized)
-  saveDatabase()
-  return sendJson(response, 200, { match: publicMatch(match), result })
+const requestContext = {
+  database, cleanPlayerId, publicUser, areFriends, activeMatches, resolveExpired, lobbyState,
+  ensureFinalSprintRacks, publicMatch, saveDatabase, createMatch, finishMatch, gridForMatch,
+  replenishRack, sanitizePlacements, startNextTurn, applyPlayedTurn,
 }
 
 function attachMatchApi(middlewares: { use: (route: string, handler: (request: IncomingMessage, response: ServerResponse) => void) => void }): void {
   middlewares.use('/api/matches', (request, response) => {
-    void handleMatchRequest(request, response).catch(error => sendJson(response, 500, { error: error instanceof Error ? error.message : 'Le service de partie a rencontré une erreur.' }))
+    void handleMatchRequest(request, response, requestContext).catch(error => sendJson(response, 500, { error: error instanceof Error ? error.message : 'Le service de partie a rencontré une erreur.' }))
   })
 }
 

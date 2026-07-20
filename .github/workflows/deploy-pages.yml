@@ -41,10 +41,14 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
         run: |
           if [[ -z "$VITE_SUPABASE_URL" || -z "$VITE_SUPABASE_PUBLISHABLE_KEY" ]]; then
             echo "::error::Les variables VITE_SUPABASE_URL et VITE_SUPABASE_PUBLISHABLE_KEY sont obligatoires pour publier MotMan."
             exit 1
+          fi
+          if [[ -z "$VITE_TURNSTILE_SITE_KEY" ]]; then
+            echo "::warning::VITE_TURNSTILE_SITE_KEY est absent : Turnstile restera inactif jusqu’à sa configuration."
           fi
           if [[ ! "$VITE_SUPABASE_URL" =~ ^https://[^/]+\.supabase\.co/?$ ]]; then
             echo "::error::VITE_SUPABASE_URL n'est pas une URL de projet Supabase valide."
@@ -62,6 +66,7 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
 
       - name: Check runtime budgets
         run: npm run test:performance
