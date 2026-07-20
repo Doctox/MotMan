@@ -18,8 +18,10 @@ import { useDragGhost } from './useDragGhost'
 import { loadPlayerCosmetics } from './cosmetics'
 import { CosmeticPortrait } from './CosmeticPortrait'
 import { canUseReroll, gameWordCellIndexes, REWARD_EFFECT_LIFETIME_MS, REWARD_STEP_MS } from './gameRules'
-import { startAdaptivePolling } from './adaptivePolling'
+import { startAdaptivePolling, type AdaptivePollingController } from './adaptivePolling'
 import { createMatchRackTiles, type RackTile } from './rackTiles'
+import { subscribeToMatchUpdates } from './matchRealtime'
+import { matchPollDelay } from './matchSyncPolicy'
 
 type Tile = RackTile
 type ScoreEffect = { id: string; kind: 'letter' | 'word'; label: string; owner: 'player' | 'bot'; cellIndex: number }
@@ -255,6 +257,10 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   const rerollTimer = useRef<number | null>(null)
   const opponentNameRef = useRef('Votre adversaire')
   const hintRequestingRef = useRef(false)
+  const pollingRef = useRef<AdaptivePollingController | null>(null)
+  const realtimeConnectedRef = useRef(false)
+  const unchangedPollsRef = useRef(0)
+  const syncFailuresRef = useRef(0)
   const loadedGridId = useRef<string | null>(null)
 
   const assignedToMe = match?.status === 'active' && match.currentPlayerId === playerId
@@ -399,8 +405,14 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     const sync = async () => {
       try {
         const next = await loadMatch(playerId, matchId, matchRef.current?.updatedAt)
-        if (!next) return
+        if (!next) {
+          unchangedPollsRef.current += 1
+          syncFailuresRef.current = 0
+          return
+        }
         if (!alive.current) return
+        unchangedPollsRef.current = 0
+        syncFailuresRef.current = 0
         applyMatchState(next)
         if (loadedGridId.current !== next.gridId) {
           // Online matches receive a sanitized board from the authoritative server:
@@ -419,21 +431,33 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
           setDisplayedScores(current => sameNumberRecord(current, next.scores) ? current : next.scores)
         }
       } catch (reason) {
+        syncFailuresRef.current += 1
         if (alive.current) setError(reason instanceof Error ? reason.message : 'Connexion interrompue')
       }
     }
-    const stopPolling = startAdaptivePolling({
+    const polling = startAdaptivePolling({
       task: sync,
-      delay: visibility => {
-        const current = matchRef.current
-        if (visibility === 'hidden') return current?.pace === 'async' ? 15_000 : 2_500
-        if (current?.status === 'finished') return 5_000
-        return current?.pace === 'async' ? 3_000 : 650
-      },
+      delay: visibility => matchPollDelay({
+        match: matchRef.current,
+        playerId,
+        visibility,
+        realtimeConnected: realtimeConnectedRef.current,
+        unchangedPolls: unchangedPollsRef.current,
+        failureCount: syncFailuresRef.current,
+      }),
+    })
+    pollingRef.current = polling
+    const unsubscribeRealtime = subscribeToMatchUpdates(matchId, updatedAt => {
+      const knownUpdatedAt = matchRef.current?.updatedAt
+      if (!updatedAt || !knownUpdatedAt || new Date(updatedAt).getTime() > new Date(knownUpdatedAt).getTime()) polling.wake()
+    }, status => {
+      realtimeConnectedRef.current = status === 'connected'
+      if (status === 'connected') polling.wake()
     })
     return () => {
       alive.current = false
-      stopPolling(); stopAnimationTimer()
+      pollingRef.current = null
+      unsubscribeRealtime(); polling.stop(); stopAnimationTimer()
       if (hintFlightTimer.current !== null) window.clearTimeout(hintFlightTimer.current)
       if (hintLandingTimer.current !== null) window.clearTimeout(hintLandingTimer.current)
       if (turnAlertTimer.current !== null) window.clearTimeout(turnAlertTimer.current)

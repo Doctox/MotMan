@@ -1,9 +1,9 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import {
-  ArrowLeft, Ban, BarChart3, Check, ChevronRight, Clock3, Copy, Gamepad2, Settings, Home, History,
+  AlertTriangle, ArrowLeft, Ban, BarChart3, Check, ChevronRight, Clock3, Copy, Gamepad2, Settings, Home, History,
   Hourglass, LogIn, Moon, Music2, Pencil, Play, Shield, Sun, Swords,
   Trophy, User, UserMinus, UserPlus, Users, Vibrate, Volume2, X, Menu as MenuIcon,
-  Feather, FileText, ShoppingBasket,
+  Feather, FileText, ShoppingBasket, Trash2,
 } from 'lucide-react'
 import './menu.css'
 import { assetUrl } from './assetUrl'
@@ -29,7 +29,7 @@ import { CosmeticPortrait } from './CosmeticPortrait'
 import { PLAYER_NAME_MAX_LENGTH, validatePlayerName } from './playerNamePolicy'
 import { startAdaptivePolling } from './adaptivePolling'
 import {
-  authenticateWithGoogle, createPlayerAccount, finishPlayerAccount, loginPlayerAccount, logoutPlayerAccount,
+  authenticateWithGoogle, createPlayerAccount, deletePlayerAccount, finishPlayerAccount, loginPlayerAccount, logoutPlayerAccount,
   consumePasswordRecovery, recoverPlayerAccount, subscribePasswordRecovery, updateServerProfile, type AuthResponse,
 } from './auth'
 
@@ -654,6 +654,8 @@ function AccountPanel({ identity, close, apply, notify }: {
   const [mode, setMode] = useState<AccountMode>('create')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [deleteConfirming, setDeleteConfirming] = useState(false)
+  const [deletePhrase, setDeletePhrase] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const dialogRef = useDialogFocus<HTMLFormElement>(close)
@@ -662,6 +664,13 @@ function AccountPanel({ identity, close, apply, notify }: {
     event.preventDefault()
     setBusy(true); setError(null)
     try {
+      if (deleteConfirming) {
+        const response = await deletePlayerAccount(deletePhrase)
+        apply(response)
+        notify('Compte et données supprimés · nouveau profil invité')
+        close()
+        return
+      }
       if (identity.accountType === 'account') {
         const response = await finishPlayerAccount(password)
         apply(response); notify('Mot de passe enregistré'); close(); return
@@ -681,6 +690,12 @@ function AccountPanel({ identity, close, apply, notify }: {
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : 'Opération impossible.')
     } finally { setBusy(false) }
+  }
+
+  const beginDeletion = () => {
+    setError(null)
+    setDeletePhrase('')
+    setDeleteConfirming(true)
   }
 
   const logout = async () => {
@@ -704,10 +719,19 @@ function AccountPanel({ identity, close, apply, notify }: {
 
   return <div className="mm-modal-layer" role="presentation" onMouseDown={event => event.target === event.currentTarget && close()}>
     <form ref={dialogRef} className="mm-guest-editor mm-account-panel" role="dialog" aria-modal="true" aria-label="Compte MotMan" tabIndex={-1} onSubmit={submit}>
-      <header><div><small>Progression sécurisée</small><h2>{identity.accountType === 'account' ? 'Votre compte' : mode === 'create' ? 'Créer mon compte' : mode === 'login' ? 'Me connecter' : 'Retrouver mon compte'}</h2></div><button type="button" onClick={close} aria-label="Fermer"><X /></button></header>
-      <button className="mm-google-auth" type="button" disabled={busy} onClick={() => void google()}><span aria-hidden="true">G</span>{identity.accountType === 'account' ? 'Lier mon compte Google' : 'Continuer avec Google'}</button>
-      <div className="mm-account-divider"><span>ou</span></div>
-      {identity.accountType === 'account' ? <>
+      <header><div><small>{deleteConfirming ? 'Compte et données' : 'Progression sécurisée'}</small><h2>{deleteConfirming ? 'Supprimer le compte' : identity.accountType === 'account' ? 'Votre compte' : mode === 'create' ? 'Créer mon compte' : mode === 'login' ? 'Me connecter' : 'Retrouver mon compte'}</h2></div><button type="button" onClick={close} aria-label="Fermer"><X /></button></header>
+      {deleteConfirming ? <>
+        <div className="mm-account-delete-warning"><AlertTriangle /><div><strong>Cette action est définitive</strong><p>Le profil, la progression, les plumes, la collection, les amis et les parties associées seront supprimés.</p></div></div>
+        <label htmlFor="account-delete-confirmation">Écrivez SUPPRIMER pour confirmer</label>
+        <input id="account-delete-confirmation" value={deletePhrase} autoComplete="off" autoCapitalize="characters" spellCheck={false} onChange={event => setDeletePhrase(event.target.value.toUpperCase())} />
+        {error ? <p className="mm-account-error" role="alert">{error}</p> : null}
+        <button className="mm-account-delete-confirm" type="submit" disabled={busy || deletePhrase !== 'SUPPRIMER'}><Trash2 />{busy ? 'Suppression…' : 'Supprimer définitivement'}</button>
+        <button className="mm-account-delete-cancel" type="button" disabled={busy} onClick={() => setDeleteConfirming(false)}>Annuler</button>
+        <a className="mm-account-delete-help" href={assetUrl('/legal/suppression-compte.html')} target="_blank" rel="noreferrer">Demander la suppression hors de l’application</a>
+      </> : <>
+        <button className="mm-google-auth" type="button" disabled={busy} onClick={() => void google()}><span aria-hidden="true">G</span>{identity.accountType === 'account' ? 'Lier mon compte Google' : 'Continuer avec Google'}</button>
+        <div className="mm-account-divider"><span>ou</span></div>
+        {identity.accountType === 'account' ? <>
         <div className="mm-account-current"><User /><span><strong>{identity.displayName}</strong><small>Synchronisé sur Android, Apple et PC</small></span></div>
         <label htmlFor="account-password">Définir ou changer le mot de passe</label>
         <input id="account-password" type="password" minLength={10} maxLength={128} value={password} autoComplete="new-password" onChange={event => setPassword(event.target.value)} />
@@ -715,7 +739,7 @@ function AccountPanel({ identity, close, apply, notify }: {
         {error ? <p className="mm-account-error" role="alert">{error}</p> : null}
         <button className="mm-save-guest" type="submit" disabled={busy || password.length < 10}>Enregistrer le mot de passe</button>
         <button className="mm-account-logout" type="button" disabled={busy} onClick={() => void logout()}>Se déconnecter</button>
-      </> : <>
+        </> : <>
         <div className="mm-account-tabs" role="tablist" aria-label="Accès au compte">
           <button type="button" className={mode === 'create' ? 'active' : ''} onClick={() => setMode('create')}>Créer</button>
           <button type="button" className={mode === 'login' ? 'active' : ''} onClick={() => setMode('login')}>Connexion</button>
@@ -728,6 +752,8 @@ function AccountPanel({ identity, close, apply, notify }: {
         {mode === 'recover' ? <p>Nous enverrons un lien sécurisé pour choisir un nouveau mot de passe.</p> : null}
         {error ? <p className="mm-account-error" role="alert">{error}</p> : null}
         <button className="mm-save-guest" type="submit" disabled={busy || !email.trim() || mode === 'login' && password.length < 10}>{busy ? 'Patientez…' : mode === 'create' ? 'Protéger ce profil' : mode === 'login' ? 'Se connecter' : 'Envoyer le lien'}</button>
+        </>}
+        <button className="mm-account-delete-entry" type="button" disabled={busy} onClick={beginDeletion}><Trash2 /><span>Supprimer {identity.accountType === 'account' ? 'mon compte' : 'ce profil invité'}</span></button>
       </>}
     </form>
   </div>
@@ -785,12 +811,12 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
       } finally { syncing = false }
     }
     void sync(true)
-    const stopPolling = startAdaptivePolling({
+    const polling = startAdaptivePolling({
       task: () => sync(false),
       delay: visibility => visibility === 'hidden' ? 20_000 : 5_000,
       immediate: false,
     })
-    return () => { active = false; stopPolling() }
+    return () => { active = false; polling.stop() }
   }, [identity.playerId, identity.displayName, cosmetics.equippedAvatarId, cosmetics.equippedFrameId, cosmetics.equippedAnimationId])
 
   useEffect(() => {
@@ -820,11 +846,11 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
         // Le menu reste disponible si le service de partie local est momentanément arrêté.
       } finally { syncing = false }
     }
-    const stopPolling = startAdaptivePolling({
+    const polling = startAdaptivePolling({
       task: sync,
       delay: visibility => visibility === 'hidden' ? pendingSearch ? 5_000 : 15_000 : pendingSearch ? 900 : 2_500,
     })
-    return () => { active = false; stopPolling() }
+    return () => { active = false; polling.stop() }
   }, [identity.playerId, onStartMatch, pendingSearch])
 
   const notify = useCallback((message: string) => {

@@ -250,12 +250,25 @@ test('une grille complète atteint l’écran final', async ({ browser, request 
   const { first, matchId } = await createNormalMatch(request, 'realtime', 'Complète')
   let match = await loadMatch(request, first.playerId, matchId)
 
+  let sawFinalSprint = false
   for (let turn = 0; turn < 40 && match.status === 'active'; turn += 1) {
     const placements = playablePlacements(match)
     expect(placements.length).toBeGreaterThan(0)
-    match = (await submitTurn(request, match, placements)).match
+    const solution = solutionFor(match.gridId)
+    const remainingBefore = [...solution.keys()].filter(index => !match.board[index]).length
+    const submitted = remainingBefore <= 6 ? placements.slice(0, 1) : placements
+    match = (await submitTurn(request, match, submitted)).match
+
+    const remaining = [...solution.entries()].filter(([index]) => !match.board[index]).map(([, letter]) => letter)
+    if (match.status === 'active' && remaining.length > 0 && remaining.length <= 5) {
+      sawFinalSprint = true
+      for (const playerId of match.playerIds) {
+        expect([...(match.racks[playerId] ?? [])].sort()).toEqual([...remaining].sort())
+      }
+    }
   }
 
+  expect(sawFinalSprint).toBe(true)
   expect(match.status).toBe('finished')
   expect(match.finishReason).toBe('completed')
   const result = await openGame(browser, first, matchId, { width: 390, height: 844 }, false)

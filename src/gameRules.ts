@@ -44,6 +44,7 @@ export type TurnEvaluation = {
 
 export const RACK_SIZE = 5
 export const RACK_COMPLETION_BONUS = 5
+export const FINAL_SPRINT_THRESHOLD = RACK_SIZE
 export const MAX_INACTIVITY_COUNT = 3
 export const REWARD_STEP_MS = 1_240
 export const REWARD_EFFECT_LIFETIME_MS = 1_180
@@ -173,6 +174,57 @@ export function replenishRackFromNeeds({
 export type SharedRackDraw = {
   rack: string[]
   letterBag: string[]
+}
+
+export type FinalSprintRacks = {
+  active: boolean
+  changed: boolean
+  racks: Record<string, string[]>
+}
+
+/**
+ * Gives both players the same final letters once only five cells remain.
+ *
+ * The regular match uses one shared bag. Near the end, that can leave the
+ * active player with an empty rack while the opponent owns the last useful
+ * occurrence. The final sprint deliberately duplicates the remaining board
+ * letters for both players, then keeps both racks synchronized as cells are
+ * confirmed. Five cells matches one full rack: both players can therefore
+ * attempt the whole final board instead of waiting for the opponent to release
+ * the only useful occurrences.
+ */
+export function prepareFinalSprintRacks({
+  remainingLetters,
+  playerIds,
+  racks,
+  threshold = FINAL_SPRINT_THRESHOLD,
+}: {
+  remainingLetters: readonly string[]
+  playerIds: readonly string[]
+  racks: Readonly<Record<string, readonly string[]>>
+  threshold?: number
+}): FinalSprintRacks {
+  if (remainingLetters.length === 0 || remainingLetters.length > Math.min(RACK_SIZE, Math.max(0, threshold))) {
+    return {
+      active: false,
+      changed: false,
+      racks: Object.fromEntries(Object.entries(racks).map(([playerId, rack]) => [playerId, [...rack]])),
+    }
+  }
+
+  const finalRack = [...remainingLetters]
+  const nextRacks: Record<string, string[]> = Object.fromEntries(
+    Object.entries(racks).map(([playerId, rack]) => [playerId, [...rack]]),
+  )
+  let changed = false
+
+  for (const playerId of playerIds) {
+    const current = racks[playerId] ?? []
+    if (current.length !== finalRack.length || current.some((letter, index) => letter !== finalRack[index])) changed = true
+    nextRacks[playerId] = [...finalRack]
+  }
+
+  return { active: true, changed, racks: nextRacks }
 }
 
 /**

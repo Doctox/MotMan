@@ -17,6 +17,8 @@ import {
   hintCandidates,
   isTurnSubmissionExpired,
   keepRackLettersAfterTurn,
+  prepareFinalSprintRacks,
+  RACK_SIZE,
   REWARD_STEP_MS,
   shouldForfeitAfterInactivity,
   type GameRuleGrid,
@@ -283,6 +285,22 @@ function ensureSharedLetterBag(match: StoredMatch): void {
   for (const playerId of match.playerIds) match.racks[playerId] = replenishRack(match, playerId, match.racks[playerId] ?? [])
 }
 
+function ensureFinalSprintRacks(match: StoredMatch): boolean {
+  if (match.status !== 'active') return false
+  const remainingLetters = [...gridSolution(gridForMatch(match)).entries()]
+    .flatMap(([index, letter]) => match.board[index] ? [] : [letter])
+  const finale = prepareFinalSprintRacks({
+    remainingLetters,
+    playerIds: match.playerIds,
+    racks: match.racks,
+  })
+  if (!finale.active) return false
+  const bagChanged = (match.letterBag?.length ?? 0) > 0
+  match.racks = finale.racks
+  match.letterBag = []
+  return finale.changed || bagChanged
+}
+
 function replenishRack(match: StoredMatch, playerId: string, current: string[], avoidLetters: Iterable<string> = []): string[] {
   ensureSharedLetterBag(match)
   const drawn = drawRackFromBag({
@@ -372,18 +390,18 @@ function startNextTurn(match: StoredMatch, completedAt: Date, turn: StoredTurn):
 
 function sanitizePlacements(match: StoredMatch, playerId: string, placements: unknown[]): Array<{ cellIndex: number; letter: string }> {
   const solution = gridSolution(gridForMatch(match))
-  const rack = match.racks[playerId] ?? []
-  const usedLetters = new Set<string>()
+  const rack = [...(match.racks[playerId] ?? [])]
   const usedCells = new Set<number>()
   const sanitized: Array<{ cellIndex: number; letter: string }> = []
-  for (const raw of placements) {
+  for (const raw of placements.slice(0, RACK_SIZE)) {
     if (!raw || typeof raw !== 'object') continue
     const cellIndex = Number((raw as Record<string, unknown>).cellIndex)
     const letter = typeof (raw as Record<string, unknown>).letter === 'string' ? String((raw as Record<string, unknown>).letter).toUpperCase().slice(0, 1) : ''
-    if (!Number.isInteger(cellIndex) || !solution.has(cellIndex) || match.board[cellIndex] || usedCells.has(cellIndex) || usedLetters.has(letter) || !rack.includes(letter)) continue
+    const rackIndex = rack.indexOf(letter)
+    if (!Number.isInteger(cellIndex) || !solution.has(cellIndex) || match.board[cellIndex] || usedCells.has(cellIndex) || rackIndex < 0) continue
     sanitized.push({ cellIndex, letter })
+    rack.splice(rackIndex, 1)
     usedCells.add(cellIndex)
-    usedLetters.add(letter)
   }
   return sanitized
 }
@@ -401,6 +419,7 @@ function applyPlayedTurn(match: StoredMatch, playerId: string, sanitized: Array<
   const usedCorrectLetters = new Set(evaluation.correctPlacements.map(item => item.letter))
   const retainedRack = keepRackLettersAfterTurn(rack, evaluation.correctPlacements)
   match.racks[playerId] = replenishRack(match, playerId, retainedRack, usedCorrectLetters)
+  ensureFinalSprintRacks(match)
   const turn: StoredTurn = {
     id: randomUUID(), kind: 'played', playerId, turnNumber: match.turnNumber,
     correct: evaluation.correctCells, wrong: evaluation.wrongCells, wrongPlacements: evaluation.wrongPlacements,
@@ -595,6 +614,10 @@ async function handleMatchRequest(request: IncomingMessage, response: ServerResp
     const matchId = route.slice('match/'.length)
     const match = database.matches.find(candidate => candidate.id === matchId && candidate.playerIds.includes(playerId))
     if (!match) return sendJson(response, 404, { error: 'Partie introuvable.' })
+    if (ensureFinalSprintRacks(match)) {
+      match.updatedAt = new Date().toISOString()
+      saveDatabase()
+    }
     if (url.searchParams.get('since') === match.updatedAt) return sendNoContent(response)
     return sendJson(response, 200, publicMatch(match))
   }
@@ -703,6 +726,10 @@ async function handleMatchRequest(request: IncomingMessage, response: ServerResp
   if (route !== 'turn') resolveExpired()
   let match = database.matches.find(candidate => candidate.id === matchId && candidate.playerIds.includes(playerId))
   if (!match) return sendJson(response, 404, { error: 'Partie introuvable.' })
+  if (ensureFinalSprintRacks(match)) {
+    match.updatedAt = new Date().toISOString()
+    saveDatabase()
+  }
   if (route === 'turn' && match.status === 'active' && isTurnSubmissionExpired(Date.now(), new Date(match.turnEndsAt).getTime(), TURN_SUBMIT_GRACE_MS)) {
     resolveExpired()
     match = database.matches.find(candidate => candidate.id === matchId && candidate.playerIds.includes(playerId))
@@ -745,7 +772,7 @@ async function handleMatchRequest(request: IncomingMessage, response: ServerResp
       const [left, right] = match.playerIds
       const winner = match.scores[left] === match.scores[right] ? null : match.scores[left] > match.scores[right] ? left : right
       finishMatch(match, winner, 'completed')
-    }
+    } else ensureFinalSprintRacks(match)
     saveDatabase()
     return sendJson(response, 200, publicMatch(match))
   }

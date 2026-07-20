@@ -1,7 +1,11 @@
-name: Deploy GitHub Pages
+name: Verify and deploy GitHub Pages
 
 on:
   push:
+    branches:
+      - main
+      - master
+  pull_request:
     branches:
       - main
       - master
@@ -9,16 +13,15 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  verify-and-build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,24 +35,89 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Build
+      - name: Check deployment configuration
+        if: github.event_name != 'pull_request'
+        shell: bash
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          if [[ -z "$VITE_SUPABASE_URL" || -z "$VITE_SUPABASE_PUBLISHABLE_KEY" ]]; then
+            echo "::error::Les variables VITE_SUPABASE_URL et VITE_SUPABASE_PUBLISHABLE_KEY sont obligatoires pour publier MotMan."
+            exit 1
+          fi
+          if [[ ! "$VITE_SUPABASE_URL" =~ ^https://[^/]+\.supabase\.co/?$ ]]; then
+            echo "::error::VITE_SUPABASE_URL n'est pas une URL de projet Supabase valide."
+            exit 1
+          fi
+
+      - name: Unit tests
+        run: npm run test:unit
+
+      - name: Validate the 7x8 catalog
+        run: npm run test:dimensions
+
+      - name: Build and audit private data
         run: npm run build
         env:
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
 
+      - name: Check runtime budgets
+        run: npm run test:performance
+
+      - name: Audit the GitHub Pages artifact
+        run: npm run audit:pages
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium webkit
+
+      - name: Complete-game tests on Chromium and WebKit
+        run: npm run test:e2e
+
+      - name: Upload Playwright diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-diagnostics-${{ github.run_attempt }}
+          path: |
+            output/playwright/results
+            playwright-report
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
   deploy:
-    needs: build
+    if: github.event_name != 'pull_request'
+    needs: verify-and-build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout deployment checks
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Smoke-test the published site
+        run: npm run smoke:deployment
+        env:
+          MOTMAN_DEPLOYMENT_URL: ${{ steps.deployment.outputs.page_url }}

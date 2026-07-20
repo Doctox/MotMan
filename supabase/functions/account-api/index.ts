@@ -149,7 +149,25 @@ Deno.serve(async request => {
   const action = typeof body.action === 'string' ? body.action : 'state'
 
   try {
-    if (action === 'bootstrap') {
+    if (action === 'delete-account') {
+      if (body.confirmation !== 'SUPPRIMER') return json(400, { error: 'Confirmation incorrecte.' })
+
+      // Remove every match containing the player before deleting the Auth user.
+      // Match state is stored as JSON, so the regular auth.users cascades cannot
+      // erase that personal data on their own.
+      const { error: prepareError } = await admin.rpc('server_prepare_account_deletion', { p_user_id: user.id })
+      if (prepareError) throw prepareError
+
+      // Revoke refresh tokens on every device before removing the identity.
+      // Existing access JWTs are short-lived, but all protected calls also
+      // resolve the user through Auth and are rejected after deleteUser.
+      const { error: signOutError } = await admin.auth.admin.signOut(token, 'global')
+      if (signOutError && ![401, 403, 404].includes(signOutError.status ?? 0)) throw signOutError
+
+      const { error: deleteError } = await admin.auth.admin.deleteUser(user.id)
+      if (deleteError) throw deleteError
+      return json(200, { deleted: true })
+    } else if (action === 'bootstrap') {
       const { data: profile } = await admin.from('profiles').select('legacy_imported_at').eq('id', user.id).single()
       if (profile && !profile.legacy_imported_at) {
         const identity = body.identity && typeof body.identity === 'object' ? body.identity as Record<string, unknown> : {}

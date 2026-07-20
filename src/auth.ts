@@ -31,6 +31,14 @@ function store(payload: AuthResponse): AuthResponse {
   return payload
 }
 
+function clearPlayerDataFromDevice(): void {
+  localStorage.removeItem('motman-player-v1')
+  localStorage.removeItem('motman-progress-v1')
+  localStorage.removeItem('motman-cosmetics-v1')
+  localStorage.removeItem('motman-recent-solo-grids-v4')
+  localStorage.removeItem('entrelignes-feedback')
+}
+
 async function accountAction(action: string, body: Record<string, unknown> = {}): Promise<AuthResponse> {
   return store(await invokeSupabaseFunction<AuthResponse>('account-api', { action, ...body }))
 }
@@ -123,10 +131,30 @@ export async function recoverPlayerAccount(email: string): Promise<void> {
 
 export async function logoutPlayerAccount(): Promise<GuestIdentity> {
   await supabase.auth.signOut()
-  localStorage.removeItem('motman-player-v1')
-  localStorage.removeItem('motman-progress-v1')
-  localStorage.removeItem('motman-cosmetics-v1')
+  clearPlayerDataFromDevice()
   return bootstrapPlayerSession()
+}
+
+export async function deletePlayerAccount(confirmation: string): Promise<AuthResponse> {
+  if (confirmation !== 'SUPPRIMER') throw new Error('Écrivez SUPPRIMER pour confirmer.')
+
+  if (localTestServer) {
+    const response = await fetch('/api/auth/delete', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ confirmation }),
+    })
+    const payload = await response.json().catch(() => ({})) as { error?: string }
+    if (!response.ok) throw new Error(payload.error ?? 'Suppression du compte impossible.')
+  } else {
+    await invokeSupabaseFunction<{ deleted: true }>('account-api', { action: 'delete-account', confirmation })
+    // The server has already revoked every refresh token and deleted the user.
+    // This local sign-out only clears Supabase's browser/native storage.
+    await supabase.auth.signOut({ scope: 'local' }).catch(() => undefined)
+  }
+
+  clearPlayerDataFromDevice()
+  const identity = await bootstrapPlayerSession()
+  return { identity }
 }
 
 export function updateServerProfile(displayName: string, avatarId: string, frameId: string, animationId: string, titleId: string | null): Promise<AuthResponse> {

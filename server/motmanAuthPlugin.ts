@@ -259,6 +259,23 @@ async function handleAuthRequest(request: IncomingMessage, response: ServerRespo
     return sendJson(response, 200, { ok: true })
   }
 
+  if (route === 'delete') {
+    const user = currentUser(request, response)
+    if (!user) return
+    if (body.confirmation !== 'SUPPRIMER') return sendJson(response, 400, { error: 'Confirmation incorrecte.' })
+
+    database.transaction(() => {
+      const matches = database.prepare('SELECT match_id FROM match_players WHERE user_id = ?').all(user.id) as Array<{ match_id: string }>
+      const removeMatch = database.prepare('DELETE FROM matches WHERE id = ?')
+      for (const match of matches) removeMatch.run(match.match_id)
+      database.prepare('UPDATE reports SET reviewed_by = NULL WHERE reviewed_by = ?').run(user.id)
+      database.prepare('UPDATE moderation_actions SET moderator_id = NULL WHERE moderator_id = ?').run(user.id)
+      database.prepare('DELETE FROM users WHERE id = ?').run(user.id)
+    })()
+    clearSessionCookie(request, response)
+    return sendJson(response, 200, { deleted: true })
+  }
+
   return sendJson(response, 404, { error: 'Action inconnue.' })
 }
 

@@ -43,6 +43,10 @@ assertBudget('Avatars actifs', avatarsTotal, limits.avatarsTotal)
 assertBudget('Dossier public', directorySize(resolve('public')), limits.publicAssetsTotal)
 
 const builtIndex = readFileSync(resolve('dist/index.html'), 'utf8')
-const entryMatch = builtIndex.match(/src="\/(assets\/index-[^"]+\.js)"/)
+const entryMatch = builtIndex.match(/<script[^>]+src="([^"]*\/assets\/index-[^"]+\.js)"/)
 if (!entryMatch) throw new Error('Entrée JavaScript du build introuvable')
-assertBudget('Entrée JavaScript', statSync(resolve('dist', entryMatch[1])).size, limits.entryJavaScript)
+const assetMarker = '/assets/'
+const assetOffset = entryMatch[1].indexOf(assetMarker)
+if (assetOffset < 0) throw new Error(`Chemin d'entrée JavaScript invalide : ${entryMatch[1]}`)
+const entryPath = entryMatch[1].slice(assetOffset + 1)
+assertBudget('Entrée JavaScript', statSync(resolve('dist', entryPath)).size, limits.entryJavaScript)

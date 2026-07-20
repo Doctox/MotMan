@@ -9,6 +9,7 @@ import {
   hintCandidates,
   isTurnSubmissionExpired,
   keepRackLettersAfterTurn,
+  prepareFinalSprintRacks,
   replenishRackFromNeeds,
   shouldForfeitAfterInactivity,
   type GameRuleGrid,
@@ -174,6 +175,40 @@ describe('indice et chevalet', () => {
     expect(evaluated.correctPlacements).toEqual([{ cellIndex: 0, letter: 'C' }])
     expect(evaluated.wrongPlacements).toEqual([{ cellIndex: 2, letter: 'A' }])
     expect(keepRackLettersAfterTurn(rackBefore, evaluated.correctPlacements)).toEqual(['A', 'B', 'D', 'E'])
+  })
+
+  it('duplique les cinq dernières lettres pour les deux joueurs', () => {
+    const finale = prepareFinalSprintRacks({
+      remainingLetters: ['F', 'I', 'N', 'A', 'L'],
+      playerIds: ['alex', 'lea'],
+      racks: { alex: [], lea: ['E'] },
+    })
+
+    expect(finale.active).toBe(true)
+    expect(finale.changed).toBe(true)
+    expect(finale.racks).toEqual({ alex: ['F', 'I', 'N', 'A', 'L'], lea: ['F', 'I', 'N', 'A', 'L'] })
+  })
+
+  it('ne déclenche pas la finale quand il reste six cases', () => {
+    const finale = prepareFinalSprintRacks({
+      remainingLetters: ['S', 'O', 'U', 'R', 'I', 'S'],
+      playerIds: ['alex', 'lea'],
+      racks: { alex: ['A'], lea: ['I', 'R'] },
+    })
+
+    expect(finale.active).toBe(false)
+    expect(finale.changed).toBe(false)
+    expect(finale.racks).toEqual({ alex: ['A'], lea: ['I', 'R'] })
+  })
+
+  it('resynchronise la finale après une lettre validée par l’adversaire', () => {
+    const finale = prepareFinalSprintRacks({
+      remainingLetters: ['I', 'N', 'A', 'L'],
+      playerIds: ['alex', 'lea'],
+      racks: { alex: ['F', 'I', 'N', 'A', 'L'], lea: ['F', 'I', 'N', 'A', 'L'] },
+    })
+
+    expect(finale.racks).toEqual({ alex: ['I', 'N', 'A', 'L'], lea: ['I', 'N', 'A', 'L'] })
   })
 
   it('limite chaque bonus à une utilisation et bloque la relance avec une lettre posée', () => {

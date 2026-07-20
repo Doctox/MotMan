@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { botThinkingDelayMs, createBotPersona, planBotMove, type BotSkill } from '../../../src/botOpponents.ts'
 import {
-  canUseHint, canUseReroll, drawRackFromBag, evaluateTurn, hintCandidates, keepRackLettersAfterTurn, REWARD_STEP_MS,
+  canUseHint, canUseReroll, drawRackFromBag, evaluateTurn, hintCandidates, keepRackLettersAfterTurn, prepareFinalSprintRacks, REWARD_STEP_MS,
   shouldForfeitAfterInactivity, type GameRuleGrid, type GameRuleWord,
 } from '../../../src/gameRules.ts'
 import { calculateFeatherReward } from '../../../src/progressionRewards.ts'
@@ -117,6 +117,19 @@ function refill(grid: GameRuleGrid, state: State, playerId: string, current: str
   })
   state.letterBag = drawn.letterBag
   return drawn.rack
+}
+
+function ensureFinalSprintRacks(grid: GameRuleGrid, state: State): boolean {
+  const finale = prepareFinalSprintRacks({
+    remainingLetters: neededLetters(grid, state.board),
+    playerIds: state.playerIds,
+    racks: state.racks,
+  })
+  if (!finale.active) return false
+  const bagChanged = (state.letterBag?.length ?? 0) > 0
+  state.racks = finale.racks
+  state.letterBag = []
+  return finale.changed || bagChanged
 }
 
 async function profile(admin: ReturnType<typeof createClient>, id: string) {
@@ -252,6 +265,7 @@ function applyTurn(row: MatchRow, grid: CatalogGrid, playerId: string, placement
   const correctLetters = new Set(evaluated.correctPlacements.map(item => item.letter))
   const current = keepRackLettersAfterTurn(state.racks[playerId] ?? [], evaluated.correctPlacements)
   state.racks[playerId] = refill(rules, state, playerId, current, correctLetters)
+  ensureFinalSprintRacks(rules, state)
   state.scores[playerId] = (state.scores[playerId] ?? 0) + evaluated.scoreGained
   if (evaluated.productive) state.productiveTurns[playerId] = (state.productiveTurns[playerId] ?? 0) + 1
   if (evaluated.rackBonus) {
@@ -413,7 +427,9 @@ Deno.serve(async request => {
     const resolveRow = async (row: MatchRow) => {
       if (row.status !== 'active') return row
       const grid = await getGrid(admin, row.grid_id)
-      const initializedBag = ensureSharedLetterBag(ruleGrid(grid), row.state)
+      const rules = ruleGrid(grid)
+      const initializedBag = ensureSharedLetterBag(rules, row.state)
+      const initializedFinale = ensureFinalSprintRacks(rules, row.state)
       if (row.state.bot?.playerId === row.current_player_id) {
         const delay = botThinkingDelayMs(`${row.id}:${row.turn_number}`)
         if (Date.now() >= new Date(row.turn_started_at).getTime() + delay) {
@@ -421,7 +437,7 @@ Deno.serve(async request => {
         }
       } else if (Date.now() >= new Date(row.turn_ends_at).getTime() + GRACE_MS) {
         timeoutTurn(row); row = await persist(admin, row); await awardFinished(admin, row)
-      } else if (initializedBag) row = await persist(admin, row)
+      } else if (initializedBag || initializedFinale) row = await persist(admin, row)
       return row
     }
 
@@ -570,7 +586,7 @@ Deno.serve(async request => {
         const [left, right] = row.state.playerIds
         const winner = row.state.scores[left] === row.state.scores[right] ? null : row.state.scores[left] > row.state.scores[right] ? left : right
         finish(row.state, row, winner, 'completed')
-      }
+      } else ensureFinalSprintRacks(ruleGrid(grid), row.state)
     } else if (action === 'reroll') {
       if (!canUseReroll({ alreadyUsed: Boolean(row.state.rerollUsed[user.id]), pendingPlacements: 0, hintActive: Boolean(row.state.hint) })) return json(409, { error: 'Le mélange n’est plus disponible.' })
       const currentRack = row.state.racks[user.id] ?? []

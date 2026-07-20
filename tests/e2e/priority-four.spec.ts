@@ -1,4 +1,5 @@
-import { expect, test } from '@playwright/test'
+import { expect, request as playwrightRequest, test } from '@playwright/test'
+import { randomUUID } from 'node:crypto'
 
 test('les informations légales restent lisibles sur mobile', async ({ page }, testInfo) => {
   await page.goto('/')
@@ -19,6 +20,49 @@ test('les informations légales restent lisibles sur mobile', async ({ page }, t
     .filter(url => url.includes('fonts.googleapis.com') || url.includes('fonts.gstatic.com')))
   expect(externalFonts).toEqual([])
   await page.screenshot({ path: `output/quality/p4-legal-${testInfo.project.name}.png`, fullPage: true })
+})
+
+test('la suppression de compte est visible, confirmée et disponible hors de l’app', async ({ page }, testInfo) => {
+  await page.goto('/')
+  await expect(page.locator('.mm-bottom-nav')).toBeVisible()
+  await page.getByRole('button', { name: 'Paramètres' }).click()
+  await page.getByRole('button', { name: /Créer ou retrouver un compte|Compte synchronisé/ }).click()
+
+  const account = page.getByRole('dialog', { name: 'Compte MotMan' })
+  await expect(account).toBeVisible()
+  await account.getByRole('button', { name: /Supprimer (mon compte|ce profil invité)/ }).click()
+  await expect(account.getByRole('heading', { name: 'Supprimer le compte' })).toBeVisible()
+  const finalDelete = account.getByRole('button', { name: 'Supprimer définitivement' })
+  await expect(finalDelete).toBeDisabled()
+  await account.getByLabel('Écrivez SUPPRIMER pour confirmer').fill('SUPPRIMER')
+  await expect(finalDelete).toBeEnabled()
+  await expect(account.getByRole('link', { name: 'Demander la suppression hors de l’application' })).toHaveAttribute('href', /legal\/suppression-compte\.html$/)
+  await page.screenshot({ path: `output/quality/account-deletion-${testInfo.project.name}.png`, fullPage: false })
+
+  const deletionPage = await page.context().newPage()
+  await deletionPage.goto('/legal/suppression-compte.html')
+  await expect(deletionPage.getByRole('heading', { name: 'Supprimer votre compte' })).toBeVisible()
+  await expect(deletionPage.getByRole('link', { name: 'Demander la suppression par e-mail' })).toHaveAttribute('href', /^mailto:docteurtox@gmail\.com/)
+})
+
+test('l’API locale supprime le profil et révoque sa session', async () => {
+  const api = await playwrightRequest.newContext({
+    baseURL: 'http://127.0.0.1:4175',
+    extraHTTPHeaders: { Origin: 'http://127.0.0.1:4175' },
+  })
+  const playerId = `guest_${randomUUID()}`
+  const bootstrap = await api.post('/api/auth/bootstrap', { data: { identity: { playerId, displayName: 'Suppression QA' } } })
+  expect(bootstrap.ok()).toBe(true)
+
+  const refused = await api.post('/api/auth/delete', { data: { confirmation: 'NON' } })
+  expect(refused.status()).toBe(400)
+  expect((await api.get('/api/auth/session')).ok()).toBe(true)
+
+  const deleted = await api.post('/api/auth/delete', { data: { confirmation: 'SUPPRIMER' } })
+  expect(deleted.ok()).toBe(true)
+  expect(await deleted.json()).toEqual({ deleted: true })
+  expect((await api.get('/api/auth/session')).status()).toBe(401)
+  await api.dispose()
 })
 
 test('L’Épicerie ne monte que les animations visibles', async ({ page }, testInfo) => {

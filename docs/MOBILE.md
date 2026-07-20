@@ -35,4 +35,8 @@ sous Windows mais doit être compilé et signé sur un Mac.
 2. Générer les icônes, le splash screen et les captures de boutique définitifs.
 3. Renseigner l’identité légale et le contact de l’éditeur dans les documents.
 4. Tester Google, e-mail, liens profonds et récupération sur les deux plateformes.
-5. Créer les certificats, profils de signature et fiches Play Store/App Store.
+5. Dans Google Play Console, renseigner comme URL de suppression du compte :
+   `https://doctox.github.io/MotMan/legal/suppression-compte.html`.
+6. Vérifier la suppression depuis Paramètres → Compte avec un compte de test :
+   progression, collection, amis, parties et sessions doivent disparaître.
+7. Créer les certificats, profils de signature et fiches Play Store/App Store.

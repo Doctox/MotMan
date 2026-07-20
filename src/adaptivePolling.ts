@@ -6,11 +6,16 @@ type AdaptivePollingOptions = {
   immediate?: boolean
 }
 
+export type AdaptivePollingController = {
+  stop: () => void
+  wake: () => void
+}
+
 /**
  * Runs one request at a time and adapts its cadence when the app is hidden.
  * Becoming visible or coming back online triggers an immediate refresh.
  */
-export function startAdaptivePolling({ task, delay, immediate = true }: AdaptivePollingOptions): () => void {
+export function startAdaptivePolling({ task, delay, immediate = true }: AdaptivePollingOptions): AdaptivePollingController {
   let stopped = false
   let running = false
   let runAgain = false
@@ -65,10 +70,12 @@ export function startAdaptivePolling({ task, delay, immediate = true }: Adaptive
   if (immediate) void run()
   else schedule()
 
-  return () => {
+  const stop = () => {
     stopped = true
     clearTimer()
     document.removeEventListener('visibilitychange', wake)
     window.removeEventListener('online', wake)
   }
+
+  return { stop, wake }
 }

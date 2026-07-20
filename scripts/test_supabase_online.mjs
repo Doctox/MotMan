@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createClient } from '@supabase/supabase-js'
+import WebSocket from 'ws'
 
 async function readEnvironment() {
   const source = await readFile(new URL('../.env.local', import.meta.url), 'utf8')
@@ -17,7 +18,10 @@ assert.ok(url && key, 'Configuration Supabase absente de .env.local')
 const runtimeCatalog = JSON.parse(await readFile(new URL('../src/data/runtime.grid.catalog.json', import.meta.url), 'utf8'))
 
 function sessionClient() {
-  return createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } })
+  return createClient(url, key, {
+    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+    realtime: { transport: WebSocket },
+  })
 }
 
 async function createPlayer() {
@@ -37,6 +41,24 @@ async function invoke(player, name, body, expectedStatus = 200) {
   const payload = await response.json().catch(() => ({}))
   assert.equal(response.status, expectedStatus, `${name}/${body.action}: ${response.status} ${JSON.stringify(payload)}`)
   return payload
+}
+
+function matchBroadcastProbe(client, matchId) {
+  let resolveEvent
+  let rejectEvent
+  const event = new Promise((resolve, reject) => { resolveEvent = resolve; rejectEvent = reject })
+  const ready = new Promise((resolve, reject) => {
+    const channel = client
+      .channel(`match:${matchId}`, { config: { private: true } })
+      .on('broadcast', { event: 'changed' }, message => resolveEvent(message.payload))
+      .subscribe((status, error) => {
+        if (status === 'SUBSCRIBED') resolve(channel)
+        else if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT' || status === 'CLOSED') reject(new Error(`Realtime ${status}: ${error?.message ?? 'sans détail'}`))
+      })
+    setTimeout(() => reject(new Error('Connexion Realtime trop lente')), 8_000)
+  })
+  setTimeout(() => rejectEvent(new Error('Aucun signal Realtime reçu')), 8_000)
+  return { ready, event }
 }
 
 const [alice, bob] = await Promise.all([createPlayer(), createPlayer()])
@@ -169,9 +191,21 @@ for (const [letter, count] of dealtCounts) {
   assert.ok(count <= (neededCounts.get(letter) ?? 0), `Le sac a distribuÃ© trop de ${letter} (${count})`)
 }
 
+// The private Realtime channel carries only a wake-up pulse. Alice must receive
+// it when Bob changes their shared match; the authoritative state remains in
+// match-api and is deliberately absent from the payload.
+const realtimeProbe = matchBroadcastProbe(alice.client, friendMatchId)
+const realtimeChannel = await realtimeProbe.ready
+
 // Bob abandons while Alice owns the turn. This must remain possible in an
 // asynchronous game, but an instant arranged forfeit must not mint rewards.
 const friendForfeit = await invoke(bob, 'match-api', { action: 'forfeit', matchId: friendMatchId })
+const realtimePulse = await realtimeProbe.event
+assert.equal(typeof realtimePulse.updatedAt, 'string', 'Le signal Realtime ne contient pas la version de partie')
+for (const privateKey of ['state', 'racks', 'board', 'scores', 'grid', 'solution']) {
+  assert.equal(privateKey in realtimePulse, false, `Le signal Realtime a exposé ${privateKey}`)
+}
+await alice.client.removeChannel(realtimeChannel)
 assert.equal(friendForfeit.match.status, 'finished')
 const [aliceAfterFriend, bobAfterFriend] = await Promise.all([
   invoke(alice, 'account-api', { action: 'state' }),
@@ -186,9 +220,19 @@ assert.equal(bobFriendAward.plumesEarned, 0)
 assert.equal(aliceAfterFriend.progress.wins, 1, 'Un abandon adverse doit compter comme une victoire')
 assert.equal(bobAfterFriend.progress.losses, 1, 'Le joueur qui abandonne doit enregistrer une défaite')
 
+// Account deletion must remove the Auth identity, associated application data
+// and every session. These test users are intentionally deleted at the end so
+// the online QA suite does not pollute the production project.
+const bobDeleted = await invoke(bob, 'account-api', { action: 'delete-account', confirmation: 'SUPPRIMER' })
+assert.equal(bobDeleted.deleted, true)
+await invoke(bob, 'account-api', { action: 'state' }, 401)
+const aliceDeleted = await invoke(alice, 'account-api', { action: 'delete-account', confirmation: 'SUPPRIMER' })
+assert.equal(aliceDeleted.deleted, true)
+await invoke(alice, 'account-api', { action: 'state' }, 401)
+
 console.log(JSON.stringify({
   status: 'ok', matchId: match.id, dimensions: `${match.grid.columns}x${match.grid.rows}`,
   privacy: 'solutions et chevalet adverse masqués', authority: 'score et récompense serveur', moderation: 'signalement accepté',
-  multiplayer: 'deux sessions isolées, abandon hors-tour et anti-farming validés',
-  content: 'rotation des 12 dernières grilles, avis et popularité serveur validés',
+  multiplayer: 'deux sessions isolées, Realtime privé, abandon hors-tour et anti-farming validés',
+  content: 'rotation des 12 dernières grilles, avis et popularité serveur validés', accountDeletion: 'données supprimées et sessions révoquées',
 }, null, 2))
