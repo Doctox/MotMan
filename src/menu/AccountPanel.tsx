@@ -5,6 +5,7 @@ import {
   authenticateWithGoogle, createPlayerAccount, deletePlayerAccount, finishPlayerAccount,
   loginPlayerAccount, logoutPlayerAccount, recoverPlayerAccount, type AuthResponse,
 } from '../auth'
+import type { GoogleAuthIssue } from '../googleAuthCallback'
 import type { GuestIdentity } from '../playerIdentity'
 import { loadPlayerCosmetics } from '../cosmetics'
 import { loadPlayerProgress } from '../playerProgress'
@@ -12,11 +13,13 @@ import { useDialogFocus } from '../useDialogFocus'
 
 type AccountMode = 'create' | 'login' | 'recover'
 
-export function AccountPanel({ identity, close, apply, notify }: {
+export function AccountPanel({ identity, close, apply, notify, googleAuthIssue, dismissGoogleAuthIssue }: {
   identity: GuestIdentity
   close: () => void
   apply: (response: AuthResponse) => void
   notify: (message: string) => void
+  googleAuthIssue?: GoogleAuthIssue | null
+  dismissGoogleAuthIssue?: () => void
 }) {
   const [mode, setMode] = useState<AccountMode>('create')
   const [email, setEmail] = useState('')
@@ -75,9 +78,10 @@ export function AccountPanel({ identity, close, apply, notify }: {
     finally { setBusy(false) }
   }
 
-  const google = async () => {
+  const google = async (googleMode: 'link' | 'sign-in') => {
     setBusy(true); setError(null)
-    try { await authenticateWithGoogle() }
+    dismissGoogleAuthIssue?.()
+    try { await authenticateWithGoogle(googleMode) }
     catch (reason) {
       setError(reason instanceof Error ? reason.message : 'Connexion Google indisponible.')
       setBusy(false)
@@ -86,7 +90,7 @@ export function AccountPanel({ identity, close, apply, notify }: {
 
   return <div className="mm-modal-layer" role="presentation" onMouseDown={event => event.target === event.currentTarget && close()}>
     <form ref={dialogRef} className="mm-guest-editor mm-account-panel" role="dialog" aria-modal="true" aria-label="Compte MotMan" tabIndex={-1} onSubmit={submit}>
-      <header><div><small>{deleteConfirming ? 'Compte et données' : 'Progression sécurisée'}</small><h2>{deleteConfirming ? 'Supprimer le compte' : identity.accountType === 'account' ? 'Votre compte' : mode === 'create' ? 'Créer mon compte' : mode === 'login' ? 'Me connecter' : 'Retrouver mon compte'}</h2></div><button type="button" onClick={close} aria-label="Fermer"><X /></button></header>
+      <header><div><small>{deleteConfirming ? 'Compte et données' : 'Progression sécurisée'}</small><h2>{deleteConfirming ? 'Supprimer le compte' : googleAuthIssue?.kind === 'identity-already-linked' ? 'Reprendre mon compte' : identity.accountType === 'account' ? 'Votre compte' : mode === 'create' ? 'Créer mon compte' : mode === 'login' ? 'Me connecter' : 'Retrouver mon compte'}</h2></div><button type="button" onClick={close} aria-label="Fermer"><X /></button></header>
       {deleteConfirming ? <>
         <div className="mm-account-delete-warning"><AlertTriangle /><div><strong>Cette action est définitive</strong><p>Le profil, la progression, les plumes, la collection, les amis et les parties associées seront supprimés.</p></div></div>
         <label htmlFor="account-delete-confirmation">Écrivez SUPPRIMER pour confirmer</label>
@@ -96,7 +100,14 @@ export function AccountPanel({ identity, close, apply, notify }: {
         <button className="mm-account-delete-cancel" type="button" disabled={busy} onClick={() => setDeleteConfirming(false)}>Annuler</button>
         <a className="mm-account-delete-help" href={assetUrl('/legal/suppression-compte.html')} target="_blank" rel="noreferrer">Demander la suppression hors de l’application</a>
       </> : <>
-        <button className="mm-google-auth" type="button" disabled={busy} onClick={() => void google()}><span aria-hidden="true">G</span>{identity.accountType === 'account' ? 'Lier mon compte Google' : 'Continuer avec Google'}</button>
+        {googleAuthIssue?.kind === 'identity-already-linked' ? <div className="mm-google-account-conflict" role="alert">
+          <strong>Compte Google retrouvé</strong>
+          <p>Ce compte Google possède déjà une progression MotMan. Vous pouvez la reprendre sans écraser ce profil invité.</p>
+          <button type="button" disabled={busy} onClick={() => void google('sign-in')}><span aria-hidden="true">G</span>Reprendre mon compte Google</button>
+        </div> : null}
+        {googleAuthIssue?.kind === 'oauth-error' ? <p className="mm-account-error" role="alert">{googleAuthIssue.message}</p> : null}
+        {googleAuthIssue?.kind !== 'identity-already-linked' ? <button className="mm-google-auth" type="button" disabled={busy} onClick={() => void google('link')}><span aria-hidden="true">G</span>{identity.accountType === 'account' ? 'Lier mon compte Google' : 'Protéger ce profil avec Google'}</button> : null}
+        {identity.accountType === 'guest' && googleAuthIssue?.kind !== 'identity-already-linked' ? <button className="mm-google-existing-account" type="button" disabled={busy} onClick={() => void google('sign-in')}>J’ai déjà un compte Google</button> : null}
         <div className="mm-account-divider"><span>ou</span></div>
         {identity.accountType === 'account' ? <>
         <div className="mm-account-current"><User /><span><strong>{identity.displayName}</strong><small>Synchronisé sur Android, Apple et PC</small></span></div>

@@ -1,8 +1,9 @@
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import './menu.css'
 import {
-  consumePasswordRecovery, subscribePasswordRecovery, updateServerProfile, type AuthResponse,
+  clearGoogleAuthIssue, consumePasswordRecovery, currentGoogleAuthIssue, subscribePasswordRecovery, updateServerProfile, type AuthResponse,
 } from './auth'
+import type { GoogleAuthIssue } from './googleAuthCallback'
 import { startAdaptivePolling } from './adaptivePolling'
 import { loadPlayerCosmetics, type PlayerCosmetics } from './cosmetics'
 import {
@@ -56,6 +57,7 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
   const [settings, setSettings] = useState(false)
   const [legalOpen, setLegalOpen] = useState(false)
   const [accountOpen, setAccountOpen] = useState(false)
+  const [googleAuthIssue, setGoogleAuthIssue] = useState<GoogleAuthIssue | null>(currentGoogleAuthIssue)
   const [friendsOpen, setFriendsOpen] = useState(false)
   const [editingGuest, setEditingGuest] = useState(false)
   const [identity, setIdentity] = useState<GuestIdentity>(loadPlayerIdentity)
@@ -80,6 +82,18 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
     window.addEventListener('motman:cosmetics', syncCosmetics)
     return () => window.removeEventListener('motman:cosmetics', syncCosmetics)
   }, [identity.playerId])
+
+  useEffect(() => {
+    const syncIdentity = (event: Event) => {
+      const next = (event as CustomEvent<GuestIdentity>).detail
+      if (!next?.playerId) return
+      setIdentity(next)
+      setProgress(loadPlayerProgress(next.playerId))
+      setCosmetics(loadPlayerCosmetics(next.playerId))
+    }
+    window.addEventListener('motman:identity', syncIdentity)
+    return () => window.removeEventListener('motman:identity', syncIdentity)
+  }, [])
 
   useEffect(() => () => {
     if (toastTimer.current !== null) window.clearTimeout(toastTimer.current)
@@ -149,6 +163,12 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
       toastTimer.current = null
     }, 2350)
   }, [])
+
+  useEffect(() => {
+    if (!googleAuthIssue) return
+    setAccountOpen(true)
+    notify(googleAuthIssue.message)
+  }, [googleAuthIssue, notify])
 
   useEffect(() => subscribePasswordRecovery(() => {
     if (!consumePasswordRecovery()) return
@@ -255,7 +275,7 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
     {quickMenu ? <QuickMenu page={page} navigate={navigate} close={() => setQuickMenu(false)} /> : null}
     {settings ? <SettingsPanel identity={identity} close={() => setSettings(false)} openAccount={() => { setSettings(false); setAccountOpen(true) }} openFriends={() => { setSettings(false); setFriendsOpen(true) }} openLegal={() => { setSettings(false); setLegalOpen(true) }} theme={theme} setTheme={setTheme} /> : null}
     {legalOpen ? <Suspense fallback={null}><LazyLegalPanel close={() => setLegalOpen(false)} /></Suspense> : null}
-    {accountOpen ? <AccountPanel identity={identity} close={() => setAccountOpen(false)} apply={applyAuthenticatedState} notify={notify} /> : null}
+    {accountOpen ? <AccountPanel identity={identity} close={() => setAccountOpen(false)} apply={applyAuthenticatedState} notify={notify} googleAuthIssue={googleAuthIssue} dismissGoogleAuthIssue={() => { clearGoogleAuthIssue(); setGoogleAuthIssue(null) }} /> : null}
     {friendsOpen ? <FriendsPanel identity={identity} social={social} setSocial={setSocial} close={() => setFriendsOpen(false)} notify={notify} /> : null}
     {editingGuest ? <EditGuestPanel identity={identity} progress={progress} cosmetics={cosmetics} close={() => setEditingGuest(false)} save={saveGuestProfile} /> : null}
     {matchLobby.incoming[0] ? <MatchInvitationPanel invitation={matchLobby.incoming[0]} busy={matchBusy} accept={() => void answerInvitation(matchLobby.incoming[0].id, 'accept')} decline={() => void answerInvitation(matchLobby.incoming[0].id, 'decline')} /> : null}

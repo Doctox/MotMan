@@ -1,5 +1,6 @@
 import { supabase } from './supabaseClient'
 import { NATIVE_AUTH_REDIRECT } from './nativeRuntime'
+import { parseGoogleAuthIssue, rememberGoogleAuthIssue } from './googleAuthCallback'
 
 let initialization: Promise<void> | null = null
 let lastHandledUrl = ''
@@ -9,9 +10,15 @@ async function handleAuthenticationUrl(url: string): Promise<void> {
   lastHandledUrl = url
 
   const callback = new URL(url)
-  const errorDescription = callback.searchParams.get('error_description')
-    ?? callback.searchParams.get('error')
-  if (errorDescription) throw new Error(errorDescription)
+  const authIssue = parseGoogleAuthIssue(callback.search, callback.hash)
+  if (authIssue) {
+    rememberGoogleAuthIssue(sessionStorage, authIssue)
+    const { Browser } = await import('@capacitor/browser')
+    await Browser.close().catch(() => undefined)
+    location.hash = '#profil'
+    location.reload()
+    return
+  }
 
   const code = callback.searchParams.get('code')
   if (!code) return

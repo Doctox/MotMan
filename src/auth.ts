@@ -5,9 +5,11 @@ import { supabase, supabaseConfigured } from './supabaseClient'
 import { invokeSupabaseFunction } from './supabaseFunctions'
 import { isNativeRuntime, NATIVE_AUTH_REDIRECT, openNativeAuthentication } from './nativeRuntime'
 import { getAnonymousCaptchaToken } from './turnstile'
+import { parseGoogleAuthIssue, takeRememberedGoogleAuthIssue, type GoogleAuthIssue } from './googleAuthCallback'
 
 const recoveryListeners = new Set<() => void>()
 let passwordRecoveryPending = false
+let googleAuthIssuePending: GoogleAuthIssue | null = null
 const localTestServer = import.meta.env.VITE_MOTMAN_LOCAL_TEST_SERVER === 'true'
 
 if (supabaseConfigured) {
@@ -26,9 +28,9 @@ export type AuthResponse = {
 }
 
 function store(payload: AuthResponse): AuthResponse {
-  savePlayerIdentity(payload.identity)
   if (payload.progress) savePlayerProgress(payload.progress)
   if (payload.cosmetics) savePlayerCosmetics(payload.cosmetics)
+  savePlayerIdentity(payload.identity)
   return payload
 }
 
@@ -45,6 +47,11 @@ async function accountAction(action: string, body: Record<string, unknown> = {})
 }
 
 export async function bootstrapPlayerSession(): Promise<GuestIdentity> {
+  googleAuthIssuePending = parseGoogleAuthIssue(location.search, location.hash)
+    ?? takeRememberedGoogleAuthIssue(sessionStorage)
+  if (googleAuthIssuePending) {
+    history.replaceState(null, '', `${location.pathname}#profil`)
+  }
   const legacyIdentity = loadPlayerIdentity()
   if (localTestServer) {
     const response = await fetch('/api/auth/bootstrap', {
@@ -69,6 +76,14 @@ export async function bootstrapPlayerSession(): Promise<GuestIdentity> {
 
 export function refreshPlayerAccount(): Promise<AuthResponse> {
   return accountAction('state')
+}
+
+export function currentGoogleAuthIssue(): GoogleAuthIssue | null {
+  return googleAuthIssuePending
+}
+
+export function clearGoogleAuthIssue(): void {
+  googleAuthIssuePending = null
 }
 
 export function subscribePasswordRecovery(listener: () => void): () => void {
@@ -117,15 +132,16 @@ export async function loginPlayerAccount(email: string, password: string): Promi
   return account
 }
 
-export async function authenticateWithGoogle(): Promise<void> {
+export async function authenticateWithGoogle(mode: 'link' | 'sign-in' = 'link'): Promise<void> {
   if (!supabaseConfigured) {
     throw new Error('Connexion Google indisponible. Redémarrez MotMan puis réessayez.')
   }
   const native = isNativeRuntime()
   const redirectTo = native ? NATIVE_AUTH_REDIRECT : `${location.origin}${location.pathname}#profil`
-  const { data: { user } } = await supabase.auth.getUser()
   const options = { redirectTo, skipBrowserRedirect: native }
-  const { data, error } = user?.is_anonymous
+  const { data: { user } } = await supabase.auth.getUser()
+  const shouldLink = mode === 'link' && user?.is_anonymous === true
+  const { data, error } = shouldLink
     ? await supabase.auth.linkIdentity({ provider: 'google', options })
     : await supabase.auth.signInWithOAuth({ provider: 'google', options })
   if (error) throw new Error(error.message)
