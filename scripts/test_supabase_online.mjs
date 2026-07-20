@@ -88,6 +88,14 @@ assert.ok(match.grid.cells.every(cell => cell.kind !== 'letter' || cell.solution
 assert.deepEqual(Object.keys(match.racks), [alice.user.id], 'Le client a reçu un chevalet adverse')
 assert.equal(match.racks[match.bot.playerId], undefined)
 
+const staleMutation = await invoke(alice, 'match-api', {
+  action: 'reroll', matchId: match.id, knownUpdatedAt: '1970-01-01T00:00:00.000Z',
+}, 409)
+assert.equal(staleMutation.code, 'match_state_conflict', 'Le conflit optimiste doit être identifiable côté client')
+assert.equal(staleMutation.conflict, true)
+assert.equal(staleMutation.match.id, match.id)
+assert.equal(staleMutation.match.updatedAt, match.updatedAt, 'Le conflit doit transporter l’état serveur courant')
+
 await invoke(bob, 'match-api', { action: 'match', matchId: match.id }, 404)
 const directCatalog = await fetch(`${url}/rest/v1/server_grid_catalog?select=id&limit=1`, {
   headers: { apikey: key, Authorization: `Bearer ${alice.token}` },
@@ -233,6 +241,7 @@ await invoke(alice, 'account-api', { action: 'state' }, 401)
 console.log(JSON.stringify({
   status: 'ok', matchId: match.id, dimensions: `${match.grid.columns}x${match.grid.rows}`,
   privacy: 'solutions et chevalet adverse masqués', authority: 'score et récompense serveur', moderation: 'signalement accepté',
+  concurrency: 'conflit de version 409 contrôlé avec état courant',
   multiplayer: 'deux sessions isolées, Realtime privé, abandon hors-tour et anti-farming validés',
   content: 'rotation des 12 dernières grilles, avis et popularité serveur validés', accountDeletion: 'données supprimées et sessions révoquées',
 }, null, 2))

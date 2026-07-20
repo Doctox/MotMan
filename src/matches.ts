@@ -148,28 +148,28 @@ export async function loadMatch(playerId: string, matchId: string, knownUpdatedA
   return remote.unchanged ? null : remote.match ?? null
 }
 
-export async function playMatchTurn(playerId: string, matchId: string, turnNumber: number, placements: Array<{ cellIndex: number; letter: string }>, automatic = false): Promise<{ match: MatchState; result: MatchTurn }> {
-  if (localTestServer) return localMatch('turn', { playerId, matchId, turnNumber, placements, automatic })
+export async function playMatchTurn(playerId: string, matchId: string, turnNumber: number, placements: Array<{ cellIndex: number; letter: string }>, automatic = false, knownUpdatedAt?: string): Promise<{ match: MatchState; result: MatchTurn }> {
+  if (localTestServer) return localMatch('turn', { playerId, matchId, turnNumber, placements, automatic, knownUpdatedAt })
   void playerId
-  return supabaseMatch<{ match: MatchState; result: MatchTurn }>('turn', { matchId, turnNumber, placements, automatic })
+  return supabaseMatch<{ match: MatchState; result: MatchTurn }>('turn', { matchId, turnNumber, placements, automatic, knownUpdatedAt })
 }
 
-export async function requestMatchHint(playerId: string, matchId: string): Promise<MatchState> {
-  if (localTestServer) return localMatch('hint', { playerId, matchId })
+export async function requestMatchHint(playerId: string, matchId: string, knownUpdatedAt?: string): Promise<MatchState> {
+  if (localTestServer) return localMatch('hint', { playerId, matchId, knownUpdatedAt })
   void playerId
-  return (await supabaseMatch<{ match: MatchState }>('hint', { matchId })).match
+  return (await supabaseMatch<{ match: MatchState }>('hint', { matchId, knownUpdatedAt })).match
 }
 
-export async function rerollMatchRack(playerId: string, matchId: string): Promise<MatchState> {
-  if (localTestServer) return localMatch('reroll', { playerId, matchId })
+export async function rerollMatchRack(playerId: string, matchId: string, knownUpdatedAt?: string): Promise<MatchState> {
+  if (localTestServer) return localMatch('reroll', { playerId, matchId, knownUpdatedAt })
   void playerId
-  return (await supabaseMatch<{ match: MatchState }>('reroll', { matchId })).match
+  return (await supabaseMatch<{ match: MatchState }>('reroll', { matchId, knownUpdatedAt })).match
 }
 
-export async function forfeitMatch(playerId: string, matchId: string): Promise<MatchState> {
-  if (localTestServer) return localMatch('forfeit', { playerId, matchId })
+export async function forfeitMatch(playerId: string, matchId: string, knownUpdatedAt?: string): Promise<MatchState> {
+  if (localTestServer) return localMatch('forfeit', { playerId, matchId, knownUpdatedAt })
   void playerId
-  return (await supabaseMatch<{ match: MatchState }>('forfeit', { matchId })).match
+  return (await supabaseMatch<{ match: MatchState }>('forfeit', { matchId, knownUpdatedAt })).match
 }
 
 export async function submitMatchGridFeedback(playerId: string, matchId: string, quality: 'yes' | 'no', reason?: string): Promise<void> {

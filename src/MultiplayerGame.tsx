@@ -22,6 +22,7 @@ import { startAdaptivePolling, type AdaptivePollingController } from './adaptive
 import { createMatchRackTiles, type RackTile } from './rackTiles'
 import { subscribeToMatchUpdates } from './matchRealtime'
 import { matchPollDelay } from './matchSyncPolicy'
+import { matchStateFromConflict } from './matchConflict'
 
 type Tile = RackTile
 type ScoreEffect = { id: string; kind: 'letter' | 'word'; label: string; owner: 'player' | 'bot'; cellIndex: number }
@@ -399,6 +400,38 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     }
   }
 
+  const acceptRemoteSnapshot = (next: MatchState) => {
+    if (!alive.current) return
+    unchangedPollsRef.current = 0
+    syncFailuresRef.current = 0
+    applyMatchState(next)
+    if (loadedGridId.current !== next.gridId) {
+      // Online matches receive a sanitized board from the authoritative server:
+      // clues and word geometry are present, answers and cell solutions are not.
+      if (!next.grid) throw new Error('Le serveur n’a pas transmis la grille publique de cette partie.')
+      loadedGridId.current = next.gridId
+      setGrid(next.grid)
+    }
+    setError(null)
+    if (next.lastTurn && next.lastTurn.id !== seenTurn.current) {
+      seenTurn.current = next.lastTurn.id
+      animateTurn(next.lastTurn, next.lastTurn.playerId === playerId ? 'player' : 'bot', next.scores, next.status === 'active' ? new Date(next.turnStartedAt).getTime() : null)
+    } else if (!resolvingRef.current) {
+      setDisplayedScores(current => sameNumberRecord(current, next.scores) ? current : next.scores)
+    }
+  }
+
+  const recoverConcurrentUpdate = (reason: unknown) => {
+    const latest = matchStateFromConflict<MatchState>(reason)
+    if (!latest) return false
+    provisionalRef.current = {}
+    setProvisional({})
+    setSelected(null)
+    acceptRemoteSnapshot(latest)
+    pollingRef.current?.wake()
+    return true
+  }
+
   useEffect(() => {
     alive.current = true
     window.scrollTo(0, 0)
@@ -410,27 +443,9 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
           syncFailuresRef.current = 0
           return
         }
-        if (!alive.current) return
-        unchangedPollsRef.current = 0
-        syncFailuresRef.current = 0
-        applyMatchState(next)
-        if (loadedGridId.current !== next.gridId) {
-          // Online matches receive a sanitized board from the authoritative server:
-          // clues and word geometry are present, answers and cell solutions are not.
-          if (!next.grid) throw new Error('Le serveur n’a pas transmis la grille publique de cette partie.')
-          const generated = next.grid
-          if (!alive.current) return
-          loadedGridId.current = next.gridId
-          setGrid(generated)
-        }
-        setError(null)
-        if (next.lastTurn && next.lastTurn.id !== seenTurn.current) {
-          seenTurn.current = next.lastTurn.id
-          animateTurn(next.lastTurn, next.lastTurn.playerId === playerId ? 'player' : 'bot', next.scores, next.status === 'active' ? new Date(next.turnStartedAt).getTime() : null)
-        } else if (!resolvingRef.current) {
-          setDisplayedScores(current => sameNumberRecord(current, next.scores) ? current : next.scores)
-        }
+        acceptRemoteSnapshot(next)
       } catch (reason) {
+        if (recoverConcurrentUpdate(reason)) return
         syncFailuresRef.current += 1
         if (alive.current) setError(reason instanceof Error ? reason.message : 'Connexion interrompue')
       }
@@ -551,20 +566,21 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     submittedTurns.current.add(currentMatch.turnNumber)
     resolvingRef.current = true; setResolving(true); setError(null); setStatus(automatic ? 'Temps écoulé · validation…' : 'Validation…')
     try {
-      const response = await playMatchTurn(playerId, currentMatch.id, currentMatch.turnNumber, Object.entries(provisionalRef.current).map(([cellIndex, tile]) => ({ cellIndex: Number(cellIndex), letter: tile.letter })), automatic)
+      const response = await playMatchTurn(playerId, currentMatch.id, currentMatch.turnNumber, Object.entries(provisionalRef.current).map(([cellIndex, tile]) => ({ cellIndex: Number(cellIndex), letter: tile.letter })), automatic, currentMatch.updatedAt)
       applyMatchState(response.match)
       if (seenTurn.current !== response.result.id) {
         seenTurn.current = response.result.id
         animateTurn(response.result, 'player', response.match.scores, response.match.status === 'active' ? new Date(response.match.turnStartedAt).getTime() : null)
       }
     } catch (reason) {
+      const recovered = recoverConcurrentUpdate(reason)
       const payload = (reason as { payload?: { match?: MatchState } })?.payload
-      if (payload?.match) applyMatchState(payload.match)
+      if (!recovered && payload?.match) applyMatchState(payload.match)
       // A lost response must not permanently lock the local turn. Retrying is
       // safe because the server returns the already-recorded result by turn id.
       submittedTurns.current.delete(currentMatch.turnNumber)
       resolvingRef.current = false; setResolving(false)
-      setError(reason instanceof Error ? reason.message : 'Validation impossible')
+      if (!recovered) setError(reason instanceof Error ? reason.message : 'Validation impossible')
     }
   }
   submitTurnRef.current = automatic => { void validate(Boolean(automatic)) }
@@ -583,7 +599,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     hintRequestingRef.current = true
     setHintRequesting(true)
     try {
-      const next = await requestMatchHint(playerId, match.id)
+      const next = await requestMatchHint(playerId, match.id, match.updatedAt)
       const placedHint = next.hint
       if (placedHint) {
         const target = document.querySelector<HTMLElement>(`[data-cell="${placedHint.cellIndex}"]`)
@@ -622,7 +638,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     catch (reason) {
       hintRequestingRef.current = false
       setHintRequesting(false)
-      setError(reason instanceof Error ? reason.message : 'Indice indisponible')
+      if (!recoverConcurrentUpdate(reason)) setError(reason instanceof Error ? reason.message : 'Indice indisponible')
     }
   }
 
@@ -638,7 +654,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     setRerollRequesting(true)
     setError(null)
     try {
-      const next = await rerollMatchRack(playerId, currentMatch.id)
+      const next = await rerollMatchRack(playerId, currentMatch.id, currentMatch.updatedAt)
       applyMatchState(next)
       setSelected(null)
       setRackRolling(true)
@@ -648,13 +664,13 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
       if (rerollTimer.current !== null) window.clearTimeout(rerollTimer.current)
       rerollTimer.current = window.setTimeout(() => { setRackRolling(false); rerollTimer.current = null }, 620)
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : 'Relance indisponible')
+      if (!recoverConcurrentUpdate(reason)) setError(reason instanceof Error ? reason.message : 'Relance indisponible')
     } finally { setRerollRequesting(false) }
   }
 
   const leave = async () => {
     if (match?.status === 'active') {
-      try { applyMatchState(await forfeitMatch(playerId, match.id)) } catch { /* Le serveur appliquera aussi le délai si la connexion est perdue. */ }
+      try { applyMatchState(await forfeitMatch(playerId, match.id, match.updatedAt)) } catch { /* Le serveur appliquera aussi le délai si la connexion est perdue. */ }
     }
     onExit()
   }

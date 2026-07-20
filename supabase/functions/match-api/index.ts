@@ -6,6 +6,7 @@ import {
 } from '../../../src/gameRules.ts'
 import { calculateFeatherReward } from '../../../src/progressionRewards.ts'
 import { selectGridForPlayers } from '../../../src/gridSelection.ts'
+import { MATCH_STATE_CONFLICT_CODE } from '../../../src/matchConflict.ts'
 
 type Pace = 'realtime' | 'async'
 type Mode = 'solo' | 'friend' | 'normal'
@@ -30,6 +31,13 @@ type MatchRow = {
   id: string; mode: Mode; pace: Pace; grid_id: string; state: State; status: 'active' | 'finished'; current_player_id: string;
   turn_number: number; turn_started_at: string; turn_ends_at: string; winner_id: string | null; finish_reason: 'completed' | 'timeout' | 'forfeit' | null;
   created_at: string; updated_at: string
+}
+
+class MatchStateConflictError extends Error {
+  constructor(readonly latest: MatchRow) {
+    super('La partie a été synchronisée avec son état le plus récent.')
+    this.name = 'MatchStateConflictError'
+  }
 }
 
 const REALTIME_TURN_MS = 45_000
@@ -331,8 +339,22 @@ async function persist(admin: ReturnType<typeof createClient>, row: MatchRow) {
     finish_reason: row.finish_reason, updated_at: updatedAt,
   }).eq('id', row.id).eq('updated_at', row.updated_at).select('*').maybeSingle()
   if (error) throw error
-  if (!data) throw new Error('La partie a changé sur un autre appareil. Actualisez-la.')
+  if (!data) {
+    const { data: latest, error: reloadError } = await admin.from('server_matches').select('*').eq('id', row.id).maybeSingle()
+    if (reloadError) throw reloadError
+    if (!latest) throw new Error('Partie introuvable après synchronisation.')
+    throw new MatchStateConflictError(latest as MatchRow)
+  }
   return data as MatchRow
+}
+
+async function matchConflictResponse(admin: ReturnType<typeof createClient>, row: MatchRow, playerId: string, grid?: CatalogGrid) {
+  const currentGrid = grid ?? await getGrid(admin, row.grid_id)
+  return json(409, {
+    code: MATCH_STATE_CONFLICT_CODE,
+    conflict: true,
+    match: await view(admin, row, playerId, currentGrid),
+  })
 }
 
 function playerOutcome(row: MatchRow, playerId: string) {
@@ -425,20 +447,27 @@ Deno.serve(async request => {
     }
 
     const resolveRow = async (row: MatchRow) => {
-      if (row.status !== 'active') return row
-      const grid = await getGrid(admin, row.grid_id)
-      const rules = ruleGrid(grid)
-      const initializedBag = ensureSharedLetterBag(rules, row.state)
-      const initializedFinale = ensureFinalSprintRacks(rules, row.state)
-      if (row.state.bot?.playerId === row.current_player_id) {
-        const delay = botThinkingDelayMs(`${row.id}:${row.turn_number}`)
-        if (Date.now() >= new Date(row.turn_started_at).getTime() + delay) {
-          applyTurn(row, grid, row.current_player_id, botPlacements(row, grid)); row = await persist(admin, row); await awardFinished(admin, row)
-        }
-      } else if (Date.now() >= new Date(row.turn_ends_at).getTime() + GRACE_MS) {
-        timeoutTurn(row); row = await persist(admin, row); await awardFinished(admin, row)
-      } else if (initializedBag || initializedFinale) row = await persist(admin, row)
-      return row
+      try {
+        if (row.status !== 'active') return row
+        const grid = await getGrid(admin, row.grid_id)
+        const rules = ruleGrid(grid)
+        const initializedBag = ensureSharedLetterBag(rules, row.state)
+        const initializedFinale = ensureFinalSprintRacks(rules, row.state)
+        if (row.state.bot?.playerId === row.current_player_id) {
+          const delay = botThinkingDelayMs(`${row.id}:${row.turn_number}`)
+          if (Date.now() >= new Date(row.turn_started_at).getTime() + delay) {
+            applyTurn(row, grid, row.current_player_id, botPlacements(row, grid)); row = await persist(admin, row); await awardFinished(admin, row)
+          }
+        } else if (Date.now() >= new Date(row.turn_ends_at).getTime() + GRACE_MS) {
+          timeoutTurn(row); row = await persist(admin, row); await awardFinished(admin, row)
+        } else if (initializedBag || initializedFinale) row = await persist(admin, row)
+        return row
+      } catch (error) {
+        // Polling, Realtime and a simultaneous action can all notice the same
+        // transition. The first write wins; readers simply continue from it.
+        if (error instanceof MatchStateConflictError) return error.latest
+        throw error
+      }
     }
 
     const lobby = async () => {
@@ -555,6 +584,10 @@ Deno.serve(async request => {
     if (action === 'turn' && row.state.lastTurn?.playerId === user.id && row.state.lastTurn.turnNumber === Number(body.turnNumber)) {
       return json(200, { match: await view(admin, row, user.id, grid), result: row.state.lastTurn })
     }
+    const mutatesMatch = action === 'turn' || action === 'hint' || action === 'reroll' || action === 'forfeit'
+    if (mutatesMatch && typeof body.knownUpdatedAt === 'string' && body.knownUpdatedAt !== row.updated_at) {
+      return matchConflictResponse(admin, row, user.id, grid)
+    }
     if (row.status !== 'active') return json(200, { match: await view(admin, row, user.id, grid) })
     if (action === 'forfeit') {
       finish(row.state, row, row.state.playerIds.find(id => id !== user.id)!, 'forfeit')
@@ -597,6 +630,9 @@ Deno.serve(async request => {
     const result = row.state.lastTurn
     return json(200, action === 'turn' ? { match: await view(admin, row, user.id, grid), result } : { match: await view(admin, row, user.id, grid) })
   } catch (error) {
+    if (error instanceof MatchStateConflictError) {
+      return matchConflictResponse(admin, error.latest, user.id)
+    }
     console.error(error)
     return json(500, { error: error instanceof Error ? error.message : 'Erreur de partie.' })
   }
