@@ -4,6 +4,7 @@ import { savePlayerProgress, type PlayerProgress } from './playerProgress'
 import { supabase, supabaseConfigured } from './supabaseClient'
 import { invokeSupabaseFunction } from './supabaseFunctions'
 import { isNativeRuntime, NATIVE_AUTH_REDIRECT, openNativeAuthentication } from './nativeRuntime'
+import { getAnonymousCaptchaToken } from './turnstile'
 
 const recoveryListeners = new Set<() => void>()
 let passwordRecoveryPending = false
@@ -57,7 +58,8 @@ export async function bootstrapPlayerSession(): Promise<GuestIdentity> {
   if (!supabaseConfigured) throw new Error('MotMan ne trouve pas sa configuration Supabase.')
   let { data: sessionData } = await supabase.auth.getSession()
   if (!sessionData.session) {
-    const { data, error } = await supabase.auth.signInAnonymously()
+    const captchaToken = await getAnonymousCaptchaToken()
+    const { data, error } = await supabase.auth.signInAnonymously(captchaToken ? { options: { captchaToken } } : undefined)
     if (error || !data.session) throw new Error(error?.message || 'Création de la session MotMan impossible.')
     sessionData = { session: data.session }
   }

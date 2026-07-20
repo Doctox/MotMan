@@ -25,3 +25,4 @@ button,input,select{font:inherit;color:inherit}
 [data-theme="dark"] .app-loading{background:#111b18;color:#edf5ef}
 @media(prefers-reduced-motion:reduce){.app-loading svg{animation:none}}
 .app-loading-error{padding:34px;text-align:center}.app-loading-error strong{font:600 25px 'Playfair Display',serif}.app-loading-error span{max-width:320px;color:#725f55;line-height:1.55}.app-loading-error button{min-width:170px;min-height:44px;margin-top:8px;border:1px solid #0b594c;border-radius:999px;background:#0b594c;color:#fffaf0;font-weight:700;box-shadow:0 8px 22px #073f3626}
+.turnstile-guard{position:fixed;z-index:10000;left:50%;bottom:max(24px,env(safe-area-inset-bottom));width:min(300px,calc(100vw - 32px));transform:translateX(-50%);filter:drop-shadow(0 12px 28px rgba(7,63,54,.18))}
