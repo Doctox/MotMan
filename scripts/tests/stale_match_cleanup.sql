@@ -1,6 +1,7 @@
 do $test$
 declare
   stale_match_id uuid := gen_random_uuid();
+  grace_period_match_id uuid := gen_random_uuid();
   fresh_match_id uuid := gen_random_uuid();
   active_grid_id text;
 begin
@@ -16,19 +17,25 @@ begin
   insert into public.server_matches (
     id, mode, pace, grid_id, state, status, turn_number, created_at, updated_at
   ) values
-    (stale_match_id, 'solo', 'async', active_grid_id, '{}'::jsonb, 'active', 1, now() - interval '25 hours', now() - interval '25 hours'),
+    (stale_match_id, 'solo', 'async', active_grid_id, '{}'::jsonb, 'active', 1, now() - interval '27 hours', now() - interval '27 hours'),
+    (grace_period_match_id, 'solo', 'async', active_grid_id, '{}'::jsonb, 'active', 1, now() - interval '25 hours', now() - interval '25 hours'),
     (fresh_match_id, 'solo', 'async', active_grid_id, '{}'::jsonb, 'active', 1, now(), now());
 
   perform private.purge_stale_matches();
 
   if exists (select 1 from public.server_matches where id = stale_match_id) then
-    raise exception 'A stale active match was not deleted';
+    raise exception 'A match older than the 26-hour retention window was not deleted';
+  end if;
+
+  if not exists (select 1 from public.server_matches where id = grace_period_match_id) then
+    raise exception 'A match inside the 24-to-26-hour grace period was deleted';
   end if;
 
   if not exists (select 1 from public.server_matches where id = fresh_match_id) then
     raise exception 'A fresh active match was deleted';
   end if;
 
-  delete from public.server_matches where id = fresh_match_id;
+  delete from public.server_matches
+  where id in (grace_period_match_id, fresh_match_id);
 end;
 $test$;
