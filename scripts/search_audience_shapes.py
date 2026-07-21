@@ -148,6 +148,8 @@ def main() -> None:
     parser.add_argument("--canonical-forms-only", action="store_true")
     parser.add_argument("--exclude-reference-pilot", action="store_true")
     parser.add_argument("--maximum-shape-overlap", type=int)
+    parser.add_argument("--full-definition-frame", action="store_true")
+    parser.add_argument("--exclude-catalog", type=Path, action="append", default=[])
     args = parser.parse_args()
 
     rng = random.Random(args.seed)
@@ -158,6 +160,16 @@ def main() -> None:
         canonical_forms_only=args.canonical_forms_only,
     )
     unavailable_answers = set()
+    for source in args.exclude_catalog:
+        source_document = json.loads(source.read_text(encoding="utf-8"))
+        source_grids = source_document.get("grids")
+        if not isinstance(source_grids, list):
+            source_grids = [source_document.get("grid") or source_document]
+        unavailable_answers.update(
+            word["answer"]
+            for grid in source_grids
+            for word in grid.get("words") or grid.get("answers") or []
+        )
     reference_pilot = ROOT / "src/data/grid-generation-handcrafted/reference.pilot.json"
     calibration_pilot = ROOT / "output/quality/difficulty-calibration-candidates.json"
     if args.exclude_reference_pilot:
@@ -212,7 +224,7 @@ def main() -> None:
             require_length_bands=True,
             enforce_length_balance=False,
             enforce_clue_spacing=True,
-            full_definition_frame=False,
+            full_definition_frame=args.full_definition_frame,
             columns=args.columns,
             rows=args.rows,
             maximum_answer_length=args.maximum_answer_length,

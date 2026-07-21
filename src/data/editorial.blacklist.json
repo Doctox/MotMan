@@ -140,7 +140,33 @@
     "POILUE"
   ],
   "rejectedAnswers": [
+    "SARCLE",
+    "NIERA",
     "ACCABLE",
+    "ACTANT",
+    "ALARIA",
+    "APPEAL",
+    "APATITE",
+    "AVALANT",
+    "AVERTIN",
+    "CARABAS",
+    "COMTAT",
+    "ESSUIE",
+    "IMAMAT",
+    "MASTOC",
+    "LAMINE",
+    "LISTON",
+    "OREMUS",
+    "OVARIEN",
+    "PALMAS",
+    "RACISME",
+    "SARCOME",
+    "SOIGNE",
+    "STABAT",
+    "STELLE",
+    "STOMIE",
+    "TROCART",
+    "VARRON",
     "AGAIN",
     "ALERTA",
     "ABRA",
@@ -1639,7 +1665,39 @@
     "ETEULES",
     "EVEN",
     "TERM",
-    "TRAORE"
+    "TRAORE",
+    "AUTOURS",
+    "STOPPE",
+    "AUTELS",
+    "IER",
+    "OCT",
+    "RIT",
+    "DEA",
+    "IVE",
+    "FILAIT",
+    "ENERVE",
+    "TAN",
+    "PRIANT",
+    "SEDUIT",
+    "TROTTE",
+    "ENROLE",
+    "GUERET",
+    "ANNOTE",
+    "AFFUBLE",
+    "BAILLET",
+    "ICITTE",
+    "PLATIER",
+    "AORISTE",
+    "MASSANT",
+    "ISSANT",
+    "TISSE",
+    "ETONNE",
+    "REEDITE",
+    "TENTAIT",
+    "REPETE",
+    "REUNIT",
+    "EDITE",
+    "RESTEE"
   ],
   "rotationCooldownPolicy": "Réponses correctes mais temporairement interdites aux nouveaux lots tant que le catalogue actif ne les a pas suffisamment diluées.",
   "rotationCooldownAnswers": [
@@ -1864,6 +1922,18 @@
       "observedActiveUses": 1,
       "reason": "vigilance propriétaire : impression de répétition dans d'anciennes cartes",
       "addedOn": "2026-07-16"
+    },
+    {
+      "answer": "EGO",
+      "observedActiveUses": 1,
+      "reason": "fatigue explicitement signalée par le propriétaire après plusieurs apparitions dans les lots de revue",
+      "addedOn": "2026-07-20"
+    },
+    {
+      "answer": "OM",
+      "observedActiveUses": 1,
+      "reason": "fatigue explicitement signalée par le propriétaire pour le couple Club marseillais → OM",
+      "addedOn": "2026-07-20"
     }
   ],
   "rejectedCooccurrences": [
@@ -15944,6 +16014,51 @@
       "answer": "VE",
       "clue": "Véhicule électrique",
       "reason": "Abréviation refusée explicitement par le propriétaire le 2026-07-19; le sigle n'est pas une réponse naturelle à jouer."
+    },
+    {
+      "answer": "HIHAN",
+      "clue": "Cri d'âne",
+      "reason": "Indice non univoque : le cri de l'âne est le braiment; HI-HAN est l'onomatopée. Retour propriétaire du 2026-07-20."
+    },
+    {
+      "answer": "CARAFE",
+      "clue": "Indice illustré : amphore",
+      "reason": "Visuel refusé par le propriétaire le 2026-07-20; utiliser un dessin reconnaissable de broc ou de carafe d'eau."
+    },
+    {
+      "answer": "ATHENES",
+      "clue": "Temple grec",
+      "reason": "Relation fausse : Athènes est une ville, pas un temple. Rejet bloquant du pilote 7×8 le 2026-07-21."
+    },
+    {
+      "answer": "UNIVERS",
+      "clue": "Galaxie lointaine",
+      "reason": "Une galaxie n'est pas l'Univers; relation approximative rejetée le 2026-07-21."
+    },
+    {
+      "answer": "TREUIL",
+      "clue": "Câble de levage",
+      "reason": "Un treuil est un mécanisme, pas son câble; relation approximative rejetée le 2026-07-21."
+    },
+    {
+      "answer": "CET",
+      "clue": "Article masculin",
+      "reason": "CET est un déterminant démonstratif contextuel, pas simplement un article masculin; rejeté le 2026-07-21."
+    },
+    {
+      "answer": "PUE",
+      "clue": "Mauvaise odeur",
+      "reason": "La réponse est un verbe conjugué tandis que l'indice est nominal; inadéquation grammaticale rejetée le 2026-07-21."
+    },
+    {
+      "answer": "AUTEURE",
+      "clue": "Femme auteur",
+      "reason": "Indice non univoque de même longueur avec AUTRICE; rejet éditorial du pilote 7×8 le 2026-07-21."
+    },
+    {
+      "answer": "SEULES",
+      "clue": "Isolées",
+      "reason": "Flexion féminine plurielle imposée et indice interchangeable; rejet éditorial du pilote 7×8 le 2026-07-21."
     }
   ],
   "rejectedShapeFingerprints": [

@@ -8,6 +8,7 @@ from pathlib import Path
 
 from import_crossword_corpus import clue_tokens
 from grid_topology import audit_grid_topology, render_topology_html
+from editorial_quality import pilot_editorial_errors
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +29,15 @@ def main() -> None:
                         help="rendu 7x8 autonome pour la revue humaine")
     parser.add_argument("--allow-legacy-word-ids", action="store_true",
                         help="diagnostic seulement : infère les wordId absents")
+    parser.add_argument(
+        "--profile", choices=("auto", "pilot-7x8"), default="auto",
+        help="pilot-7x8 active les preuves éditoriales et métriques 80/20.",
+    )
+    parser.add_argument(
+        "--reference-catalog", type=Path,
+        default=ROOT / "src" / "data" / "grid.catalog.json",
+        help="catalogue actif utilisé uniquement pour mesurer la fraîcheur",
+    )
     args = parser.parse_args()
 
     catalog = json.loads(args.catalog.read_text(encoding="utf-8"))
@@ -61,6 +71,9 @@ def main() -> None:
             grid,
             require_word_ids=not args.allow_legacy_word_ids,
             enforce_layout=False,
+            topology_profile=(
+                "pilot" if args.profile == "pilot-7x8" else "legacy"
+            ),
         )
         topology["quarantined"] = grid["id"] in quarantined_ids
         topology_reports.append(topology)
@@ -69,6 +82,135 @@ def main() -> None:
                 f"{code}={count}" for code, count in topology["errorCounts"].items()
             )
             errors.append(f"{grid['id']}: topologie invalide ({counts})")
+
+    if args.profile == "pilot-7x8":
+        warnings = []
+        rejected_answers = {
+            str(answer).upper() for answer in editorial.get("rejectedAnswers", [])
+        }
+        cooldown_answers = {
+            str(item.get("answer", "") if isinstance(item, dict) else item).upper()
+            for item in editorial.get("rotationCooldownAnswers", [])
+        }
+        batch_uses = Counter(
+            str(word.get("answer", "")).upper()
+            for grid in catalog["grids"] for word in grid.get("words", [])
+            if word.get("answer")
+        )
+        active_uses = Counter()
+        if args.reference_catalog.is_file() and args.reference_catalog.resolve() != args.catalog.resolve():
+            active_document = json.loads(args.reference_catalog.read_text(encoding="utf-8"))
+            active_uses.update(
+                str(word.get("answer", "")).upper()
+                for grid in active_document.get("grids", [])
+                for word in grid.get("words", [])
+                if word.get("answer")
+            )
+
+        pilot_metrics = []
+        for grid in catalog["grids"]:
+            grid_id = str(grid.get("id", "<sans-id>"))
+            words = grid.get("words", [])
+            image_count = sum(bool(word.get("image")) for word in words)
+            if not 4 <= image_count <= 6:
+                errors.append(f"{grid_id}: {image_count} images au lieu de 4 à 6")
+            common_count = sum(word.get("familiarityBand") == "common" for word in words)
+            thoughtful_count = sum(word.get("familiarityBand") == "thoughtful" for word in words)
+            familiarity_ratio = common_count / max(1, len(words))
+            if not 0.70 <= familiarity_ratio <= 0.90 or thoughtful_count < 1:
+                errors.append(
+                    f"{grid_id}: équilibre lexical hors cible "
+                    f"({common_count} courants, {thoughtful_count} réfléchis)"
+                )
+            text_words = [word for word in words if not word.get("image")]
+            direct_count = sum(word.get("clueStyle") == "direct" for word in text_words)
+            clever_count = sum(word.get("clueStyle") == "clever" for word in text_words)
+            direct_ratio = direct_count / max(1, len(text_words))
+            if text_words and (not 0.65 <= direct_ratio <= 0.90 or clever_count < 1):
+                errors.append(
+                    f"{grid_id}: équilibre des définitions hors cible "
+                    f"({direct_count} directes, {clever_count} malignes/culturelles)"
+                )
+            for word in words:
+                answer = str(word.get("answer", "")).upper()
+                clue = str(word.get("clue") or "")
+                if answer in rejected_answers:
+                    errors.append(f"{grid_id}: réponse blacklistée {answer}")
+                if answer in cooldown_answers:
+                    warnings.append({
+                        "gridId": grid_id,
+                        "answer": answer,
+                        "reason": "rotation-cooldown-penalty",
+                    })
+                if clue and (answer, clue.casefold()) in rejected_pairs:
+                    errors.append(f"{grid_id}: couple rejeté {clue} -> {answer}")
+                for issue in pilot_editorial_errors(word, root=ROOT):
+                    errors.append(
+                        f"{grid_id}: {answer} [{issue['code']}] {issue['message']}"
+                    )
+                if active_uses.get(answer):
+                    warnings.append({
+                        "gridId": grid_id,
+                        "answer": answer,
+                        "reason": "active-catalog-freshness-penalty",
+                        "previousUses": active_uses[answer],
+                    })
+            pilot_metrics.append({
+                "gridId": grid_id,
+                "answers": len(words),
+                "images": image_count,
+                "commonAnswers": common_count,
+                "thoughtfulAnswers": thoughtful_count,
+                "commonRatio": round(familiarity_ratio, 3),
+                "directTextClues": direct_count,
+                "cleverTextClues": clever_count,
+                "directRatio": round(direct_ratio, 3),
+                "activeRepeatAnswers": sorted({
+                    str(word.get("answer", "")).upper()
+                    for word in words
+                    if active_uses.get(str(word.get("answer", "")).upper())
+                }),
+            })
+
+        repeated_in_batch = {
+            answer: count for answer, count in sorted(batch_uses.items()) if count > 1
+        }
+        if repeated_in_batch:
+            errors.append(f"lot pilote: réponses répétées {repeated_in_batch}")
+        result = {
+            "valid": not errors,
+            "profile": "pilot-7x8",
+            "grids": len(catalog["grids"]),
+            "publicationEligible": False,
+            "metrics": pilot_metrics,
+            "warnings": warnings,
+            "topology": {
+                "auditedGrids": len(topology_reports),
+                "validGrids": sum(item["valid"] for item in topology_reports),
+                "errorCounts": dict(sorted(Counter(
+                    error["code"]
+                    for item in topology_reports
+                    for error in item["errors"]
+                ).items())),
+            },
+            "errors": errors,
+        }
+        if args.report_json:
+            args.report_json.parent.mkdir(parents=True, exist_ok=True)
+            args.report_json.write_text(json.dumps({
+                "summary": result,
+                "grids": topology_reports,
+            }, ensure_ascii=False, indent=2), encoding="utf-8")
+        if args.report_html:
+            args.report_html.parent.mkdir(parents=True, exist_ok=True)
+            args.report_html.write_text(
+                render_topology_html(topology_reports, title="Pilotes 7×8 — revue propriétaire"),
+                encoding="utf-8",
+            )
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        if errors:
+            raise SystemExit(1)
+        return
 
     # The owner replaced the three artificial difficulty buckets with one
     # handcrafted MotMan profile.  Audit that catalog globally instead of

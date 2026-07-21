@@ -17,6 +17,17 @@ FRENCH_NUMBERS = {
     "douze": 12, "treize": 13, "quatorze": 14, "quinze": 15, "seize": 16,
     "dix sept": 17, "dix huit": 18, "dix neuf": 19, "vingt": 20,
 }
+PILOT_REVIEW_FLAGS = (
+    "semanticFit",
+    "grammaticalFit",
+    "unambiguous",
+    "answerNotRevealed",
+    "languageAcceptable",
+    "allAudience",
+)
+PILOT_LANGUAGE_STATUSES = {"french", "common-anglicism", "known-proper-name"}
+PILOT_CULTURAL_STATUSES = {"everyday", "current-pop", "general-culture", "none"}
+PILOT_CLUE_STYLES = {"direct", "clever", "image"}
 
 
 def normalize_text(value: object) -> str:
@@ -135,6 +146,73 @@ def editorial_errors(item: dict, *, root: Path | None = None) -> list[dict]:
                 "code": "roman_clue_unnatural",
                 "message": "formulation attendue : « 12 romain » ou « Douze, à Rome »",
             })
+    return errors
+
+
+def pilot_editorial_errors(item: dict, *, root: Path | None = None) -> list[dict]:
+    """Strict, auditable editorial contract for an unpublished 7×8 pilot."""
+    errors = list(editorial_errors(item, root=root))
+    answer = normalize_text(item.get("answer")).upper()
+    clue = normalize_text(item.get("clue"))
+
+    def reject(code: str, message: str, **details: object) -> None:
+        errors.append({"code": code, "message": message, **details})
+
+    if len(answer) < 3:
+        reject("pilot_answer_too_short", "le pilote interdit toute réponse de moins de trois lettres")
+    missing_sources = [
+        field for field in ("sourceId", "sourceUrl", "sourceType")
+        if not normalize_text(item.get(field))
+    ]
+    if missing_sources:
+        reject(
+            "pilot_missing_provenance",
+            "provenance éditoriale incomplète",
+            fields=missing_sources,
+        )
+    familiarity = item.get("familiarityScore")
+    if not isinstance(familiarity, (int, float)) or isinstance(familiarity, bool) or not 0 <= familiarity <= 100:
+        reject("pilot_invalid_familiarity", "familiarityScore doit être compris entre 0 et 100")
+    if item.get("familiarityBand") not in {"common", "thoughtful"}:
+        reject("pilot_missing_familiarity_band", "familiarityBand doit valoir common ou thoughtful")
+    if not normalize_text(item.get("partOfSpeech")):
+        reject("pilot_missing_part_of_speech", "nature grammaticale absente")
+    if item.get("languageStatus") not in PILOT_LANGUAGE_STATUSES:
+        reject("pilot_invalid_language_status", "statut de langue absent ou non autorisé")
+    if item.get("culturalStatus") not in PILOT_CULTURAL_STATUSES:
+        reject("pilot_invalid_cultural_status", "statut culturel absent ou non autorisé")
+    if item.get("clueStyle") not in PILOT_CLUE_STYLES:
+        reject("pilot_invalid_clue_style", "clueStyle doit valoir direct, clever ou image")
+
+    review = item.get("editorialReview")
+    if not isinstance(review, dict):
+        reject("pilot_missing_editorial_review", "revue éditoriale structurée absente")
+    else:
+        failed = [flag for flag in PILOT_REVIEW_FLAGS if review.get(flag) is not True]
+        if failed:
+            reject(
+                "pilot_editorial_review_failed",
+                "un contrôle éditorial bloquant manque ou a échoué",
+                flags=failed,
+            )
+
+    folded_answer = fold(answer)
+    if clue and len(folded_answer) >= 4 and re.search(
+        rf"\b{re.escape(folded_answer)}\b", fold(clue)
+    ):
+        reject("pilot_answer_revealed", "la définition révèle directement la réponse")
+
+    if item.get("image"):
+        if item.get("imageStatus") != "reviewed-recognizable-licensed":
+            reject(
+                "pilot_image_not_reviewed",
+                "l’image doit être reconnaissable sur mobile et sa licence vérifiée",
+            )
+        if isinstance(review, dict) and review.get("imageRecognizable") is not True:
+            reject(
+                "pilot_image_not_recognizable",
+                "la reconnaissabilité mobile de l’image n’est pas validée",
+            )
     return errors
 
 

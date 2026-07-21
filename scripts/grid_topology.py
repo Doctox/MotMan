@@ -17,6 +17,7 @@ from editorial_quality import editorial_errors, grid_semantic_errors
 SUPPORTED_DIMENSIONS = {(7, 8)}  # (columns, rows)
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTIONS = {"across": (0, 1), "down": (1, 0)}
+TOPOLOGY_PROFILES = {"legacy", "pilot"}
 ARROW_STARTS = {
     ("across", "right"): (0, -1),
     ("across", "downright"): (-1, 0),
@@ -57,9 +58,22 @@ def _maximal_runs(
 
 
 def audit_grid_topology(
-    grid: dict, *, require_word_ids: bool = True, enforce_layout: bool = True
+    grid: dict, *, require_word_ids: bool = True, enforce_layout: bool = True,
+    topology_profile: str = "legacy",
 ) -> dict:
-    """Return a serialisable, cell-level topology report for one catalog grid."""
+    """Return a serialisable, cell-level topology report for one catalog grid.
+
+    ``legacy`` preserves the historical double-axis coverage rule. ``pilot``
+    applies the corrected contract: every maximal run of at least two letters
+    is a declared answer, while a perpendicular singleton may remain
+    undeclared when its cell is covered on the other axis.
+    """
+    if topology_profile not in TOPOLOGY_PROFILES:
+        raise ValueError(
+            f"topology_profile inconnu : {topology_profile}; "
+            f"attendu : {', '.join(sorted(TOPOLOGY_PROFILES))}"
+        )
+    pilot_profile = topology_profile == "pilot"
     grid_id = str(grid.get("id", "<sans-id>"))
     columns = grid.get("columns")
     rows = grid.get("rows")
@@ -99,10 +113,17 @@ def audit_grid_topology(
             "l’angle supérieur gauche neutre doit être déclaré",
             cell=[0, 0],
         )
-    if not any(row == 0 and col > 0 for row, col in clue_cells):
-        reject("missing_definition_border", "la première ligne ne contient aucune définition")
-    if not any(col == 0 and row > 0 for row, col in clue_cells):
-        reject("missing_definition_border", "la première colonne ne contient aucune définition")
+    required_border = (
+        {(0, col) for col in range(columns)}
+        | {(row, 0) for row in range(rows)}
+    )
+    missing_border_cells = sorted(required_border - clue_cells)
+    if missing_border_cells:
+        reject(
+            "missing_definition_border",
+            "la première ligne et la première colonne doivent être entièrement composées de cases-définition",
+            cells=[list(cell) for cell in missing_border_cells],
+        )
     if enforce_layout:
         top_definitions = sum(row == 0 and col > 0 for row, col in clue_cells)
         left_definitions = sum(col == 0 and row > 0 for row, col in clue_cells)
@@ -164,6 +185,17 @@ def audit_grid_topology(
             "clueCell": list(clue) if clue else raw_clue,
             "cells": [list(cell) for cell in path],
             "image": word.get("image"),
+            "sourceId": word.get("sourceId"),
+            "sourceUrl": word.get("sourceUrl"),
+            "sourceType": word.get("sourceType"),
+            "familiarityScore": word.get("familiarityScore"),
+            "familiarityBand": word.get("familiarityBand"),
+            "partOfSpeech": word.get("partOfSpeech"),
+            "languageStatus": word.get("languageStatus"),
+            "culturalStatus": word.get("culturalStatus"),
+            "clueStyle": word.get("clueStyle"),
+            "imageStatus": word.get("imageStatus"),
+            "editorialReview": word.get("editorialReview"),
         }
         word_reports.append(word_report)
 
@@ -194,6 +226,15 @@ def audit_grid_topology(
                 wordId=word_id,
                 answerLength=len(answer),
                 pathLength=len(path),
+            )
+        if len(answer) < 3:
+            reject(
+                "answer_too_short",
+                "les réponses de moins de trois lettres sont interdites",
+                wordId=word_id,
+                answer=answer,
+                length=len(answer),
+                minimum=3,
             )
         dr, dc = DIRECTIONS[direction]
         default_arrow = "right" if direction == "across" else "down"
@@ -327,25 +368,54 @@ def audit_grid_topology(
             adjacentCluePairs=interior_adjacent_clue_pairs,
             maximum=3,
         )
-    if enforce_layout and words and double_clue_cells < 3:
-        reject(
-            "insufficient_double_clues",
-            "la silhouette n’utilise pas assez de cases à double définition (droite + bas)",
-            doubleClueCells=double_clue_cells,
-            minimum=3,
-        )
-
     all_cells = {(row, col) for row in range(rows) for col in range(columns)}
     letter_cells = all_cells - clue_cells
+    maximal_runs = {
+        direction: tuple(_maximal_runs(letter_cells, rows, columns, direction))
+        for direction in DIRECTIONS
+    }
     for cell in sorted(letter_cells):
-        if cell not in cell_directions:
+        coverage = cell_directions.get(cell, {})
+        missing_directions = sorted(set(DIRECTIONS) - set(coverage))
+        if not coverage:
             reject("uncovered_letter", "case-lettre sans wordId", cell=list(cell))
+        if missing_directions and not pilot_profile:
+            reject(
+                "letter_not_double_covered",
+                "chaque case-lettre doit appartenir à une réponse horizontale et une réponse verticale",
+                cell=list(cell),
+                acrossWordId=coverage.get("across"),
+                downWordId=coverage.get("down"),
+                missingDirections=missing_directions,
+            )
 
     orphan_segments: list[dict] = []
     for direction in DIRECTIONS:
-        for run in _maximal_runs(letter_cells, rows, columns, direction):
+        for run in maximal_runs[direction]:
             declared = paths_by_direction[direction].get(run, [])
-            if len(run) >= 2 and not declared:
+            if len(run) == 1:
+                if pilot_profile:
+                    # A one-cell perpendicular run is visually incapable of
+                    # suggesting an undeclared word. Total coverage is checked
+                    # independently above.
+                    continue
+                else:
+                    reject(
+                        "singleton_visual_segment",
+                        "segment visuel d’une seule lettre interdit",
+                        direction=direction,
+                        cells=[list(cell) for cell in run],
+                        letters="".join(cell_letters.get(cell, "?") for cell in run),
+                    )
+            elif len(run) == 2:
+                reject(
+                    "two_letter_segment",
+                    "segment de deux lettres interdit",
+                    direction=direction,
+                    cells=[list(cell) for cell in run],
+                    letters="".join(cell_letters.get(cell, "?") for cell in run),
+                )
+            if not declared:
                 segment = {
                     "direction": direction,
                     "cells": [list(cell) for cell in run],
@@ -354,7 +424,7 @@ def audit_grid_topology(
                 orphan_segments.append(segment)
                 reject(
                     "orphan_segment",
-                    "suite visible de deux lettres ou plus sans réponse déclarée",
+                    "segment visible sans réponse déclarée",
                     **segment,
                 )
             if len(declared) > 1:
@@ -365,6 +435,19 @@ def audit_grid_topology(
                     cells=[list(cell) for cell in run],
                     wordIds=declared,
                 )
+
+    if pilot_profile:
+        for direction in DIRECTIONS:
+            maximal = set(maximal_runs[direction])
+            for path, word_ids in paths_by_direction[direction].items():
+                if path and path not in maximal:
+                    reject(
+                        "non_maximal_declared_path",
+                        "une réponse déclarée doit couvrir le run maximal entier",
+                        direction=direction,
+                        cells=[list(cell) for cell in path],
+                        wordIds=word_ids,
+                    )
 
     cells = []
     for row in range(rows):
@@ -389,12 +472,18 @@ def audit_grid_topology(
                     "acrossWordId": coverage.get("across"),
                     "downWordId": coverage.get("down"),
                     "wordIds": [coverage[key] for key in ("across", "down") if key in coverage],
+                    "coverageCount": len(coverage),
+                    "coverageValid": (
+                        bool(coverage) if pilot_profile
+                        else set(coverage) == set(DIRECTIONS)
+                    ),
                 })
 
     return {
         "gridId": grid_id,
         "columns": columns,
         "rows": rows,
+        "topologyProfile": topology_profile,
         "valid": not errors,
         "errorCount": len(errors),
         "errorCounts": dict(sorted(Counter(error["code"] for error in errors).items())),

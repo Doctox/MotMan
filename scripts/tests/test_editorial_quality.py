@@ -8,7 +8,11 @@ from pathlib import Path
 SCRIPTS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPTS))
 
-from editorial_quality import editorial_errors, grid_semantic_errors  # noqa: E402
+from editorial_quality import (  # noqa: E402
+    editorial_errors,
+    grid_semantic_errors,
+    pilot_editorial_errors,
+)
 
 
 def codes(answer: str, clue: str, **extra) -> set[str]:
@@ -19,6 +23,42 @@ def codes(answer: str, clue: str, **extra) -> set[str]:
 
 
 class EditorialQualityTests(unittest.TestCase):
+
+    def test_pilot_requires_explicit_semantic_and_grammatical_review(self) -> None:
+        item = {
+            "answer": "UNIVERS",
+            "clue": "Galaxie lointaine",
+            "sourceId": "manual",
+            "sourceUrl": "local://pilot",
+            "sourceType": "editorial",
+            "familiarityScore": 90,
+            "familiarityBand": "common",
+            "partOfSpeech": "noun",
+            "languageStatus": "french",
+            "culturalStatus": "everyday",
+            "clueStyle": "direct",
+            "editorialReview": {
+                "semanticFit": False,
+                "grammaticalFit": True,
+                "unambiguous": True,
+                "answerNotRevealed": True,
+                "languageAcceptable": True,
+                "allAudience": True,
+            },
+        }
+        self.assertIn(
+            "pilot_editorial_review_failed",
+            {error["code"] for error in pilot_editorial_errors(item)},
+        )
+
+    def test_pilot_human_review_label_does_not_waive_missing_evidence(self) -> None:
+        errors = pilot_editorial_errors({
+            "answer": "CHAT",
+            "clue": "Félin",
+            "editorialStatus": "human-reviewed",
+        })
+        self.assertIn("pilot_missing_provenance", {error["code"] for error in errors})
+        self.assertIn("pilot_missing_editorial_review", {error["code"] for error in errors})
 
     def test_related_concepts_are_allowed_but_duplicate_concepts_are_rejected(self) -> None:
         related = [

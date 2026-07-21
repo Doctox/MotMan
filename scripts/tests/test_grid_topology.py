@@ -76,6 +76,15 @@ class GridTopologyTests(unittest.TestCase):
         self.assertEqual(56, len(report["cells"]))
         centre = next(cell for cell in report["cells"] if (cell["row"], cell["col"]) == (4, 4))
         self.assertEqual(["h4", "v4"], centre["wordIds"])
+        self.assertEqual(2, centre["coverageCount"])
+        self.assertTrue(centre["coverageValid"])
+
+    def test_complete_grid_is_valid_under_corrected_pilot_profile(self) -> None:
+        report = audit_grid_topology(
+            valid_grid(), enforce_layout=False, topology_profile="pilot"
+        )
+        self.assertTrue(report["valid"], report["errors"])
+        self.assertEqual("pilot", report["topologyProfile"])
 
     def test_rectangular_9_by_10_grid_is_rejected(self) -> None:
         report = audit_grid_topology(valid_rectangular_grid(9, 10), enforce_layout=False)
@@ -88,10 +97,19 @@ class GridTopologyTests(unittest.TestCase):
         self.assertEqual((7, 8), (report["columns"], report["rows"]))
         self.assertEqual(56, len(report["cells"]))
 
-    def test_definition_borders_are_allowed_but_missing_doubles_are_blocking(self) -> None:
+    def test_definition_borders_are_valid_without_internal_double_clues(self) -> None:
         report = audit_grid_topology(valid_grid())
         self.assertNotIn("clue_wall", codes(report))
-        self.assertIn("insufficient_double_clues", codes(report))
+        self.assertNotIn("insufficient_double_clues", codes(report))
+        self.assertTrue(report["valid"], report["errors"])
+
+    def test_first_row_and_column_are_a_complete_definition_frame(self) -> None:
+        grid = valid_grid()
+        grid["clueCells"].remove([0, 3])
+        report = audit_grid_topology(grid, enforce_layout=False)
+        self.assertIn("missing_definition_border", codes(report))
+        error = next(error for error in report["errors"] if error["code"] == "missing_definition_border")
+        self.assertIn([0, 3], error["cells"])
 
     def test_internal_clue_wall_is_blocking(self) -> None:
         grid = valid_grid()
@@ -112,7 +130,99 @@ class GridTopologyTests(unittest.TestCase):
         grid["words"] = [word for word in grid["words"] if word["wordId"] != "h4"]
         report = audit_grid_topology(grid)
         self.assertIn("orphan_segment", codes(report))
+        self.assertIn("letter_not_double_covered", codes(report))
         self.assertEqual([[4, col] for col in range(1, 7)], report["orphanSegments"][0]["cells"])
+
+    def test_single_axis_letter_is_rejected_even_when_other_axis_is_valid(self) -> None:
+        grid = valid_grid()
+        grid["words"] = [word for word in grid["words"] if word["wordId"] != "v2"]
+        report = audit_grid_topology(grid, enforce_layout=False)
+        self.assertIn("letter_not_double_covered", codes(report))
+        cell = next(cell for cell in report["cells"] if (cell["row"], cell["col"]) == (1, 2))
+        self.assertEqual("h1", cell["acrossWordId"])
+        self.assertIsNone(cell["downWordId"])
+        self.assertFalse(cell["coverageValid"])
+
+    def test_pilot_allows_a_perpendicular_singleton_without_word_id(self) -> None:
+        grid = valid_grid()
+        grid["clueCells"].extend(
+            [[row, 3] for row in (1, 2, 3, 5, 6, 7)]
+        )
+        grid["words"] = [
+            word for word in grid["words"] if word["wordId"] != "v3"
+        ]
+        report = audit_grid_topology(
+            grid, enforce_layout=False, topology_profile="pilot"
+        )
+        centre = next(
+            cell for cell in report["cells"]
+            if (cell["row"], cell["col"]) == (4, 3)
+        )
+        self.assertEqual("h4", centre["acrossWordId"])
+        self.assertIsNone(centre["downWordId"])
+        self.assertEqual(1, centre["coverageCount"])
+        self.assertTrue(centre["coverageValid"])
+        self.assertNotIn("letter_not_double_covered", codes(report))
+        self.assertFalse(any(
+            error["code"] == "singleton_visual_segment"
+            and error.get("direction") == "down"
+            and error.get("cells") == [[4, 3]]
+            for error in report["errors"]
+        ))
+
+    def test_pilot_still_rejects_a_letter_with_zero_total_coverage(self) -> None:
+        grid = valid_grid()
+        grid["words"] = [
+            word for word in grid["words"]
+            if word["wordId"] not in {"h4", "v4"}
+        ]
+        report = audit_grid_topology(
+            grid, enforce_layout=False, topology_profile="pilot"
+        )
+        self.assertIn("uncovered_letter", codes(report))
+        centre = next(
+            cell for cell in report["cells"]
+            if (cell["row"], cell["col"]) == (4, 4)
+        )
+        self.assertEqual(0, centre["coverageCount"])
+        self.assertFalse(centre["coverageValid"])
+
+    def test_singleton_visual_segment_is_blocking(self) -> None:
+        grid = valid_grid()
+        grid["clueCells"].extend([[4, 3], [4, 5], [3, 4], [5, 4]])
+        report = audit_grid_topology(grid, enforce_layout=False)
+        self.assertIn("singleton_visual_segment", codes(report))
+
+    def test_pilot_rejects_every_maximal_two_letter_run(self) -> None:
+        grid = valid_grid()
+        grid["clueCells"].extend([[4, 3], [4, 6]])
+        report = audit_grid_topology(
+            grid, enforce_layout=False, topology_profile="pilot"
+        )
+        self.assertIn("two_letter_segment", codes(report))
+
+    def test_pilot_rejects_a_declared_path_shorter_than_its_maximal_run(self) -> None:
+        grid = valid_grid()
+        horizontal = next(word for word in grid["words"] if word["wordId"] == "h4")
+        horizontal["answer"] = horizontal["answer"][:3]
+        horizontal["cells"] = horizontal["cells"][:3]
+        report = audit_grid_topology(
+            grid, enforce_layout=False, topology_profile="pilot"
+        )
+        self.assertIn("non_maximal_declared_path", codes(report))
+        self.assertIn("orphan_segment", codes(report))
+
+    def test_unknown_topology_profile_is_rejected(self) -> None:
+        with self.assertRaisesRegex(ValueError, "topology_profile inconnu"):
+            audit_grid_topology(valid_grid(), topology_profile="inconnu")
+
+    def test_answer_shorter_than_three_letters_is_blocking(self) -> None:
+        grid = valid_grid()
+        word = next(word for word in grid["words"] if word["wordId"] == "h1")
+        word["answer"] = "AB"
+        word["cells"] = word["cells"][:2]
+        report = audit_grid_topology(grid, enforce_layout=False)
+        self.assertIn("answer_too_short", codes(report))
 
     def test_crossing_letters_must_match(self) -> None:
         grid = valid_grid()

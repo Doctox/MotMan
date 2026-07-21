@@ -39,16 +39,22 @@ def fill_bitset(
     constraint_support_bucket_size: int = 1,
     branching_strategy: str = "slot",
     cell_branch_window: int = 15,
+    cell_letter_order: str = "quality",
     quality_scores: dict[str, float] | None = None,
+    answer_families: dict[str, str] | None = None,
     solution_limit: int = 1,
+    solution_sink: list[dict] | None = None,
+    reference_solutions: list[dict[int, str]] | None = None,
+    minimum_solution_distance: int = 1,
     explore_randomly: bool = False,
     telemetry: dict | None = None,
 ) -> dict[int, str] | None:
     """Fill every declared slot with a real answer and exact crossing letters.
 
     ``solution_limit`` turns the usual first-feasible search into a bounded
-    editorial search.  Complete fills are compared on active-catalog reuse,
-    their weakest answer score, then their total answer score.  This mirrors
+    editorial search. Complete fills are compared on their weakest answer,
+    then their total adjusted score. Active-catalog reuse is a cooldown
+    penalty inside that score, never a global veto. This mirrors
     constructor tools that keep several viable fills instead of accepting the
     first mathematical closure.
     """
@@ -62,13 +68,36 @@ def fill_bitset(
     allowed_answers_by_slot = allowed_answers_by_slot or {}
     required_image_slots = required_image_slots or set()
     undesirable_answers = undesirable_answers or set()
+    reference_solutions = reference_solutions or []
     if solution_limit < 1:
         raise ValueError("solution_limit must be at least 1")
+    if minimum_solution_distance < 0:
+        raise ValueError("minimum_solution_distance cannot be negative")
     if branching_strategy not in {"slot", "cell"}:
         raise ValueError(f"Unknown branching strategy: {branching_strategy}")
+    if cell_letter_order not in {"quality", "support"}:
+        raise ValueError(f"Unknown cell letter order: {cell_letter_order}")
     by_length, _, frequency, concept_group, semantic_conflicts, word_difficulty, image_answers = indexes
     quality_scores = quality_scores or frequency
+    answer_families = answer_families or {}
     variables = [index for index, slot in enumerate(slots) if slot.cells]
+
+    # Editorial potential by crossing letter. Cell branching used to consider
+    # only how many continuations a letter had, which systematically surfaced
+    # obscure but combinatorially convenient fills. This inexpensive static
+    # bound makes common, well-scored vocabulary lead the search instead.
+    letter_quality = defaultdict(lambda: defaultdict(dict))
+    for length, words in by_length.items():
+        for position in range(length):
+            for code in range(26):
+                letter_quality[length][position][code] = max(
+                    (
+                        float(quality_scores.get(word, frequency[word]))
+                        for word in words
+                        if ord(word[position]) - 65 == code
+                    ),
+                    default=0.0,
+                )
 
     cache_key = (
         id(by_length),
@@ -319,6 +348,8 @@ def fill_bitset(
     timeout = False
     cell_branch_nodes = 0
     complete_solutions = 0
+    diversity_rejected_solutions = 0
+    diversity_rejected_by_distance: Counter[int] = Counter()
     best_domains: dict[int, int] | None = None
     best_quality: tuple | None = None
 
@@ -327,17 +358,18 @@ def fill_bitset(
         usages = [int(answer_usage.get(word, 0)) for word in chosen.values()]
         scores = [float(quality_scores.get(word, frequency[word])) for word in chosen.values()]
         return (
-            -sum(usage > 0 for usage in usages),
-            -max(usages, default=0),
-            -sum(usages),
             min(scores, default=0.0),
             -sum(score < 20 for score in scores),
             -sum(score < 30 for score in scores),
             sum(scores),
+            -sum(usage > 0 for usage in usages),
+            -max(usages, default=0),
+            -sum(usages),
         )
 
     def search(current: dict[int, int]) -> dict[int, int] | None:
         nonlocal nodes, timeout, cell_branch_nodes, complete_solutions
+        nonlocal diversity_rejected_solutions
         nonlocal best_domains, best_quality
         nodes += 1
         if nodes > node_limit or time.monotonic() >= deadline:
@@ -351,6 +383,9 @@ def fill_bitset(
                 variable: words_by_length[len(slots[variable].cells)][current[variable].bit_length() - 1]
                 for variable in variables
             }
+            chosen_families = [answer_families.get(word, word) for word in chosen.values()]
+            if len(chosen_families) != len(set(chosen_families)):
+                return None
             mix = Counter(word_difficulty[word] for word in chosen.values())
             if target_mix is not None and any(mix[level] != target for level, target in target_mix.items()):
                 return None
@@ -371,8 +406,22 @@ def fill_bitset(
             selected = set(chosen.values())
             if any(semantic_conflicts[word].intersection(selected) for word in selected):
                 return None
+            if reference_solutions:
+                nearest_distance = min(
+                    sum(chosen.get(slot) != answer for slot, answer in reference.items())
+                    for reference in reference_solutions
+                )
+                if nearest_distance < minimum_solution_distance:
+                    diversity_rejected_solutions += 1
+                    diversity_rejected_by_distance[nearest_distance] += 1
+                    return None
             complete_solutions += 1
             quality = completed_quality(chosen)
+            if solution_sink is not None:
+                solution_sink.append({
+                    "answers": dict(sorted(chosen.items())),
+                    "quality": list(quality),
+                })
             if best_quality is None or quality > best_quality:
                 best_quality = quality
                 best_domains = current.copy()
@@ -415,10 +464,14 @@ def fill_bitset(
                         right_domain & masks[right_length][right_position][code]
                     ).bit_count()
                     if right_count:
-                        letter_work.append((code, left_count * right_count))
+                        editorial_potential = min(
+                            letter_quality[left_length][left_position][code],
+                            letter_quality[right_length][right_position][code],
+                        )
+                        letter_work.append((code, left_count * right_count, editorial_potential))
                 if len(letter_work) > 1:
                     active_crossings.append((crossing, letter_work, sum(
-                        work for _code, work in letter_work
+                        work for _code, work, _potential in letter_work
                     )))
                     if len(active_crossings) >= max(1, cell_branch_window):
                         break
@@ -436,11 +489,17 @@ def fill_bitset(
                     # genuinely different closures instead of returning the
                     # same locally optimal fill every time.
                     rng.shuffle(letter_work)
+                    if cell_letter_order == "quality":
+                        letter_work.sort(key=lambda item: -(item[2] // 5))
                 else:
-                    # Least-constraining letters first; ties remain deterministic.
-                    letter_work.sort(key=lambda item: (-item[1], item[0]))
+                    if cell_letter_order == "quality":
+                        # Editorial potential first, then least-constraining
+                        # letters. Ties remain deterministic.
+                        letter_work.sort(key=lambda item: (-item[2], -item[1], item[0]))
+                    else:
+                        letter_work.sort(key=lambda item: (-item[1], item[0]))
                 cell_branch_nodes += 1
-                for code, _work in letter_work:
+                for code, _work, _potential in letter_work:
                     next_domains = current.copy()
                     next_domains[left] &= masks[left_length][left_position][code]
                     next_domains[right] &= masks[right_length][right_position][code]
@@ -532,6 +591,9 @@ def fill_bitset(
         solutionLimit=solution_limit,
         indexCacheHit=index_cache_hit,
         completeSolutions=complete_solutions,
+        diversityRejectedSolutions=diversity_rejected_solutions,
+        diversityRejectedByDistance=dict(sorted(diversity_rejected_by_distance.items())),
+        minimumSolutionDistance=minimum_solution_distance,
         qualityOptimized=solution_limit > 1,
         randomExploration=explore_randomly,
         bestQuality=list(best_quality) if best_quality is not None else None,

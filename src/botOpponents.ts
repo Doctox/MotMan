@@ -61,7 +61,10 @@ export function createBotPersona(seed: string, preferredSkill?: BotSkill): BotPe
 
 export function botTuning(persona: BotPersona): BotTuning {
   if (persona.skill === 'beginner') return { accuracy: 78, minLetters: 2, maxLetters: 3, wordBonusWeight: 2, pressureGap: 8 }
-  if (persona.skill === 'regular') return { accuracy: 91, minLetters: 3, maxLetters: 4, wordBonusWeight: 2.8, pressureGap: 6 }
+  // Normal must remain strategic without feeling clairvoyant: it still tries
+  // three to four tiles and sees useful word completions, but makes a few more
+  // human mistakes and waits a little longer before entering comeback mode.
+  if (persona.skill === 'regular') return { accuracy: 88, minLetters: 3, maxLetters: 4, wordBonusWeight: 2.5, pressureGap: 7 }
   return { accuracy: 98, minLetters: 4, maxLetters: 5, wordBonusWeight: 3.6, pressureGap: 4 }
 }
 

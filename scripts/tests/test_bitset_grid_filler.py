@@ -155,17 +155,21 @@ class BitsetGridFillerTests(unittest.TestCase):
             set(),
         )
         telemetry = {}
+        alternatives = []
         result = fill_bitset(
             slots, indexes, random.Random(9), None,
             require_image=False,
             quality_scores=scores,
             solution_limit=8,
+            solution_sink=alternatives,
             max_seconds=1,
             telemetry=telemetry,
         )
         self.assertIsNotNone(result)
         self.assertEqual({"AYA", "BYB"}, set(result.values()))
         self.assertEqual(4, telemetry["completeSolutions"])
+        self.assertEqual(4, len(alternatives))
+        self.assertTrue(all("answers" in item and "quality" in item for item in alternatives))
         self.assertTrue(telemetry["qualityOptimized"])
 
     def test_slot_domain_can_be_restricted_without_fixing_one_answer(self) -> None:
@@ -186,6 +190,113 @@ class BitsetGridFillerTests(unittest.TestCase):
         self.assertIsNotNone(result)
         self.assertIn(result[0], {"DOG", "FOX"})
         self.assertNotEqual("CAT", result[0])
+
+    def test_active_usage_is_a_penalty_not_a_veto_over_better_words(self) -> None:
+        words = ["BEST", "GOOD", "POOR"]
+        scores = {"BEST": 100.0, "GOOD": 90.0, "POOR": 1.0}
+        indexes = (
+            {4: words}, {}, scores,
+            {word: word for word in words},
+            {word: set() for word in words},
+            {word: "easy" for word in words}, set(),
+        )
+        slots = [
+            Slot("across", (row, -1), tuple((row, column) for column in range(4)))
+            for row in range(2)
+        ]
+        result = fill_bitset(
+            slots, indexes, random.Random(12), None,
+            require_image=False,
+            quality_scores=scores,
+            answer_usage={"BEST": 1, "GOOD": 1},
+            solution_limit=16,
+            max_seconds=1,
+        )
+        self.assertIsNotNone(result)
+        self.assertEqual({"BEST", "GOOD"}, set(result.values()))
+
+    def test_inflection_family_is_unique_across_the_complete_fill(self) -> None:
+        words = ["SEE", "SAW", "DOG"]
+        scores = {"SEE": 10.0, "SAW": 9.0, "DOG": 1.0}
+        indexes = (
+            {3: words}, {}, scores,
+            {word: word for word in words},
+            {word: set() for word in words},
+            {word: "easy" for word in words}, set(),
+        )
+        slots = [
+            Slot("across", (row, -1), ((row, 0), (row, 1), (row, 2)))
+            for row in range(2)
+        ]
+        families = {"SEE": "SEE", "SAW": "SEE", "DOG": "DOG"}
+        result = fill_bitset(
+            slots, indexes, random.Random(11), None,
+            require_image=False,
+            quality_scores=scores,
+            answer_families=families,
+            solution_limit=8,
+            max_seconds=1,
+        )
+        self.assertIsNotNone(result)
+        self.assertEqual(2, len({families[word] for word in result.values()}))
+
+    def test_reference_fill_can_require_a_minimum_slot_distance(self) -> None:
+        words = ["CAT", "DOG", "FOX"]
+        indexes = (
+            {3: words}, {}, {word: 5.0 for word in words},
+            {word: word for word in words},
+            {word: set() for word in words},
+            {word: "easy" for word in words}, set(),
+        )
+        slots = [
+            Slot("across", (row, -1), ((row, 0), (row, 1), (row, 2)))
+            for row in range(2)
+        ]
+        telemetry = {}
+        reference = {0: "CAT", 1: "DOG"}
+        result = fill_bitset(
+            slots, indexes, random.Random(13), None,
+            require_image=False,
+            reference_solutions=[reference],
+            minimum_solution_distance=2,
+            solution_limit=8,
+            max_seconds=1,
+            telemetry=telemetry,
+        )
+        self.assertIsNotNone(result)
+        self.assertGreaterEqual(
+            sum(result[slot] != answer for slot, answer in reference.items()), 2
+        )
+        self.assertGreater(telemetry["diversityRejectedSolutions"], 0)
+        self.assertIn(0, telemetry["diversityRejectedByDistance"])
+
+    def test_cell_branching_supports_cells_covered_on_only_one_axis(self) -> None:
+        words = ["BAR", "CAT", "DOG", "RAT"]
+        indexes = (
+            {3: words}, {}, {word: 5.0 for word in words},
+            {word: word for word in words},
+            {word: set() for word in words},
+            {word: "easy" for word in words}, set(),
+        )
+        slots = [
+            Slot("across", (1, -1), ((1, 0), (1, 1), (1, 2))),
+            Slot("down", (-1, 1), ((0, 1), (1, 1), (2, 1))),
+            # Cette entrée ne croise aucune autre réponse : ses trois cases
+            # sont couvertes sur un seul axe, mais restent pleinement valides.
+            Slot("across", (3, -1), ((3, 0), (3, 1), (3, 2))),
+        ]
+        telemetry = {}
+        result = fill_bitset(
+            slots, indexes, random.Random(14), None,
+            require_image=False,
+            branching_strategy="cell",
+            max_seconds=1,
+            telemetry=telemetry,
+        )
+        self.assertIsNotNone(result)
+        self.assertEqual(result[0][1], result[1][1])
+        self.assertEqual(3, len(result))
+        self.assertEqual("solved", telemetry["reason"])
 
     def test_compiled_wordlist_index_is_reused_between_shapes(self) -> None:
         words = ["CAT", "DOG", "FOX"]

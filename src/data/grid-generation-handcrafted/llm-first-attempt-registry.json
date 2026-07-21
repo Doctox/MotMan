@@ -1,0 +1,1461 @@
+{
+  "version": 1,
+  "policy": {
+    "unfillable": "skip-until-forbidden-list-changes",
+    "editorial-rejected": "never-retry-identical-answer-set",
+    "timeout": "allow-one-deeper-retry",
+    "topology-invalid": "never-retry-identical-shape"
+  },
+  "attempts": [
+    {
+      "signature": "39842b2e270f540821717276432f5654c5ef3d71ca89c9fdb88b7d443d89fcf4",
+      "shapeId": "compact-7x8-pivot-2-2-pivot-4-2-pivot-6-2",
+      "anchorAnswers": [],
+      "partialAnswers": [
+        "AERIEN",
+        "ENDORMI",
+        "ETEINTE",
+        "MENT",
+        "NUIT",
+        "OVNI",
+        "PARFAIT",
+        "PRESSE",
+        "REDIGE",
+        "SIGNENT",
+        "SUIVIES",
+        "TRISTE"
+      ],
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "editorial-rejected",
+      "reason": "Quatre cases-définition isolées; fermeture refusée plutôt que quatre mots d'une lettre.",
+      "agent": "C",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "15394e52446790032fac2e3cb1567370ca9b00100e10322ec5a47c8a0b1e8f89",
+      "shapeId": "compact-7x8-pivot-2-2-pivot-6-5",
+      "anchorAnswers": [],
+      "partialAnswers": [
+        "AMIRAL",
+        "CHARGES",
+        "CREPES",
+        "DICO",
+        "ECART",
+        "EDITEUR",
+        "ELUE",
+        "GUETTA",
+        "MEULE",
+        "PIRATER",
+        "RETARD",
+        "SERRES",
+        "SOLDATS"
+      ],
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "editorial-rejected",
+      "reason": "Famille PIRATER/PIRATE déjà active et définition de bord isolée.",
+      "agent": "C",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "cc73005004b607f825f35215b6cf44a7652b8191dc894f55d8a0c47d932afaa1",
+      "shapeId": "compact-7x8-pivot-2-2-pivot-6-5",
+      "anchorAnswers": [],
+      "partialAnswers": [
+        "ABRITER",
+        "BRISENT",
+        "BRUT",
+        "EDEN",
+        "ENTEND",
+        "ETENDUE",
+        "IRRITE",
+        "LUTIN",
+        "RAISIN",
+        "RANDO",
+        "SOIREES",
+        "SORTIE",
+        "STABLE"
+      ],
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "editorial-rejected",
+      "reason": "Contenu religieux EDEN et fermeture trop dépendante de conjugaisons.",
+      "agent": "C",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "83b8b8df7cc8bff60c7db040da61777748d291276b0071566e4ecd996b1fd413",
+      "shapeId": "compact-7x8-pivot-2-4-pivot-4-2-pivot-6-5",
+      "anchorAnswers": [
+        "CASQUE"
+      ],
+      "partialAnswers": [
+        "CASQUE"
+      ],
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "unfillable",
+      "reason": "Croisements autour de CASQUE conduisant uniquement à des conjugaisons/flexions refusées.",
+      "agent": "B",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "c26e0d9eb29213d0b74fdd496cd77419a1eb959f1aea14376074b045542244f0",
+      "shapeId": "compact-7x8-pivot-2-2-pivot-4-4-pivot-6-5",
+      "anchorAnswers": [],
+      "partialAnswers": [
+        "AMANDE",
+        "CADENAS",
+        "CHOMAGE",
+        "ETENDRE",
+        "GARE",
+        "HATE",
+        "MENT",
+        "RESTEES",
+        "RHODES",
+        "SOCCER",
+        "SORTANT",
+        "THESES"
+      ],
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "editorial-rejected",
+      "reason": "Fermeture trop dépendante des formes verbales, pluriels de remplissage et de RHODES.",
+      "agent": "B",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "9816c92a253c24f3242ebdfa630edfad77c381919705b45c1b9f75ff19f23f03",
+      "shapeId": "compact-7x8-pivot-2-2-pivot-4-2-pivot-6-2",
+      "anchorAnswers": [
+        "STRESS",
+        "TINTIN"
+      ],
+      "partialAnswers": [
+        "ADAPTEE",
+        "APPARU",
+        "COUPER",
+        "ENFANT",
+        "ENIEME",
+        "EXACTES",
+        "POINT",
+        "PUNIR",
+        "REIMS",
+        "STRESS",
+        "TINTIN",
+        "TOURNES"
+      ],
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "editorial-rejected",
+      "reason": "Fermeture scolaire, flexions et REIMS utilisé comme cale malgré deux bonnes ancres.",
+      "agent": "B",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "45134207bf530251c356ebacfcf1df76326235cd8dcb77e815c84d8e118a4520",
+      "shapeId": "compact-7x8-pivot-2-2-pivot-4-2-pivot-6-2",
+      "anchorAnswers": [
+        "DEEZER"
+      ],
+      "partialAnswers": [
+        "ANVERS",
+        "AVERER",
+        "AVION",
+        "DEEZER",
+        "DRESSER",
+        "HAROLD",
+        "HARVARD",
+        "LEGER",
+        "ORALE",
+        "REVIVRE",
+        "RIVAGE",
+        "VOILES"
+      ],
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "editorial-rejected",
+      "reason": "Trop de noms propres et AVERER; fermeture indéfendable autour de DEEZER.",
+      "agent": "B",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "3aef4ba4a39fc0540846c286b557185f3b9ea118dea07d02976a837e138b2b15",
+      "shapeId": "compact-7x8-pivot-4-5-pivot-6-4",
+      "anchorAnswers": [
+        "BASKETS",
+        "CLAVIER",
+        "NETFLIX",
+        "PODCAST",
+        "RECETTE",
+        "SPOTIFY",
+        "YOUTUBE"
+      ],
+      "partialAnswers": [],
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "unfillable",
+      "reason": "Aucune fermeture propre avec cette réserve contemporaine sur la silhouette.",
+      "agent": "A",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "938f0c33d97808f7b46a09b002d5bab4a2ff2d26fbc381c2c13fac1f41fac567",
+      "shapeId": "compact-7x8-pivot-4-3",
+      "anchorAnswers": [
+        "BASKETS",
+        "CASQUE",
+        "CINEMA",
+        "CLAVIER",
+        "DOFUS",
+        "GAMING",
+        "MARIO",
+        "MARVEL",
+        "MUSIQUE",
+        "NETFLIX",
+        "PIZZAS",
+        "PODCAST",
+        "RECETTE",
+        "STREAM",
+        "SUSHIS",
+        "TIKTOK",
+        "TWITCH",
+        "YOUTUBE"
+      ],
+      "partialAnswers": [],
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "unfillable",
+      "reason": "Aucune fermeture propre avec les ancres modernes testées sur la silhouette.",
+      "agent": "A",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "79717c80461f246c7c7c544d45112df86d27aafce3a240ffccdf06c6e52226bf",
+      "shapeId": "compact-7x8-word-rectangle-no-pivot",
+      "anchorAnswers": [
+        "CASQUE",
+        "CINEMA",
+        "GAMING",
+        "MARVEL",
+        "PIZZAS",
+        "SUSHIS",
+        "TIKTOK",
+        "TWITCH"
+      ],
+      "partialAnswers": [],
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "unfillable",
+      "reason": "Aucune fermeture propre du rectangle sans pivot avec cette réserve.",
+      "agent": "A",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "e4c4110ed07f9545e433121debed06260b32906f6e4c68f271b6ffee959a966e",
+      "shapeId": "word-first-c-clavier-pivot-4-6",
+      "anchorAnswers": [],
+      "partialAnswers": [
+        "AMANDE",
+        "CAMERA",
+        "CLAVIER",
+        "EMOJIS",
+        "IMPACT",
+        "LAPTOP",
+        "ROBOTS",
+        "VIDEO"
+      ],
+      "stateDigest": "b2f2a4d33d9fd6b409a851a0a027d054a9b3356caeb1175d1d0656ece400c0f8",
+      "partialState": {
+        "attempt": 3,
+        "conceptId": "word-first-c-clavier-pivot-4-6",
+        "status": "abandoned-before-closure",
+        "inventedShape": {
+          "columns": 7,
+          "rows": 8,
+          "interiorClueCells": [
+            [
+              4,
+              6
+            ]
+          ],
+          "intendedSlotProfile": {
+            "7": 5,
+            "6": 6,
+            "5": 1,
+            "3": 2,
+            "2": 0
+          },
+          "designIntent": "Un pivot tout a droite permet une reponse de cinq lettres et coupe la derniere verticale en deux mots de trois lettres, sans aucun mot de deux lettres."
+        },
+        "selectedStrongAnswers": [
+          "CLAVIER",
+          "CAMERA",
+          "LAPTOP",
+          "AMANDE",
+          "VIDEO",
+          "IMPACT",
+          "EMOJIS",
+          "ROBOTS"
+        ],
+        "editorialBalance": {
+          "modernOrPop": [
+            "CLAVIER",
+            "LAPTOP",
+            "EMOJIS"
+          ],
+          "simpleImageCandidates": [
+            "CAMERA",
+            "LAPTOP",
+            "AMANDE",
+            "EMOJIS",
+            "ROBOTS"
+          ],
+          "forbiddenExactAnswers": [],
+          "activeFamilies": []
+        },
+        "placement": {
+          "anchor": {
+            "answer": "CLAVIER",
+            "direction": "down",
+            "column": 1,
+            "rows": [
+              1,
+              7
+            ]
+          },
+          "rows": [
+            "CAMERA",
+            "LAPTOP",
+            "AMANDE",
+            "VIDEO",
+            "IMPACT",
+            "EMOJIS",
+            "ROBOTS"
+          ]
+        },
+        "precisePatternChecksAfterReleasingThreeRows": [
+          {
+            "pattern": "A?M?M?O",
+            "candidates": []
+          },
+          {
+            "pattern": "M?A?P?B",
+            "candidates": []
+          },
+          {
+            "pattern": "E?N?A?O",
+            "candidates": []
+          },
+          {
+            "pattern": "R?D?C?T",
+            "candidates": []
+          },
+          {
+            "pattern": "A?E?T?S",
+            "candidates": [
+              "ADEPTES",
+              "ALERTES",
+              "AVERTIS"
+            ]
+          }
+        ],
+        "reason": "La silhouette est propre et sans mots de deux lettres, mais quatre des cinq colonnes restantes n'ont aucun candidat lexical. Il faudrait remplacer plus de la moitie de la banque editoriale; conception abandonnee."
+      },
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "unfillable",
+      "reason": "Quatre motifs verticaux sans candidat naturel; remplacer plus de deux réponses dépasserait le budget.",
+      "agent": "C",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "df2bc75dee5a897b9ff477b4fc634911693d9a98bbc39fe5995c26d38849897b",
+      "shapeId": "llm-word-first-b-triple-spine",
+      "anchorAnswers": [
+        "DECRIRE",
+        "EMMENER",
+        "PODCAST"
+      ],
+      "partialAnswers": [
+        "AG",
+        "ANIS",
+        "CERISE",
+        "DMC",
+        "IP",
+        "OMEGA",
+        "PEDALO",
+        "PENSE",
+        "SERIES",
+        "TRENTE"
+      ],
+      "stateDigest": "dc5936af85eb30deb98e8f5304fcfc7cfdbaf51c0c45cd4f6b97e2ffb8b84a31",
+      "partialState": {
+        "shapeId": "llm-word-first-b-triple-spine",
+        "columns": 7,
+        "rows": 8,
+        "encoding": "# = definition cell; letters are normalized without accents",
+        "rowMajor": [
+          "#######",
+          "#PEDALO",
+          "#OMEGA#",
+          "#DMC#IP",
+          "#CERISE",
+          "#ANIS#N",
+          "#SERIES",
+          "#TRENTE"
+        ],
+        "clueCells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            5
+          ]
+        ],
+        "placements": [
+          {
+            "answer": "PEDALO",
+            "row": 1,
+            "col": 1,
+            "direction": "across",
+            "length": 6,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "OMEGA",
+            "row": 2,
+            "col": 1,
+            "direction": "across",
+            "length": 5,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "DMC",
+            "row": 3,
+            "col": 1,
+            "direction": "across",
+            "length": 3,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "IP",
+            "row": 3,
+            "col": 5,
+            "direction": "across",
+            "length": 2,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "CERISE",
+            "row": 4,
+            "col": 1,
+            "direction": "across",
+            "length": 6,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "ANIS",
+            "row": 5,
+            "col": 1,
+            "direction": "across",
+            "length": 4,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "SERIES",
+            "row": 6,
+            "col": 1,
+            "direction": "across",
+            "length": 6,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "TRENTE",
+            "row": 7,
+            "col": 1,
+            "direction": "across",
+            "length": 6,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "PODCAST",
+            "row": 1,
+            "col": 1,
+            "direction": "down",
+            "length": 7,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "EMMENER",
+            "row": 1,
+            "col": 2,
+            "direction": "down",
+            "length": 7,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "DECRIRE",
+            "row": 1,
+            "col": 3,
+            "direction": "down",
+            "length": 7,
+            "status": "accepted-partial"
+          },
+          {
+            "answer": "AG",
+            "row": 1,
+            "col": 4,
+            "direction": "down",
+            "length": 2,
+            "status": "acceptable-abbreviation",
+            "clue": "Assemblée générale"
+          },
+          {
+            "answer": "PENSE",
+            "row": 3,
+            "col": 6,
+            "direction": "down",
+            "length": 5,
+            "status": "editorially-rejected-conjugated-fill"
+          }
+        ],
+        "openOrRejectedSegments": [
+          {
+            "pattern": "ISIN",
+            "row": 4,
+            "col": 4,
+            "direction": "down",
+            "length": 4,
+            "reason": "non-word"
+          },
+          {
+            "pattern": "LAIS",
+            "row": 1,
+            "col": 5,
+            "direction": "down",
+            "length": 4,
+            "reason": "answer is forbidden and obscure for the target audience"
+          },
+          {
+            "pattern": "ET",
+            "row": 6,
+            "col": 5,
+            "direction": "down",
+            "length": 2,
+            "reason": "answer and active family are forbidden"
+          },
+          {
+            "pattern": "O",
+            "row": 1,
+            "col": 6,
+            "direction": "down",
+            "length": 1,
+            "reason": "single-letter visual segment below a top-frame definition cell"
+          }
+        ],
+        "imageConcepts": [
+          {
+            "answer": "PEDALO",
+            "concept": "pédalo sur l'eau"
+          },
+          {
+            "answer": "CERISE",
+            "concept": "deux cerises"
+          },
+          {
+            "answer": "ANIS",
+            "concept": "graines d'anis"
+          },
+          {
+            "answer": "PODCAST",
+            "concept": "micro et casque audio"
+          },
+          {
+            "answer": "SERIES",
+            "concept": "écran avec bouton lecture"
+          }
+        ],
+        "audit": {
+          "letterCells": 39,
+          "orphanLetterCount": 0,
+          "twoLetterAcceptedCount": 2,
+          "forbiddenExactHits": [
+            "LAIS",
+            "ET"
+          ],
+          "activeFamilyHits": [
+            "ET"
+          ],
+          "nonWordSegments": [
+            "ISIN"
+          ],
+          "singleLetterVisualSegments": [
+            "O"
+          ],
+          "topologyValid": false,
+          "editoriallyValid": false,
+          "publicationEligible": false
+        }
+      },
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "topology-invalid",
+      "reason": "Fermeture refusée: LAIS et ET interdits, ISIN non-mot et segment visuel O d'une lettre.",
+      "agent": "B",
+      "triedOn": "2026-07-21"
+    },
+    {
+      "signature": "d5ad8252fd283ce18e55f37b23b6fcd5b5a974036785ee229d53217a8b5c02e3",
+      "shapeId": "llm-word-first-a-central-ribbon-01",
+      "anchorAnswers": [
+        "CLAVIER",
+        "CRUCHE"
+      ],
+      "partialAnswers": [
+        "CHIPS",
+        "CINEMA",
+        "CLIENT",
+        "ERABLE",
+        "HERBES",
+        "HIC",
+        "RACINE",
+        "UV"
+      ],
+      "stateDigest": "f52317f1eb7d73fdf79afa56df1f983b1525436ccc34e357900147c3a84b5917",
+      "partialState": {
+        "version": 1,
+        "kind": "llm-first-word-first-partial",
+        "agent": "A",
+        "generatedOn": "2026-07-21",
+        "catalogModified": false,
+        "publicationEligible": false,
+        "status": "incomplete-editorial-and-topology-blocked",
+        "conceptionsAttempted": 1,
+        "shapeId": "llm-word-first-a-central-ribbon-01",
+        "columns": 7,
+        "rows": 8,
+        "coordinateConvention": "zero-based [row,column]",
+        "legend": {
+          "neutral": "O",
+          "clue": "D",
+          "openLetter": "?"
+        },
+        "matrixRowMajor": [
+          [
+            "O",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D",
+            "D"
+          ],
+          [
+            "D",
+            "D",
+            "C",
+            "H",
+            "I",
+            "P",
+            "S"
+          ],
+          [
+            "D",
+            "C",
+            "L",
+            "I",
+            "E",
+            "N",
+            "T"
+          ],
+          [
+            "D",
+            "R",
+            "A",
+            "C",
+            "I",
+            "N",
+            "E"
+          ],
+          [
+            "D",
+            "U",
+            "V",
+            "D",
+            "D",
+            "D",
+            "D"
+          ],
+          [
+            "D",
+            "C",
+            "I",
+            "N",
+            "E",
+            "M",
+            "A"
+          ],
+          [
+            "D",
+            "H",
+            "E",
+            "R",
+            "B",
+            "E",
+            "S"
+          ],
+          [
+            "D",
+            "E",
+            "R",
+            "A",
+            "B",
+            "L",
+            "E"
+          ]
+        ],
+        "neutralCell": [
+          0,
+          0
+        ],
+        "clueCells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        "initialWordFirstReserve": [
+          "CLAVIER",
+          "CRUCHE",
+          "CHIPS",
+          "CLIENT",
+          "LAPTOP",
+          "AVATAR",
+          "RIDEAU",
+          "TENNIS",
+          "ERABLE"
+        ],
+        "survivingAnswers": [
+          "CLAVIER",
+          "CRUCHE",
+          "CHIPS",
+          "CLIENT",
+          "RACINE",
+          "UV",
+          "CINEMA",
+          "HERBES",
+          "ERABLE",
+          "HIC"
+        ],
+        "availabilityAudit": {
+          "source": "src/data/grid-generation-handcrafted/llm-first-unavailable-answers.json",
+          "forbiddenAnswerCount": 1963,
+          "activeFamilyCount": 372,
+          "survivingAnswersExactForbidden": [],
+          "survivingAnswersFamilyForbidden": []
+        },
+        "placements": [
+          {
+            "answer": "CHIPS",
+            "clue": "Pommes croustillantes",
+            "direction": "across",
+            "clueCell": [
+              1,
+              1
+            ],
+            "start": [
+              1,
+              2
+            ],
+            "cells": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                6
+              ]
+            ],
+            "imagePotential": true,
+            "status": "provisional"
+          },
+          {
+            "answer": "CRUCHE",
+            "clue": "Récipient à anse",
+            "direction": "down",
+            "clueCell": [
+              1,
+              1
+            ],
+            "start": [
+              2,
+              1
+            ],
+            "cells": [
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                6,
+                1
+              ],
+              [
+                7,
+                1
+              ]
+            ],
+            "imagePotential": true,
+            "status": "provisional"
+          },
+          {
+            "answer": "CLAVIER",
+            "clue": "Touches du PC",
+            "direction": "down",
+            "clueCell": [
+              0,
+              2
+            ],
+            "start": [
+              1,
+              2
+            ],
+            "cells": [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                5,
+                2
+              ],
+              [
+                6,
+                2
+              ],
+              [
+                7,
+                2
+              ]
+            ],
+            "imagePotential": true,
+            "status": "provisional"
+          },
+          {
+            "answer": "CLIENT",
+            "clue": "Acheteur",
+            "direction": "across",
+            "clueCell": [
+              2,
+              0
+            ],
+            "start": [
+              2,
+              1
+            ],
+            "cells": [
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                5
+              ],
+              [
+                2,
+                6
+              ]
+            ],
+            "imagePotential": false,
+            "status": "provisional"
+          },
+          {
+            "answer": "RACINE",
+            "clue": "Sous la plante",
+            "direction": "across",
+            "clueCell": [
+              3,
+              0
+            ],
+            "start": [
+              3,
+              1
+            ],
+            "cells": [
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            "imagePotential": true,
+            "status": "provisional"
+          },
+          {
+            "answer": "UV",
+            "clue": "Rayons solaires",
+            "direction": "across",
+            "clueCell": [
+              4,
+              0
+            ],
+            "start": [
+              4,
+              1
+            ],
+            "cells": [
+              [
+                4,
+                1
+              ],
+              [
+                4,
+                2
+              ]
+            ],
+            "imagePotential": false,
+            "status": "provisional-short-answer"
+          },
+          {
+            "answer": "CINEMA",
+            "clue": "Grand écran",
+            "direction": "across",
+            "clueCell": [
+              5,
+              0
+            ],
+            "start": [
+              5,
+              1
+            ],
+            "cells": [
+              [
+                5,
+                1
+              ],
+              [
+                5,
+                2
+              ],
+              [
+                5,
+                3
+              ],
+              [
+                5,
+                4
+              ],
+              [
+                5,
+                5
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            "imagePotential": false,
+            "status": "provisional"
+          },
+          {
+            "answer": "HERBES",
+            "clue": "Plantes du jardin",
+            "direction": "across",
+            "clueCell": [
+              6,
+              0
+            ],
+            "start": [
+              6,
+              1
+            ],
+            "cells": [
+              [
+                6,
+                1
+              ],
+              [
+                6,
+                2
+              ],
+              [
+                6,
+                3
+              ],
+              [
+                6,
+                4
+              ],
+              [
+                6,
+                5
+              ],
+              [
+                6,
+                6
+              ]
+            ],
+            "imagePotential": true,
+            "status": "provisional"
+          },
+          {
+            "answer": "ERABLE",
+            "clue": "Arbre du Canada",
+            "direction": "across",
+            "clueCell": [
+              7,
+              0
+            ],
+            "start": [
+              7,
+              1
+            ],
+            "cells": [
+              [
+                7,
+                1
+              ],
+              [
+                7,
+                2
+              ],
+              [
+                7,
+                3
+              ],
+              [
+                7,
+                4
+              ],
+              [
+                7,
+                5
+              ],
+              [
+                7,
+                6
+              ]
+            ],
+            "imagePotential": true,
+            "status": "provisional"
+          },
+          {
+            "answer": "HIC",
+            "clue": "Petit problème",
+            "direction": "down",
+            "clueCell": [
+              0,
+              3
+            ],
+            "start": [
+              1,
+              3
+            ],
+            "cells": [
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "imagePotential": false,
+            "status": "provisional"
+          }
+        ],
+        "openPatterns": [
+          {
+            "direction": "down",
+            "clueCell": [
+              0,
+              1
+            ],
+            "cells": [],
+            "pattern": "BLOCKED_BY_CLUE_AT_1_1",
+            "reason": "La case-indice haute devient isolée; la silhouette doit être redessinée."
+          },
+          {
+            "direction": "down",
+            "clueCell": [
+              0,
+              4
+            ],
+            "cells": [
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "pattern": "IEI",
+            "reason": "Aucune réponse naturelle retenue."
+          },
+          {
+            "direction": "down",
+            "clueCell": [
+              0,
+              5
+            ],
+            "cells": [
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                5
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "pattern": "PNN",
+            "reason": "Aucune réponse naturelle retenue."
+          },
+          {
+            "direction": "down",
+            "clueCell": [
+              0,
+              6
+            ],
+            "cells": [
+              [
+                1,
+                6
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            "pattern": "STE",
+            "reason": "Abréviation ou remplissage faible refusé."
+          },
+          {
+            "direction": "down",
+            "clueCell": [
+              4,
+              3
+            ],
+            "cells": [
+              [
+                5,
+                3
+              ],
+              [
+                6,
+                3
+              ],
+              [
+                7,
+                3
+              ]
+            ],
+            "pattern": "NRA",
+            "reason": "Aucune réponse naturelle retenue."
+          },
+          {
+            "direction": "down",
+            "clueCell": [
+              4,
+              4
+            ],
+            "cells": [
+              [
+                5,
+                4
+              ],
+              [
+                6,
+                4
+              ],
+              [
+                7,
+                4
+              ]
+            ],
+            "pattern": "EBB",
+            "reason": "Aucune réponse française naturelle."
+          },
+          {
+            "direction": "down",
+            "clueCell": [
+              4,
+              5
+            ],
+            "cells": [
+              [
+                5,
+                5
+              ],
+              [
+                6,
+                5
+              ],
+              [
+                7,
+                5
+              ]
+            ],
+            "pattern": "MEL",
+            "reason": "Forme non retenue pour le public cible."
+          },
+          {
+            "direction": "down",
+            "clueCell": [
+              4,
+              6
+            ],
+            "cells": [
+              [
+                5,
+                6
+              ],
+              [
+                6,
+                6
+              ],
+              [
+                7,
+                6
+              ]
+            ],
+            "pattern": "ASE",
+            "reason": "Terme ou suffixe spécialisé refusé."
+          }
+        ],
+        "audit": {
+          "complete": false,
+          "topologyValid": false,
+          "orphanLetterCountAmongPlacedAcrossAnswers": 0,
+          "openSegmentCount": 7,
+          "isolatedClueCount": 1,
+          "twoLetterAnswerCount": 1,
+          "potentialImageCount": 6,
+          "exactActiveOrBlacklistedReuseCount": 0,
+          "activeFamilyReuseCount": 0,
+          "blockingReasons": [
+            "Sept segments verticaux restent sans réponse défendable.",
+            "La case-indice [0,1] est isolée par la case-indice interne [1,1].",
+            "Le ruban central de quatre cases-indices n'est pas validé visuellement.",
+            "La grille ne contient plus de véritable référence pop après l'abandon d'AVATAR.",
+            "Publier cet état recréerait exactement les faux segments refusés par le propriétaire."
+          ]
+        },
+        "failureReason": "La conception word-first a produit un noyau lexical nettement plus naturel, mais ses croisements restants donnent IEI, PNN, STE, NRA, EBB, MEL et ASE. Ils sont refusés au lieu d'être maquillés en réponses. La silhouette possède en plus une case-indice haute isolée. Aucun nouvel essai n'a été lancé après l'ordre de clôture."
+      },
+      "policyDigest": "63733bbc366a46d770fbc7081a78a41789dad7911a768792c00dda7851f425ce",
+      "status": "topology-invalid",
+      "reason": "Sept faux segments verticaux et une case-indice isolée; placement exact non publiable.",
+      "agent": "A",
+      "triedOn": "2026-07-21"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { BOT_THINKING_MAX_MS, BOT_THINKING_MIN_MS, botThinkingDelayMs, planBotMove, refillBotRack, type BotPersona } from './botOpponents'
+import { BOT_THINKING_MAX_MS, BOT_THINKING_MIN_MS, botThinkingDelayMs, botTuning, planBotMove, refillBotRack, type BotPersona } from './botOpponents'
 import type { GameRuleGrid } from './gameRules'
 
 const expert: BotPersona = {
@@ -97,6 +97,18 @@ describe('adversaires bot', () => {
     })
 
     expect(plan.attempts.length).toBeLessThanOrEqual(3)
+  })
+
+  it('garde le niveau normal stratégique sans précision excessive', () => {
+    const regular: BotPersona = { ...expert, skill: 'regular', level: 26 }
+
+    expect(botTuning(regular)).toEqual({
+      accuracy: 88,
+      minLetters: 3,
+      maxLetters: 4,
+      wordBonusWeight: 2.5,
+      pressureGap: 7,
+    })
   })
 
   it('joue après une réflexion courte de quatre à huit secondes', () => {

@@ -273,6 +273,11 @@ test('une grille complète atteint l’écran final', async ({ browser, request 
   expect(match.finishReason).toBe('completed')
   const result = await openGame(browser, first, matchId, { width: 390, height: 844 }, false)
   try {
+    // The authoritative match is already finished, but the last turn still
+    // has to be shown letter by letter before the result panel replaces the
+    // board. This is especially important when a bot completes the grid.
+    await expect(result.page.locator('.board-wrap')).toBeVisible()
+    await expect(result.page.locator('.game-result-screen')).toBeHidden()
     await expect(result.page.locator('.game-result-screen')).toBeVisible()
     await expect(result.page.getByRole('button', { name: 'Nouvelle partie' })).toBeVisible()
     await expect(result.page.getByRole('button', { name: /Retour à l’accueil/ })).toBeVisible()

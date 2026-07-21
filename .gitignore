@@ -21,3 +21,6 @@ android/app/google-services.json
 .motman.sqlite*
 .motman-social.json
 .motman-matches.json
+android/.idea/
+supabase/.temp/
+android/gradle/gradle-daemon-jvm.properties

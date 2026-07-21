@@ -24,6 +24,7 @@ import { reportPlayer, setSocialPresence } from './social'
 import { useDragGhost } from './useDragGhost'
 import { DuelPlayer, LeaveMatchPanel, ResultPanel } from './game/DuelPresentation'
 import { compactClue, sameNumberRecord } from './game/gameDisplay'
+import { FINAL_GRID_COMPLETION_HOLD_MS, matchPresentationPhase } from './game/matchPresentation'
 import { StableBoardLetters } from './game/StableBoardLetters'
 import { TurnTimer, useTurnPhase } from './game/TurnTiming'
 
@@ -208,7 +209,10 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     const play = (index: number) => {
       const step = steps[index]
       if (!step) {
-        finishAnimation()
+        if (matchRef.current?.status === 'finished' && steps.length) {
+          setStatus('Grille terminée')
+          animationTimer.current = window.setTimeout(finishAnimation, FINAL_GRID_COMPLETION_HOLD_MS)
+        } else finishAnimation()
         return
       }
       step.run()
@@ -510,17 +514,19 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   const myInactivity = match.inactivity[playerId] ?? 0
   const opponentInactivity = match.inactivity[opponentId] ?? 0
   const hiddenStableLetterCell = hintFlight?.cellIndex ?? (hintRequesting && match.hint?.playerId === playerId ? match.hint.cellIndex : null)
+  const presentationPhase = matchPresentationPhase(match.status, resolving)
+  const showGame = presentationPhase === 'game'
 
-  return <main className={`app-shell multiplayer-shell ${turnAlert ? 'turn-alerting' : ''} ${resolving ? 'is-resolving' : ''} ${match.status === 'finished' ? 'is-finished' : ''}`}>
-    <header><button type="button" aria-label={match.status === 'active' ? 'Options de sortie' : 'Retour aux parties'} onClick={() => match.status === 'active' ? setLeaveOpen(true) : onExit()}><ArrowLeft /></button><img className="game-brand-logo" src={assetUrl('/assets/motman-logo-v2.webp')} alt="MotMan" /><button type="button" aria-label="Paramètres" onClick={() => setOptionsOpen(true)}><Settings /></button></header>
-    {match.status === 'active' ? <><section className="scoreboard"><DuelPlayer name={opponentName} detail={match.bot ? `Niv. ${match.bot.level}` : undefined} score={opponentScore} initials={playerInitials(opponentName)} avatarId={match.bot?.avatarId ?? opponent?.avatarId} frameId={match.bot?.frameId ?? opponent?.frameId} animationId={opponent?.animationId} active={turnHasStarted && !assignedToMe} /><div className={`turn ${turnPhase.urgent && isMyTurn ? 'urgent' : ''} ${isAsync ? 'async-turn' : ''} ${turnAlert ? 'your-turn-pulse' : ''}`} aria-live="polite"><small>{resolving || !turnHasStarted ? 'Résultats' : isMyTurn ? 'Votre tour' : `Tour de ${opponentName}`}</small><TurnTimer match={match} resolving={resolving} started={turnHasStarted} /><strong>{status}</strong></div><DuelPlayer name="Vous" score={myScore} initials={playerInitials(identity.current.displayName)} avatarId={playerCosmetics.current.equippedAvatarId} frameId={playerCosmetics.current.equippedFrameId} animationId={playerCosmetics.current.equippedAnimationId} active={Boolean(isMyTurn)} player /></section>
+  return <main className={`app-shell multiplayer-shell ${turnAlert ? 'turn-alerting' : ''} ${resolving ? 'is-resolving' : ''} ${presentationPhase === 'result' ? 'is-finished' : ''}`}>
+    <header><button type="button" disabled={match.status === 'finished' && resolving} aria-label={match.status === 'active' ? 'Options de sortie' : resolving ? 'Résultats en cours' : 'Retour aux parties'} onClick={() => match.status === 'active' ? setLeaveOpen(true) : onExit()}><ArrowLeft /></button><img className="game-brand-logo" src={assetUrl('/assets/motman-logo-v2.webp')} alt="MotMan" /><button type="button" aria-label="Paramètres" onClick={() => setOptionsOpen(true)}><Settings /></button></header>
+    {showGame ? <><section className="scoreboard"><DuelPlayer name={opponentName} detail={match.bot ? `Niv. ${match.bot.level}` : undefined} score={opponentScore} initials={playerInitials(opponentName)} avatarId={match.bot?.avatarId ?? opponent?.avatarId} frameId={match.bot?.frameId ?? opponent?.frameId} animationId={opponent?.animationId} active={match.status === 'active' && turnHasStarted && !assignedToMe} /><div className={`turn ${turnPhase.urgent && isMyTurn ? 'urgent' : ''} ${isAsync ? 'async-turn' : ''} ${turnAlert ? 'your-turn-pulse' : ''}`} aria-live="polite"><small>{resolving || !turnHasStarted ? 'Résultats' : isMyTurn ? 'Votre tour' : `Tour de ${opponentName}`}</small><TurnTimer match={match} resolving={resolving} started={turnHasStarted} /><strong>{status}</strong></div><DuelPlayer name="Vous" score={myScore} initials={playerInitials(identity.current.displayName)} avatarId={playerCosmetics.current.equippedAvatarId} frameId={playerCosmetics.current.equippedFrameId} animationId={playerCosmetics.current.equippedAnimationId} active={Boolean(match.status === 'active' && isMyTurn)} player /></section>
     <p className="instruction duel-instruction"><span>{match.mode === 'solo' ? 'Solo' : match.mode === 'normal' ? 'Normal' : 'Duel ami'}{match.bot ? ` · Bot ${DIFFICULTY_LABELS[match.difficulty].toLowerCase()}` : ''} · {isAsync ? '24 h par tour' : '45 s par tour'}</span><span className={`duel-live ${isAsync ? 'async' : ''}`} aria-label={isAsync ? 'Partie en temps illimité' : 'Partie en temps limité'}>{isAsync ? <Hourglass /> : <i />}{isAsync ? 'ILLIMITÉ' : 'LIMITÉ'}</span></p>
     {myInactivity || opponentInactivity ? <div className="duel-inactivity" aria-label="Avertissements d’inactivité">
       {opponentInactivity ? <span><b>{opponentName}</b> {opponentInactivity}/3</span> : null}
       {myInactivity ? <span className="mine"><b>Vous</b> {myInactivity}/3</span> : null}
     </div> : null}</> : null}
     {error ? <p className="duel-error" role="alert">{error}</p> : null}
-    {match.status === 'active' ? <section className="board-wrap" aria-label="Grille multijoueur" data-bot-level={match.bot ? match.difficulty : undefined}><div className={`board ${focusedWordCells.size ? 'has-clue-focus' : ''}`} style={{ '--board-columns': grid.columns, '--board-rows': grid.rows, '--board-aspect': `${grid.columns} / ${grid.rows}` } as CSSProperties}>
+    {showGame ? <section className="board-wrap" aria-label="Grille multijoueur" data-bot-level={match.bot ? match.difficulty : undefined}><div className={`board ${focusedWordCells.size ? 'has-clue-focus' : ''}`} style={{ '--board-columns': grid.columns, '--board-rows': grid.rows, '--board-aspect': `${grid.columns} / ${grid.rows}` } as CSSProperties}>
       {grid.cells.map((cell, index) => {
         if (cell.kind === 'block') return <div className="cell block corner-block" key={index} aria-label="Case centrale des définitions" />
         if (cell.kind === 'clue') {
@@ -544,7 +550,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
       <BoardWordHighlight highlight={wordHighlight} columns={grid.columns} rows={grid.rows} />
       <BoardScoreEffects effects={scoreEffects} columns={grid.columns} rows={grid.rows} />
     </div></section> : null}
-    {match.status === 'active' ? <>
+    {showGame ? <>
       <section className={`rack-area ${!isMyTurn ? 'duel-rack-waiting' : ''}`}><div className="rack-heading"><strong>{isMyTurn ? 'Vos lettres' : `${opponentName} joue…`}</strong><span>{isMyTurn ? `${rack.length - placedIds.size} disponible${rack.length - placedIds.size > 1 ? 's' : ''}` : 'Préparez votre prochain coup'}</span></div><div className={`rack ${dropTarget === -1 ? 'rack-drop' : ''} ${rackRolling ? 'is-rerolling' : ''}`} data-rack="true" aria-label="Lettres disponibles">
         {rack.map(tile => <div className="rack-slot" key={tile.id}>{!placedIds.has(tile.id) ? <button type="button" data-rack-letter={tile.letter} data-rack-id={tile.id} disabled={!canAct || resolving} aria-label={`Lettre ${tile.letter}`} className={`rack-letter ${selected?.id === tile.id ? 'selected' : ''} ${drag?.tile.id === tile.id ? 'drag-source' : ''}`} onClick={() => setSelected(current => current?.id === tile.id ? null : tile)} onPointerDown={event => pointerDown(event, tile, 'rack')} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerCancel}>{tile.letter}</button> : null}</div>)}
         {Array.from({ length: Math.max(0, 5 - rack.length) }, (_, index) => <div className="rack-slot" aria-hidden="true" key={`empty-${index}`} />)}

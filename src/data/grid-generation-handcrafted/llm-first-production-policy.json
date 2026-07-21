@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "updatedOn": "2026-07-21",
+  "status": "owner-approved-production-method",
+  "audience": {
+    "ageRange": "16-45",
+    "tone": "français courant, actuel et ludique",
+    "culturalFrame": [
+      "vie quotidienne",
+      "internet et réseaux sociaux",
+      "jeux vidéo",
+      "streaming",
+      "cinéma et séries populaires"
+    ]
+  },
+  "grid": {
+    "columns": 7,
+    "rows": 8,
+    "firstRowClues": true,
+    "firstColumnClues": true,
+    "orphanLettersAllowed": 0,
+    "preferTwoLetterAnswers": 0,
+    "maximumTwoLetterAnswers": 0,
+    "internalClueCells": "optional",
+    "letterCoverage": "exactly-one-across-and-one-down"
+  },
+  "editorial": {
+    "modernOrPopAnswersPerGrid": {
+      "minimum": 2,
+      "maximum": 4
+    },
+    "commonAnglicisms": "accepted",
+    "brandsAndKnownCharacters": "accepted-as-answers",
+    "obscureProperNames": "rejected",
+    "mechanicalInflections": "rejected",
+    "crosswordese": "rejected-unless-owner-approved",
+    "activeCatalogExactRepeats": "penalty-and-rotation-cooldown",
+    "newBatchExactRepeats": 0,
+    "semanticFamilyRepeatsWithinBatch": 0,
+    "directClueTargetPercent": 80,
+    "cleverOrCulturalClueTargetPercent": 20,
+    "commonAnswerTargetPercent": 80,
+    "thoughtfulAnswerTargetPercent": 20
+  },
+  "images": {
+    "minimumPerGrid": 4,
+    "maximumPerGrid": 6,
+    "smallScreenRecognitionRequired": true,
+    "officialBrandLogos": "require-recorded-permission-or-license",
+    "fallback": "short-text-clue-or-original-generic-pictogram"
+  },
+  "workflow": [
+    "load-active-catalog-blacklist-and-owner-feedback",
+    "load-failed-attempt-registry-and-skip-identical-dead-ends",
+    "prepare-30-to-50-interesting-candidate-answers-by-length",
+    "place-long-and-interesting-anchor-answers-first",
+    "design-a-7x8-silhouette-around-the-selected-answers",
+    "ask-independent-agents-for-pattern-compatible-natural-answers",
+    "abandon-fill-if-more-than-two-answers-need-repair",
+    "abandon-shape-after-three-failed-fills",
+    "save-exact-partial-layout-open-patterns-and-failure-reason",
+    "write-clues-and-select-images-after-clean-fill",
+    "run-deterministic-topology-blacklist-and-repetition-audits",
+    "perform-independent-editorial-review",
+    "show-one-or-two-grid-owner-checkpoint-before-continuing"
+  ],
+  "repairBudget": {
+    "maximumAffectedAnswers": 2,
+    "maximumLocalAttempts": 3,
+    "failedFillsBeforeShapeRestart": 3
+  },
+  "responsibilities": {
+    "agents": [
+      "answer-selection",
+      "pattern-matching",
+      "clue-writing",
+      "image-concept-selection",
+      "editorial-critique"
+    ],
+    "python": [
+      "topology-validation",
+      "crossing-validation",
+      "orphan-detection",
+      "blacklist-check",
+      "catalog-repetition-check"
+    ]
+  },
+  "publication": {
+    "automaticPublication": false,
+    "ownerReviewRequired": true
+  }
+}
