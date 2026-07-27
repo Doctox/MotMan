@@ -44,10 +44,15 @@ let identitySequence = 0
 
 function newIdentity(label: string): Identity {
   identitySequence += 1
+  const suffix = ` ${identitySequence}`
+  const boundedLabel = Array.from(label)
+    .slice(0, 16 - Array.from(suffix).length)
+    .join('')
+    .trimEnd()
   return {
     version: 1,
     playerId: `guest_${randomUUID()}`,
-    displayName: `${label} ${identitySequence}`,
+    displayName: `${boundedLabel}${suffix}`,
     accountType: 'guest',
     createdAt: new Date().toISOString(),
   }
