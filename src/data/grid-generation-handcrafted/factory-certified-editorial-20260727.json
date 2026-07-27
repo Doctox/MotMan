@@ -1,0 +1,4974 @@
+{
+  "schema": "motman-factory-certified-editorial-source",
+  "version": 1,
+  "catalogVersion": 20,
+  "sourceFileSha256": "ea100ce00456e0c703be1fda4d9cbd9c64d1bd7a6b82ce2e6b61ebedef5a5d1a",
+  "sourcePayloadSha256": "2e5c506e67c90e499a3e4a63529bf3da85d39a19e40da3124d959611d1facadb",
+  "withheld": [
+    {
+      "candidateId": "ff14f81e-946d-48f4-a545-d80cc7dbd47e",
+      "proposedGridId": "factory-7x8-ff14f81e946d48f4",
+      "status": "withheld",
+      "reason": "near-duplicate-within-certified-batch",
+      "comparedWithCandidateId": "081c89e3-c392-4258-a0e0-cffec95b2f43",
+      "sharedAnswers": [
+        "ECOLE",
+        "GHETTO",
+        "GRILLON",
+        "HEROINE",
+        "IA",
+        "IRONIE",
+        "LIEN",
+        "LOL",
+        "NEYMAR",
+        "NOM",
+        "ODE",
+        "OIE",
+        "ON",
+        "RECORD",
+        "TON",
+        "TRIO"
+      ],
+      "sharedAnswerCount": 16,
+      "jaccardSimilarity": 0.888889,
+      "decision": "Non publiée : seize réponses sur dix-sept sont identiques à la grille factory-7x8-081c89e3c3924258."
+    }
+  ],
+  "lexicalReviews": {
+    "FOSTER": {
+      "status": "human-reviewed-exception",
+      "reason": "Nom propre mondialement connu, absent du lexique principal.",
+      "acceptedAs": "Jodie Foster"
+    },
+    "SIEN": {
+      "status": "human-reviewed-exception",
+      "reason": "Pronom possessif masculin autonome malgré son classement technique en quarantaine.",
+      "acceptedAs": "pronom possessif"
+    },
+    "LEGERES": {
+      "status": "human-reviewed-inflection",
+      "reason": "Adjectif féminin pluriel autonome et défini sans contexte verbal.",
+      "acceptedAs": "adjectif qualificatif"
+    },
+    "REELLE": {
+      "status": "human-reviewed-inflection",
+      "reason": "Adjectif féminin singulier autonome et défini sans contexte verbal.",
+      "acceptedAs": "adjectif qualificatif"
+    },
+    "properNames": {
+      "FOSTER": {
+        "status": "human-reviewed-distinctive",
+        "entityType": "personne",
+        "clueUniquenessChecked": true,
+        "distinctiveTokens": [
+          "Jodie",
+          "oscarisée"
+        ],
+        "decision": "accepted-known-proper-name"
+      },
+      "NEYMAR": {
+        "status": "human-reviewed-distinctive",
+        "entityType": "personne",
+        "clueUniquenessChecked": true,
+        "distinctiveTokens": [
+          "PSG",
+          "Brésilien"
+        ],
+        "decision": "accepted-known-proper-name"
+      },
+      "DRE": {
+        "status": "human-reviewed-distinctive",
+        "entityType": "personne",
+        "clueUniquenessChecked": true,
+        "distinctiveTokens": [
+          "Compton",
+          "Producteur"
+        ],
+        "decision": "accepted-stage-name"
+      }
+    }
+  },
+  "grids": [
+    {
+      "id": "factory-7x8-0092d1d2c1244493",
+      "columns": 7,
+      "rows": 8,
+      "sourceReviewId": "0092d1d2-c124-4493-bca6-37703e8764d0",
+      "sourceShapeId": "two-short-7x8-ee7db74e14",
+      "audience": "16-45",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:01",
+          "answer": "REFORME",
+          "clue": "Changement profond",
+          "sourceClue": "Changement profond",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "REFORME",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 28.915,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 28.915,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:02",
+          "answer": "EROSION",
+          "clue": "Usure progressive",
+          "sourceClue": "Usure progressive",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "EROSION",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 21.443,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 21.443,
+            "register": "uncertain-quarantine",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:03",
+          "answer": "SMS",
+          "clue": "",
+          "sourceClue": "Message sur téléphone",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "SMS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 15.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "current-common",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 15.0,
+            "register": "everyday",
+            "domain": "digital",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iIzMxMzczRCIgZD0iTTE4IDM2cy00IDAtNC00VjRzMC00IDQtNGgxNHM0IDAgNCA0djI4czAgNC00IDRIMTh6Ii8+PHBhdGggZmlsbD0iIzU1QUNFRSIgZD0iTTE2IDVoMTh2MjZIMTZ6bS0zIDExczEgMSAxIDItMSAyLTEgMmwtNSA1Yy0xIDEtMyAxLTMtMXYtM0gycy0yIDAtMi0ydi0yYzAtMiAyLTIgMi0yaDN2LTNjMC0yIDItMiAzLTFsNSA1eiIvPjwvc3ZnPg==",
+            "alt": "Message sur téléphone",
+            "concept": "SMS",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/sms.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:04",
+          "answer": "TITRE",
+          "clue": "Intitulé d’œuvre",
+          "sourceClue": "Intitulé d’œuvre",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "TITRE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 58.624,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 58.624,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:05",
+          "answer": "ETE",
+          "clue": "",
+          "sourceClue": "Soleil estival",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "ETE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 65.037,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "unknown",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 65.037,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0ZGQUMzMyIgZD0iTTE2IDJzMC0yIDItMiAyIDIgMiAydjJzMCAyLTIgMi0yLTItMi0yVjJ6bTE4IDE0czIgMCAyIDItMiAyLTIgMmgtMnMtMiAwLTItMiAyLTIgMi0yaDJ6TTQgMTZzMiAwIDIgMi0yIDItMiAySDJzLTIgMC0yLTIgMi0yIDItMmgyem01LjEyMS04LjcwN3MxLjQxNCAxLjQxNCAwIDIuODI4LTIuODI4IDAtMi44MjggMEw0Ljg3OCA4LjcwOHMtMS40MTQtMS40MTQgMC0yLjgyOWMxLjQxNS0xLjQxNCAyLjgyOSAwIDIuODI5IDBsMS40MTQgMS40MTR6bTIxIDIxczEuNDE0IDEuNDE0IDAgMi44MjgtMi44MjggMC0yLjgyOCAwbC0xLjQxNC0xLjQxNHMtMS40MTQtMS40MTQgMC0yLjgyOCAyLjgyOCAwIDIuODI4IDBsMS40MTQgMS40MTR6bS0uNDEzLTE4LjE3MnMtMS40MTQgMS40MTQtMi44MjggMCAwLTIuODI4IDAtMi44MjhsMS40MTQtMS40MTRzMS40MTQtMS40MTQgMi44MjggMCAwIDIuODI4IDAgMi44MjhsLTEuNDE0IDEuNDE0em0tMjEgMjFzLTEuNDE0IDEuNDE0LTIuODI4IDAgMC0yLjgyOCAwLTIuODI4bDEuNDE0LTEuNDE0czEuNDE0LTEuNDE0IDIuODI4IDAgMCAyLjgyOCAwIDIuODI4bC0xLjQxNCAxLjQxNHpNMTYgMzJzMC0yIDItMiAyIDIgMiAydjJzMCAyLTIgMi0yLTItMi0ydi0yeiIvPjxjaXJjbGUgZmlsbD0iI0ZGQUMzMyIgY3g9IjE4IiBjeT0iMTgiIHI9IjEwIi8+PC9zdmc+",
+            "alt": "Soleil estival",
+            "concept": "Été",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/soleil.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:06",
+          "answer": "SERRURE",
+          "clue": "Mécanisme de porte",
+          "sourceClue": "Mécanisme de porte",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "SERRURE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 37.185,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 37.185,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:07",
+          "answer": "RESTES",
+          "clue": "Ce qui demeure",
+          "sourceClue": "Ce qui demeure",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "RESTES",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 37.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 37.0,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:08",
+          "answer": "ERMITE",
+          "clue": "Solitaire retiré",
+          "sourceClue": "Solitaire retiré",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "ERMITE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 24.17,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 24.17,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:09",
+          "answer": "FOSTER",
+          "clue": "Jodie, actrice oscarisée",
+          "sourceClue": "Jodie, actrice oscarisée",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "FOSTER",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "clueStyle": "clever",
+          "familiarityScore": 0.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "unknown",
+          "formType": "unknown",
+          "languageStatus": "known-proper-name",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 24,
+            "familiarity": 0.0,
+            "register": "",
+            "domain": "",
+            "pendingPoolId": "b00dc40e-083e-5cdf-9e35-291f0ce9b863"
+          },
+          "properNameReview": {
+            "status": "human-reviewed-distinctive",
+            "entityType": "personne",
+            "clueUniquenessChecked": true,
+            "distinctiveTokens": [
+              "Jodie",
+              "oscarisée"
+            ],
+            "decision": "accepted-known-proper-name"
+          },
+          "lexicalExceptionReview": {
+            "status": "human-reviewed-exception",
+            "reason": "Nom propre mondialement connu, absent du lexique principal.",
+            "acceptedAs": "Jodie Foster"
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:10",
+          "answer": "OS",
+          "clue": "",
+          "sourceClue": "Os du squelette",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "OS",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 0.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "curated-short",
+          "formType": "curated",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 0.0,
+            "register": "current-common",
+            "domain": "short-relief",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0ZGRThCNiIgZD0iTTM0LjM0NSAyNC42MTVjLTEuNTgyLS45NzctNC4yOTIuNzE1LTUuNjc1LS42NjgtLjg3Ny0uODc3LTcuOTg0LTguNTE2LTExLjExMS0xMS40OTNTMTAuOTM3IDYuOCAxMC4xMiA2LjA2NWMtLjQ3Ny0uNDI5IDEuMDc2LTMuNTUtLjIzOC00Ljg2NEM4LjQ4OC0uMTkyIDYuNTY2LS4zNDggNS4xNzMgMS4wNDVjLS44NTYuODU1LS40NjEgMi4yODUtMS4wNjIgMi42ODNzLTIuMjEyLjU5LTMuMDY2IDEuNDQ1Yy0xLjM5MyAxLjM5Mi0xLjE5MSAzLjY4My4zOTYgNC44NSAxLjYyMSAxLjE5MiA0LjA1My0uMDk1IDUuMDA3LjE5MSAxLjMwMS4zOSA0LjczNCA0LjIyMyA5LjM0NyA4LjgyMiA0LjMwMyA0LjI5IDcuODgyIDkuMTcxIDguMjUgOS41ODUuNzYzLjg1OC0xLjQ3OCAzLjc2Ny42NjggNi4xNTIgMS4zMTggMS40NjQgMy43MSAxLjQ4OSA1LjEwMy4wOTUuODU2LS44NTQuODA2LTMuNzIxIDEuNTc0LTQuMjkyczIuNTMtLjA1MSAzLjM4Ni0uOTA2YzEuMzkxLTEuMzkyIDEuMTktNC4wNTMtLjQzMS01LjA1NXoiLz48cGF0aCBmaWxsPSIjRjJDOTk0IiBkPSJNNS4xMTMgMy4wMTNDNS4yMDggMS44NjggNi41NDQuMjk1IDguMDIyLjQzOGMxLjQ3OC4xNDMgMi4wMDMgMS42NjkgMS44NiAyLjQ4LS4xNDQuODEtLjM4MiAxLjU3My0uNDc4IDIuMTkzLS4wOTUuNjItLjE0MyAxLjA5NyAxLjA5NyAyLjAwM3MxMS4zOTcgMTAuMTU3IDEzLjczNCAxMi45NzFjMi4zMzcgMi44MTQgMy43MiA0LjU3OCA0LjY3MyA0LjgxNi45NTQuMjM4IDEuODEyLjE0MyAyLjcxOCAwIC44NDctLjEzNCAyLjg0Ny0uNTc1IDMuNzI5Ljg4NS0uMjI3LS40NzUtLjU1Ny0uODkxLTEuMDEtMS4xNzEtMS41ODItLjk3Ny00LjI5Mi43MTUtNS42NzUtLjY2OC0uODc3LS44NzctNy45ODQtOC41MTYtMTEuMTExLTExLjQ5My0zLjEyNy0yLjk3Ny02LjYyMi01LjY1NS03LjQzOS02LjM5LS40NzctLjQyOSAxLjA3Ni0zLjU1LS4yMzgtNC44NjRDOC40ODgtLjE5MiA2LjU2Ni0uMzQ4IDUuMTczIDEuMDQ1Yy0uODU2Ljg1NS0uNDYxIDIuMjg1LTEuMDYyIDIuNjgzLS4xNC4wOTMtLjM0LjE3NS0uNTY4LjI1Ny45NTMtLjA1NSAxLjQ5NC0uMDYgMS41Ny0uOTcyeiIvPjxwYXRoIGZpbGw9IiNEOTlFODIiIGQ9Ik0zNS41MzcgMjcuOTUzYy0uMTQzIDEuMjQtMi40OCAyLjE0Ni0zLjk1OCAxLjY2OS0uODczLS4yODItMS43MTctLjE0My0xLjYyMS43NjMuMDk1LjkwNi4yMzggMi4yNDEtLjI4NiAzLjI5LS40NzcuOTU0LTIuNDggMS40MzEtMy43NjcuNTI1LTEuMTg2LS44MzUtMS4zODMtMi45NTctLjg1OC0zLjk1OC41MjUtMS4wMDEuNTcyLTEuNjY5LS42NjgtMy4xOTUtLjYyOC0uNzczLTQuMTA5LTQuNzY1LTguMDExLTguODctMy44MDEtMy45OTgtNy41OTMtNy44MjgtOC4zOTMtOC4zOTMtMS42MjMtMS4xNDQtMi40NjYtLjY2Mi0zLjYyNS0uMzgxLTEuNTc0LjM4MS0zLjEtLjcxNS0zLjM4Ni0xLjQzMS0uMjU1LS42MzktLjIyOC0yLjEzLjI0My0yLjkzMy0uMDU0LjA0NS0uMTEzLjA4NS0uMTYyLjEzNC0xLjM5MyAxLjM5Mi0xLjE5MSAzLjY4My4zOTYgNC44NSAxLjYyMSAxLjE5MiA0LjA1My0uMDk1IDUuMDA3LjE5MSAxLjMwMS4zOSA0LjczNCA0LjIyMyA5LjM0NyA4LjgyMiA0LjMwMyA0LjI5IDcuODgyIDkuMTcxIDguMjUgOS41ODUuNzYzLjg1OC0xLjQ3OCAzLjc2Ny42NjggNi4xNTIgMS4zMTggMS40NjQgMy43MSAxLjQ4OSA1LjEwMy4wOTUuODU1LS44NTQuODA2LTMuNzIxIDEuNTc0LTQuMjkyLjc2Ny0uNTcxIDIuNTMtLjA1MSAzLjM4Ni0uOTA2LjU1OC0uNTU3Ljg0OC0xLjMxNy45MDYtMi4wOTMtLjA2NS4wMjYtLjExOC4xNDItLjE0NS4zNzZ6Ii8+PC9zdmc+Cg==",
+            "alt": "Os du squelette",
+            "concept": "Os",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/os.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:11",
+          "answer": "DIT",
+          "clue": "Parole rapportée",
+          "sourceClue": "Parole rapportée",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "DIT",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            3
+          ],
+          "cells": [
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 33.54,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 33.54,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:12",
+          "answer": "AVE",
+          "clue": "Prière latine",
+          "sourceClue": "Prière latine",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "AVE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            5
+          ],
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 27.18,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 27.18,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:13",
+          "answer": "RIDEAU",
+          "clue": "Cache la scène",
+          "sourceClue": "Cache la scène",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "RIDEAU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 56.373,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 56.373,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:14",
+          "answer": "MOI",
+          "clue": "Pronom personnel",
+          "sourceClue": "Pronom personnel",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "MOI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 39.02,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 39.02,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:15",
+          "answer": "VR",
+          "clue": "Réalité virtuelle",
+          "sourceClue": "Réalité virtuelle",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "VR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            4
+          ],
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 0.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "curated-short",
+          "formType": "curated",
+          "languageStatus": "standard-french",
+          "culturalStatus": "current-common",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 0.0,
+            "register": "current-common",
+            "domain": "short-relief",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-0092d1d2c1244493:word:16",
+          "answer": "ENTREE",
+          "clue": "",
+          "sourceClue": "Porte d’entrée",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "ENTREE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 64.79,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 64.79,
+            "register": "daily-common",
+            "domain": "current",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0JGNjk1MiIgZD0iTTI5IDM0YzAgMS4xMDUtLjg5NSAyLTIgMkg5Yy0xLjEwNSAwLTItLjg5NS0yLTJWMmMwLTEuMTA1Ljg5NS0yIDItMmgxOGMxLjEwNSAwIDIgLjg5NSAyIDJ2MzJ6Ii8+PGNpcmNsZSBmaWxsPSIjRkZBQzMzIiBjeD0iMTEiIGN5PSIxOCIgcj0iMS41Ii8+PHBhdGggZmlsbD0iI0FDNTY0MCIgZD0iTTI1IDNjLS41NTIgMC0xIC40NDgtMSAxdjlIMTFjLS41NTIgMC0xIC40NDgtMSAxcy40NDggMSAxIDFoMTRjLjU1MiAwIDEtLjQ0OCAxLTFWNGMwLS41NTItLjQ0OC0xLTEtMXptMCAyNWMuNTUyIDAgMSAuNDQ4IDEgMXYzYzAgLjU1Mi0uNDQ4IDEtMSAxSDExYy0uNTUyIDAtMS0uNDQ4LTEtMXMuNDQ4LTEgMS0xaDEzdi0yYzAtLjU1Mi40NDgtMSAxLTF6Ii8+PHBhdGggZmlsbD0iIzg1NDgzNiIgZD0iTTExIDMzYy0uNTUyIDAtMS0uNDQ4LTEtMXYtM2MwLS41NTIuNDQ4LTEgMS0xaDE0Yy41NTIgMCAxIC40NDggMSAxcy0uNDQ4IDEtMSAxSDEydjJjMCAuNTUyLS40NDggMS0xIDF6Ii8+PHBhdGggZmlsbD0iI0FDNTY0MCIgZD0iTTI1IDIxYy41NTIgMCAxIC40NDggMSAxdjNjMCAuNTUyLS40NDggMS0xIDFIMTFjLS41NTIgMC0xLS40NDgtMS0xcy40NDgtMSAxLTFoMTN2LTJjMC0uNTUyLjQ0OC0xIDEtMXoiLz48cGF0aCBmaWxsPSIjODU0ODM2IiBkPSJNMTEgMjZjLS41NTIgMC0xLS40NDgtMS0xdi0zYzAtLjU1Mi40NDgtMSAxLTFoMTRjLjU1MiAwIDEgLjQ0OCAxIDFzLS40NDggMS0xIDFIMTJ2MmMwIC41NTItLjQ0OCAxLTEgMXptMC0xMWMtLjU1MiAwLTEtLjQ0OC0xLTFWNGMwLS41NTIuNDQ4LTEgMS0xaDE0Yy41NTIgMCAxIC40NDggMSAxcy0uNDQ4IDEtMSAxSDEydjljMCAuNTUyLS40NDggMS0xIDF6Ii8+PC9zdmc+",
+            "alt": "Porte d’entrée",
+            "concept": "Entrée",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/porte.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        }
+      ],
+      "imageCount": 4,
+      "publicationStatus": "owner-certified-editorial-reviewed",
+      "humanReview": {
+        "status": "human-reviewed",
+        "reviewDate": "2026-07-27",
+        "sourceFileSha256": "ea100ce00456e0c703be1fda4d9cbd9c64d1bd7a6b82ce2e6b61ebedef5a5d1a",
+        "sourcePayloadSha256": "2e5c506e67c90e499a3e4a63529bf3da85d39a19e40da3124d959611d1facadb",
+        "lexicalExceptions": [
+          "FOSTER"
+        ],
+        "properNames": [
+          "FOSTER"
+        ]
+      },
+      "provenance": {
+        "source": "C:\\Users\\peete\\AppData\\Local\\MotManLexiconStudio\\exports\\motman-certified-grids-for-editorialization.json",
+        "candidateId": "0092d1d2-c124-4493-bca6-37703e8764d0",
+        "campaignId": "6917c693-c91a-490a-b45e-af8c5b3d8506",
+        "certifiedAt": "2026-07-27T14:51:38Z",
+        "factoryDigests": {
+          "certification": "7cd64aa7abf5c7457f4caa8530f717a841ef2b3cfc904e2617272ea2f7bf310e",
+          "context": "fcc5651eae844062a656fdf0dc220eab1865dfe622608763c0190aeeeaa397f9",
+          "campaign": {
+            "baseEffectiveLexicon": "2ecd2f2f8dd1b0c2b05e4c3fc582840a99917fd903935beb03645984f064f94b",
+            "effectiveFile": "0de92a86ffeebd47cdc4ae1583a06dfa24fec0988f72617662567b98fe7089be",
+            "effectiveLexicon": "81ae5960431b65a4e14cea8093a270b9a8d144de54e26e246879b6aa550c94aa",
+            "forbiddenGrids": "d95f62802cd2f0df7fb3fbf8969d9aa4d79cec264c00dfa311cd0afe0729a616",
+            "ownerOverlay": "834fb33fb86afc6727adbb3c023a7e10d9bb1bbe4b9be20dd6980f8cd8bfd6ab",
+            "pendingPool": "333ef1ad05f6e2a23cce8ea261f89a9dbeead05bc2f43fb313973d871073cb6f",
+            "pendingQuota": "8",
+            "policy": "8985ab746359b2cf154c4f916b674cbce82750eddc3cd8f2539c2693900bf80d",
+            "repetitionHistory": "89e2008f25408199c8ec754854779afabbd5cd4afb4bd76955ff8e4fd60db49c",
+            "rescuePool": "disabled",
+            "shapes": "64c659cada3883158807e45b7d85ebd858b50eb9b3aef196eca08b48bb6d5d8f",
+            "sourceLexicon": "f5588d660a71a3b0f05e9bb74b2da968f97e37c75f5536ebee2d3e833cacfba3"
+          },
+          "factory": {
+            "lexicon": "f5588d660a71a3b0f05e9bb74b2da968f97e37c75f5536ebee2d3e833cacfba3",
+            "policy": "8985ab746359b2cf154c4f916b674cbce82750eddc3cd8f2539c2693900bf80d",
+            "shapes": "64c659cada3883158807e45b7d85ebd858b50eb9b3aef196eca08b48bb6d5d8f"
+          }
+        }
+      },
+      "reviewSummary": {
+        "answers": 16,
+        "images": 4,
+        "manualTextClues": 12,
+        "properNamesReviewed": 1,
+        "lexicalExceptionsReviewed": 1
+      },
+      "editorialProfile": "motman-factory-certified-20260727"
+    },
+    {
+      "id": "factory-7x8-081c89e3c3924258",
+      "columns": 7,
+      "rows": 8,
+      "sourceReviewId": "081c89e3-c392-4258-a0e0-cffec95b2f43",
+      "sourceShapeId": "two-short-7x8-976948d267",
+      "audience": "16-45",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:01",
+          "answer": "GRILLON",
+          "clue": "",
+          "sourceClue": "Petit insecte chanteur",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "GRILLON",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 23.82,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 23.82,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PGcgZmlsbD0iIzNFNzIxRCI+PHBhdGggZD0iTTEwLjIgMTQuOTM4bC0uMDU3LS4wMzljLS4wNzQtLjA1NS03LjM2MS01LjU4OC00LjU2Ny0xMi43MzUuMjAxLS41MTUuNzgxLS43NjggMS4yOTUtLjU2Ny41MTguMTk5Ljc2OC43ODEuNTY4IDEuMjk1LTIuMjQ1IDUuNzQzIDMuODM3IDEwLjM1NyAzLjg5OSAxMC40MDMuNDQzLjMzLjUzNS45NTYuMjA1IDEuNC0uMzE3LjQyMy0uOTA1LjUyNS0xLjM0My4yNDN6bTE0Ljc3Ny0uNDE2bC0uMDU3LS4wMzljLS4wNzQtLjA1NS03LjM2MS01LjU4OC00LjU2Ny0xMi43MzUuMjAxLS41MTUuNzgxLS43NjggMS4yOTUtLjU2Ny41MTguMTk5Ljc2OC43ODEuNTY4IDEuMjk1LTIuMjQ1IDUuNzQzIDMuODM3IDEwLjM1NyAzLjg5OSAxMC40MDMuNDQzLjMzLjUzNS45NTYuMjA1IDEuNC0uMzE2LjQyMy0uOTA1LjUyNS0xLjM0My4yNDN6Ii8+PHBhdGggZD0iTTExLjAwOCAxNC41MjJsLjA1Ny0uMDM5Yy4wNzQtLjA1NSA3LjM2MS01LjU4OCA0LjU2Ny0xMi43MzUtLjIwMS0uNTE1LS43ODEtLjc2OC0xLjI5NS0uNTY3LS41MTguMTk5LS43NjguNzgxLS41NjggMS4yOTUgMi4yNDUgNS43NDMtMy44MzcgMTAuMzU3LTMuODk5IDEwLjQwMy0uNDQzLjMzLS41MzUuOTU2LS4yMDUgMS40LjMxNi40MjMuOTA1LjUyNSAxLjM0My4yNDN6bS05LjE0NyA3Ljg1Yy0uMTM5LS4wMjctLjI3NS0uMDg1LS4zOTctLjE3My0uNDQ2LS4zMjYtLjU0NC0uOTUxLS4yMTktMS4zOTggNC40MDQtNi4wMzkgMTIuMzEzLTUuNDYzIDEyLjY0OC01LjQzNi41NDkuMDUuOTU4LjUyNy45MTQgMS4wNzctLjA0NC41NS0uNTI2Ljk2LTEuMDc2LjkxNy0uMDcxLS4wMDYtNy4xMzUtLjUtMTAuODcgNC42Mi0uMjM2LjMyNS0uNjMxLjQ2NS0xIC4zOTN6bTMuNzg2IDExLjk3N2MtLjEyNC4wNy0uMjY0LjExNS0uNDE0LjEyNy0uNTUxLjA0My0xLjAzMi0uMzY3LTEuMDc2LS45MTgtLjU5Mi03LjQ1MSA1Ljc4My0xMi4xNjYgNi4wNTUtMTIuMzYzLjQ0OS0uMzE5IDEuMDctLjIyNCAxLjM5NS4yMjIuMzI1LjQ0Ni4yMjYgMS4wNzEtLjIxOSAxLjM5Ny0uMDU4LjA0Mi01Ljc0IDQuMjY5LTUuMjM3IDEwLjU4Ni4wMzEuNDAxLS4xNzcuNzY0LS41MDQuOTQ5em0yMC4xMS0xOS40MTFsLjA1Ny0uMDM5Yy4wNzQtLjA1NSA3LjM2MS01LjU4OCA0LjU2Ny0xMi43MzUtLjIwMS0uNTE1LS43ODEtLjc2OS0xLjI5NS0uNTY4LS41MTguMTk5LS43NjguNzgxLS41NjggMS4yOTUgMi4yNDUgNS43NDMtMy44MzcgMTAuMzU3LTMuODk5IDEwLjQwMy0uNDQzLjMzLS41MzUuOTU2LS4yMDUgMS40LjMxNy40MjQuOTA1LjUyNiAxLjM0My4yNDR6Ii8+PHBhdGggZD0iTTM0LjA5NiAyMi4zNzJjLjEzOS0uMDI3LjI3NS0uMDg1LjM5Ny0uMTczLjQ0Ni0uMzI2LjU0NC0uOTUxLjIxOS0xLjM5OC00LjQwNC02LjAzOS0xMi4zMTMtNS40NjMtMTIuNjQ4LTUuNDM2LS41NDkuMDUtLjk1OC41MjctLjkxNCAxLjA3Ny4wNDQuNTUuNTI2Ljk2IDEuMDc2LjkxNy4wNzEtLjAwNiA3LjEzNS0uNSAxMC44NyA0LjYyLjIzNi4zMjUuNjMxLjQ2NSAxIC4zOTN6TTMwLjMxIDM0LjM0OWMuMTI0LjA3LjI2NC4xMTUuNDE0LjEyNy41NTEuMDQzIDEuMDMyLS4zNjcgMS4wNzYtLjkxOC41OTItNy40NTEtNS43ODMtMTIuMTY2LTYuMDU1LTEyLjM2My0uNDQ5LS4zMTktMS4wNy0uMjI0LTEuMzk1LjIyMi0uMzI1LjQ0Ni0uMjI2IDEuMDcxLjIxOSAxLjM5Ny4wNTguMDQyIDUuNzQgNC4yNjkgNS4yMzcgMTAuNTg2LS4wMzEuNDAxLjE3Ny43NjQuNTA0Ljk0OXoiLz48L2c+PHBhdGggZmlsbD0iIzc3QjI1NSIgZD0iTTI0LjI0IDcuNzY2QzI0LjE3NyA1LjE0IDIyLjAxMyAzIDE3Ljk5IDNjLTMuOTM3IDAtNi4xODcgMi4xNC02LjI1IDQuNzY2QzkuMDMgOS41NTEgNy4yNTkgMTIuNjYyIDcuMjU5IDE3YzAgNy4xNTkgNC44MDQgMTYuOTIzIDEwLjczMSAxNi45MjNTMjguNzIxIDI0LjE1OSAyOC43MjEgMTdjLS4wMDEtNC4zMzgtMS43NzItNy40NS00LjQ4MS05LjIzNHoiLz48cGF0aCBmaWxsPSIjNUM5MTNCIiBkPSJNOC45NjkgMTAuNjAzYy0xLjA3NCAxLjY5LTEuNzEgMy44MjItMS43MSA2LjM5NyAwIDcuMTU5IDQuODA0IDE2LjkyMyAxMC43MzEgMTYuOTIzUzI4LjcyMSAyNC4xNTkgMjguNzIxIDE3YzAtMi41NzgtLjYzNi00LjcxMS0xLjcxMi02LjQwMUMyNC42MDIgMTAuMjA0IDIxLjYwMiAxMCAxOCAxMGMtMy42MTQgMC02LjYyMS4yMDUtOS4wMzEuNjAzeiIvPjxwYXRoIGZpbGw9IiMzRTcyMUQiIGQ9Ik0xMS43NCA3Ljc2NnMyLjkxNy0uNzY3IDYuMzgyLS43NjcgNi4xMTguNzY3IDYuMTE4Ljc2N1MyNC4zNDggMyAxNy45OSAzcy02LjI1IDQuNzY2LTYuMjUgNC43NjZ6Ii8+PHBhdGggZmlsbD0iIzc3QjI1NSIgZD0iTTE2LjIwMiAzNC45NTljLTUuNzU2LS41OTUtMTAuMjg0LTYuODk1LTEwLjI4NC0xNC41ODEgMC03LjY4NSA0LjM5OC04LjAwMyA5LjA3NC04LjAwMyAxLjQzNCAwIDIuMTA0LjU4IDIuMTA0IDIuOTJ2MTguNTQxYy0uMDAxIDEuMTctLjU5OSAxLjE1NS0uODk0IDEuMTIzem0zLjM5OCAwYzUuNzU2LS41OTUgMTAuMjg0LTYuODk1IDEwLjI4NC0xNC41ODEgMC03LjY4NS00LjM5OC04LjAwMy05LjA3NC04LjAwMy0xLjQzNCAwLTIuMTA0LjU4LTIuMTA0IDIuOTJ2MTguNTQxYy4wMDEgMS4xNy41OTkgMS4xNTUuODk0IDEuMTIzeiIvPjxwYXRoIGZpbGw9IiM1QzkxM0IiIGQ9Ik0xNC45MTUgMzMuMzhjLS4zMyAwLS42NTMtLjE2My0uODQ0LS40NjItNS45MDctOS4yNTItMy4xODMtMTkuODMxLTIuODUzLTIxLjAwNy4xNDktLjUzMS42OTYtLjg0NSAxLjIzMy0uNjkyLjUzMi4xNDkuODQxLjcwMi42OTIgMS4yMzMtLjMwNiAxLjA4Ny0yLjgyNiAxMC44NzEgMi42MTIgMTkuMzkuMjk3LjQ2Ni4xNjEgMS4wODQtLjMwNSAxLjM4MS0uMTY0LjEwNi0uMzUxLjE1Ny0uNTM1LjE1N3ptNS45ODMgMGMtLjE4NSAwLS4zNy0uMDUxLS41MzctLjE1Ny0uNDY2LS4yOTctLjYwMi0uOTE1LS4zMDUtMS4zODEgNC40MTgtNi45MiAzLjcyMS0xNS40NDQgMi42MTItMTkuMzktLjE0OS0uNTMyLjE2MS0xLjA4NC42OTItMS4yMzMuNTMzLS4xNDYgMS4wODQuMTYxIDEuMjMzLjY5Mi4zMyAxLjE3NiAzLjA1NiAxMS43NTMtMi44NTMgMjEuMDA3LS4xODguMjk5LS41MTEuNDYyLS44NDIuNDYyeiIvPjxwYXRoIGZpbGw9IiM1QzkxM0IiIGQ9Ik0xMCAxMC44MzJoMTZ2M0gxMHoiLz48cGF0aCBmaWxsPSIjNzdCMjU1IiBkPSJNNi40MjcgMTYuNTE4Yy40NDYtMS4zODEgMS40MzktMi44NDIgMi42MDYtMy42NzYgMS4wODItLjc3MiAyLjExNC0uNzQxIDEuODA0LjY2OC0uOTU3IDQuMzY3LTUuMDI0IDQuOTEyLTQuNDEgMy4wMDh6bTYuNDYtMi45MThjLjU4Ni0xLjczIDMuNTg3LTEuODcxIDQuMDMyLjA2Ny40NDYgMS45MzgtMS4wMjUgMi4wNzItMi4yMjggMi4wMjctMS4yMDMtLjA0NS0yLjI5NC0uNjQ2LTEuODA0LTIuMDk0em0xNi40NTkgMi45MThjLS40NDYtMS4zODEtMS40MzktMi44NDItMi42MDYtMy42NzYtMS4wODItLjc3Mi0yLjExNC0uNzQxLTEuODA0LjY2OC45NTcgNC4zNjcgNS4wMjQgNC45MTIgNC40MSAzLjAwOHpNMjIuODg1IDEzLjZjLS41ODYtMS43My0zLjU4Ny0xLjg3MS00LjAzMi4wNjctLjQ0NiAxLjkzOCAxLjAyNSAyLjA3MiAyLjIyOCAyLjAyNy0xLjIwMy0uMDQ1LTIuMjk0LS42NDYtMS44MDQtMi4wOTR6Ii8+PC9zdmc+Cg==",
+            "alt": "Petit insecte chanteur",
+            "concept": "Grillon",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/insecte.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:02",
+          "answer": "HEROINE",
+          "clue": "Personnage principal",
+          "sourceClue": "Personnage principal",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "HEROINE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 33.97,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 33.97,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:03",
+          "answer": "ECOLE",
+          "clue": "",
+          "sourceClue": "Bâtiment scolaire",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "ECOLE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 69.172,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 69.172,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0ZGQ0M0RCIgZD0iTTM2IDM0YzAgMS4xMDQtLjg5NiAyLTIgMkgyYy0xLjEwNCAwLTItLjg5Ni0yLTJWMTVjMC0xLjEwNC44OTYtMiAyLTJoMzJjMS4xMDQgMCAyIC44OTYgMiAydjE5eiIvPjxwYXRoIGZpbGw9IiM2RDZFNzEiIGQ9Ik0zNCAxM0gyYy0xLjEwNCAwLTIgLjg5Ni0yIDJoMzZjMC0xLjEwNC0uODk2LTItMi0yeiIvPjxwYXRoIGZpbGw9IiMzQjg4QzMiIGQ9Ik0yIDI0aDMydjRIMnptMC02aDMydjRIMnptMCAxMmgzMnY0SDJ6Ii8+PHBhdGggZmlsbD0iI0ZGQ0M0RCIgZD0iTTI4IDE3aDJ2MThoLTJ6Ii8+PHBhdGggZmlsbD0iI0ZGRThCNiIgZD0iTTIyIDBINkM0Ljg5NiAwIDQgLjg5NiA0IDJ2MzRoMjBWMmMwLTEuMTA0LS44OTYtMi0yLTJ6Ii8+PHBhdGggZmlsbD0iIzgwODI4NSIgZD0iTTIyIDBINkM0Ljg5NiAwIDQgLjg5NiA0IDJoMjBjMC0xLjEwNC0uODk2LTItMi0yeiIvPjxwYXRoIGZpbGw9IiM1NUFDRUUiIGQ9Ik02IDE4aDE2djRINnptMCA2aDE2djRINnptMCA2aDE2djRINnoiLz48cGF0aCBmaWxsPSIjRkZFOEI2IiBkPSJNMTAgN2gydjI5aC0yem02IDBoMnYyOWgtMnoiLz48cGF0aCBmaWxsPSIjMjY5IiBkPSJNMTIgMzBoNHY2aC00eiIvPjxjaXJjbGUgZmlsbD0iI0E3QTlBQyIgY3g9IjE0IiBjeT0iOSIgcj0iNiIvPjxjaXJjbGUgZmlsbD0iI0U2RTdFOCIgY3g9IjE0IiBjeT0iOSIgcj0iNCIvPjxwYXRoIGZpbGw9IiNBMDA0MUUiIGQ9Ik0xNyAxMGgtM2MtLjU1MiAwLTEtLjQ0OC0xLTFWNGMwLS41NTIuNDQ4LTEgMS0xczEgLjQ0OCAxIDF2NGgyYy41NTIgMCAxIC40NDggMSAxcy0uNDQ4IDEtMSAxeiIvPjwvc3ZnPg==",
+            "alt": "Bâtiment scolaire",
+            "concept": "École",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/ecole.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:04",
+          "answer": "TON",
+          "clue": "Manière de parler",
+          "sourceClue": "Manière de parler",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "TON",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 66.98,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 66.98,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:05",
+          "answer": "TRIO",
+          "clue": "Groupe de trois",
+          "sourceClue": "Groupe de trois",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "TRIO",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 29.44,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 29.44,
+            "register": "uncertain-quarantine",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:06",
+          "answer": "ODE",
+          "clue": "Poème lyrique",
+          "sourceClue": "Poème lyrique",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "ODE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 20.18,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 20.18,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:07",
+          "answer": "GHETTO",
+          "clue": "Quartier ségrégué",
+          "sourceClue": "Quartier ségrégué",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "GHETTO",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 29.01,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 29.01,
+            "register": "uncertain-quarantine",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:08",
+          "answer": "RECORD",
+          "clue": "",
+          "sourceClue": "Performance record",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "RECORD",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 33.844,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 33.844,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iIzU1QUNFRSIgZD0iTTE4IDhsLTctOEgwbDE0IDE3IDExLjUyMS00Ljc1eiIvPjxwYXRoIGZpbGw9IiMzQjg4QzMiIGQ9Ik0yNSAwbC03IDggNS4zOSA3LjMxMiAxLjIyNy0xLjQ4OUwzNiAweiIvPjxwYXRoIGZpbGw9IiNGRkFDMzMiIGQ9Ik0yMy4yNiAxNi4wMjZjLjA4LS4yMTcuMTMxLS40NDguMTMxLS42OTMgMC0xLjEwNC0uODk2LTItMi0yaC02LjY2N2MtMS4xMDUgMC0yIC44OTYtMiAyIDAgLjI0NS4wNS40NzYuMTMxLjY5My0zLjI1OCAxLjgyNi01LjQ2NCA1LjMwNy01LjQ2NCA5LjMwN0M3LjM5MSAzMS4yMjQgMTIuMTY2IDM2IDE4LjA1OCAzNmM1Ljg5MSAwIDEwLjY2Ny00Ljc3NiAxMC42NjctMTAuNjY3LS4wMDEtNC0yLjIwNi03LjQ4MS01LjQ2NS05LjMwN3oiLz48Y2lyY2xlIGZpbGw9IiNGRkQ5ODMiIGN4PSIxOC4wNTgiIGN5PSIyNS4zMzMiIHI9IjgiLz48cGF0aCBmaWxsPSIjRkZBQzMzIiBkPSJNMjEuMjc4IDMwLjYzNGMtLjE0MiAwLS4yODQtLjA0NC0uNDA2LS4xMzFMMTggMjguNDQ0bC0yLjg3MSAyLjA1OWMtLjI0NS4xNzUtLjU3My4xNzUtLjgxNi0uMDAzLS4yNDMtLjE3Ni0uMzQ1LS40ODktLjI1NS0uNzc0bDEuMDcxLTMuNDU2LTIuODQ1LTIuMDA1Yy0uMjQyLS4xNzgtLjM0Mi0uNDkyLS4yNS0uNzc4LjA5My0uMjg1LjM1OC0uNDc5LjY1OS0uNDgxbDMuNTI0LS4wMDUgMS4xMjItMy4zN2MuMDk1LS4yODUuMzYxLS40NzcuNjYyLS40NzcuMyAwIC41NjcuMTkyLjY2Mi40NzdsMS4xMDMgMy4zNyAzLjU0Mi4wMDVjLjMwMS4wMDIuNTY3LjE5Ni42NTkuNDgxLjA5My4yODYtLjAwOC41OTktLjI1Ljc3OGwtMi44NDYgMi4wMDUgMS4wNzEgMy40NTZjLjA5Mi4yODYtLjAxMi41OTgtLjI1NC43NzQtLjEyMy4wOS0uMjY3LjEzNC0uNDEuMTM0eiIvPjwvc3ZnPg==",
+            "alt": "Performance record",
+            "concept": "Record",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/medaille.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:09",
+          "answer": "IRONIE",
+          "clue": "Moquerie implicite",
+          "sourceClue": "Moquerie implicite",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "IRONIE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 40.094,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 40.094,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:10",
+          "answer": "LOL",
+          "clue": "Rire sur Internet",
+          "sourceClue": "Rire sur Internet",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "LOL",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 0.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "interjection",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "current-common",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 0.0,
+            "register": "current-familiar",
+            "domain": "internet",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:11",
+          "answer": "NOM",
+          "clue": "Mot qui désigne",
+          "sourceClue": "Mot qui désigne",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "NOM",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 79.592,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 79.592,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:12",
+          "answer": "VER",
+          "clue": "",
+          "sourceClue": "Petit animal rampant",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "VER",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            6
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 33.893,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 33.893,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0RENjM3RiIgZD0iTTMyLjQwNyAyMi43NDNjLTEuMDI0LTIuOTkxLTIuNzQyLTUuNjg0LTQuNTE4LTguMjc1LTEuMDI3LTEuNDk4LTIuMTA3LTIuOTY2LTMuMDktNC40OTMtLjY2Ni0xLjAzNC0xLjY2OS0yLjY0My0xLjA3Ny0zLjkxNi40MDctLjg3NSAxLjQ5NS0xLjA5MiAyLjMzNi0uNzgxIDEuNDkyLjU1MSAyLjAwOSAyLjMxIDIuMTAxIDMuNzMzLjE3NCAyLjY5NyA0LjQwNCAyLjcyMyA0LjUzMSAwIC4xNzQtMy43MDItMi4xODQtNy4yMzktNS44NDItOC4xNzItMy42NzktLjkzOS03LjU5NyAxLjQ5Ny04LjA5OSA1LjMwMy0uNTA4IDMuODU3IDIuNDkgNy4xNDggNC41MjkgMTAuMDk0IDEuOTUyIDIuODIgMy45NjMgNS43MjcgNC43OTMgOS4xMDQuMzQ3IDEuNDEzLjY5MSAzLjMzNy0uMTYzIDQuNjM0LS42OCAxLjAzNC0yLjAwNy42NzUtMi45ODYuMjYyLTEuNTktLjY3MS0xLjk3Ni0xLjk3OS0yLjE1Ni0zLjYwMS0uMjEyLTEuOTE1LS4yNDEtMy44NC0uNjMyLTUuNzM0LS43My0zLjUzMy0yLjY0Ny03LjA4NC02LjEwNi04LjUzNC0zLjQzMS0xLjQ0LTcuNzEzLTEuNTc4LTEwLjcyOC44NzMtMy40NzIgMi44MjItMy42NTYgNy42OTQtMi40NTcgMTEuNjY4IDEuMjM4IDQuMTAxIDQuMDY5IDcuOTk1IDguNjk3IDguMTgzIDIuNjYuMTA4IDMuMzA3LTMuNzQ5LjY0NC00LjM3Ny0yLjg3OS0uNjc5LTQuMDc3LTMuNTAyLTQuNzA3LTYuMTQ0LS41NDEtMi4yNzEtLjM4MS01LjgwMSAyLjQyOS02LjQyOSAyLjQ4MS0uNTU1IDQuOTc5LjY1NyA2LjE1OCAyLjgzNCAxLjUwNCAyLjc3NyAxLjMxMSA1LjkyMyAxLjc4MiA4Ljk0OS41MjYgMy4zODMgMi42NjEgNS45ODkgNi4wNTIgNi44MjMgMy4wNi43NTMgNi41MTEuMTY3IDguMjU5LTIuNjkyIDEuNjg1LTIuNzUzIDEuMjQ5LTYuMzk1LjI1LTkuMzEyeiIvPjxwYXRoIGZpbGw9IiNFRjhFQTciIGQ9Ik0xNi43NjMgMTQuMTEyYzEuMjc4LjgwNCAzLjM1OCAzLjU5NCAzLjg3NiA1Ljk3LjUzNSAyLjQ1LjU4NSA0LjA1OC41MzUgNi4wMzctLjA0NSAxLjc3NS0uOTk4IDEuNjM0LS45NTggMHMtLjIwNi0zLjkwMi0uNjUyLTUuNTk1Yy0uNDQ2LTEuNjkzLTEuODIxLTQuNjMtMy40MjUtNS4zNDNsLTcuOTA4LS43MTNzLTIuOTgyLjYtMy43ODcgNi4wMTVjLS4yNDUgMS42NDktLjc5MiAxLjExNS0uNzU3LS40MDEuMDM0LTEuNTE2LjYwMS01LjQ4IDQuMzQ0LTYuODYxIDAgMCA4LjkxLjUzNSA4LjczMi44OTF6Ii8+PHBhdGggb3BhY2l0eT0iLjg1IiBmaWxsPSIjQkYzNDVEIiBkPSJNMjUuODM5IDEyLjc4Yy4yMy0uMDcxLjQ2NC0uMTQ5LjY5Ny0uMjM1LS4zMjgtLjQ2Ny0uNjQzLS45NDMtLjk2NC0xLjQxNC0uMTE1LjA0MS0uMjI3LjA4NS0uMzQ3LjEyLS42ODcuMTk3LTEuMzkxLjMxNy0yLjEwNi4zNDQtMS4xMzMuMDQyLTIuMjM1LS4xNDEtMy4yOTYtLjQ5My4zNDUuNjY0Ljc0NiAxLjMxMSAxLjE3IDEuOTQxLjczLjEzMSAxLjQ3MS4yIDIuMi4xNzMuODk0LS4wMzUgMS43OTItLjE3MyAyLjY0Ni0uNDM2em0xLjIxNSA0Ljk1NmMuNzY0LS4yMjIgMS40OTgtLjU0OCAyLjE4Ny0uOTQ2bC4xMjgtLjA3NGMtLjI5OS0uNDcxLS42MDMtLjkzNy0uOTE0LTEuMzk5LS41OTMuMzUyLTEuMjA4LjY1NS0xLjg3MS44NDktLjY1MS4xOS0xLjMyLjMwMS0xLjk5OS4zMTUtLjM5Ny4wMDgtLjgwMS0uMDQ0LTEuMjAyLS4wODEuMzgyLjU1Mi43NjQgMS4xMDkgMS4xNCAxLjY3Mi4wNDQgMCAuMDg4LjAwOS4xMzIuMDA5LjgwOC0uMDA3IDEuNjI0LS4xMTkgMi4zOTktLjM0NXptNC44NzYgMy43NjljLS4yMTItLjUxMS0uNDQ2LTEuMDEzLS42OTItMS41MDktLjY3Ny40MDEtMS4zOTUuNzExLTIuMTU0LjkxOS0uNzM4LjIwMi0xLjQ4My4zMjQtMi4yNDkuMzM2LS4xMzIuMDAyLS4yNjItLjAwNy0uMzkzLS4wMTIuMjc0LjUxNy41MzUgMS4wNC43NjYgMS41NzYuODE0LS4wMjUgMS42MzUtLjEyNSAyLjQxNS0uMzQ0LjgwMi0uMjI1IDEuNTc5LS41NTcgMi4zMDctLjk2NnptMS4zMyA2Ljc3MmMuMDMyLS41NTYuMDI0LTEuMTE2LS4wMjQtMS42NzYtLjk0Ni4xLTEuODg3LjEzMi0yLjg2NS0uMDQ5LS43NDYtLjEzOC0xLjQ3NS0uMzQ5LTIuMTcxLS42NTEuMTI2LjU4NC4yMjggMS4yMjMuMjQyIDEuODUyLjUyNC4xNzUgMS4wNTYuMzI1IDEuNjAxLjQxNSAxLjAyNy4xNjkgMi4xNDEuMjM0IDMuMjE3LjEwOXptLTEzLjIwMS0xLjMwNmMuNzIxLS41NiAxLjY2Ny0uOTIxIDIuNjM5LTEuMDk3LS4wNDktLjU0Mi0uMDk1LTEuMDg0LS4xMzktMS42MjYtLjQwOS4wMS0uODE4LjA1Ny0xLjIyNC4xNjQtLjkxMi4yNC0xLjc0OS42NTQtMi41MDMgMS4yMTgtLjQyNS4zMTgtLjc5Ni43MDgtMS4xMzcgMS4xMjEuMDQ0LjM5OS4wOTQuNzk3LjE1NSAxLjE5Mi4wODMuNTM2LjIyMSAxLjA0NC4zODQgMS41MzguMTQ5LS4zNzEuMjk1LS43MzUuNTIzLTEuMDkyLjM2LS41NjMuNzU4LS45OTYgMS4zMDItMS40MTh6bS0xLjM0OS01LjI2YzEuMDEtLjY5MiAyLjE0Ny0xLjAzMSAzLjMyNS0xLjIwNC0uMTI3LS41NDYtLjI4Ni0xLjA4OC0uNDcyLTEuNjIzLTEuMzYuMDcyLTIuNzIxLjU2LTMuODIgMS4zMDYtLjMyMy4yMTktLjYxNi40NjgtLjkwMy43MjIuMjA4LjcwMy4zNTEgMS40Mi40NTYgMi4xNDcuNDAxLS41MTMuODc5LS45ODIgMS40MTQtMS4zNDh6bS0xLjM2MS00LjkwNmMuNDQ4LS4zNjEgMS4wOTYtLjc0OCAxLjYyNC0uOTQ5LjMwMS0uMTE1LjYxNi0uMTkxLjkzMS0uMjU1LS4zODYtLjU0NS0uODItMS4wNS0xLjMwMy0xLjUwNi0uNTEyLjE2LTEuMDE2LjM2NC0xLjQ3NC42MzYtMS4wNS42MjMtMS45MjMgMS40NjktMi42ODUgMi40MTMuNDkzLjM2NS45MjUuODEgMS4yODMgMS4zMjQuNDQxLS42MzYgMS4wNDktMS4xOTkgMS42MjQtMS42NjN6bS05LjkwNS0yLjEzNmMtLjI3LS43NDgtLjQxNC0xLjUyMi0uMzY2LTIuMzE5LjAwNC0uMDY4LjAyMS0uMTMyLjAyOS0uMTk5LS42MzYuMjg1LTEuMjQxLjY1MS0xLjgwMiAxLjEwNy0uMDMuMDI0LS4wNTUuMDUxLS4wODQuMDc2LjA0OC42MDkuMTYyIDEuMjAzLjM0MSAxLjczMS40MDQgMS4xOTEgMS4xMTEgMi4zNTUgMS45OTIgMy4zMjcuMjI0LS42NTMuNTc5LTEuMjI4IDEuMTA2LTEuNjQ0LS4wMi0uMDI1LS4wNDUtLjA0NS0uMDY1LS4wNy0uNDc2LS42MTMtLjg4OC0xLjI3OC0xLjE1MS0yLjAwOXptLTQuNjcgMi4yMzNjLS4yODEuNzk2LS40NiAxLjYzMS0uNTQgMi40ODUuNDA5LjQyOC44NDIuODE0IDEuMjU3IDEuMTM4IDEuMTY0LjkwOSAyLjUyIDEuNTg1IDMuOTU4IDEuOTA1LS4xMjQtLjU2Ni0uMjAzLTEuMTk4LS4yMS0xLjg0Mi0uNzk4LS4zMzMtMS41NjEtLjc0Ni0yLjI1NC0xLjI3My0uODM2LS42MzQtMS42OTItMS40NTMtMi4yMTEtMi40MTN6bS41ODIgNy4wOGMtLjI5NS0uMDc3LS41NjEtLjE4OC0uODI3LS4zMDEuMDkyLjQyMi4xOTYuODQuMzE4IDEuMjQ2LjA4OS4yOTUuMTg5LjU4OC4yOTQuODguNzI3LjE0NiAxLjQ2Ny4yMTEgMi4xNjIuMjEyIDEuMDg5LjAwMyAyLjE3Ni0uMTQ5IDMuMjM0LS40MTctLjI1OS0uNTA5LS40NjktMS4wNDktLjY1MS0xLjYtLjc5OS4xMzUtMS42MDIuMjQxLTIuNDE4LjI0LS43MTUtLjAwMS0xLjQxOC0uMDgtMi4xMTItLjI2em0xLjY4MSA1LjMxNWMtLjAyNi4wMDctLjA1My4wMTEtLjA3OS4wMTguMzcyLjUxNi43ODUuOTkzIDEuMjMyIDEuNDI4LjY2Mi0uMjIgMS4zMTQtLjQ3NiAxLjkzLS43OTguOTQtLjQ5MiAxLjgwOS0xLjEyNSAyLjU3Mi0xLjg2My0uNDk4LS4zMTYtLjkyOS0uNzA2LTEuMjk3LTEuMTYtLjY3My41NjQtMS4zOTEgMS4wNzMtMi4xNjkgMS40OTEtLjY5OC4zNzQtMS40MjYuNjcyLTIuMTg5Ljg4NHpNMjQuMTYzIDguOTIyYy0uMjc3LS41MTktLjUwNy0xLjA4MS0uNTgyLTEuNjM3LS43OC0uMDAyLTEuNTU3LS4wOTgtMi4zMy0uMzE3LS43Mi0uMjA0LTEuMzk0LS41MDctMi4wNDEtLjg4My0uMTM3LS4wOC0uMjYxLS4xNzctLjM5My0uMjY0LS4wMjEuMTEzLS4wNDkuMjIzLS4wNjUuMzM5LS4wNjguNTE5LS4wNjkgMS4wMjctLjAyMSAxLjUyNi40NDguMjQ1LjkxNS40NTUgMS40MDMuNjM2IDEuMjY2LjQ3IDIuNjYxLjY3OCA0LjAyOS42em0tMS44Ni01LjgyNmMuMTA3Ljg1NC40NjIgMS42Ljk4NCAyLjI4MS4xNTcuMjA1LjMyMS40MTIuNDkxLjYxNC4zMTYtLjU3Ni45NDEtLjgzOSAxLjU3Mi0uODI2LS4xMDQtLjEwNC0uMjAxLS4yMTQtLjMxNC0uMzU2LS40MTgtLjUyMi0uNzgyLTEuMDQ4LS45MjItMS43MS0uMDE5LS4wOTMtLjAyMy0uMTQ2LS4wMjgtLjMyLS4wMDUtLjE1MS4wMDEtLjMwNC4wMTItLjQ1NS4wMTYtLjIwOC4wNjYtLjQzMy4xNjYtLjcxNC4xMTYtLjMyOS4zMi0uNjU2LjU3Ni0uOTQxLS44MDEuMDQ5LTEuNTc5LjI0OS0yLjMuNTY4LS4yMjIuNTg2LS4zMTcgMS4yMTktLjIzNyAxLjg1OXptNS4zNS44MzFjLS41Ny4zODEtMS4wNjQuODcyLTEuNDM0IDEuNDQ5LjU3OS4yNjIgMS4wMDEuNzExIDEuMjk5IDEuMjUxLjAxNy0uMDM3LjAyOC0uMDc3LjA0OC0uMTEzLjI4MS0uNTE5LjY5Ny0uOTY0IDEuMTQ3LTEuMjM1LjU2OC0uMzQyIDEuMTkzLS41MjYgMS44NjgtLjUzNy4zNTEtLjAwNi43MDkuMDEgMS4wNTYuMDYuMDQxLjAwNi4wODEuMDE1LjEyMi4wMjItLjMzMy0uNjQxLS43NDktMS4yMzQtMS4yMzgtMS43NjItLjA0MS4wMDEtLjA4NC0uMDAzLS4xMjQtLjAwMS0uOTcyLjA0Ny0xLjkzMS4zMjMtMi43NDQuODY2em0yLjEwOCAyOS43NjZjLS4xMTUtLjEwNy0uMjI3LS4yMTctLjMzNC0uMzMybC0uMTMtLjE0My0uMDgyLS4wOTdjLS4yMDUtLjI1OC0uMzkzLS41MzEtLjU2MS0uODE1LS4wOC0uMTM1LS4xNTMtLjI3NC0uMjI1LS40MTNsLS4wNC0uMDgxYy0uMDMyLS4wNzItLjA2Mi0uMTQ0LS4wOTEtLjIxNy0uMTI2LS4zMTktLjIyNS0uNjQ4LS4yOTQtLjk4NC0uMDQ0LS4yMTItLjA0Mi0uNDc1LS4wMzItLjczNS0uMDIyLjAzOC0uMDM2LjA3OS0uMDYuMTE2LS40MzYuNjYyLTEuMTM3Ljc1LTEuODQyLjYyMS4wMjIuMjE2LjA1Mi40Mi4wODMuNTgyLjE0NS43NTkuNDU1IDEuNDk4Ljg0MiAyLjE2NC4zMTcuNTQ1LjczMiAxLjA0IDEuMTg0IDEuNDg1LjcwNy0uMTYyIDEuMzc1LS40MjkgMS45ODktLjgwNGwtLjA1MS0uMDM5Yy0uMTIyLS4wOTgtLjI0MS0uMjAxLS4zNTYtLjMwOHptLTYuNTkzLTIuNzY1Yy4yNTEtLjQzNi41NDgtLjgzOS44ODEtMS4yMTEtLjUxLS40MzEtLjgxNS0uOTgxLTEuMDA1LTEuNjItLjY0My41NzYtMS4xODUgMS4yOTQtMS41NyAxLjkyLS41MDkuODMxLS44NzIgMS43MjUtLjk3MSAyLjY5OS0uMDA5LjA5MS0uMDAxLjE4OC0uMDA1LjI4Mi42MzYuNTY1IDEuMzY3IDEuMDM2IDIuMjAxIDEuMzc4LS4xMTgtLjQ3Mi0uMjI0LS45NDMtLjIwOC0xLjQ0Ni4wMjQtLjcxMy4zMjctMS4zOTMuNjc3LTIuMDAyeiIvPjxwYXRoIGZpbGw9IiNCRjM0NUQiIGQ9Ik04LjU0MyAxMC44MTVjMS42MDQtLjc1NyA2Ljg2MS0uNzU3IDkgMS4yOTItLjA4OS45OC0yLjg3MSA2LjAzMi0zLjg3NiA1LjM0Ny0uOTgtLjY2OC0yLjQ5NS0uODAyLTQuMTQ0LS40NDYtLjkzNi0uMzU2LTIuNDM1LTUuNTA2LS45OC02LjE5M3oiLz48cGF0aCBmaWxsPSIjRDY1MDczIiBkPSJNMTEuODg1IDE0LjU4YzEuNzYuMTU2IDMuMDk2LjgwMiAzLjc4NyAxLjE1OC4wNi0uMDU1LjExOS0uMTE2LjE3My0uMTc4LjQ4LS43MzEuOTI3LTEuNTM5IDEuMjQzLTIuMjExbC4wMzItLjA4NGMtLjk4LS44OTEtMy4yNTctMS41NjUtNS42OS0xLjU2Mi0yLjI0MS4wMDMtMy40OTMuNzk1LTMuNDkzLjc5NXMtLjEyNy44MjkuNDc1IDIuNTU4Yy4wMDEuMDAxIDEuNDY1LS42NTQgMy40NzMtLjQ3NnoiLz48L3N2Zz4=",
+            "alt": "Petit animal rampant",
+            "concept": "Ver",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/ver.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:13",
+          "answer": "LIEN",
+          "clue": "Ce qui unit",
+          "sourceClue": "Ce qui unit",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "LIEN",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 51.162,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 51.162,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:14",
+          "answer": "IA",
+          "clue": "Intelligence artificielle",
+          "sourceClue": "Intelligence artificielle",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "IA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            5,
+            5
+          ],
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 50.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "curated-short",
+          "formType": "curated",
+          "languageStatus": "standard-french",
+          "culturalStatus": "current-common",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 50.0,
+            "register": "current-common",
+            "domain": "short-relief",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:15",
+          "answer": "ON",
+          "clue": "Pronom indéfini",
+          "sourceClue": "Pronom indéfini",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "ON",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 0.0,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "curated-short",
+          "formType": "curated",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 0.0,
+            "register": "everyday",
+            "domain": "short-relief",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:16",
+          "answer": "OIE",
+          "clue": "",
+          "sourceClue": "Oiseau de basse-cour",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "OIE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            3
+          ],
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 29.54,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 29.54,
+            "register": "uncertain-quarantine",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI2ZmYTgwMCIgZD0iTTIwLjQzIDMzLjI2YS43MzYuNzM2IDAgMCAwLS4zMi0uMzFzLS4zNi0uMDgtLjQyLS4xN2MtLjY3LTEuMTIgMS4yOS01LjMzIDEuMjktNS4zM2gtMmwtMS4yMSA0LjktMS4xMS0uMDNhLjc3My43NzMgMCAwIDAtLjc5Ljc2Yy0uMDEuNDMuMzMuNzguNzYuNzlsLjg2LjAyLS4xNy4wOWMtLjM4LjE5LS41My42Ni0uMzQgMS4wNHMuNjYuNTMgMS4wNC4zNGwyLjA3LTEuMDZjLjM4LS4xOS41My0uNjYuMzQtMS4wNFoiLz48cGF0aCBmaWxsPSIjZmZhODAwIiBkPSJNMjUuMTIgMzEuN2EuNzQzLjc0MyAwIDAgMC0uNDQtLjA2cy0uMzMuMTUtLjQ0LjExYy0xLjIxLS40OS0yLjE1LTUuMDUtMi4xNS01LjA1bC0xLjYgMS4xOSAxLjk2IDQuNjUtLjkxLjY0Yy0uMzUuMjUtLjQzLjczLS4xOSAxLjA4LjI1LjM1LjczLjQzIDEuMDguMTlsLjctLjUtLjA5LjE4Yy0uMTkuMzgtLjAzLjg1LjM1IDEuMDRzLjg1LjAzIDEuMDQtLjM1bDEuMDMtMi4wOGEuNzguNzggMCAwIDAtLjM1LTEuMDRaIi8+PHBhdGggZmlsbD0iI2RmZTdlZCIgZD0iTTkuMjMgMTEuMzljLTEuMDMgMS40My0xLjc0IDMuMDgtMS43NyA0Ljg0LS4wOCA1LjE2IDQuMTEgNy40NSA2LjAxIDguNzEgMS4zMy44OCAyLjg1IDIuMzUgNC4xMyAzLjcyIDEuNDcgMS41NiAzLjk4IDEuNDEgNS4yNC0uMzIgMS41LTIuMDcgMy41NC00LjQ4IDUuNTctNS42MiAyLjQxLTEuMzcgMy4yNy0zLjMgMy41Ny00LjU5LjE2LS42Ni0uNC0xLjI2LTEuMDgtMS4yMy0zLjU0LjE3LTUuNDMtMS45Ni01LjQzLTEuOTYtNS4wMi01LjAyLTEwLjA0LTIuMzgtMTEuNTUtMS4zOC0uMjUuMTctLjYuMDQtLjY4LS4yNS0uMzgtMS4zNS0uMTItMy4zNS43Ny01LjQyLjU3LTEuMzIuNzYtMi43OS40Ny00LjE5LS4xMi0uNjEtLjM0LTEuMjItLjY5LTEuNzYtMS4zMS0yLTUuMzEtMi02LjMyIDEuMTctMS4yMSAzLjc3IDEuMDIgMi44MyAxLjAyIDIuODNzMy4xMiAyLjE2Ljc1IDUuNDVaIi8+PHBhdGggZmlsbD0iI2ZjOGEwMCIgZD0iTTQuNDcgNC44Yy45MS0uMjIgMi4wNC0uNTUgMi45NC0uOTcuMzEtLjE0LjY2LS4wMi44NS4yNy4yMy4zNS42My43MyAxLjM0LjgxLjQyLjA0LjUyLjYzLjE3Ljg2LTEuMTYuNzQtMy4wNiAxLjQyLTUuNDQuMjQtLjUzLS4yNi0uNDMtMS4wNy4xNC0xLjIxWiIvPjxjaXJjbGUgY3g9IjEwLjk4IiBjeT0iMy40NCIgcj0iMSIgZmlsbD0iIzI4MmYzMyIvPjxwYXRoIGZpbGw9IiNjYWQ0ZGIiIGQ9Ik0yMS40MyAyMy43MmMtMS4wMiAwLTEuOTktLjE4LTIuOTEtLjU1LTQuMDYtMS42Mi01LjQ3LTYuMjItNS41Mi02LjQxLS4wOC0uMjYuMDctLjU0LjM0LS42Mi4yNy0uMDguNTQuMDcuNjIuMzQuMDEuMDQgMS4zMyA0LjM0IDQuOTQgNS43NyAyLjM4Ljk1IDUuMjUuNDYgOC41NC0xLjQzYS4zNS4zNSAwIDAgMCAuMTctLjNjMC0uMDYtLjAyLS4yMi0uMTktLjNsLTIuNjUtMS4zM2EuNDg4LjQ4OCAwIDAgMS0uMjItLjY3Yy4xMi0uMjUuNDItLjM0LjY3LS4yMmwyLjY1IDEuMzNjLjQ0LjIyLjczLjY3Ljc0IDEuMTYuMDEuNDktLjI0Ljk1LS42NyAxLjItMi4zNSAxLjM2LTQuNTMgMi4wNC02LjUxIDIuMDRaIi8+PC9zdmc+Cg==",
+            "alt": "Oiseau de basse-cour",
+            "concept": "Oie",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/oie.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-081c89e3c3924258:word:17",
+          "answer": "NEYMAR",
+          "clue": "Brésilien ex-PSG",
+          "sourceClue": "Brésilien ex-PSG",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "NEYMAR",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "clueStyle": "clever",
+          "familiarityScore": 0.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "proper-name",
+          "formType": "lemma",
+          "languageStatus": "known-proper-name",
+          "culturalStatus": "current-common",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 0.0,
+            "register": "current-pop",
+            "domain": "sport",
+            "pendingPoolId": null
+          },
+          "properNameReview": {
+            "status": "human-reviewed-distinctive",
+            "entityType": "personne",
+            "clueUniquenessChecked": true,
+            "distinctiveTokens": [
+              "PSG",
+              "Brésilien"
+            ],
+            "decision": "accepted-known-proper-name"
+          }
+        }
+      ],
+      "imageCount": 5,
+      "publicationStatus": "owner-certified-editorial-reviewed",
+      "humanReview": {
+        "status": "human-reviewed",
+        "reviewDate": "2026-07-27",
+        "sourceFileSha256": "ea100ce00456e0c703be1fda4d9cbd9c64d1bd7a6b82ce2e6b61ebedef5a5d1a",
+        "sourcePayloadSha256": "2e5c506e67c90e499a3e4a63529bf3da85d39a19e40da3124d959611d1facadb",
+        "lexicalExceptions": [],
+        "properNames": [
+          "NEYMAR"
+        ]
+      },
+      "provenance": {
+        "source": "C:\\Users\\peete\\AppData\\Local\\MotManLexiconStudio\\exports\\motman-certified-grids-for-editorialization.json",
+        "candidateId": "081c89e3-c392-4258-a0e0-cffec95b2f43",
+        "campaignId": "0f65b42b-1845-4ff2-a7d9-95c37290833e",
+        "certifiedAt": "2026-07-27T14:51:38Z",
+        "factoryDigests": {
+          "certification": "637cd37735960c8997eee16df104f68ae7d9cda42c649350df3fcc462196c432",
+          "context": "0fc0adfbf76cc2adbf18d6841d43fc797081a6b34ca42d68d00c417523fd0c41",
+          "campaign": {
+            "baseEffectiveLexicon": "5010e715d23f06afe6eff8ac323354e13b679972d5d16776f91991c073270ba0",
+            "effectiveFile": "887baf5a07b7419acf8068d4245a2f39dfdf64ac6e40d50ae8edc4e5ac19536d",
+            "effectiveLexicon": "f96a9491520d44673e9f8cc86ab381e1c2a60b72333209af7ed5ab17bb97ae60",
+            "forbiddenGrids": "562b294771bcc1cf26ab7567a05b21b3bcbce091642582ed72a208818df85dcc",
+            "ownerOverlay": "0eed2a03167ecea1bf85f21efbf2e0b78e895c5fff6491867c515022a7ae6a62",
+            "pendingPool": "97119a8b5c03efe8aa04948ad039c06f47ec85107847552d22f3aeb6c8c61fd9",
+            "pendingQuota": "8",
+            "policy": "8985ab746359b2cf154c4f916b674cbce82750eddc3cd8f2539c2693900bf80d",
+            "repetitionHistory": "2d15ef2d9bf88a0052ffda0ef6fe5a20319948f37852a97a19e838f7377f0b43",
+            "rescuePool": "disabled",
+            "shapes": "64c659cada3883158807e45b7d85ebd858b50eb9b3aef196eca08b48bb6d5d8f",
+            "sourceLexicon": "f5588d660a71a3b0f05e9bb74b2da968f97e37c75f5536ebee2d3e833cacfba3"
+          },
+          "factory": {
+            "lexicon": "f5588d660a71a3b0f05e9bb74b2da968f97e37c75f5536ebee2d3e833cacfba3",
+            "policy": "8985ab746359b2cf154c4f916b674cbce82750eddc3cd8f2539c2693900bf80d",
+            "shapes": "64c659cada3883158807e45b7d85ebd858b50eb9b3aef196eca08b48bb6d5d8f"
+          }
+        }
+      },
+      "reviewSummary": {
+        "answers": 17,
+        "images": 5,
+        "manualTextClues": 12,
+        "properNamesReviewed": 1,
+        "lexicalExceptionsReviewed": 0
+      },
+      "editorialProfile": "motman-factory-certified-20260727"
+    },
+    {
+      "id": "factory-7x8-80dfab8ef16a461b",
+      "columns": 7,
+      "rows": 8,
+      "sourceReviewId": "80dfab8e-f16a-461b-aee7-030e8ab0702a",
+      "sourceShapeId": "two-short-7x8-a795b5e701",
+      "audience": "16-45",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:01",
+          "answer": "MASCARA",
+          "clue": "Maquillage des cils",
+          "sourceClue": "Maquillage des cils",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "MASCARA",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 20.984,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 20.984,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:02",
+          "answer": "ABOULER",
+          "clue": "Donner familièrement",
+          "sourceClue": "Donner familièrement",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "ABOULER",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 16.024,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "verb",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 16.024,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:03",
+          "answer": "BOUILLE",
+          "clue": "",
+          "sourceClue": "Visage familier",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "BOUILLE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 30.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 30.0,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PGNpcmNsZSBmaWxsPSIjRkZDQzREIiBjeD0iMTgiIGN5PSIxOCIgcj0iMTgiLz48cGF0aCBmaWxsPSIjNjY0NTAwIiBkPSJNMTAuNTE1IDIzLjYyMUMxMC41NiAyMy44IDExLjY4MyAyOCAxOCAyOGM2LjMxOCAwIDcuNDQtNC4yIDcuNDg1LTQuMzc5LjA1NS0uMjE3LS4wNDMtLjQ0Mi0uMjM3LS41NTQtLjE5NS0uMTExLS40MzktLjA3OC0uNi4wNzdDMjQuNjI5IDIzLjE2MyAyMi42OTQgMjUgMTggMjVzLTYuNjMtMS44MzctNi42NDgtMS44NTVDMTEuMjU2IDIzLjA1IDExLjEyOCAyMyAxMSAyM2MtLjA4NCAwLS4xNjkuMDIxLS4yNDYuMDY0LS4xOTYuMTEyLS4yOTQuMzM5LS4yMzkuNTU3eiIvPjxlbGxpcHNlIGZpbGw9IiM2NjQ1MDAiIGN4PSIxMiIgY3k9IjEzLjUiIHJ4PSIyLjUiIHJ5PSIzLjUiLz48ZWxsaXBzZSBmaWxsPSIjNjY0NTAwIiBjeD0iMjQiIGN5PSIxMy41IiByeD0iMi41IiByeT0iMy41Ii8+PC9zdmc+",
+            "alt": "Visage familier",
+            "concept": "Bouille",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/visage.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:04",
+          "answer": "ON",
+          "clue": "Pronom indéfini",
+          "sourceClue": "Pronom indéfini",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "ON",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 0.0,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "curated-short",
+          "formType": "curated",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 0.0,
+            "register": "everyday",
+            "domain": "short-relief",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:05",
+          "answer": "UN",
+          "clue": "Article indéfini",
+          "sourceClue": "Article indéfini",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "UN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 50.0,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "curated-short",
+          "formType": "curated",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 50.0,
+            "register": "everyday",
+            "domain": "short-relief",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:06",
+          "answer": "LEGERES",
+          "clue": "Peu pesantes",
+          "sourceClue": "Peu pesantes",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "LEGERES",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 34.477,
+          "familiarityBand": "common",
+          "partOfSpeech": "adjective",
+          "formType": "inflected",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 34.477,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "lexicalExceptionReview": {
+            "status": "human-reviewed-inflection",
+            "reason": "Adjectif féminin pluriel autonome et défini sans contexte verbal.",
+            "acceptedAs": "adjectif qualificatif"
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:07",
+          "answer": "MABOUL",
+          "clue": "Complètement fou",
+          "sourceClue": "Complètement fou",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "MABOUL",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 19.06,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 19.06,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:08",
+          "answer": "ABONNE",
+          "clue": "Client régulier",
+          "sourceClue": "Client régulier",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "ABONNE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 17.29,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 17.29,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:09",
+          "answer": "SOU",
+          "clue": "",
+          "sourceClue": "Ancienne petite monnaie",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "SOU",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 49.85,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 49.85,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0ZERDg4OCIgZD0iTTMxLjg5OCAyMy45MzhDMzEuMyAxNy4zMiAyOCAxNCAyOCAxNGwtNi04aC04bC02IDhzLTEuNDE5IDEuNDMzLTIuNTY3IDQuMjc1QzMuNDQ0IDE4LjkzNSAyIDIwLjc4OSAyIDIzYzAgMS40NDguNjI1IDIuNzQyIDEuNjA5IDMuNjU1QzMuMjMzIDI3LjM1NyAzIDI4LjE0NyAzIDI5YzAgMS45NTggMS4xMzYgMy42MzYgMi43NzUgNC40NTZDNy4wNTggMzUuMzc4IDguNzcyIDM2IDEwIDM2aDE2YzEuMzc5IDAgMy4zNzMtLjc3OSA0LjY3OC0zLjMxQzMyLjYwOSAzMS45OTkgMzQgMzAuMTcgMzQgMjhjMC0xLjY3OC0uODM0LTMuMTU0LTIuMTAyLTQuMDYyek0xOCA2Yy41NSAwIDEuMDU4LS4xNTggMS41LS40MTYuNDQzLjI1OC45NTEuNDE2IDEuNS40MTYgMS42NTcgMCA0LTIuMzQ0IDQtNCAwIDAgMC0yLTItMi0uNzg4IDAtMSAxLTIgMXMtMS0xLTMtMS0yIDEtMyAxLTEuMjExLTEtMi0xYy0yIDAtMiAyLTIgMiAwIDEuNjU2IDIuMzQ0IDQgNCA0IC41NDkgMCAxLjA1Ny0uMTU4IDEuNS0uNDE2LjQ0My4yNTguOTUxLjQxNiAxLjUuNDE2eiIvPjxwYXRoIGZpbGw9IiNCRjY5NTIiIGQ9Ik0yNCA2YzAgLjU1Mi0uNDQ3IDEtMSAxSDEzYy0uNTUyIDAtMS0uNDQ4LTEtMXMuNDQ4LTEgMS0xaDEwYy41NTMgMCAxIC40NDggMSAxeiIvPjxwYXRoIGZpbGw9IiM2Nzc1N0YiIGQ9Ik0yMy45MDEgMjQuNTQyYzAtNC40NzctOC41ODEtNC4xODUtOC41ODEtNi44ODYgMC0xLjMwOCAxLjMwMS0xLjk0NyAyLjgxMS0xLjk0NyAyLjUzOCAwIDIuOTkgMS41NjkgNC4xMzkgMS41NjkuODEzIDAgMS4yMDUtLjQ5MyAxLjIwNS0xLjA0NiAwLTEuMjg0LTIuMDI0LTIuMjU2LTMuOTY1LTIuNTkyVjEyLjRjMC0uNzczLS42NS0xLjQtMS40NTQtMS40LS44MDUgMC0xLjQ1Ni42MjctMS40NTYgMS40djEuMjgzYy0yLjExNi40NjMtMy45MzcgMS44NzUtMy45MzcgNC4xNzYgMCA0LjI5OSA4LjU3OSA0LjEyNSA4LjU3OSA3LjE0NSAwIDEuMDQ3LTEuMTc4IDIuMDkzLTMuMTExIDIuMDkzLTIuOTAxIDAtMy44NjctMS44ODktNS4wNDUtMS44ODktLjU3NCAwLTEuMDg3LjQ2NC0xLjA4NyAxLjE2NCAwIDEuMTEzIDEuOTM4IDIuNDUxIDQuNjAzIDIuODI0bC0uMDAxLjAxdjEuMzk4YzAgLjc3Mi42NTIgMS40IDEuNDU2IDEuNC44MDQgMCAxLjQ1NS0uNjI4IDEuNDU1LTEuNHYtMS4zOThjMC0uMDE3LS4wMDgtLjAzLS4wMDktLjA0NSAyLjM5OC0uNDMgNC4zOTgtMS45MzIgNC4zOTgtNC42MTl6Ii8+PC9zdmc+",
+            "alt": "Ancienne petite monnaie",
+            "concept": "Sou",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/argent.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:10",
+          "answer": "SIEN",
+          "clue": "Possessif masculin",
+          "sourceClue": "Possessif masculin",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "SIEN",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            4
+          ],
+          "cells": [
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 12.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "adjective",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 40,
+            "familiarity": 12.0,
+            "register": "uncertain-quarantine",
+            "domain": "general",
+            "pendingPoolId": "f0c69cca-ec9f-565c-ac24-d30ef22eee09"
+          },
+          "lexicalExceptionReview": {
+            "status": "human-reviewed-exception",
+            "reason": "Pronom possessif masculin autonome malgré son classement technique en quarantaine.",
+            "acceptedAs": "pronom possessif"
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:11",
+          "answer": "SEVE",
+          "clue": "",
+          "sourceClue": "Liquide de l’arbre",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "SEVE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 31.285,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 31.285,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iIzY2MjExMyIgZD0iTTIyIDMzYzAgMi4yMDktMS43OTEgMy00IDNzLTQtLjc5MS00LTNsMS05YzAtMi4yMDkuNzkxLTIgMy0yczMtLjIwOSAzIDJsMSA5eiIvPjxwYXRoIGZpbGw9IiM1QzkxM0IiIGQ9Ik0zNCAxN2MwIDguODM3LTcuMTYzIDEyLTE2IDEyLTguODM2IDAtMTYtMy4xNjMtMTYtMTJDMiA4LjE2NCAxMSAwIDE4IDBzMTYgOC4xNjQgMTYgMTd6Ii8+PGcgZmlsbD0iIzNFNzIxRCI+PGVsbGlwc2UgY3g9IjYiIGN5PSIyMSIgcng9IjIiIHJ5PSIxIi8+PGVsbGlwc2UgY3g9IjMwIiBjeT0iMjEiIHJ4PSIyIiByeT0iMSIvPjxlbGxpcHNlIGN4PSIxMCIgY3k9IjI1IiByeD0iMiIgcnk9IjEiLz48ZWxsaXBzZSBjeD0iMTQiIGN5PSIyMiIgcng9IjIiIHJ5PSIxIi8+PGVsbGlwc2UgY3g9IjEwIiBjeT0iMTYiIHJ4PSIyIiByeT0iMSIvPjxlbGxpcHNlIGN4PSI3IiBjeT0iMTIiIHJ4PSIyIiByeT0iMSIvPjxlbGxpcHNlIGN4PSIyOSIgY3k9IjEyIiByeD0iMiIgcnk9IjEiLz48ZWxsaXBzZSBjeD0iMTQiIGN5PSIxMCIgcng9IjIiIHJ5PSIxIi8+PGVsbGlwc2UgY3g9IjIyIiBjeT0iMTAiIHJ4PSIyIiByeT0iMSIvPjxlbGxpcHNlIGN4PSIyNiIgY3k9IjE2IiByeD0iMiIgcnk9IjEiLz48ZWxsaXBzZSBjeD0iMTgiIGN5PSIxNyIgcng9IjIiIHJ5PSIxIi8+PGVsbGlwc2UgY3g9IjIyIiBjeT0iMjIiIHJ4PSIyIiByeT0iMSIvPjxlbGxpcHNlIGN4PSIxOCIgY3k9IjI2IiByeD0iMiIgcnk9IjEiLz48ZWxsaXBzZSBjeD0iMjYiIGN5PSIyNSIgcng9IjIiIHJ5PSIxIi8+PC9nPjwvc3ZnPg==",
+            "alt": "Liquide de l’arbre",
+            "concept": "Sève",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/arbre.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:12",
+          "answer": "CUISSE",
+          "clue": "Partie de jambe",
+          "sourceClue": "Partie de jambe",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "CUISSE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 39.241,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 39.241,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:13",
+          "answer": "ALLIER",
+          "clue": "Associer étroitement",
+          "sourceClue": "Associer étroitement",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "ALLIER",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 20.947,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "verb",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 20.947,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:14",
+          "answer": "RELEVE",
+          "clue": "Nouvelle génération",
+          "sourceClue": "Nouvelle génération",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "RELEVE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 30.52,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 30.52,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-80dfab8ef16a461b:word:15",
+          "answer": "ARENES",
+          "clue": "",
+          "sourceClue": "Arènes antiques",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "ARENES",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 21.91,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 21.91,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIj4NCiAgPHRpdGxlIGlkPSJ0aXRsZSI+Q29saXPDqWUgZGUgUm9tZTwvdGl0bGU+DQogIDxwYXRoIGZpbGw9IiNEREFFNkQiIHN0cm9rZT0iIzZCNDkyNyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI0IiBkPSJNMTIgNzdWMjVjMTMtOCA1OC04IDcyIDB2NTJjLTE4IDctNTQgNy03MiAwWiIvPg0KICA8cGF0aCBmaWxsPSIjRjdEOUE4IiBkPSJNMTcgMjljMTYtNiA0Ni02IDYyIDB2OUgxN3oiLz4NCiAgPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNkI0OTI3IiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0xMiA0MWg3Mk0xMiA1OWg3MiIvPg0KICA8ZyBmaWxsPSIjNkI0OTI3Ij4NCiAgICA8cGF0aCBkPSJNMTkgMzh2LTVhNiA2IDAgMCAxIDEyIDB2NXptMTcgMHYtN2E2IDYgMCAwIDEgMTIgMHY3em0xNyAwdi03YTYgNiAwIDAgMSAxMiAwdjd6bTE3IDB2LTVhNiA2IDAgMCAxIDEyIDB2NXoiLz4NCiAgICA8cGF0aCBkPSJNMTggNTZ2LTZhNiA2IDAgMCAxIDEyIDB2NnptMTcgMHYtN2E2IDYgMCAwIDEgMTIgMHY3em0xNyAwdi03YTYgNiAwIDAgMSAxMiAwdjd6bTE3IDB2LTZhNiA2IDAgMCAxIDEyIDB2NnoiLz4NCiAgICA8cGF0aCBkPSJNMTggNzZ2LThhNyA3IDAgMCAxIDE0IDB2MTB6bTE5IDNWNjdhNyA3IDAgMCAxIDE0IDB2MTN6bTE5IDFWNjdhNyA3IDAgMCAxIDE0IDB2MTJ6Ii8+DQogIDwvZz4NCjwvc3ZnPg0K",
+            "alt": "Arènes antiques",
+            "concept": "Arènes",
+            "source": "MotMan original",
+            "license": "MotMan original",
+            "sourceAsset": "/assets/clues/custom/colisee.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        }
+      ],
+      "imageCount": 4,
+      "publicationStatus": "owner-certified-editorial-reviewed",
+      "humanReview": {
+        "status": "human-reviewed",
+        "reviewDate": "2026-07-27",
+        "sourceFileSha256": "ea100ce00456e0c703be1fda4d9cbd9c64d1bd7a6b82ce2e6b61ebedef5a5d1a",
+        "sourcePayloadSha256": "2e5c506e67c90e499a3e4a63529bf3da85d39a19e40da3124d959611d1facadb",
+        "lexicalExceptions": [
+          "LEGERES",
+          "SIEN"
+        ],
+        "properNames": []
+      },
+      "provenance": {
+        "source": "C:\\Users\\peete\\AppData\\Local\\MotManLexiconStudio\\exports\\motman-certified-grids-for-editorialization.json",
+        "candidateId": "80dfab8e-f16a-461b-aee7-030e8ab0702a",
+        "campaignId": "f477490f-6457-4513-bc1b-baba181cca90",
+        "certifiedAt": "2026-07-27T14:51:38Z",
+        "factoryDigests": {
+          "certification": "8c5258647010abe2e63bcdb97edda18250e9faa840aa46ee9c5e726079c1ef67",
+          "context": "44f10f7e662d23a5490ff884380b68ce824a1aa00301ef37fcc3a590944418d3",
+          "campaign": {
+            "baseEffectiveLexicon": "c316f0cbf774e1e957b2f4a287db39a0c52288221496f3206e5d95bcfc7a049c",
+            "effectiveFile": "d52c6a8627e5d4e7184647fb30fdf62957f069f9fa7bf31eed981dcb94a2f399",
+            "effectiveLexicon": "f7b8cbfa8faea0467e11158ae2a23cd2573a69e28d3096497a5bdafb596450dd",
+            "forbiddenGrids": "08a3aab453d5aaf8c43e7817649f5c17db3aab1b1434cfc3fead89c3ce919406",
+            "generationContract": "free-v1",
+            "ownerOverlay": "90ddbda0b547611707f0e26e814e4d0191a0d34703939aecf487164875e33860",
+            "pendingPool": "97119a8b5c03efe8aa04948ad039c06f47ec85107847552d22f3aeb6c8c61fd9",
+            "pendingQuota": "unbounded",
+            "policy": "8985ab746359b2cf154c4f916b674cbce82750eddc3cd8f2539c2693900bf80d",
+            "repetitionHistory": "c8827d56f7c16c520219b1a8298e8d5b1927e9a0fce1510874a4d3efcbcf9ff4",
+            "rescuePool": "disabled",
+            "shapes": "64c659cada3883158807e45b7d85ebd858b50eb9b3aef196eca08b48bb6d5d8f",
+            "sourceLexicon": "f5588d660a71a3b0f05e9bb74b2da968f97e37c75f5536ebee2d3e833cacfba3"
+          },
+          "factory": {
+            "lexicon": "f5588d660a71a3b0f05e9bb74b2da968f97e37c75f5536ebee2d3e833cacfba3",
+            "policy": "8985ab746359b2cf154c4f916b674cbce82750eddc3cd8f2539c2693900bf80d",
+            "shapes": "64c659cada3883158807e45b7d85ebd858b50eb9b3aef196eca08b48bb6d5d8f"
+          }
+        }
+      },
+      "reviewSummary": {
+        "answers": 15,
+        "images": 4,
+        "manualTextClues": 11,
+        "properNamesReviewed": 0,
+        "lexicalExceptionsReviewed": 2
+      },
+      "editorialProfile": "motman-factory-certified-20260727"
+    },
+    {
+      "id": "factory-7x8-5354b8e2bf3545ce",
+      "columns": 7,
+      "rows": 8,
+      "sourceReviewId": "5354b8e2-bf35-45ce-9cbd-d96f1bbf7012",
+      "sourceShapeId": "two-short-7x8-b8a790c459",
+      "audience": "16-45",
+      "clueCells": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "words": [
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:01",
+          "answer": "PATINER",
+          "clue": "Glisser sur glace",
+          "sourceClue": "Glisser sur glace",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "PATINER",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            1
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 21.374,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "verb",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 21.374,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:02",
+          "answer": "AVOCATE",
+          "clue": "Juriste féminine",
+          "sourceClue": "Juriste féminine",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "AVOCATE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              2
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 31.785,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 31.785,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:03",
+          "answer": "RELIURE",
+          "clue": "Habillage du livre",
+          "sourceClue": "Habillage du livre",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "RELIURE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            3
+          ],
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 24.17,
+          "familiarityBand": "thoughtful",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "reserve",
+            "solverPenalty": 100,
+            "familiarity": 24.17,
+            "register": "extended-reserve",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:04",
+          "answer": "DRE",
+          "clue": "Producteur de Compton",
+          "sourceClue": "Producteur de Compton",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "DRE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            4
+          ],
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "clueStyle": "clever",
+          "familiarityScore": 0.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "proper-name",
+          "formType": "lemma",
+          "languageStatus": "known-proper-name",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 0.0,
+            "register": "current-pop",
+            "domain": "music",
+            "pendingPoolId": null
+          },
+          "properNameReview": {
+            "status": "human-reviewed-distinctive",
+            "entityType": "personne",
+            "clueUniquenessChecked": true,
+            "distinctiveTokens": [
+              "Compton",
+              "Producteur"
+            ],
+            "decision": "accepted-stage-name"
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:05",
+          "answer": "OS",
+          "clue": "",
+          "sourceClue": "Os du squelette",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "OS",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            5
+          ],
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 0.0,
+          "familiarityBand": "common",
+          "partOfSpeech": "curated-short",
+          "formType": "curated",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 0.0,
+            "register": "current-common",
+            "domain": "short-relief",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0ZGRThCNiIgZD0iTTM0LjM0NSAyNC42MTVjLTEuNTgyLS45NzctNC4yOTIuNzE1LTUuNjc1LS42NjgtLjg3Ny0uODc3LTcuOTg0LTguNTE2LTExLjExMS0xMS40OTNTMTAuOTM3IDYuOCAxMC4xMiA2LjA2NWMtLjQ3Ny0uNDI5IDEuMDc2LTMuNTUtLjIzOC00Ljg2NEM4LjQ4OC0uMTkyIDYuNTY2LS4zNDggNS4xNzMgMS4wNDVjLS44NTYuODU1LS40NjEgMi4yODUtMS4wNjIgMi42ODNzLTIuMjEyLjU5LTMuMDY2IDEuNDQ1Yy0xLjM5MyAxLjM5Mi0xLjE5MSAzLjY4My4zOTYgNC44NSAxLjYyMSAxLjE5MiA0LjA1My0uMDk1IDUuMDA3LjE5MSAxLjMwMS4zOSA0LjczNCA0LjIyMyA5LjM0NyA4LjgyMiA0LjMwMyA0LjI5IDcuODgyIDkuMTcxIDguMjUgOS41ODUuNzYzLjg1OC0xLjQ3OCAzLjc2Ny42NjggNi4xNTIgMS4zMTggMS40NjQgMy43MSAxLjQ4OSA1LjEwMy4wOTUuODU2LS44NTQuODA2LTMuNzIxIDEuNTc0LTQuMjkyczIuNTMtLjA1MSAzLjM4Ni0uOTA2YzEuMzkxLTEuMzkyIDEuMTktNC4wNTMtLjQzMS01LjA1NXoiLz48cGF0aCBmaWxsPSIjRjJDOTk0IiBkPSJNNS4xMTMgMy4wMTNDNS4yMDggMS44NjggNi41NDQuMjk1IDguMDIyLjQzOGMxLjQ3OC4xNDMgMi4wMDMgMS42NjkgMS44NiAyLjQ4LS4xNDQuODEtLjM4MiAxLjU3My0uNDc4IDIuMTkzLS4wOTUuNjItLjE0MyAxLjA5NyAxLjA5NyAyLjAwM3MxMS4zOTcgMTAuMTU3IDEzLjczNCAxMi45NzFjMi4zMzcgMi44MTQgMy43MiA0LjU3OCA0LjY3MyA0LjgxNi45NTQuMjM4IDEuODEyLjE0MyAyLjcxOCAwIC44NDctLjEzNCAyLjg0Ny0uNTc1IDMuNzI5Ljg4NS0uMjI3LS40NzUtLjU1Ny0uODkxLTEuMDEtMS4xNzEtMS41ODItLjk3Ny00LjI5Mi43MTUtNS42NzUtLjY2OC0uODc3LS44NzctNy45ODQtOC41MTYtMTEuMTExLTExLjQ5My0zLjEyNy0yLjk3Ny02LjYyMi01LjY1NS03LjQzOS02LjM5LS40NzctLjQyOSAxLjA3Ni0zLjU1LS4yMzgtNC44NjRDOC40ODgtLjE5MiA2LjU2Ni0uMzQ4IDUuMTczIDEuMDQ1Yy0uODU2Ljg1NS0uNDYxIDIuMjg1LTEuMDYyIDIuNjgzLS4xNC4wOTMtLjM0LjE3NS0uNTY4LjI1Ny45NTMtLjA1NSAxLjQ5NC0uMDYgMS41Ny0uOTcyeiIvPjxwYXRoIGZpbGw9IiNEOTlFODIiIGQ9Ik0zNS41MzcgMjcuOTUzYy0uMTQzIDEuMjQtMi40OCAyLjE0Ni0zLjk1OCAxLjY2OS0uODczLS4yODItMS43MTctLjE0My0xLjYyMS43NjMuMDk1LjkwNi4yMzggMi4yNDEtLjI4NiAzLjI5LS40NzcuOTU0LTIuNDggMS40MzEtMy43NjcuNTI1LTEuMTg2LS44MzUtMS4zODMtMi45NTctLjg1OC0zLjk1OC41MjUtMS4wMDEuNTcyLTEuNjY5LS42NjgtMy4xOTUtLjYyOC0uNzczLTQuMTA5LTQuNzY1LTguMDExLTguODctMy44MDEtMy45OTgtNy41OTMtNy44MjgtOC4zOTMtOC4zOTMtMS42MjMtMS4xNDQtMi40NjYtLjY2Mi0zLjYyNS0uMzgxLTEuNTc0LjM4MS0zLjEtLjcxNS0zLjM4Ni0xLjQzMS0uMjU1LS42MzktLjIyOC0yLjEzLjI0My0yLjkzMy0uMDU0LjA0NS0uMTEzLjA4NS0uMTYyLjEzNC0xLjM5MyAxLjM5Mi0xLjE5MSAzLjY4My4zOTYgNC44NSAxLjYyMSAxLjE5MiA0LjA1My0uMDk1IDUuMDA3LjE5MSAxLjMwMS4zOSA0LjczNCA0LjIyMyA5LjM0NyA4LjgyMiA0LjMwMyA0LjI5IDcuODgyIDkuMTcxIDguMjUgOS41ODUuNzYzLjg1OC0xLjQ3OCAzLjc2Ny42NjggNi4xNTIgMS4zMTggMS40NjQgMy43MSAxLjQ4OSA1LjEwMy4wOTUuODU1LS44NTQuODA2LTMuNzIxIDEuNTc0LTQuMjkyLjc2Ny0uNTcxIDIuNTMtLjA1MSAzLjM4Ni0uOTA2LjU1OC0uNTU3Ljg0OC0xLjMxNy45MDYtMi4wOTMtLjA2NS4wMjYtLjExOC4xNDItLjE0NS4zNzZ6Ii8+PC9zdmc+Cg==",
+            "alt": "Os du squelette",
+            "concept": "Os",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/os.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:06",
+          "answer": "NET",
+          "clue": "Sans aucune saleté",
+          "sourceClue": "Sans aucune saleté",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "NET",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            0,
+            6
+          ],
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 38.543,
+          "familiarityBand": "common",
+          "partOfSpeech": "adjective",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 38.543,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:07",
+          "answer": "PARDON",
+          "clue": "Demande d’excuse",
+          "sourceClue": "Demande d’excuse",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "PARDON",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            1,
+            0
+          ],
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 46.43,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 46.43,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:08",
+          "answer": "AVERSE",
+          "clue": "",
+          "sourceClue": "Forte pluie soudaine",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "AVERSE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            2,
+            0
+          ],
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 33.602,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 33.602,
+            "register": "daily-common",
+            "domain": "current",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0UxRThFRCIgZD0iTTI4IDRjLS44MjUgMC0xLjYyLjEyNS0yLjM2OS4zNTdDMjQuNzQ0IDEuODIyIDIyLjMzOCAwIDE5LjUgMGMtMy4wNDQgMC01LjU5MiAyLjA5Ni02LjI5OSA0LjkyMUMxMi40NDcgNC4zNTEgMTEuNTE5IDQgMTAuNSA0IDguMDE1IDQgNiA2LjAxNSA2IDguNWMwIC42MDQuMTIzIDEuMTc4LjMzOSAxLjcwNEM1LjkxIDEwLjA4NSA1LjQ2NyAxMCA1IDEwYy0yLjc2MiAwLTUgMi4yMzgtNSA1czIuMjM4IDUgNSA1aDIzYzQuNDE4IDAgOC0zLjU4MSA4LTggMC00LjQxOC0zLjU4Mi04LTgtOHoiLz48cGF0aCBmaWxsPSIjNURBREVDIiBkPSJNMTEuOTk5IDI0Ljk2MWwtLjExMy0zLjQyMS0yLjg3IDEuNzA4Yy0uNjM4LjM0NS0xLjA2MiAxLjAyNC0xLjAzNiAxLjc5OS4wMzcgMS4xMDMuOTY2IDEuOTc2IDIuMDc2IDEuOTUzIDEuMTA5LS4wMjMgMS45OC0uOTM3IDEuOTQzLTIuMDM5em0tMS45NzkgNy40Nkw5LjkwNyAyOWwtMi44NyAxLjcwOGMtLjYzOC4zNDUtMS4wNjIgMS4wMjQtMS4wMzYgMS43OTkuMDM3IDEuMTAzLjk2NiAxLjk3NiAyLjA3NiAxLjk1MyAxLjExLS4wMjMgMS45OC0uOTM3IDEuOTQzLTIuMDM5em0tNS00LjQ2bC0uMTEzLTMuNDIxLTIuODcgMS43MDhjLS42MzguMzQ1LTEuMDYyIDEuMDI0LTEuMDM2IDEuNzk5LjAzNyAxLjEwMi45NjYgMS45NzUgMi4wNzYgMS45NTMgMS4xMS0uMDIzIDEuOTgtLjkzNyAxLjk0My0yLjAzOXptMTgtM2wtLjExMy0zLjQyMS0yLjg2OSAxLjcwOGMtLjYzOS4zNDUtMS4wNjIgMS4wMjQtMS4wMzYgMS43OTkuMDM3IDEuMTAzLjk2NiAxLjk3NiAyLjA3NiAxLjk1MyAxLjEwOS0uMDIzIDEuOTc5LS45MzcgMS45NDItMi4wMzl6bS02LjAyMSA0bC0uMTEzLTMuNDIxLTIuODY5IDEuNzA4Yy0uNjM5LjM0NS0xLjA2MiAxLjAyNC0xLjAzNiAxLjc5OS4wMzcgMS4xMDMuOTY2IDEuOTc2IDIuMDc2IDEuOTUzIDEuMTA5LS4wMjMgMS45NzktLjkzNyAxLjk0Mi0yLjAzOXptNS4wMjEgNC40NkwyMS45MDYgMzBsLTIuODY5IDEuNzA4Yy0uNjM5LjM0NS0xLjA2MiAxLjAyNC0xLjAzNiAxLjc5OS4wMzcgMS4xMDMuOTY2IDEuOTc2IDIuMDc2IDEuOTUzIDEuMTEtLjAyMyAxLjk4LS45MzcgMS45NDMtMi4wMzl6bTYuOTc5LTUuNDZsLS4xMTMtMy40MjEtMi44NjkgMS43MDhjLS42MzkuMzQ1LTEuMDYyIDEuMDI0LTEuMDM2IDEuNzk5LjAzNyAxLjEwMy45NjYgMS45NzYgMi4wNzYgMS45NTMgMS4xMDktLjAyMyAxLjk3OS0uOTM3IDEuOTQyLTIuMDM5eiIvPjwvc3ZnPg==",
+            "alt": "Forte pluie soudaine",
+            "concept": "Averse",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/pluie.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:09",
+          "answer": "TOLE",
+          "clue": "Feuille de métal",
+          "sourceClue": "Feuille de métal",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "TOLE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            3,
+            0
+          ],
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 35.35,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 35.35,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:10",
+          "answer": "OEIL",
+          "clue": "",
+          "sourceClue": "Organe de la vue",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "OEIL",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            3,
+            5
+          ],
+          "cells": [
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 73.35,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 73.35,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0UxRThFRCIgZD0iTTM1LjA1OSAxOGMwIDMuMzA0LTcuNjQyIDExLTE3LjA2NyAxMUM4LjU2NiAyOSAuOTI1IDIyLjI0OS45MjUgMThjMC0zLjMxNCAzNC4xMzQtMy4zMTQgMzQuMTM0IDB6Ii8+PHBhdGggZmlsbD0iIzI5MkYzMyIgZD0iTTM1LjA1OSAxOEguOTI1YzAtMy4zMTMgNy42NDItMTEgMTcuMDY3LTExczE3LjA2NyA3LjY4NiAxNy4wNjcgMTF6Ii8+PHBhdGggZmlsbD0iI0Y1RjhGQSIgZD0iTTMzLjgxNyAxOGMwIDIuOTA0LTcuMDg3IDkuNjY3LTE1LjgyNiA5LjY2Ny04Ljc0IDAtMTUuODI1LTUuOTM1LTE1LjgyNS05LjY2NyAwLTIuOTEyIDcuMDg1LTkuNjY2IDE1LjgyNS05LjY2NkMyNi43MyA4LjMzMyAzMy44MTcgMTUuMDg4IDMzLjgxNyAxOHoiLz48Y2lyY2xlIGZpbGw9IiM4QjVFM0MiIGN4PSIxOCIgY3k9IjE4IiByPSI4LjQ1OCIvPjxjaXJjbGUgZmlsbD0iIzI5MkYzMyIgY3g9IjE4IiBjeT0iMTgiIHI9IjQuNzA4Ii8+PGNpcmNsZSBmaWxsPSIjRjVGOEZBIiBjeD0iMTQuOTgzIiBjeT0iMTUiIHI9IjIiLz48L3N2Zz4=",
+            "alt": "Organe de la vue",
+            "concept": "Œil",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/oeil.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:11",
+          "answer": "ICI",
+          "clue": "À cet endroit",
+          "sourceClue": "À cet endroit",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "ICI",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            4,
+            0
+          ],
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              3
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 75.883,
+          "familiarityBand": "common",
+          "partOfSpeech": "adverb",
+          "formType": "unknown",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 75.883,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:12",
+          "answer": "SOL",
+          "clue": "Sous nos pieds",
+          "sourceClue": "Sous nos pieds",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "SOL",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            4
+          ],
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 67.93,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 67.93,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:13",
+          "answer": "ETE",
+          "clue": "",
+          "sourceClue": "Soleil estival",
+          "definitionStatus": "image-review",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "image-concept",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "CC-BY 4.0",
+          "conceptGroup": "ETE",
+          "semanticConflicts": [],
+          "direction": "down",
+          "arrow": "down",
+          "clueCell": [
+            4,
+            6
+          ],
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "clueStyle": "image",
+          "familiarityScore": 65.037,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "unknown",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": true,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 65.037,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "image": {
+            "asset": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+PHBhdGggZmlsbD0iI0ZGQUMzMyIgZD0iTTE2IDJzMC0yIDItMiAyIDIgMiAydjJzMCAyLTIgMi0yLTItMi0yVjJ6bTE4IDE0czIgMCAyIDItMiAyLTIgMmgtMnMtMiAwLTItMiAyLTIgMi0yaDJ6TTQgMTZzMiAwIDIgMi0yIDItMiAySDJzLTIgMC0yLTIgMi0yIDItMmgyem01LjEyMS04LjcwN3MxLjQxNCAxLjQxNCAwIDIuODI4LTIuODI4IDAtMi44MjggMEw0Ljg3OCA4LjcwOHMtMS40MTQtMS40MTQgMC0yLjgyOWMxLjQxNS0xLjQxNCAyLjgyOSAwIDIuODI5IDBsMS40MTQgMS40MTR6bTIxIDIxczEuNDE0IDEuNDE0IDAgMi44MjgtMi44MjggMC0yLjgyOCAwbC0xLjQxNC0xLjQxNHMtMS40MTQtMS40MTQgMC0yLjgyOCAyLjgyOCAwIDIuODI4IDBsMS40MTQgMS40MTR6bS0uNDEzLTE4LjE3MnMtMS40MTQgMS40MTQtMi44MjggMCAwLTIuODI4IDAtMi44MjhsMS40MTQtMS40MTRzMS40MTQtMS40MTQgMi44MjggMCAwIDIuODI4IDAgMi44MjhsLTEuNDE0IDEuNDE0em0tMjEgMjFzLTEuNDE0IDEuNDE0LTIuODI4IDAgMC0yLjgyOCAwLTIuODI4bDEuNDE0LTEuNDE0czEuNDE0LTEuNDE0IDIuODI4IDAgMCAyLjgyOCAwIDIuODI4bC0xLjQxNCAxLjQxNHpNMTYgMzJzMC0yIDItMiAyIDIgMiAydjJzMCAyLTIgMi0yLTItMi0ydi0yeiIvPjxjaXJjbGUgZmlsbD0iI0ZGQUMzMyIgY3g9IjE4IiBjeT0iMTgiIHI9IjEwIi8+PC9zdmc+",
+            "alt": "Soleil estival",
+            "concept": "Été",
+            "source": "Twemoji 15.1",
+            "license": "CC-BY 4.0",
+            "sourceAsset": "/assets/clues/twemoji/soleil.svg"
+          },
+          "imageStatus": "reviewed-recognizable-licensed"
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:14",
+          "answer": "NAUSEE",
+          "clue": "Envie de vomir",
+          "sourceClue": "Envie de vomir",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "NAUSEE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            5,
+            0
+          ],
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 32.1,
+          "familiarityBand": "common",
+          "partOfSpeech": "common-noun",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 32.1,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:15",
+          "answer": "ETROIT",
+          "clue": "Manquant de largeur",
+          "sourceClue": "Manquant de largeur",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "ETROIT",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            6,
+            0
+          ],
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 53.662,
+          "familiarityBand": "common",
+          "partOfSpeech": "adjective",
+          "formType": "lemma",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "core",
+            "solverPenalty": 0,
+            "familiarity": 53.662,
+            "register": "everyday",
+            "domain": "general",
+            "pendingPoolId": null
+          }
+        },
+        {
+          "wordId": "factory-7x8-5354b8e2bf3545ce:word:16",
+          "answer": "REELLE",
+          "clue": "Qui existe vraiment",
+          "sourceClue": "Qui existe vraiment",
+          "definitionStatus": "manually-reviewed",
+          "editorialStatus": "human-reviewed",
+          "sourceType": "editorial-original",
+          "sourceId": "motman-factory-certified-20260727",
+          "sourceUrl": "internal://motman/editorial/factory-certified-20260727",
+          "license": "MotMan original",
+          "conceptGroup": "REELLE",
+          "semanticConflicts": [],
+          "direction": "across",
+          "arrow": "right",
+          "clueCell": [
+            7,
+            0
+          ],
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "clueStyle": "direct",
+          "familiarityScore": 37.809,
+          "familiarityBand": "common",
+          "partOfSpeech": "adjective",
+          "formType": "inflected",
+          "languageStatus": "standard-french",
+          "culturalStatus": "timeless",
+          "editorialReview": {
+            "status": "human-reviewed",
+            "meaningChecked": true,
+            "clueAnswerFit": true,
+            "allAudience": true,
+            "mobileReadable": true,
+            "imageRecognizable": false,
+            "reviewDate": "2026-07-27"
+          },
+          "factoryMetadata": {
+            "qualityTier": "standard",
+            "solverPenalty": 15,
+            "familiarity": 37.809,
+            "register": "standard",
+            "domain": "general",
+            "pendingPoolId": null
+          },
+          "lexicalExceptionReview": {
+            "status": "human-reviewed-inflection",
+            "reason": "Adjectif féminin singulier autonome et défini sans contexte verbal.",
+            "acceptedAs": "adjectif qualificatif"
+          }
+        }
+      ],
+      "imageCount": 4,
+      "publicationStatus": "owner-certified-editorial-reviewed",
+      "humanReview": {
+        "status": "human-reviewed",
+        "reviewDate": "2026-07-27",
+        "sourceFileSha256": "ea100ce00456e0c703be1fda4d9cbd9c64d1bd7a6b82ce2e6b61ebedef5a5d1a",
+        "sourcePayloadSha256": "2e5c506e67c90e499a3e4a63529bf3da85d39a19e40da3124d959611d1facadb",
+        "lexicalExceptions": [
+          "REELLE"
+        ],
+        "properNames": [
+          "DRE"
+        ]
+      },
+      "provenance": {
+        "source": "C:\\Users\\peete\\AppData\\Local\\MotManLexiconStudio\\exports\\motman-certified-grids-for-editorialization.json",
+        "candidateId": "5354b8e2-bf35-45ce-9cbd-d96f1bbf7012",
+        "campaignId": "84986e13-b32c-4f4f-bdce-80490cac4718",
+        "certifiedAt": "2026-07-27T14:51:37Z",
+        "factoryDigests": {
+          "certification": "82d36f9484e027f1e19d33c60d0f3224488d6f42bed041e97f5a82f5602dcb09",
+          "context": "2758f5975257b3af2d2fc5fb190a4f5ba7e9f7d27e0f5ce4ae09794fb5291a4c",
+          "campaign": {
+            "baseEffectiveLexicon": "3e08f4f4d39dd626154dcedbddaaec5fee483d080bcb2ae927d7fa17a1d0dd30",
+            "effectiveFile": "51380d468f3f1dc49a610fde1c1bfab315c8ed88a65e8134461fef598ba94280",
+            "effectiveLexicon": "81d95091a2645d3fc0c20d31847c8793dd46b186e1b3880c17269cad0a056b73",
+            "forbiddenGrids": "19c7e9cee301c37707364fe37cc2d71cbecb34b7629ae826434f31184d6142b0",
+            "ownerOverlay": "689b7f222ffe9675ac571fde0159763197f54b98d9c839bb47f230028fb17d4d",
+            "pendingPool": "391b71453398cb5d6dc0e96df2a58ed7f3aae47682762c04239b629cb9977320",
+            "pendingQuota": "8",
+            "policy": "8985ab746359b2cf154c4f916b674cbce82750eddc3cd8f2539c2693900bf80d",
+            "repetitionHistory": "9e3dc7d7e5003f551484599f3274249f0d933c5f1c0f3b7d803e396a748d1867",
+            "rescuePool": "disabled",
+            "shapes": "64c659cada3883158807e45b7d85ebd858b50eb9b3aef196eca08b48bb6d5d8f",
+            "sourceLexicon": "f5588d660a71a3b0f05e9bb74b2da968f97e37c75f5536ebee2d3e833cacfba3"
+          },
+          "factory": {
+            "lexicon": "f5588d660a71a3b0f05e9bb74b2da968f97e37c75f5536ebee2d3e833cacfba3",
+            "policy": "8985ab746359b2cf154c4f916b674cbce82750eddc3cd8f2539c2693900bf80d",
+            "shapes": "64c659cada3883158807e45b7d85ebd858b50eb9b3aef196eca08b48bb6d5d8f"
+          }
+        }
+      },
+      "reviewSummary": {
+        "answers": 16,
+        "images": 4,
+        "manualTextClues": 12,
+        "properNamesReviewed": 1,
+        "lexicalExceptionsReviewed": 1
+      },
+      "editorialProfile": "motman-factory-certified-20260727"
+    }
+  ]
+}

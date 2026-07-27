@@ -159,7 +159,12 @@ test('un sondage inchangé ne renvoie pas à nouveau toute la partie', async ({ 
 
 test('deux téléphones conservent la même lettre après validation', async ({ browser, request }) => {
   const { first, second, matchId } = await createNormalMatch(request, 'realtime', 'Synchro')
-  const initial = await loadMatch(request, first.playerId, matchId)
+  let initial = await loadMatch(request, first.playerId, matchId)
+  if (initial.currentPlayerId !== first.playerId) {
+    // Opponent racks are deliberately redacted. Compute the move from the
+    // active player's own authoritative view.
+    initial = await loadMatch(request, second.playerId, matchId)
+  }
   const placement = playablePlacements(initial)[0]
   expect(placement).toBeTruthy()
 
@@ -168,11 +173,12 @@ test('deux téléphones conservent la même lettre après validation', async ({ 
     openGame(browser, second, matchId, { width: 393, height: 852 }),
   ])
   try {
-    await expect(playerOne.page.locator('.turn-ready-flash')).toBeVisible()
-    await expect(playerOne.page.locator('.turn-ready-flash')).toBeHidden()
-    await playerOne.page.getByRole('button', { name: `Lettre ${placement.letter}` }).first().click({ force: true })
-    await playerOne.page.locator(`[data-cell="${placement.cellIndex}"]`).click({ force: true })
-    await playerOne.page.getByRole('button', { name: 'Valider' }).click({ force: true })
+    const activePlayer = initial.currentPlayerId === first.playerId ? playerOne : playerTwo
+    await expect(activePlayer.page.locator('.turn-ready-flash')).toBeVisible()
+    await expect(activePlayer.page.locator('.turn-ready-flash')).toBeHidden()
+    await activePlayer.page.getByRole('button', { name: `Lettre ${placement.letter}` }).first().click({ force: true })
+    await activePlayer.page.locator(`[data-cell="${placement.cellIndex}"]`).click({ force: true })
+    await activePlayer.page.getByRole('button', { name: 'Valider' }).click({ force: true })
 
     const confirmedOne = playerOne.page.locator(`[data-cell="${placement.cellIndex}"][data-confirmed="true"]`)
     const confirmedTwo = playerTwo.page.locator(`[data-cell="${placement.cellIndex}"][data-confirmed="true"]`)
