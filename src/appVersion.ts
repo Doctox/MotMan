@@ -16,8 +16,8 @@ export const appVersion: AppVersion = {
 
 export function formatAppVersion({ version, updateNumber, buildSha }: AppVersion) {
   const updateLabel = /^\d+$/.test(updateNumber)
-    ? `Mise à jour #${updateNumber}`
-    : 'Mise à jour locale'
+    ? `#${updateNumber}`
+    : 'Local'
 
   return {
     updateLabel,

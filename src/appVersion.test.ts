@@ -8,9 +8,9 @@ describe('formatAppVersion', () => {
       updateNumber: '287',
       buildSha: 'a1b2c3d',
     })).toEqual({
-      updateLabel: 'Mise à jour #287',
+      updateLabel: '#287',
       buildLabel: 'Version 1.4.0 · a1b2c3d',
-      accessibleLabel: 'Mise à jour #287, version 1.4.0, code a1b2c3d',
+      accessibleLabel: '#287, version 1.4.0, code a1b2c3d',
     })
   })
 
@@ -19,6 +19,6 @@ describe('formatAppVersion', () => {
       version: '0.1.0',
       updateNumber: 'local',
       buildSha: '7654321',
-    }).updateLabel).toBe('Mise à jour locale')
+    }).updateLabel).toBe('Local')
   })
 })
