@@ -46,7 +46,8 @@ class MatchStateConflictError extends Error {
 const REALTIME_TURN_MS = 45_000
 const ASYNC_TURN_MS = 24 * 60 * 60 * 1000
 const READY_MS = 1_800
-const GRACE_MS = 2_000
+const MANUAL_SUBMIT_GRACE_MS = 2_000
+const AUTOMATIC_SUBMIT_GRACE_MS = 8_000
 const BOT_SEARCH_MS = 30_000
 const nowIso = () => new Date().toISOString()
 
@@ -511,7 +512,7 @@ Deno.serve(async request => {
           if (Date.now() >= new Date(row.turn_started_at).getTime() + delay) {
             applyTurn(row, grid, row.current_player_id, botPlacements(row, grid)); row = await persist(admin, row); turnAdvanced = true; await awardFinished(admin, row)
           }
-        } else if (Date.now() >= new Date(row.turn_ends_at).getTime() + GRACE_MS) {
+        } else if (Date.now() >= new Date(row.turn_ends_at).getTime() + AUTOMATIC_SUBMIT_GRACE_MS) {
           timeoutTurn(row); row = await persist(admin, row); turnAdvanced = true; await awardFinished(admin, row)
         } else if (initializedBag || initializedFinale) row = await persist(admin, row)
         if (turnAdvanced && row.current_player_id !== previousPlayerId) notifyCurrentTurn(admin, row)
@@ -665,7 +666,9 @@ Deno.serve(async request => {
       const placements = Array.isArray(body.placements) ? body.placements as Array<{ cellIndex: number; letter: string }> : []
       const valid = sanitizePlacements(row, grid, user.id, placements).sanitized
       const hasPlacedHint = row.state.hint?.playerId === user.id && row.state.hint.turnNumber === row.turn_number
-      if (Date.now() >= new Date(row.turn_ends_at).getTime() + GRACE_MS || body.automatic === true && valid.length === 0 && !hasPlacedHint) timeoutTurn(row)
+      const automatic = body.automatic === true
+      const submissionGrace = automatic ? AUTOMATIC_SUBMIT_GRACE_MS : MANUAL_SUBMIT_GRACE_MS
+      if (Date.now() >= new Date(row.turn_ends_at).getTime() + submissionGrace || automatic && valid.length === 0 && !hasPlacedHint) timeoutTurn(row)
       else applyTurn(row, grid, user.id, valid)
     } else if (action === 'hint') {
       if (!canUseHint(Boolean(row.state.hintUsed[user.id]))) return json(409, { error: 'Votre indice a déjà été utilisé.' })

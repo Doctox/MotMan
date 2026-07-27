@@ -4,7 +4,7 @@ import {
   canUseHint, canUseReroll, hasTurnStarted, hintCandidates, isTurnSubmissionExpired, shouldForfeitAfterInactivity,
 } from '../../src/gameRules'
 import {
-  ASYNC_INVITATION_DURATION_MS, INVITATION_DURATION_MS, MAX_ASYNC_MATCHES,
+  ASYNC_INVITATION_DURATION_MS, AUTOMATIC_TURN_SUBMIT_GRACE_MS, INVITATION_DURATION_MS, MAX_ASYNC_MATCHES,
   REALTIME_SEARCH_STALE_MS, TURN_SUBMIT_GRACE_MS,
 } from './config'
 import { gridSolution, hash, ruleGrid } from './gridCatalog'
@@ -172,7 +172,8 @@ export async function handleMatchRequest(request: IncomingMessage, response: Ser
     match.updatedAt = new Date().toISOString()
     saveDatabase()
   }
-  if (route === 'turn' && match.status === 'active' && isTurnSubmissionExpired(Date.now(), new Date(match.turnEndsAt).getTime(), TURN_SUBMIT_GRACE_MS)) {
+  const requestedGrace = body.automatic === true ? AUTOMATIC_TURN_SUBMIT_GRACE_MS : TURN_SUBMIT_GRACE_MS
+  if (route === 'turn' && match.status === 'active' && isTurnSubmissionExpired(Date.now(), new Date(match.turnEndsAt).getTime(), requestedGrace)) {
     resolveExpired()
     match = database.matches.find(candidate => candidate.id === matchId && candidate.playerIds.includes(playerId))
     if (!match) return sendJson(response, 404, { error: 'Partie introuvable.' })

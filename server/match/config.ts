@@ -14,6 +14,10 @@ export const TURN_READY_DURATION_MS = numericEnvironment('MOTMAN_TURN_READY_DURA
 // A short server grace period lets a phone submit the move displayed at 00:00
 // without a simultaneous polling request turning it into a timeout first.
 export const TURN_SUBMIT_GRACE_MS = numericEnvironment('MOTMAN_TURN_GRACE_MS', 2_000, 0)
+// Automatic validation is emitted exactly at 00:00 and can sit in a slow
+// mobile radio/network queue. Keep the manual grace strict, but leave enough
+// time for that already-captured automatic payload to reach the server.
+export const AUTOMATIC_TURN_SUBMIT_GRACE_MS = numericEnvironment('MOTMAN_AUTOMATIC_TURN_GRACE_MS', 8_000, TURN_SUBMIT_GRACE_MS)
 export const REVEAL_STEP_MS = numericEnvironment('MOTMAN_REVEAL_STEP_MS', REWARD_STEP_MS, 0)
 export const MIN_REVEAL_DURATION_MS = numericEnvironment('MOTMAN_MIN_REVEAL_DURATION_MS', 700, 0)
 export const INVITATION_DURATION_MS = 120_000

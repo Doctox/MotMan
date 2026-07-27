@@ -227,6 +227,25 @@ test('les réponses à 2 s, 1 s et 0 s sont acceptées, sans double validation',
   }
 })
 
+test('une validation automatique mobile retardée conserve les lettres posées', async ({ request, browserName }) => {
+  test.skip(browserName === 'webkit', 'La marge réseau est une règle serveur indépendante du moteur visuel.')
+  const { first, matchId } = await createNormalMatch(request, 'realtime', 'Auto retardé')
+  const match = await loadMatch(request, first.playerId, matchId)
+  const placement = playablePlacements(match)[0]
+  expect(placement).toBeTruthy()
+
+  // The manual grace in this test server is 1.2 s. Simulate a sleeping mobile
+  // radio that delivers the automatic 00:00 payload later than that, while
+  // still inside the dedicated 4 s automatic-validation window.
+  const wait = new Date(match.turnEndsAt).getTime() + 1_800 - Date.now()
+  if (wait > 0) await new Promise(resolvePromise => setTimeout(resolvePromise, wait))
+
+  const accepted = await submitTurn(request, match, [placement], true)
+  expect(accepted.result.correct).toContain(placement.cellIndex)
+  expect(accepted.result.inactivityCount).toBe(0)
+  expect(accepted.match.board[placement.cellIndex]?.letter).toBe(placement.letter)
+})
+
 test('temps limité et illimité demandent trois absences avant la défaite', async ({ request, browserName }) => {
   test.skip(browserName === 'webkit', 'La règle d’inactivité est couverte une fois au niveau serveur.')
   for (const pace of ['realtime', 'async'] as const) {

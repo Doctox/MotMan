@@ -38,6 +38,7 @@ export default defineConfig({
       // Long enough for Chromium/WebKit to observe the two-beat turn cue reliably.
       MOTMAN_TURN_READY_DURATION_MS: '350',
       MOTMAN_TURN_GRACE_MS: '1200',
+      MOTMAN_AUTOMATIC_TURN_GRACE_MS: '4000',
       MOTMAN_REVEAL_STEP_MS: '30',
       MOTMAN_MIN_REVEAL_DURATION_MS: '20',
       MOTMAN_REALTIME_BOT_DELAY_MS: '60000',

@@ -21,6 +21,7 @@ import {
   ASYNC_BOT_MATCH_DELAY_MS,
   ASYNC_SEARCH_DURATION_MS,
   ASYNC_TURN_DURATION_MS,
+  AUTOMATIC_TURN_SUBMIT_GRACE_MS,
   MATCH_DATABASE_PATH,
   MAX_ASYNC_MATCHES,
   MIN_REVEAL_DURATION_MS,
@@ -30,7 +31,6 @@ import {
   RECENT_GRID_HISTORY_LIMIT,
   REVEAL_STEP_MS,
   TURN_READY_DURATION_MS,
-  TURN_SUBMIT_GRACE_MS,
 } from './match/config'
 import { gridById, gridIds, gridSolution, grids, hash, publicGrid, ruleGrid, wordIndexes } from './match/gridCatalog'
 import { sendJson } from './match/http'
@@ -300,7 +300,9 @@ function resolveExpired(): void {
   })
   if (validSearches.length !== database.searches.length) { database.searches = validSearches; changed = true }
   database.matches.forEach(match => {
-    if (match.status !== 'active' || !isTurnSubmissionExpired(now, new Date(match.turnEndsAt).getTime(), TURN_SUBMIT_GRACE_MS)) return
+    // Give the automatic 00:00 payload enough time to leave a sleeping mobile
+    // radio before a poll resolves the turn as an inactivity timeout.
+    if (match.status !== 'active' || !isTurnSubmissionExpired(now, new Date(match.turnEndsAt).getTime(), AUTOMATIC_TURN_SUBMIT_GRACE_MS)) return
     const inactivePlayerId = match.currentPlayerId
     const inactivityCount = (match.inactivity[inactivePlayerId] ?? 0) + 1
     match.inactivity[inactivePlayerId] = inactivityCount
