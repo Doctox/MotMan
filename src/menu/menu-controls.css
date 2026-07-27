@@ -161,6 +161,7 @@
 
 [data-text-size="large"] .mm-setting-row,[data-text-size="large"] .mm-settings-link{font-size:16px}
 [data-text-size="large"] .mm-settings-link>span>small{font-size:11px}
+[data-text-size="large"] .mm-settings-version{font-size:12px}
 [data-text-size="large"] .mm-mode-row strong,[data-text-size="large"] .mm-solo-main strong{font-size:19px}
 [data-text-size="large"] .mm-mode-row small,[data-text-size="large"] .mm-solo-main small{font-size:11px}
 [data-text-size="large"] .mm-page p,[data-text-size="large"] .mm-page small{line-height:1.4}

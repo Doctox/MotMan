@@ -167,6 +167,12 @@
 .mm-settings-link>span{min-width:0;display:flex;flex-direction:column;align-items:flex-start;line-height:1.25}
 .mm-settings-link>span>small{margin-top:2px;font-size:9px}
 .mm-settings-link>svg:last-child{justify-self:end}
+.mm-settings-version{
+  display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;
+  padding-top:14px;color:var(--mm-muted);font-size:10px;letter-spacing:.025em;text-align:center;
+}
+.mm-settings-version strong{color:var(--mm-ink);font-weight:700}
+.mm-settings-version span{font-variant-numeric:tabular-nums}
 .mm-toast{
   bottom:89px;padding:9px 16px;border:1px solid color-mix(in srgb,var(--mm-gold) 48%,transparent);
   background:var(--mm-ink);box-shadow:0 10px 28px #0004;animation:mmToast 2.1s var(--mm-ease) both;

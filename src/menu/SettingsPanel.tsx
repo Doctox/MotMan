@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { ChevronRight, FileText, LogIn, Moon, Settings, Sun, Type, UserPlus, Vibrate, Volume2, X } from 'lucide-react'
+import { appVersionDisplay } from '../appVersion'
 import type { GuestIdentity } from '../playerIdentity'
 import { useSensoryPreferences } from '../sensoryPreferences'
 import { useDialogFocus } from '../useDialogFocus'
@@ -22,6 +23,10 @@ export function SettingsPanel({ identity, close, openAccount, openFriends, openL
       <button className="mm-settings-link" type="button" onClick={openFriends}><UserPlus /><span>Amis<small>Ajouter · retirer · bloquer</small></span><ChevronRight /></button>
       <button className="mm-settings-link" type="button" onClick={openAccount}><LogIn /><span>{identity.accountType === 'account' ? 'Compte synchronisé' : 'Créer ou retrouver un compte'}<small>{identity.accountType === 'account' ? identity.displayName : 'Sauvegarder votre progression'}</small></span><ChevronRight /></button>
       <button className="mm-settings-link" type="button" onClick={openLegal}><FileText /><span>Informations<small>Confidentialité · conditions · crédits</small></span><ChevronRight /></button>
+      <footer className="mm-settings-version" aria-label={appVersionDisplay.accessibleLabel}>
+        <strong>{appVersionDisplay.updateLabel}</strong>
+        <span>{appVersionDisplay.buildLabel}</span>
+      </footer>
     </section>
   </div>
 }

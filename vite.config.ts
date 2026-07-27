@@ -1,14 +1,33 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { execFileSync } from 'node:child_process'
 import { motmanSocialPlugin } from './server/motmanSocialPlugin'
 import { motmanMatchPlugin } from './server/motmanMatchPlugin'
 import { motmanAuthPlugin } from './server/motmanAuthPlugin'
 
 const githubRepository = process.env.GITHUB_REPOSITORY
 const githubPagesBase = githubRepository ? `/${githubRepository.split('/')[1]}/` : '/'
+const appVersion = process.env.npm_package_version ?? '0.1.0'
+const updateNumber = process.env.GITHUB_RUN_NUMBER?.trim() || 'local'
+
+function resolveBuildSha() {
+  const githubSha = process.env.GITHUB_SHA?.trim()
+  if (githubSha) return githubSha.slice(0, 7)
+
+  try {
+    return execFileSync('git', ['rev-parse', '--short=7', 'HEAD'], { encoding: 'utf8' }).trim()
+  } catch {
+    return 'inconnu'
+  }
+}
 
 export default defineConfig({
   base: process.env.VITE_BASE_PATH ?? githubPagesBase,
+  define: {
+    'import.meta.env.VITE_MOTMAN_APP_VERSION': JSON.stringify(appVersion),
+    'import.meta.env.VITE_MOTMAN_BUILD_SHA': JSON.stringify(resolveBuildSha()),
+    'import.meta.env.VITE_MOTMAN_UPDATE_NUMBER': JSON.stringify(updateNumber),
+  },
   plugins: [react(), motmanAuthPlugin(), motmanSocialPlugin(), motmanMatchPlugin()],
   build: {
     rollupOptions: {
