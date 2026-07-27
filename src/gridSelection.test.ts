@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { selectGridForPlayers, type SelectionGrid } from './gridSelection'
+import { selectGridForPlayers, shouldYieldActiveGridClaim, type SelectionGrid } from './gridSelection'
 
 const grid = (id: string, ...answers: string[]): SelectionGrid => ({
   id,
@@ -78,5 +78,34 @@ describe('sélection anti-répétition des grilles', () => {
       seed: 'fallback',
     })
     expect(['a', 'b']).toContain(result.grid.id)
+  })
+
+  it('écarte les grilles des parties encore actives des deux joueurs', () => {
+    const grids = [grid('active-a', 'CHAT'), grid('active-b', 'CHIEN'), grid('free', 'LUNE')]
+    const result = selectGridForPlayers({
+      grids,
+      recentGridIdsByPlayer: [[], []],
+      activeGridIds: ['active-a', 'active-b'],
+      seed: 'active-matches',
+    })
+    expect(result.grid.id).toBe('free')
+  })
+
+  it('ne réutilise une grille active que lorsque tout le catalogue est occupé', () => {
+    const grids = [grid('active-a', 'CHAT'), grid('active-b', 'CHIEN')]
+    const result = selectGridForPlayers({
+      grids,
+      recentGridIdsByPlayer: [[], []],
+      activeGridIds: grids.map(item => item.id),
+      seed: 'all-active-fallback',
+    })
+    expect(['active-a', 'active-b']).toContain(result.grid.id)
+  })
+
+  it('laisse la grille au match le plus ancien lors de deux créations simultanées', () => {
+    const older = { id: 'a', createdAt: '2026-07-27T20:00:00.000Z' }
+    const newer = { id: 'b', createdAt: '2026-07-27T20:00:00.100Z' }
+    expect(shouldYieldActiveGridClaim(newer, [older])).toBe(true)
+    expect(shouldYieldActiveGridClaim(older, [newer])).toBe(false)
   })
 })

@@ -16,6 +16,17 @@ export type GridSelectionResult<T extends SelectionGrid> = {
   overlapCount: number
 }
 
+export type ActiveGridClaim = { id: string; createdAt: string }
+
+export function shouldYieldActiveGridClaim(current: ActiveGridClaim, competing: readonly ActiveGridClaim[]): boolean {
+  const currentTime = Date.parse(current.createdAt)
+  return competing.some(other => {
+    const otherTime = Date.parse(other.createdAt)
+    if (Number.isFinite(currentTime) && Number.isFinite(otherTime) && currentTime !== otherTime) return otherTime < currentTime
+    return `${other.createdAt}:${other.id}` < `${current.createdAt}:${current.id}`
+  })
+}
+
 function normalizeAnswer(answer: string): string {
   return answer.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim()
 }
@@ -45,12 +56,14 @@ function answerSet(grid: SelectionGrid): Set<string> {
 export function selectGridForPlayers<T extends SelectionGrid>({
   grids,
   recentGridIdsByPlayer,
+  activeGridIds = [],
   globalCooldownAnswers = [],
   popularity = [],
   seed,
 }: {
   grids: readonly T[]
   recentGridIdsByPlayer: readonly (readonly string[])[]
+  activeGridIds?: readonly string[]
   globalCooldownAnswers?: Iterable<string>
   popularity?: readonly GridPopularity[]
   seed: string
@@ -81,8 +94,14 @@ export function selectGridForPlayers<T extends SelectionGrid>({
   const globalSet = new Set([...globalCooldownAnswers].map(normalizeAnswer))
   const popularityById = new Map(popularity.map(item => [item.gridId, item.score]))
 
-  const fresh = grids.filter(grid => !recentIdSet.has(grid.id))
-  const freshPool = fresh.length ? fresh : [...grids]
+  // Do not expose the same board in concurrent matches involving either
+  // player. Falling back to an occupied grid is allowed only when every grid
+  // in the catalogue is already occupied for the participants.
+  const activeIdSet = new Set(activeGridIds)
+  const unoccupied = grids.filter(grid => !activeIdSet.has(grid.id))
+  const occupancyPool = unoccupied.length ? unoccupied : [...grids]
+  const fresh = occupancyPool.filter(grid => !recentIdSet.has(grid.id))
+  const freshPool = fresh.length ? fresh : occupancyPool
   const personalCooldownClean = freshPool.filter(grid => {
     for (const answer of answerSet(grid)) if (repeatedSet.has(answer)) return false
     return true

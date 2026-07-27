@@ -5,7 +5,7 @@ import {
   shouldForfeitAfterInactivity, type GameRuleGrid, type GameRuleWord,
 } from '../../../src/gameRules.ts'
 import { calculateFeatherReward } from '../../../src/progressionRewards.ts'
-import { selectGridForPlayers } from '../../../src/gridSelection.ts'
+import { selectGridForPlayers, shouldYieldActiveGridClaim } from '../../../src/gridSelection.ts'
 import { MATCH_STATE_CONFLICT_CODE } from '../../../src/matchConflict.ts'
 import { createHttpResponder, logServerError } from '../_shared/http.ts'
 import { queuePush, sendPushToUser } from '../_shared/pushNotifications.ts'
@@ -35,6 +35,7 @@ type MatchRow = {
   turn_number: number; turn_started_at: string; turn_ends_at: string; winner_id: string | null; finish_reason: 'completed' | 'timeout' | 'forfeit' | null;
   created_at: string; updated_at: string
 }
+type ActiveMatchGrid = { id: string; gridId: string; createdAt: string }
 
 class MatchStateConflictError extends Error {
   constructor(readonly latest: MatchRow) {
@@ -214,8 +215,39 @@ async function getGrid(admin: ReturnType<typeof createClient>, gridId: string): 
   return data.payload as CatalogGrid
 }
 
-async function chooseGrid(admin: ReturnType<typeof createClient>, seed: string, playerIds: string[]): Promise<CatalogGrid> {
-  const [{ data: catalogRows }, { data: popularityRows }, { data: cooldownRows }, histories] = await Promise.all([
+async function activeMatchesForPlayers(
+  admin: ReturnType<typeof createClient>,
+  playerIds: string[],
+  excludedMatchId?: string,
+): Promise<ActiveMatchGrid[]> {
+  if (!playerIds.length) return []
+  const { data: participantRows, error: participantError } = await admin.from('match_participants')
+    .select('match_id')
+    .in('user_id', playerIds)
+  if (participantError) throw participantError
+  const matchIds = [...new Set((participantRows ?? [])
+    .map(item => item.match_id as string)
+    .filter(matchId => matchId && matchId !== excludedMatchId))]
+  if (!matchIds.length) return []
+  const { data: matchRows, error: matchError } = await admin.from('server_matches')
+    .select('id,grid_id,created_at')
+    .in('id', matchIds)
+    .eq('status', 'active')
+  if (matchError) throw matchError
+  return (matchRows ?? []).map(item => ({
+    id: item.id as string,
+    gridId: item.grid_id as string,
+    createdAt: item.created_at as string,
+  }))
+}
+
+async function chooseGrid(
+  admin: ReturnType<typeof createClient>,
+  seed: string,
+  playerIds: string[],
+  excludedMatchId?: string,
+): Promise<CatalogGrid> {
+  const [{ data: catalogRows }, { data: popularityRows }, { data: cooldownRows }, histories, activeMatches] = await Promise.all([
     admin.from('server_grid_catalog').select('payload').eq('active', true).order('id'),
     admin.from('grid_popularity').select('grid_id,popularity_score,plays'),
     admin.from('server_grid_rotation_cooldowns').select('answer').eq('active', true),
@@ -225,12 +257,14 @@ async function chooseGrid(admin: ReturnType<typeof createClient>, seed: string, 
         .order('completed_at', { ascending: false }).limit(12)
       return (data ?? []).map(item => item.grid_id as string)
     })),
+    activeMatchesForPlayers(admin, playerIds, excludedMatchId),
   ])
   if (!catalogRows?.length) throw new Error('Le catalogue serveur est vide.')
   const grids = catalogRows.map(item => item.payload as CatalogGrid)
   return selectGridForPlayers({
     grids,
     recentGridIdsByPlayer: histories,
+    activeGridIds: activeMatches.map(item => item.gridId),
     globalCooldownAnswers: (cooldownRows ?? []).map(item => item.answer as string),
     popularity: (popularityRows ?? []).map(item => ({
       gridId: item.grid_id as string,
@@ -254,12 +288,8 @@ async function playersBlocked(admin: ReturnType<typeof createClient>, firstId: s
   return Boolean(data?.length)
 }
 
-async function createMatch(admin: ReturnType<typeof createClient>, hostId: string, guestId: string, mode: Mode, pace: Pace, invitationId: string | null, bot: Bot | null) {
-  const humanPlayerIds = [hostId, guestId].filter(id => id !== bot?.playerId)
-  const grid = await chooseGrid(admin, `${hostId}:${guestId}:${Date.now()}`, humanPlayerIds)
+function initialMatchState(grid: CatalogGrid, hostId: string, guestId: string, invitationId: string | null, bot: Bot | null): State {
   const rules = ruleGrid(grid)
-  const startedAt = new Date(Date.now() + READY_MS)
-  const endsAt = new Date(startedAt.getTime() + (pace === 'realtime' ? REALTIME_TURN_MS : ASYNC_TURN_MS))
   const state: State = {
     invitationId, difficulty: bot?.skill === 'beginner' ? 'easy' : bot?.skill === 'expert' ? 'hard' : 'normal',
     playerIds: [hostId, guestId], bot, board: {}, racks: {}, letterBag: neededLetters(rules, {}), scores: { [hostId]: 0, [guestId]: 0 },
@@ -269,14 +299,56 @@ async function createMatch(admin: ReturnType<typeof createClient>, hostId: strin
   }
   state.racks[hostId] = refill(rules, state, hostId, [])
   state.racks[guestId] = refill(rules, state, guestId, [])
-  const { data: row, error } = await admin.from('server_matches').insert({
+  return state
+}
+
+async function createMatch(admin: ReturnType<typeof createClient>, hostId: string, guestId: string, mode: Mode, pace: Pace, invitationId: string | null, bot: Bot | null) {
+  const humanPlayerIds = [hostId, guestId].filter(id => id !== bot?.playerId)
+  const selectionSeed = `${hostId}:${guestId}:${Date.now()}`
+  let grid = await chooseGrid(admin, selectionSeed, humanPlayerIds)
+  const startedAt = new Date(Date.now() + READY_MS)
+  const endsAt = new Date(startedAt.getTime() + (pace === 'realtime' ? REALTIME_TURN_MS : ASYNC_TURN_MS))
+  let state = initialMatchState(grid, hostId, guestId, invitationId, bot)
+  const { data: insertedRow, error } = await admin.from('server_matches').insert({
     mode, pace, grid_id: grid.id, state, status: 'active', current_player_id: hostId,
     turn_number: 1, turn_started_at: startedAt.toISOString(), turn_ends_at: endsAt.toISOString(),
   }).select('*').single()
-  if (error || !row) throw error ?? new Error('Création impossible.')
-  const participants = [hostId, guestId].filter(id => id !== bot?.playerId).map(user_id => ({ match_id: row.id, user_id, opponent_id: bot ? null : (user_id === hostId ? guestId : hostId) }))
-  if (participants.length) await admin.from('match_participants').insert(participants)
-  return { row: row as MatchRow, grid }
+  if (error || !insertedRow) throw error ?? new Error('Création impossible.')
+  let row = insertedRow as MatchRow
+  const participants = humanPlayerIds.map(user_id => ({ match_id: row.id, user_id, opponent_id: bot ? null : (user_id === hostId ? guestId : hostId) }))
+  if (participants.length) {
+    const { error: participantError } = await admin.from('match_participants').insert(participants)
+    if (participantError) {
+      await admin.from('server_matches').delete().eq('id', row.id)
+      throw participantError
+    }
+  }
+
+  // Two invitations can be accepted nearly simultaneously, after both
+  // requests selected a grid. The oldest match keeps it; the newer match
+  // rerolls against every active grid of either participant.
+  for (let collisionAttempt = 0; collisionAttempt < 3; collisionAttempt += 1) {
+    const otherActiveMatches = await activeMatchesForPlayers(admin, humanPlayerIds, row.id)
+    const sameGridMatches = otherActiveMatches.filter(item => item.gridId === grid.id)
+    if (!sameGridMatches.length) break
+    const newerThanConflict = shouldYieldActiveGridClaim(
+      { id: row.id, createdAt: row.created_at },
+      sameGridMatches.map(item => ({ id: item.id, createdAt: item.createdAt })),
+    )
+    if (!newerThanConflict) break
+    const replacement = await chooseGrid(admin, `${selectionSeed}:collision:${collisionAttempt}`, humanPlayerIds, row.id)
+    if (replacement.id === grid.id) break
+    state = initialMatchState(replacement, hostId, guestId, invitationId, bot)
+    const { data: updatedRow, error: updateError } = await admin.from('server_matches')
+      .update({ grid_id: replacement.id, state })
+      .eq('id', row.id)
+      .select('*')
+      .single()
+    if (updateError || !updatedRow) throw updateError ?? new Error('Rotation de grille impossible.')
+    row = updatedRow as MatchRow
+    grid = replacement
+  }
+  return { row, grid }
 }
 
 function revealDuration(turn: Turn): number {
