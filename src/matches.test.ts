@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { loadMatch, playMatchTurn, type MatchState, type MatchTurn } from './matches'
+import { acknowledgeMatchResult, loadMatch, playMatchTurn, type MatchLobbyState, type MatchState, type MatchTurn } from './matches'
 
 const remote = vi.hoisted(() => ({
   invoke: vi.fn(),
@@ -39,6 +39,17 @@ describe('synchronisation légère des parties', () => {
       action: 'turn', matchId: 'match-1', turnNumber: 4,
       placements: [{ cellIndex: 12, letter: 'A' }], automatic: false,
       knownUpdatedAt: '2026-07-20T12:00:00.000Z',
+    })
+  })
+
+  it('acquitte explicitement un résultat sans dépendre de la partie technique', async () => {
+    const lobby = { pendingResults: [] } as unknown as MatchLobbyState
+    remote.invoke.mockResolvedValue({ lobby })
+
+    await expect(acknowledgeMatchResult('guest_1234567890abcdef', { resultId: 'result-1' })).resolves.toBe(lobby)
+    expect(remote.invoke).toHaveBeenCalledWith('match-api', {
+      action: 'acknowledge-result',
+      resultId: 'result-1',
     })
   })
 })

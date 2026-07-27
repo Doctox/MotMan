@@ -78,6 +78,37 @@ export async function handleMatchRequest(request: IncomingMessage, response: Ser
     return sendJson(response, 200, { ok: true })
   }
 
+  if (route === 'result/acknowledge') {
+    const resultId = typeof body.resultId === 'string' ? body.resultId : ''
+    const matchId = typeof body.matchId === 'string' ? body.matchId : ''
+    const match = database.matches.find(candidate =>
+      candidate.status === 'finished'
+      && candidate.pace === 'async'
+      && candidate.playerIds.includes(playerId)
+      && candidate.id === (resultId || matchId))
+    if (match && !match.resultAcknowledgedBy?.includes(playerId)) {
+      match.resultAcknowledgedBy = [...(match.resultAcknowledgedBy ?? []), playerId]
+      saveDatabase()
+    }
+    return sendJson(response, 200, lobbyState(playerId))
+  }
+
+  if (route === 'result/feedback') {
+    const resultId = typeof body.resultId === 'string' ? body.resultId : ''
+    const quality = body.quality === 'yes' || body.quality === 'no'
+    if (!quality) return sendJson(response, 400, { error: 'Avis invalide.' })
+    const match = database.matches.find(candidate =>
+      candidate.status === 'finished'
+      && candidate.playerIds.includes(playerId)
+      && candidate.id === resultId)
+    if (!match) return sendJson(response, 404, { error: 'Résultat introuvable.' })
+    if (!match.resultFeedbackBy?.includes(playerId)) {
+      match.resultFeedbackBy = [...(match.resultFeedbackBy ?? []), playerId]
+      saveDatabase()
+    }
+    return sendJson(response, 200, { recorded: true })
+  }
+
   if (route === 'create') {
     resolveExpired()
     const targetId = cleanPlayerId(body.targetId)

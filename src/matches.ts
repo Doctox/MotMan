@@ -17,6 +17,11 @@ export type MatchHistoryEntry = {
   opponentName: string | null
   completedAt: string
 }
+export type PendingMatchResult = MatchHistoryEntry & {
+  matchId: string
+  finishReason: 'completed' | 'timeout' | 'forfeit'
+  feedbackSent: boolean
+}
 export type MatchBot = { playerId: string; displayName: string; level: number; skill: 'beginner' | 'regular' | 'expert'; avatarId: string; frameId: string }
 
 export type MatchInvitation = {
@@ -80,8 +85,15 @@ export type MatchState = {
   grid?: GeneratedGrid
 }
 
-export type MatchLobbyState = { incoming: MatchInvitation[]; outgoing: MatchInvitation[]; active: MatchState[]; searches: MatchSearch[]; recent: MatchHistoryEntry[] }
-export const EMPTY_MATCH_LOBBY: MatchLobbyState = { incoming: [], outgoing: [], active: [], searches: [], recent: [] }
+export type MatchLobbyState = {
+  incoming: MatchInvitation[]
+  outgoing: MatchInvitation[]
+  active: MatchState[]
+  searches: MatchSearch[]
+  recent: MatchHistoryEntry[]
+  pendingResults: PendingMatchResult[]
+}
+export const EMPTY_MATCH_LOBBY: MatchLobbyState = { incoming: [], outgoing: [], active: [], searches: [], recent: [], pendingResults: [] }
 const localTestServer = import.meta.env.VITE_MOTMAN_LOCAL_TEST_SERVER === 'true'
 
 async function localMatch<T>(path: string, body?: Record<string, unknown>): Promise<T> {
@@ -181,4 +193,22 @@ export async function submitMatchGridFeedback(playerId: string, matchId: string,
   }
   void playerId
   await supabaseMatch<{ recorded: true }>('feedback', { matchId, quality, reason })
+}
+
+export async function submitPendingResultFeedback(playerId: string, resultId: string, quality: 'yes' | 'no', reason?: string): Promise<void> {
+  if (localTestServer) {
+    await localMatch('result/feedback', { playerId, resultId, quality, reason })
+    return
+  }
+  void playerId
+  await supabaseMatch<{ recorded: true }>('result-feedback', { resultId, quality, reason })
+}
+
+export async function acknowledgeMatchResult(
+  playerId: string,
+  reference: { resultId: string } | { matchId: string },
+): Promise<MatchLobbyState> {
+  if (localTestServer) return localMatch('result/acknowledge', { playerId, ...reference })
+  void playerId
+  return (await supabaseMatch<{ lobby: MatchLobbyState }>('acknowledge-result', reference)).lobby
 }

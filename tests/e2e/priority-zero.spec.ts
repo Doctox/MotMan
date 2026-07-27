@@ -215,6 +215,52 @@ test('l’accueil permet de reprendre chacune des trois parties illimitées', as
   }
 })
 
+test('un résultat illimité reste affiché jusqu’à sa validation par le joueur', async ({ browser, request }) => {
+  const { player, matches } = await createAsyncMatchesForPlayer(request, 2, 'Résultat lu')
+  const finishedMatch = matches[0]
+  const currentMatch = matches[1]
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 } })
+  await context.addInitScript(storedIdentity => {
+    localStorage.setItem('motman-player-v1', JSON.stringify(storedIdentity))
+  }, player)
+  const page = await context.newPage()
+
+  try {
+    await page.goto(`/#partie=${encodeURIComponent(currentMatch.matchId)}`)
+    await expect(page.locator('.board')).toBeVisible()
+
+    const finished = await request.post('/api/matches/forfeit', {
+      data: { playerId: finishedMatch.opponent.playerId, matchId: finishedMatch.matchId },
+    })
+    expect(finished.ok()).toBe(true)
+
+    // A result from another match must never interrupt the match currently
+    // displayed. It is presented as soon as the player returns to the menu.
+    await page.waitForTimeout(3_000)
+    await expect(page).toHaveURL(new RegExp(`#partie=${currentMatch.matchId}$`))
+    await expect(page.locator('.board')).toBeVisible()
+    await page.getByRole('button', { name: 'Retour à toutes les parties' }).click()
+
+    await expect(page.locator('.game-result-screen')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Victoire !' })).toBeVisible()
+
+    await page.reload()
+    await expect(page.locator('.game-result-screen')).toBeVisible()
+    await expect(page.getByRole('button', { name: /Retour à l’accueil/ })).toBeVisible()
+
+    await page.getByRole('button', { name: /Retour à l’accueil/ }).click()
+    await expect(page).toHaveURL(/#accueil$/)
+    await expect(page.locator('.game-result-screen')).toBeHidden()
+
+    await page.reload()
+    await expect(page.locator('.game-result-screen')).toBeHidden()
+    await expect(page.getByRole('heading', { name: 'Partie en cours' })).toBeVisible()
+    await expect(page.locator('.mm-current-match-card')).toHaveCount(1)
+  } finally {
+    await context.close()
+  }
+})
+
 test('deux téléphones conservent la même lettre après validation', async ({ browser, request }) => {
   const { first, second, matchId } = await createNormalMatch(request, 'realtime', 'Synchro')
   let initial = await loadMatch(request, first.playerId, matchId)

@@ -165,7 +165,12 @@ function replenishRack(match: StoredMatch, playerId: string, current: string[], 
 }
 
 function publicMatch(match: StoredMatch) {
-  const { letterBag: _privateLetterBag, ...safeMatch } = match
+  const {
+    letterBag: _privateLetterBag,
+    resultAcknowledgedBy: _resultAcknowledgedBy,
+    resultFeedbackBy: _resultFeedbackBy,
+    ...safeMatch
+  } = match
   const players = match.playerIds.map(playerId => playerId === match.bot?.playerId ? botUser(match.bot) : publicUser(playerId)).filter(Boolean)
   return { ...safeMatch, players, grid: publicGrid(gridForMatch(match)) }
 }
@@ -174,6 +179,8 @@ function finishMatch(match: StoredMatch, winnerId: string | null, reason: Stored
   match.status = 'finished'
   match.winnerId = winnerId
   match.finishReason = reason
+  match.resultAcknowledgedBy ??= []
+  match.resultFeedbackBy ??= []
   match.updatedAt = new Date().toISOString()
   match.turnEndsAt = match.updatedAt
 }
@@ -352,26 +359,35 @@ function lobbyState(playerId: string) {
   const outgoing = database.invitations.filter(invitation => invitation.hostId === playerId && invitation.status === 'pending').map(invitationView)
   const active = database.matches.filter(match => match.status === 'active' && match.playerIds.includes(playerId)).map(publicMatch)
   const searches = database.searches.filter(search => search.playerId === playerId).map(({ id, pace, createdAt }) => ({ id, pace, createdAt }))
-  const recent = database.matches
+  const historyEntry = (match: StoredMatch) => {
+    const opponentId = match.playerIds.find(id => id !== playerId) ?? ''
+    const interrupted = match.finishReason === 'forfeit' || match.finishReason === 'timeout'
+    const won = match.winnerId === playerId
+    return {
+      id: match.id,
+      matchId: match.id,
+      mode: 'multiplayer' as const,
+      pace: match.pace,
+      outcome: interrupted ? won ? 'opponent-abandoned' as const : 'abandon' as const : match.winnerId === null ? 'draw' as const : won ? 'win' as const : 'loss' as const,
+      score: Math.max(0, match.scores[playerId] ?? 0),
+      opponentScore: Math.max(0, match.scores[opponentId] ?? 0),
+      opponentName: match.bot?.playerId === opponentId ? match.bot.displayName : publicUser(opponentId)?.displayName ?? null,
+      completedAt: match.updatedAt,
+      finishReason: match.finishReason ?? 'completed',
+      feedbackSent: match.resultFeedbackBy?.includes(playerId) ?? false,
+    }
+  }
+  const finished = database.matches
     .filter(match => match.status === 'finished' && match.playerIds.includes(playerId))
     .sort((left, right) => new Date(right.updatedAt).getTime() - new Date(left.updatedAt).getTime())
+  const recent = finished
     .slice(0, 5)
-    .map(match => {
-      const opponentId = match.playerIds.find(id => id !== playerId) ?? ''
-      const interrupted = match.finishReason === 'forfeit' || match.finishReason === 'timeout'
-      const won = match.winnerId === playerId
-      return {
-        id: match.id,
-        mode: 'multiplayer' as const,
-        pace: match.pace,
-        outcome: interrupted ? won ? 'opponent-abandoned' : 'abandon' : match.winnerId === null ? 'draw' : won ? 'win' : 'loss',
-        score: Math.max(0, match.scores[playerId] ?? 0),
-        opponentScore: Math.max(0, match.scores[opponentId] ?? 0),
-        opponentName: match.bot?.playerId === opponentId ? match.bot.displayName : publicUser(opponentId)?.displayName ?? null,
-        completedAt: match.updatedAt,
-      }
-    })
-  return { incoming, outgoing, active, searches, recent }
+    .map(historyEntry)
+    .map(({ matchId: _matchId, finishReason: _finishReason, feedbackSent: _feedbackSent, ...entry }) => entry)
+  const pendingResults = finished
+    .filter(match => match.pace === 'async' && !match.resultAcknowledgedBy?.includes(playerId))
+    .map(historyEntry)
+  return { incoming, outgoing, active, searches, recent, pendingResults }
 }
 
 function selectGridForPlayers(hostId: string, guestId: string, sourceId: string, now: Date): CatalogGrid {
@@ -403,6 +419,7 @@ function createMatch(hostId: string, guestId: string, mode: MatchMode, pace: Mat
     productiveTurns: { [hostId]: 0, [guestId]: 0 },
     inactivity: { [hostId]: 0, [guestId]: 0 }, hint: null,
     hintUsed: {}, rerollUsed: {}, lastTurn: null, status: 'active', winnerId: null, finishReason: null,
+    resultAcknowledgedBy: [], resultFeedbackBy: [],
     createdAt: now.toISOString(), updatedAt: now.toISOString(),
   }
   match.racks[hostId] = replenishRack(match, hostId, [])

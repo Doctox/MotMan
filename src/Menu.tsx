@@ -7,9 +7,10 @@ import type { GoogleAuthIssue } from './googleAuthCallback'
 import { startAdaptivePolling } from './adaptivePolling'
 import { loadPlayerCosmetics, type PlayerCosmetics } from './cosmetics'
 import {
-  cancelMatchInvitation, cancelNormalSearch, createInstantMatch, EMPTY_MATCH_LOBBY, loadMatchLobby,
+  acknowledgeMatchResult, cancelMatchInvitation, cancelNormalSearch, createInstantMatch, EMPTY_MATCH_LOBBY, loadMatchLobby,
   respondToMatchInvitation, searchNormalMatch, type MatchLobbyState, type MatchPace,
 } from './matches'
+import { PendingResultPanel } from './game/DuelPresentation'
 import { loadPlayerIdentity, type GuestIdentity } from './playerIdentity'
 import { loadPlayerProgress, type PlayerProgress } from './playerProgress'
 import { EMPTY_SOCIAL_STATE, loadSocialState, registerSocialProfile, type SocialState } from './social'
@@ -263,6 +264,18 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
 
   const outgoingInvitation = matchLobby.outgoing[0]
   const realtimeSearch = matchLobby.searches.some(search => search.pace === 'realtime')
+  const pendingResult = matchLobby.pendingResults?.[0]
+
+  const acknowledgePendingResult = async (resultId: string) => {
+    const next = await acknowledgeMatchResult(identity.playerId, { resultId })
+    setMatchLobby(next)
+    openingMatch.current = null
+    navigate('home')
+  }
+
+  if (pendingResult) return <main className="app-shell multiplayer-shell is-finished pending-result-shell">
+    <PendingResultPanel result={pendingResult} playerId={identity.playerId} acknowledge={acknowledgePendingResult} />
+  </main>
 
   return <main className="mm-shell">
     <AppHeader onMenu={() => setQuickMenu(true)} onSettings={() => setSettings(true)} />

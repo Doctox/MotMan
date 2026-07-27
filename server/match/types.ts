@@ -92,6 +92,8 @@ export type StoredMatch = {
   status: 'active' | 'finished'
   winnerId: string | null
   finishReason: 'completed' | 'timeout' | 'forfeit' | null
+  resultAcknowledgedBy?: string[]
+  resultFeedbackBy?: string[]
   createdAt: string
   updatedAt: string
 }

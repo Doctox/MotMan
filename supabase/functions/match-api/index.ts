@@ -500,6 +500,7 @@ async function recordMatchHistory(admin: ReturnType<typeof createClient>, row: M
     score: Math.max(0, row.state.scores[playerId] ?? 0),
     opponent_score: Math.max(0, row.state.scores[opponentId] ?? 0),
     opponent_name: opponentName,
+    finish_reason: row.finish_reason,
     duration_seconds: Math.max(0, Math.round((new Date(row.updated_at).getTime() - new Date(row.created_at).getTime()) / 1000)),
     completed_at: row.updated_at,
     updated_at: nowIso(),
@@ -603,16 +604,36 @@ Deno.serve(async request => {
       const { data: outgoingRows } = await admin.from('server_match_invitations').select('*').eq('host_id', user.id).eq('status', 'pending').gt('expires_at', nowIso())
       const invitationView = async (item: Record<string, unknown>) => ({ id: item.id, hostId: item.host_id, guestId: item.guest_id, pace: item.pace, createdAt: item.created_at, expiresAt: item.expires_at, status: item.status, matchId: item.match_id, host: await profile(admin, String(item.host_id)), guest: await profile(admin, String(item.guest_id)) })
       const { data: searches } = await admin.from('server_match_searches').select('*').eq('user_id', user.id)
-      const { data: recentRows, error: recentError } = await admin.from('grid_player_history')
-        .select('id,mode,pace,outcome,score,opponent_score,opponent_name,completed_at')
-        .eq('user_id', user.id).order('completed_at', { ascending: false }).limit(5)
+      const [{ data: recentRows, error: recentError }, { data: pendingRows, error: pendingError }] = await Promise.all([
+        admin.from('grid_player_history')
+          .select('id,mode,pace,outcome,score,opponent_score,opponent_name,completed_at')
+          .eq('user_id', user.id).order('completed_at', { ascending: false }).limit(5),
+        admin.from('grid_player_history')
+          .select('id,play_key,mode,pace,outcome,score,opponent_score,opponent_name,completed_at,finish_reason,feedback')
+          .eq('user_id', user.id).eq('pace', 'async').is('result_acknowledged_at', null)
+          .order('completed_at', { ascending: true }).limit(10),
+      ])
       if (recentError) throw recentError
+      if (pendingError) throw pendingError
       const recent = (recentRows ?? []).map(item => ({
         id: item.id, mode: item.mode, pace: item.pace, outcome: item.outcome,
         score: item.score, opponentScore: item.opponent_score,
         opponentName: item.opponent_name, completedAt: item.completed_at,
       }))
-      return { incoming: await Promise.all((incomingRows ?? []).map(invitationView)), outgoing: await Promise.all((outgoingRows ?? []).map(invitationView)), active: await Promise.all(rows.map(row => view(admin, row, user.id))), searches: (searches ?? []).map(item => ({ id: item.id, pace: item.pace, createdAt: item.created_at })), recent }
+      const pendingResults = (pendingRows ?? []).map(item => ({
+        id: item.id,
+        matchId: String(item.play_key).replace(/^match:/, ''),
+        mode: item.mode,
+        pace: item.pace,
+        outcome: item.outcome,
+        score: item.score,
+        opponentScore: item.opponent_score,
+        opponentName: item.opponent_name,
+        completedAt: item.completed_at,
+        finishReason: item.finish_reason ?? (item.outcome === 'abandon' || item.outcome === 'opponent-abandoned' ? 'forfeit' : 'completed'),
+        feedbackSent: item.feedback !== null,
+      }))
+      return { incoming: await Promise.all((incomingRows ?? []).map(invitationView)), outgoing: await Promise.all((outgoingRows ?? []).map(invitationView)), active: await Promise.all(rows.map(row => view(admin, row, user.id))), searches: (searches ?? []).map(item => ({ id: item.id, pace: item.pace, createdAt: item.created_at })), recent, pendingResults }
     }
 
     if (action === 'state') {
@@ -685,6 +706,36 @@ Deno.serve(async request => {
         notifyCurrentTurn(admin, created.row)
       } else await admin.from('server_match_searches').upsert({ user_id: user.id, pace, updated_at: nowIso() }, { onConflict: 'user_id,pace' })
       return json(200, { lobby: await lobby(), matchId })
+    }
+
+    if (action === 'acknowledge-result') {
+      const resultId = typeof body.resultId === 'string' ? body.resultId : ''
+      const matchId = typeof body.matchId === 'string' ? body.matchId : ''
+      if (!resultId && !matchId) return json(400, { error: 'Résultat invalide.' })
+      let query = admin.from('grid_player_history').update({
+        result_acknowledged_at: nowIso(),
+        updated_at: nowIso(),
+      }).eq('user_id', user.id).eq('pace', 'async').is('result_acknowledged_at', null)
+      query = resultId ? query.eq('id', resultId) : query.eq('play_key', `match:${matchId}`)
+      const { error: acknowledgeError } = await query
+      if (acknowledgeError) throw acknowledgeError
+      return json(200, { lobby: await lobby() })
+    }
+
+    if (action === 'result-feedback') {
+      const resultId = typeof body.resultId === 'string' ? body.resultId : ''
+      const quality = body.quality === 'yes' ? 1 : body.quality === 'no' ? -1 : 0
+      if (!resultId || !quality) return json(400, { error: 'Avis invalide.' })
+      const reason = typeof body.reason === 'string' ? body.reason.trim().slice(0, 120) : ''
+      const { data: feedbackRow, error: feedbackError } = await admin.from('grid_player_history').update({
+        feedback: quality,
+        feedback_reason: reason || null,
+        feedback_at: nowIso(),
+        updated_at: nowIso(),
+      }).eq('id', resultId).eq('user_id', user.id).select('id').maybeSingle()
+      if (feedbackError) throw feedbackError
+      if (!feedbackRow) return json(404, { error: 'Résultat introuvable.' })
+      return json(200, { recorded: true })
     }
 
     const matchId = typeof body.matchId === 'string' ? body.matchId : ''
