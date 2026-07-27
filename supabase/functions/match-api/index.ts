@@ -668,7 +668,15 @@ Deno.serve(async request => {
       const hasPlacedHint = row.state.hint?.playerId === user.id && row.state.hint.turnNumber === row.turn_number
       const automatic = body.automatic === true
       const submissionGrace = automatic ? AUTOMATIC_SUBMIT_GRACE_MS : MANUAL_SUBMIT_GRACE_MS
-      if (Date.now() >= new Date(row.turn_ends_at).getTime() + submissionGrace || automatic && valid.length === 0 && !hasPlacedHint) timeoutTurn(row)
+      const turnEndsAt = new Date(row.turn_ends_at).getTime()
+      if (automatic && valid.length === 0 && Date.now() < turnEndsAt) {
+        return json(409, {
+          error: 'Le tour est toujours en cours.',
+          code: 'TURN_STILL_ACTIVE',
+          match: await view(admin, row, user.id, grid),
+        })
+      }
+      if (Date.now() >= turnEndsAt + submissionGrace || automatic && valid.length === 0 && !hasPlacedHint) timeoutTurn(row)
       else applyTurn(row, grid, user.id, valid)
     } else if (action === 'hint') {
       if (!canUseHint(Boolean(row.state.hintUsed[user.id]))) return json(409, { error: 'Votre indice a déjà été utilisé.' })

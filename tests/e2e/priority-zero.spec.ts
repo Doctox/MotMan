@@ -276,6 +276,28 @@ test('les réponses à 2 s, 1 s et 0 s sont acceptées, sans double validation',
   }
 })
 
+test('une validation automatique vide ne peut pas passer un nouveau tour avant 00:00', async ({ request, browserName }) => {
+  test.skip(browserName === 'webkit', 'La protection du tour est une règle serveur indépendante du moteur visuel.')
+  const { first, matchId } = await createNormalMatch(request, 'realtime', 'Auto tôt')
+  const match = await loadMatch(request, first.playerId, matchId)
+
+  const response = await request.post('/api/matches/turn', {
+    data: {
+      playerId: match.currentPlayerId,
+      matchId,
+      turnNumber: match.turnNumber,
+      placements: [],
+      automatic: true,
+    },
+  })
+  expect(response.status()).toBe(409)
+  const payload = await response.json() as { code: string; match: MatchState }
+  expect(payload.code).toBe('TURN_STILL_ACTIVE')
+  expect(payload.match.turnNumber).toBe(match.turnNumber)
+  expect(payload.match.currentPlayerId).toBe(match.currentPlayerId)
+  expect(payload.match.inactivity[match.currentPlayerId]).toBe(0)
+})
+
 test('une validation automatique mobile retardée conserve les lettres posées', async ({ request, browserName }) => {
   test.skip(browserName === 'webkit', 'La marge réseau est une règle serveur indépendante du moteur visuel.')
   const { first, matchId } = await createNormalMatch(request, 'realtime', 'Auto retardé')
@@ -297,12 +319,15 @@ test('une validation automatique mobile retardée conserve les lettres posées',
 
 test('temps limité et illimité demandent trois absences avant la défaite', async ({ request, browserName }) => {
   test.skip(browserName === 'webkit', 'La règle d’inactivité est couverte une fois au niveau serveur.')
+  test.setTimeout(90_000)
   for (const pace of ['realtime', 'async'] as const) {
     const { first, matchId } = await createNormalMatch(request, pace, pace === 'realtime' ? 'Abs RT' : 'Abs IL')
     let match = await loadMatch(request, first.playerId, matchId)
     const inactivePlayer = match.currentPlayerId
 
     for (let miss = 1; miss <= 3; miss += 1) {
+      const waitForDeadline = new Date(match.turnEndsAt).getTime() + 25 - Date.now()
+      if (waitForDeadline > 0) await new Promise(resolvePromise => setTimeout(resolvePromise, waitForDeadline))
       const timeout = await submitTurn(request, match, [], true)
       match = timeout.match
       expect(match.inactivity[inactivePlayer]).toBe(miss)

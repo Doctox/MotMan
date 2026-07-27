@@ -23,12 +23,9 @@ function phaseAt(match: MatchState | null, instant = Date.now()): TurnPhase {
 }
 
 export function useTurnPhase(match: MatchState | null): TurnPhase {
-  const [phase, setPhase] = useState<TurnPhase>(() => phaseAt(match))
+  const [, setRevision] = useState(0)
   useEffect(() => {
-    const update = () => {
-      const next = phaseAt(match)
-      setPhase(current => current.started === next.started && current.expired === next.expired && current.urgent === next.urgent ? current : next)
-    }
+    const update = () => setRevision(current => current + 1)
     update()
     if (!match || match.status !== 'active') return
     const now = Date.now()
@@ -39,7 +36,11 @@ export function useTurnPhase(match: MatchState | null): TurnPhase {
       .map(boundary => window.setTimeout(update, boundary - now + 8))
     return () => boundaries.forEach(timer => window.clearTimeout(timer))
   }, [match?.id, match?.pace, match?.status, match?.turnEndsAt, match?.turnNumber, match?.turnStartedAt])
-  return phase
+  // Derive the phase from the current match on every render. Keeping the
+  // previous turn's phase in state for one effect cycle could otherwise make
+  // a freshly received turn inherit `expired=true` and submit an immediate
+  // automatic timeout.
+  return phaseAt(match)
 }
 
 export function TurnTimer({ match, resolving, started }: { match: MatchState; resolving: boolean; started: boolean }) {

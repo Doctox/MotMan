@@ -242,10 +242,21 @@ export async function handleMatchRequest(request: IncomingMessage, response: Ser
   }
   const placements = Array.isArray(body.placements) ? body.placements : []
   const sanitized = sanitizePlacements(match, playerId, placements)
+  const hasPlacedHint = match.hint?.playerId === playerId && match.hint.turnNumber === match.turnNumber
+  const automaticTimeoutIsEarly = body.automatic === true
+    && sanitized.length === 0
+    && Date.now() < new Date(match.turnEndsAt).getTime()
+  if (automaticTimeoutIsEarly) {
+    return sendJson(response, 409, {
+      error: 'Le tour est toujours en cours.',
+      code: 'TURN_STILL_ACTIVE',
+      match: publicMatch(match),
+    })
+  }
 
   // Reaching zero with placed letters validates them exactly like the button.
   // Reaching zero without a placement remains a genuine inactivity timeout.
-  if (body.automatic === true && sanitized.length === 0) {
+  if (body.automatic === true && sanitized.length === 0 && !hasPlacedHint) {
     const inactivityCount = (match.inactivity[playerId] ?? 0) + 1
     match.inactivity[playerId] = inactivityCount
     const occurredAt = new Date()
