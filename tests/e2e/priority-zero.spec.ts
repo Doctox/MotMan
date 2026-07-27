@@ -88,6 +88,26 @@ async function createNormalMatch(request: APIRequestContext, pace: 'realtime' | 
   return { first, second, matchId: String(payload.matchId) }
 }
 
+async function createAsyncMatchesForPlayer(request: APIRequestContext, count: number, label: string) {
+  const player = newIdentity(`${label} J`)
+  await register(request, player)
+  const matches: Array<{ matchId: string; opponent: Identity }> = []
+
+  for (let index = 0; index < count; index += 1) {
+    const opponent = newIdentity(`${label} A${index + 1}`)
+    await register(request, opponent)
+    const waiting = await request.post('/api/matches/search', { data: { playerId: player.playerId, pace: 'async' } })
+    expect(waiting.ok()).toBe(true)
+    const paired = await request.post('/api/matches/search', { data: { playerId: opponent.playerId, pace: 'async' } })
+    expect(paired.ok()).toBe(true)
+    const payload = await paired.json() as { matchId: string | null }
+    expect(payload.matchId).toBeTruthy()
+    matches.push({ matchId: String(payload.matchId), opponent })
+  }
+
+  return { player, matches }
+}
+
 async function loadMatch(request: APIRequestContext, playerId: string, matchId: string): Promise<MatchState> {
   const url = `/api/matches/match/${encodeURIComponent(matchId)}?playerId=${encodeURIComponent(playerId)}`
   let lastError: unknown
@@ -155,6 +175,30 @@ test('un sondage inchangé ne renvoie pas à nouveau toute la partie', async ({ 
 
   expect(unchanged.status()).toBe(204)
   expect(await unchanged.body()).toHaveLength(0)
+})
+
+test('l’accueil permet de reprendre chacune des trois parties illimitées', async ({ browser, request }) => {
+  const { player, matches } = await createAsyncMatchesForPlayer(request, 3, 'Multi')
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 } })
+  await context.addInitScript(storedIdentity => {
+    localStorage.setItem('motman-player-v1', JSON.stringify(storedIdentity))
+  }, player)
+  const page = await context.newPage()
+
+  try {
+    await page.goto('/#accueil')
+    const cards = page.locator('.mm-current-match-card')
+    await expect(cards).toHaveCount(3)
+    await expect(page.getByLabel('3 parties en cours')).toBeVisible()
+    for (const { opponent } of matches) await expect(page.getByRole('button', { name: new RegExp(opponent.displayName) })).toBeVisible()
+
+    const chosen = matches[1]
+    await page.getByRole('button', { name: new RegExp(chosen.opponent.displayName) }).click()
+    await expect(page.locator('.board')).toBeVisible()
+    await expect(page).toHaveURL(new RegExp(`#partie=${chosen.matchId}$`))
+  } finally {
+    await context.close()
+  }
 })
 
 test('deux téléphones conservent la même lettre après validation', async ({ browser, request }) => {

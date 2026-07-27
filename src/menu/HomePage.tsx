@@ -15,8 +15,15 @@ export function matchOpponent(match: MatchState, playerId: string): string {
 
 export function asyncTimeLeft(match: MatchState): string {
   const remaining = Math.max(0, new Date(match.turnEndsAt).getTime() - Date.now())
-  const hours = Math.ceil(remaining / 3_600_000)
-  return hours >= 1 ? `${hours} h` : `${Math.max(1, Math.ceil(remaining / 60_000))} min`
+  return remaining >= 3_600_000
+    ? `${Math.ceil(remaining / 3_600_000)} h`
+    : `${Math.max(1, Math.ceil(remaining / 60_000))} min`
+}
+
+function activeMatchLabel(match: MatchState): string {
+  if (match.mode === 'solo') return `Solo · Bot ${match.difficulty === 'easy' ? 'facile' : match.difficulty === 'hard' ? 'difficile' : 'normal'}`
+  if (match.mode === 'friend') return 'Duel ami'
+  return 'Match normal'
 }
 
 export function HomePage({ identity, progress, cosmetics, social, lobby, play, openFriends, resumeMatch }: { identity: GuestIdentity; progress: PlayerProgress; cosmetics: PlayerCosmetics; social: SocialState; lobby: MatchLobbyState; play: () => void; openFriends: () => void; resumeMatch: (matchId: string) => void }) {
@@ -25,7 +32,13 @@ export function HomePage({ identity, progress, cosmetics, social, lobby, play, o
   const visibleFriends = [...social.friends].sort((left, right) => presenceWeight[right.activity] - presenceWeight[left.activity]).slice(0, 3)
   const xpGoal = experienceGoalForLevel(progress.level)
   const xpPercent = progress.level >= MAX_PLAYER_LEVEL ? 100 : Math.min(100, progress.xp / xpGoal * 100)
-  const currentMatch = lobby.active.find(match => match.pace === 'async')
+  const currentMatches = lobby.active
+    .filter(match => match.pace === 'async')
+    .sort((left, right) => {
+      const leftTurn = left.currentPlayerId === identity.playerId ? 0 : 1
+      const rightTurn = right.currentPlayerId === identity.playerId ? 0 : 1
+      return leftTurn - rightTurn || new Date(left.turnEndsAt).getTime() - new Date(right.turnEndsAt).getTime()
+    })
   return <div className="mm-page mm-home-page">
     <section className="mm-home-profile-card">
       <CosmeticPortrait avatarId={cosmetics.equippedAvatarId} frameId={cosmetics.equippedFrameId} animationId={cosmetics.equippedAnimationId} alt="Votre avatar" />
@@ -39,12 +52,25 @@ export function HomePage({ identity, progress, cosmetics, social, lobby, play, o
       <div className="mm-home-xp"><span>{progress.level >= MAX_PLAYER_LEVEL ? 'Niveau max' : `${progress.xp} / ${xpGoal} XP`}</span><i><b style={{ width: `${xpPercent}%` }} /></i></div>
     </section>
     <section className="mm-attention">
-      <h2>Partie en cours</h2>
-      {currentMatch ? <button type="button" className="mm-current-match-card" onClick={() => resumeMatch(currentMatch.id)}>
-        <Avatar label={playerInitials(matchOpponent(currentMatch, identity.playerId))} small />
-        <span><strong>{matchOpponent(currentMatch, identity.playerId)}</strong><small>{currentMatch.currentPlayerId === identity.playerId ? 'À vous de jouer' : 'Tour adverse'} · {asyncTimeLeft(currentMatch)}</small></span>
-        <ChevronRight />
-      </button> : <div className="mm-empty-home-card">
+      <header className="mm-attention-heading">
+        <h2>{currentMatches.length > 1 ? 'Parties en cours' : 'Partie en cours'}</h2>
+        {currentMatches.length ? <span aria-label={`${currentMatches.length} parties en cours`}>{currentMatches.length}</span> : null}
+      </header>
+      {currentMatches.length ? <div className="mm-home-active-match-list">
+        {currentMatches.map(match => {
+          const opponentName = matchOpponent(match, identity.playerId)
+          const myTurn = match.currentPlayerId === identity.playerId
+          return <button type="button" className={`mm-current-match-card ${myTurn ? 'is-my-turn' : ''}`} onClick={() => resumeMatch(match.id)} key={match.id}>
+            <Avatar label={playerInitials(opponentName)} small />
+            <span>
+              <strong>{opponentName}</strong>
+              <small>{myTurn ? 'À vous de jouer' : 'Tour adverse'} · {asyncTimeLeft(match)}</small>
+              <em>{activeMatchLabel(match)}</em>
+            </span>
+            <ChevronRight />
+          </button>
+        })}
+      </div> : <div className="mm-empty-home-card">
         <span className="mm-empty-home-icon"><Gamepad2 /></span>
         <div><strong>Aucune partie en cours</strong><p>Votre prochaine partie apparaîtra ici.</p></div>
         <button type="button" onClick={play}>Jouer <ChevronRight /></button>

@@ -46,6 +46,10 @@
 .mm-attention{margin-top:23px}
 .mm-attention h2{margin-bottom:11px;font-size:21px;gap:0}
 .mm-attention h2:after{display:none}
+.mm-attention-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.mm-attention-heading h2{margin:0}
+.mm-attention-heading>span{min-width:25px;height:25px;padding:0 8px;border-radius:999px;display:grid;place-items:center;background:var(--mm-ink);color:var(--mm-paper);font-size:11px;font-weight:700}
+.mm-home-active-match-list{display:grid;gap:8px}
 .mm-empty-home-card{min-height:116px;padding:14px;grid-template-columns:44px 1fr;border-radius:11px;background:var(--mm-surface);box-shadow:0 4px 12px var(--mm-shadow)}
 .mm-empty-home-icon{width:42px;height:42px}
 .mm-empty-home-card strong{font-size:17px}.mm-empty-home-card p{font-size:10px}
@@ -160,9 +164,11 @@
 .mm-active-match-row:last-child{border-bottom:0}.mm-active-match-row>span:nth-child(2),.mm-current-match-card>span:nth-child(2){min-width:0;display:flex;flex-direction:column}
 .mm-active-match-row strong,.mm-current-match-card strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:600 16px 'Playfair Display',serif}
 .mm-active-match-row small,.mm-current-match-card small{font-size:9px;color:var(--mm-muted)}
+.mm-current-match-card em{margin-top:2px;color:var(--mm-muted);font-size:8px;font-style:normal;text-transform:uppercase;letter-spacing:.08em}
 .mm-active-match-row>svg,.mm-current-match-card>svg{width:17px}
 .mm-no-active-match{margin:0;padding:17px;text-align:center;font-size:10px;color:var(--mm-muted)}
 .mm-current-match-card{min-height:74px;padding:12px 14px;border:1px solid var(--mm-line);border-radius:12px;box-shadow:0 4px 12px var(--mm-shadow)}
+.mm-current-match-card.is-my-turn{border-color:color-mix(in srgb,var(--mm-ink) 58%,var(--mm-line));background:color-mix(in srgb,var(--mm-sage) 38%,var(--mm-surface))}
 .mm-normal-search .mm-match-emblem{animation:mmSearchEmblem 1.8s ease-in-out infinite}
 @keyframes mmSearchEmblem{50%{transform:scale(1.06);box-shadow:0 0 0 8px color-mix(in srgb,var(--mm-coral) 8%,transparent)}}
 [data-theme="dark"] .mm-matchmaking-row,[data-theme="dark"] .mm-active-match-row,[data-theme="dark"] .mm-current-match-card{background:#17241f}
