@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react'
-import { ChevronRight, Moon, Pause, RefreshCw, Settings, ShieldAlert, Sun, Type, Vibrate, Volume2, X } from 'lucide-react'
+import { ChevronRight, LogOut, Moon, Pause, RefreshCw, Settings, ShieldAlert, Sun, Type, Vibrate, Volume2, X } from 'lucide-react'
 import { useSensoryPreferences } from './sensoryPreferences'
 import { useDialogFocus } from './useDialogFocus'
 import './game-options.css'
@@ -31,7 +31,7 @@ function Toggle({ icon, label, checked, setChecked }: {
   return <label className="mm-setting-row"><span>{icon}{label}</span><input type="checkbox" checked={checked} onChange={event => setChecked(event.target.checked)} /><i /></label>
 }
 
-export function GameOptionsOverlay({ close, newGrid, report }: { close: () => void; newGrid?: () => void; report?: () => void }) {
+export function GameOptionsOverlay({ close, newGrid, report, leaveMatch }: { close: () => void; newGrid?: () => void; report?: () => void; leaveMatch?: () => void }) {
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('motman-theme') as Theme | null) ?? 'light')
   const { preferences, setPreference } = useSensoryPreferences()
   const dialogRef = useDialogFocus<HTMLElement>(close)
@@ -46,6 +46,7 @@ export function GameOptionsOverlay({ close, newGrid, report }: { close: () => vo
       <Toggle icon={<Vibrate />} label="Vibrations" checked={preferences.vibration} setChecked={value => setPreference('vibration', value)} />
       {newGrid ? <button className="mm-settings-link" type="button" onClick={() => { newGrid(); close() }}><RefreshCw /><span>Nouvelle grille<small>Recommencer une partie</small></span><ChevronRight /></button> : null}
       {report ? <button className="mm-settings-link" type="button" onClick={() => { close(); report() }}><ShieldAlert /><span>Signaler l’adversaire<small>Prévenir la modération</small></span><ChevronRight /></button> : null}
+      {leaveMatch ? <button className="mm-settings-link danger" type="button" onClick={() => { close(); leaveMatch() }}><LogOut /><span>Abandonner la partie<small>Cette action donnera la victoire à l’adversaire</small></span><ChevronRight /></button> : null}
     </section>
   </div>
 }

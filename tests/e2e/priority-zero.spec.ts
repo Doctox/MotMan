@@ -201,6 +201,15 @@ test('l’accueil permet de reprendre chacune des trois parties illimitées', as
     await page.getByRole('button', { name: new RegExp(chosen.opponent.displayName) }).click()
     await expect(page.locator('.board')).toBeVisible()
     await expect(page).toHaveURL(new RegExp(`#partie=${chosen.matchId}$`))
+
+    await page.getByRole('button', { name: 'Retour à toutes les parties' }).click()
+    await expect(page).toHaveURL(/#accueil$/)
+    await expect(page.locator('.mm-current-match-card')).toHaveCount(3)
+    await expect(page.getByLabel('3 parties en cours')).toBeVisible()
+
+    const stillActive = await request.get(`/api/matches/match/${encodeURIComponent(chosen.matchId)}?playerId=${encodeURIComponent(player.playerId)}`)
+    expect(stillActive.ok()).toBe(true)
+    expect((await stillActive.json() as MatchState).status).toBe('active')
   } finally {
     await context.close()
   }
