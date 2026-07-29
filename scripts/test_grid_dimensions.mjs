@@ -16,9 +16,11 @@ try {
   const dimensionsModule = await vite.ssrLoadModule('/src/gridDimensions.ts')
   const generatorModule = await vite.ssrLoadModule('/src/generator.ts')
   const policyModule = await vite.ssrLoadModule('/src/gridCatalogPolicy.ts')
+  const selectionModule = await vite.ssrLoadModule('/src/gridSelection.ts')
   const { gridCellCoordinates, gridCellIndex, resolveGridDimensions } = dimensionsModule
   const { generateGrid, generateGridById, validateGrid } = generatorModule
   const { isCatalogGridPlayable } = policyModule
+  const { selectGridForPlayers } = selectionModule
 
   assert.deepEqual(resolveGridDimensions({ columns: 7, rows: 8 }), { columns: 7, rows: 8 })
   assert.equal(gridCellIndex({ columns: 7, rows: 8 }, 7, 6), 55)
@@ -37,11 +39,11 @@ try {
   assert.equal(validation.valid, true, validation.errors.join('; '))
   assert.equal(validation.score, 100)
 
-  assert.equal(catalog.version, 20)
-  assert.equal(catalog.grids.length, 29)
+  assert.equal(catalog.version, 21)
+  assert.equal(catalog.grids.length, 44)
   assert.ok(catalog.grids.every(grid => grid.columns === 7 && grid.rows === 8 && grid.size === undefined))
   assert.ok(catalog.grids.every(grid => grid.difficulty === undefined))
-  assert.equal(catalog.grids.reduce((count, grid) => count + grid.words.filter(word => word.image).length, 0), 134)
+  assert.equal(catalog.grids.reduce((count, grid) => count + grid.words.filter(word => word.image).length, 0), 156)
   assert.equal(new Set(catalog.grids.map(grid => grid.id)).size, catalog.grids.length)
   const playableSources = catalog.grids.filter(isCatalogGridPlayable)
   const storedQuarantines = catalog.grids.filter(grid => blacklist.quarantinedGridIds.includes(grid.id))
@@ -70,7 +72,20 @@ try {
   }
   assert.equal(chosenAfterExclusion.size, availableSources.length)
 
-  console.log(`Catalogue v${catalog.version} : ${catalog.grids.length} grilles 7x8 stockées, ${playableSources.length} jouables, toutes atteignables par le tirage et indexation jusqu'à 55 validée.`)
+  const productionSelection = new Set()
+  const allPublishedAnswers = playableSources.flatMap(grid => grid.words.map(word => word.answer))
+  for (let seed = 0; seed < 20_000; seed += 1) {
+    productionSelection.add(selectGridForPlayers({
+      grids: playableSources,
+      recentGridIdsByPlayer: [[]],
+      globalCooldownAnswers: allPublishedAnswers,
+      popularity: playableSources.map((grid, index) => ({ gridId: grid.id, score: index })),
+      seed: `production-${seed}`,
+    }).grid.id)
+  }
+  assert.equal(productionSelection.size, playableSources.length, 'Toutes les grilles publiées doivent rester atteignables en production.')
+
+  console.log(`Catalogue v${catalog.version} : ${catalog.grids.length} grilles 7x8 stockées, ${playableSources.length} jouables, toutes atteignables par les tirages hors ligne et production ; indexation jusqu'à 55 validée.`)
 } finally {
   await vite.close()
 }

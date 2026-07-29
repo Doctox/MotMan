@@ -19,8 +19,9 @@
     "firstRowClues": true,
     "firstColumnClues": true,
     "orphanLettersAllowed": 0,
-    "preferTwoLetterAnswers": 0,
-    "maximumTwoLetterAnswers": 0,
+    "minimumTwoLetterAnswers": 1,
+    "preferTwoLetterAnswers": 1,
+    "maximumTwoLetterAnswers": 2,
     "internalClueCells": "optional",
     "letterCoverage": "exactly-one-across-and-one-down"
   },

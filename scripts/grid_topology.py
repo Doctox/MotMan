@@ -12,12 +12,18 @@ from pathlib import Path
 from typing import Iterable
 
 from editorial_quality import editorial_errors, grid_semantic_errors
+from pilot_two_letter_policy import (
+    MAXIMUM_TWO_LETTER_ANSWERS,
+    MINIMUM_TWO_LETTER_ANSWERS,
+    is_reviewed_two_letter_answer,
+    valid_two_letter_answer_count,
+)
 
 
 SUPPORTED_DIMENSIONS = {(7, 8)}  # (columns, rows)
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTIONS = {"across": (0, 1), "down": (1, 0)}
-TOPOLOGY_PROFILES = {"legacy", "pilot"}
+TOPOLOGY_PROFILES = {"legacy", "runtime", "pilot"}
 ARROW_STARTS = {
     ("across", "right"): (0, -1),
     ("across", "downright"): (-1, 0),
@@ -63,10 +69,10 @@ def audit_grid_topology(
 ) -> dict:
     """Return a serialisable, cell-level topology report for one catalog grid.
 
-    ``legacy`` preserves the historical double-axis coverage rule. ``pilot``
-    applies the corrected contract: every maximal run of at least two letters
-    is a declared answer, while a perpendicular singleton may remain
-    undeclared when its cell is covered on the other axis.
+    ``legacy`` preserves the historical double-axis coverage rule. ``runtime``
+    applies the corrected contract to already published 7×8 grids, including
+    their previously approved two-letter answers. ``pilot`` adds the current
+    whitelist and one-to-two short-answer quota for unpublished candidates.
     """
     if topology_profile not in TOPOLOGY_PROFILES:
         raise ValueError(
@@ -74,6 +80,7 @@ def audit_grid_topology(
             f"attendu : {', '.join(sorted(TOPOLOGY_PROFILES))}"
         )
     pilot_profile = topology_profile == "pilot"
+    corrected_profile = topology_profile in {"runtime", "pilot"}
     grid_id = str(grid.get("id", "<sans-id>"))
     columns = grid.get("columns")
     rows = grid.get("rows")
@@ -227,14 +234,26 @@ def audit_grid_topology(
                 answerLength=len(answer),
                 pathLength=len(path),
             )
-        if len(answer) < 3:
+        minimum_answer_length = 2 if corrected_profile else 3
+        if len(answer) < minimum_answer_length:
             reject(
                 "answer_too_short",
-                "les réponses de moins de trois lettres sont interdites",
+                f"les réponses de moins de {minimum_answer_length} lettres sont interdites",
                 wordId=word_id,
                 answer=answer,
                 length=len(answer),
-                minimum=3,
+                minimum=minimum_answer_length,
+            )
+        elif (
+            pilot_profile
+            and len(answer) == 2
+            and not is_reviewed_two_letter_answer(answer)
+        ):
+            reject(
+                "pilot_two_letter_answer_not_reviewed",
+                "la réponse de deux lettres n'appartient pas à la liste blanche relue",
+                wordId=word_id,
+                answer=answer,
             )
         dr, dc = DIRECTIONS[direction]
         default_arrow = "right" if direction == "across" else "down"
@@ -379,7 +398,7 @@ def audit_grid_topology(
         missing_directions = sorted(set(DIRECTIONS) - set(coverage))
         if not coverage:
             reject("uncovered_letter", "case-lettre sans wordId", cell=list(cell))
-        if missing_directions and not pilot_profile:
+        if missing_directions and not corrected_profile:
             reject(
                 "letter_not_double_covered",
                 "chaque case-lettre doit appartenir à une réponse horizontale et une réponse verticale",
@@ -394,7 +413,7 @@ def audit_grid_topology(
         for run in maximal_runs[direction]:
             declared = paths_by_direction[direction].get(run, [])
             if len(run) == 1:
-                if pilot_profile:
+                if corrected_profile:
                     # A one-cell perpendicular run is visually incapable of
                     # suggesting an undeclared word. Total coverage is checked
                     # independently above.
@@ -407,7 +426,7 @@ def audit_grid_topology(
                         cells=[list(cell) for cell in run],
                         letters="".join(cell_letters.get(cell, "?") for cell in run),
                     )
-            elif len(run) == 2:
+            elif len(run) == 2 and not corrected_profile:
                 reject(
                     "two_letter_segment",
                     "segment de deux lettres interdit",
@@ -436,7 +455,20 @@ def audit_grid_topology(
                     wordIds=declared,
                 )
 
-    if pilot_profile:
+    two_letter_answers = [
+        word["answer"] for word in word_reports if len(word["answer"]) == 2
+    ]
+    if pilot_profile and not valid_two_letter_answer_count(len(two_letter_answers)):
+        reject(
+            "invalid_two_letter_answer_count",
+            "le pilote 7×8 exige une ou deux réponses de deux lettres",
+            answers=two_letter_answers,
+            count=len(two_letter_answers),
+            minimum=MINIMUM_TWO_LETTER_ANSWERS,
+            maximum=MAXIMUM_TWO_LETTER_ANSWERS,
+        )
+
+    if corrected_profile:
         for direction in DIRECTIONS:
             maximal = set(maximal_runs[direction])
             for path, word_ids in paths_by_direction[direction].items():
@@ -474,7 +506,7 @@ def audit_grid_topology(
                     "wordIds": [coverage[key] for key in ("across", "down") if key in coverage],
                     "coverageCount": len(coverage),
                     "coverageValid": (
-                        bool(coverage) if pilot_profile
+                        bool(coverage) if corrected_profile
                         else set(coverage) == set(DIRECTIONS)
                     ),
                 })
@@ -491,6 +523,7 @@ def audit_grid_topology(
         "orphanSegments": orphan_segments,
         "cells": cells,
         "words": word_reports,
+        "twoLetterAnswers": two_letter_answers,
         "layoutMetrics": {
             "clueCells": len(visible_clues),
             "singleClueCells": single_clue_cells,

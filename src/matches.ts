@@ -5,7 +5,7 @@ import { invokeSupabaseFunction } from './supabaseFunctions'
 import type { MatchHistoryOutcome } from './matchHistory'
 
 export type MatchPace = 'realtime' | 'async'
-export type MatchMode = 'solo' | 'friend' | 'normal'
+export type MatchMode = 'solo' | 'friend' | 'normal' | 'ranked'
 export type MatchSearch = { id: string; pace: MatchPace; createdAt: string }
 export type MatchHistoryEntry = {
   id: string
@@ -19,7 +19,7 @@ export type MatchHistoryEntry = {
 }
 export type PendingMatchResult = MatchHistoryEntry & {
   matchId: string
-  finishReason: 'completed' | 'timeout' | 'forfeit'
+  finishReason: 'completed' | 'timeout' | 'forfeit' | 'ranked_transfer'
   feedbackSent: boolean
 }
 export type MatchBot = { playerId: string; displayName: string; level: number; skill: 'beginner' | 'regular' | 'expert'; avatarId: string; frameId: string }
@@ -77,9 +77,22 @@ export type MatchState = {
   hintUsed: Record<string, boolean | number>
   rerollUsed: Record<string, boolean | number>
   lastTurn: MatchTurn | null
+  pause?: {
+    reason: 'ranked_ready'
+    readySessionId: string
+    pausedAt: string
+    remainingMs: number
+    expiresAt: string
+  } | null
   status: 'active' | 'finished'
   winnerId: string | null
-  finishReason: 'completed' | 'timeout' | 'forfeit' | null
+  finishReason: 'completed' | 'timeout' | 'forfeit' | 'ranked_transfer' | null
+  rankedRating?: {
+    pointsBefore: number
+    pointsAfter: number
+    delta: number
+    placementNumber: number
+  } | null
   createdAt: string
   updatedAt: string
   grid?: GeneratedGrid

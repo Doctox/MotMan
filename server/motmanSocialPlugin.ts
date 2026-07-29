@@ -4,13 +4,13 @@ import { resolve } from 'node:path'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import type { Plugin } from 'vite'
 import { validatePlayerName } from '../src/playerNamePolicy'
+import { isPresenceOnline } from '../src/presencePolicy'
 import {
   database, nowIso, readJsonBody, requestHasSameOrigin, requireAuthenticatedUser, sendJson,
   type DatabaseUser,
 } from './motmanDatabase'
 
 type PresenceActivity = 'online' | 'playing'
-const PRESENCE_TTL_MS = 30_000
 const LEGACY_DATABASE_PATH = resolve(process.env.MOTMAN_SOCIAL_DATABASE_PATH ?? '.motman-social.json')
 
 function orderedPair(left: string, right: string): [string, string] {
@@ -75,7 +75,7 @@ function importLegacySocialDatabase(): void {
 function publicUser(playerId: string) {
   const user = database.prepare('SELECT * FROM users WHERE id = ?').get(playerId) as DatabaseUser | undefined
   if (!user) return null
-  const recent = Date.now() - new Date(user.last_seen).getTime() < PRESENCE_TTL_MS
+  const recent = isPresenceOnline(user.last_seen)
   return {
     playerId: user.id,
     displayName: user.display_name,
@@ -123,12 +123,12 @@ function socialState(playerId: string) {
 async function handleSocialRequest(request: IncomingMessage, response: ServerResponse): Promise<void> {
   const url = new URL(request.url ?? '/', 'http://motman.local')
   const route = url.pathname.replace(/^\/api\/social\/?/, '').replace(/^\/+/, '')
-  const user = requireAuthenticatedUser(request, response)
+  // Reading the social state must not double as a presence heartbeat.
+  const user = requireAuthenticatedUser(request, response, false)
   if (!user) return
   const playerId = user.id
 
   if (request.method === 'GET' && route === 'state') {
-    database.prepare("UPDATE users SET activity='online', last_seen=?, updated_at=? WHERE id=?").run(nowIso(), nowIso(), playerId)
     return sendJson(response, 200, socialState(playerId))
   }
   if (request.method !== 'POST') return sendJson(response, 405, { error: 'Méthode non autorisée.' })

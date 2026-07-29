@@ -40,6 +40,64 @@ def valid_grid() -> dict:
     return {"id": "test-grid", "columns": 7, "rows": 8, "clueCells": clue_cells, "words": words}
 
 
+def pilot_grid_with_pivots(pivots: set[tuple[int, int]]) -> dict:
+    columns, rows = 7, 8
+    clue_cells = (
+        {(0, col) for col in range(columns)}
+        | {(row, 0) for row in range(1, rows)}
+        | pivots
+    )
+    letter_cells = {
+        (row, col)
+        for row in range(1, rows)
+        for col in range(1, columns)
+        if (row, col) not in clue_cells
+    }
+    cell_letters = {
+        cell: chr(ord("A") + ((cell[0] * columns + cell[1]) % 26))
+        for cell in letter_cells
+    }
+    paths = []
+    for direction, (dr, dc) in (("across", (0, 1)), ("down", (1, 0))):
+        for row, col in sorted(letter_cells):
+            if (row - dr, col - dc) in letter_cells:
+                continue
+            path = []
+            current = (row, col)
+            while current in letter_cells:
+                path.append(current)
+                current = (current[0] + dr, current[1] + dc)
+            if len(path) < 2:
+                continue
+            paths.append((direction, dr, dc, row, col, path))
+
+    for answer, (_direction, _dr, _dc, _row, _col, path) in zip(
+        ("OR", "IA", "BD"),
+        (item for item in paths if len(item[-1]) == 2),
+    ):
+        for cell, letter in zip(path, answer):
+            cell_letters[cell] = letter
+
+    words = []
+    for direction, dr, dc, row, col, path in paths:
+        word_id = f"{direction}-{row}-{col}"
+        words.append({
+            "wordId": word_id,
+            "answer": "".join(cell_letters[cell] for cell in path),
+            "clue": f"Indice {word_id}",
+            "direction": direction,
+            "clueCell": [row - dr, col - dc],
+            "cells": [list(cell) for cell in path],
+        })
+    return {
+        "id": "pilot-grid",
+        "columns": columns,
+        "rows": rows,
+        "clueCells": [list(cell) for cell in sorted(clue_cells)],
+        "words": words,
+    }
+
+
 def codes(report: dict) -> set[str]:
     return {error["code"] for error in report["errors"]}
 
@@ -79,12 +137,50 @@ class GridTopologyTests(unittest.TestCase):
         self.assertEqual(2, centre["coverageCount"])
         self.assertTrue(centre["coverageValid"])
 
-    def test_complete_grid_is_valid_under_corrected_pilot_profile(self) -> None:
+    def test_pilot_rejects_zero_two_letter_answers(self) -> None:
         report = audit_grid_topology(
             valid_grid(), enforce_layout=False, topology_profile="pilot"
         )
-        self.assertTrue(report["valid"], report["errors"])
+        self.assertFalse(report["valid"])
+        self.assertIn("invalid_two_letter_answer_count", codes(report))
         self.assertEqual("pilot", report["topologyProfile"])
+
+    def test_pilot_accepts_one_two_letter_answer(self) -> None:
+        report = audit_grid_topology(
+            pilot_grid_with_pivots({(4, 3)}),
+            enforce_layout=False,
+            topology_profile="pilot",
+        )
+        self.assertTrue(report["valid"], report["errors"])
+        self.assertEqual(1, len(report["twoLetterAnswers"]))
+
+    def test_pilot_rejects_an_unreviewed_two_letter_answer(self) -> None:
+        grid = pilot_grid_with_pivots({(4, 3)})
+        short = next(word for word in grid["words"] if len(word["answer"]) == 2)
+        short["answer"] = "SS"
+        report = audit_grid_topology(
+            grid, enforce_layout=False, topology_profile="pilot"
+        )
+        self.assertIn("pilot_two_letter_answer_not_reviewed", codes(report))
+
+    def test_pilot_accepts_two_two_letter_answers(self) -> None:
+        report = audit_grid_topology(
+            pilot_grid_with_pivots({(4, 3), (6, 4)}),
+            enforce_layout=False,
+            topology_profile="pilot",
+        )
+        self.assertTrue(report["valid"], report["errors"])
+        self.assertEqual(2, len(report["twoLetterAnswers"]))
+
+    def test_pilot_rejects_three_two_letter_answers(self) -> None:
+        report = audit_grid_topology(
+            pilot_grid_with_pivots({(3, 5), (4, 3), (6, 4)}),
+            enforce_layout=False,
+            topology_profile="pilot",
+        )
+        self.assertFalse(report["valid"])
+        self.assertIn("invalid_two_letter_answer_count", codes(report))
+        self.assertEqual(3, len(report["twoLetterAnswers"]))
 
     def test_rectangular_9_by_10_grid_is_rejected(self) -> None:
         report = audit_grid_topology(valid_rectangular_grid(9, 10), enforce_layout=False)
@@ -170,6 +266,26 @@ class GridTopologyTests(unittest.TestCase):
             for error in report["errors"]
         ))
 
+    def test_runtime_allows_a_perpendicular_singleton_without_word_id(self) -> None:
+        grid = valid_grid()
+        grid["clueCells"].extend(
+            [[row, 3] for row in (1, 2, 3, 5, 6, 7)]
+        )
+        grid["words"] = [
+            word for word in grid["words"] if word["wordId"] != "v3"
+        ]
+        report = audit_grid_topology(
+            grid, enforce_layout=False, topology_profile="runtime"
+        )
+        centre = next(
+            cell for cell in report["cells"]
+            if (cell["row"], cell["col"]) == (4, 3)
+        )
+        self.assertEqual(1, centre["coverageCount"])
+        self.assertTrue(centre["coverageValid"])
+        self.assertNotIn("letter_not_double_covered", codes(report))
+        self.assertNotIn("singleton_visual_segment", codes(report))
+
     def test_pilot_still_rejects_a_letter_with_zero_total_coverage(self) -> None:
         grid = valid_grid()
         grid["words"] = [
@@ -193,13 +309,14 @@ class GridTopologyTests(unittest.TestCase):
         report = audit_grid_topology(grid, enforce_layout=False)
         self.assertIn("singleton_visual_segment", codes(report))
 
-    def test_pilot_rejects_every_maximal_two_letter_run(self) -> None:
-        grid = valid_grid()
-        grid["clueCells"].extend([[4, 3], [4, 6]])
+    def test_pilot_accepts_a_declared_maximal_two_letter_run(self) -> None:
         report = audit_grid_topology(
-            grid, enforce_layout=False, topology_profile="pilot"
+            pilot_grid_with_pivots({(4, 3)}),
+            enforce_layout=False,
+            topology_profile="pilot",
         )
-        self.assertIn("two_letter_segment", codes(report))
+        self.assertNotIn("two_letter_segment", codes(report))
+        self.assertNotIn("orphan_segment", codes(report))
 
     def test_pilot_rejects_a_declared_path_shorter_than_its_maximal_run(self) -> None:
         grid = valid_grid()

@@ -11,6 +11,7 @@ export function pushNotificationRoute(data: unknown): string | null {
   if (typeof payload.matchId === 'string' && /^[0-9a-f-]{36}$/i.test(payload.matchId)) {
     return `#partie=${encodeURIComponent(payload.matchId)}`
   }
+  if (payload.type === 'ranked_ready') return '#jouer'
   if (payload.type === 'friend_invitation') return '#jouer'
   return null
 }

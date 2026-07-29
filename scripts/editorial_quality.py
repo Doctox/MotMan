@@ -5,6 +5,8 @@ import re
 import unicodedata
 from pathlib import Path
 
+from pilot_two_letter_policy import is_reviewed_two_letter_answer
+
 
 # These forms are grammatical only in a context that the answer cannot carry
 # (for example BEL must precede a masculine noun beginning with a vowel).
@@ -26,8 +28,35 @@ PILOT_REVIEW_FLAGS = (
     "allAudience",
 )
 PILOT_LANGUAGE_STATUSES = {"french", "common-anglicism", "known-proper-name"}
-PILOT_CULTURAL_STATUSES = {"everyday", "current-pop", "general-culture", "none"}
+PILOT_CULTURAL_STATUSES = {
+    "everyday", "current-common", "current-pop", "general-culture", "none"
+}
 PILOT_CLUE_STYLES = {"direct", "clever", "image"}
+
+# A verbal form must never become acceptable merely because a producer labels
+# it "adjectif lexicalisé".  The exception is intentionally opt-in and tiny:
+# the answer must be an autonomous adjective reviewed as such, and the item
+# must carry the corresponding structured approval below.
+PILOT_APPROVED_LEXICALIZED_VERBAL_ADJECTIVES = {"RAVI"}
+PILOT_LEXICAL_AUTONOMY_STATUS = "human-reviewed-approved"
+
+# A broad category can describe dozens of famous people or characters.  These
+# formulations are rejected even when a generic human-review flag is present;
+# a proper name also needs a distinctive fact visible in its clue.
+PILOT_GENERIC_PROPER_NAME_CLUES = {
+    "acteur",
+    "actrice",
+    "chanteur",
+    "chanteuse",
+    "heros marvel",
+    "jeu video",
+    "mutant x men",
+    "personnage disney",
+    "personnage marvel",
+    "rappeur",
+    "rappeuse",
+    "ville",
+}
 
 
 def normalize_text(value: object) -> str:
@@ -158,8 +187,13 @@ def pilot_editorial_errors(item: dict, *, root: Path | None = None) -> list[dict
     def reject(code: str, message: str, **details: object) -> None:
         errors.append({"code": code, "message": message, **details})
 
-    if len(answer) < 3:
-        reject("pilot_answer_too_short", "le pilote interdit toute réponse de moins de trois lettres")
+    if len(answer) < 2:
+        reject("pilot_answer_too_short", "le pilote interdit toute réponse d'une lettre")
+    elif len(answer) == 2 and not is_reviewed_two_letter_answer(answer):
+        reject(
+            "pilot_two_letter_answer_not_reviewed",
+            "la réponse de deux lettres n'appartient pas à la liste blanche relue",
+        )
     missing_sources = [
         field for field in ("sourceId", "sourceUrl", "sourceType")
         if not normalize_text(item.get(field))
@@ -175,7 +209,8 @@ def pilot_editorial_errors(item: dict, *, root: Path | None = None) -> list[dict
         reject("pilot_invalid_familiarity", "familiarityScore doit être compris entre 0 et 100")
     if item.get("familiarityBand") not in {"common", "thoughtful"}:
         reject("pilot_missing_familiarity_band", "familiarityBand doit valoir common ou thoughtful")
-    if not normalize_text(item.get("partOfSpeech")):
+    part_of_speech = normalize_text(item.get("partOfSpeech"))
+    if not part_of_speech:
         reject("pilot_missing_part_of_speech", "nature grammaticale absente")
     if item.get("languageStatus") not in PILOT_LANGUAGE_STATUSES:
         reject("pilot_invalid_language_status", "statut de langue absent ou non autorisé")
@@ -183,6 +218,72 @@ def pilot_editorial_errors(item: dict, *, root: Path | None = None) -> list[dict
         reject("pilot_invalid_cultural_status", "statut culturel absent ou non autorisé")
     if item.get("clueStyle") not in PILOT_CLUE_STYLES:
         reject("pilot_invalid_clue_style", "clueStyle doit valoir direct, clever ou image")
+
+    folded_pos = fold(part_of_speech)
+    form_type = fold(normalize_text(item.get("formType")))
+    morphology_origin = fold(normalize_text(item.get("morphologyOrigin")))
+    claims_lexicalized_verbal_adjective = (
+        "adjectif lexicalise" in folded_pos
+        or form_type in {"inflected", "participle", "verb-derived"}
+        or morphology_origin in {"inflected-verb", "participle", "verb-derived"}
+    )
+    if claims_lexicalized_verbal_adjective:
+        autonomy = item.get("lexicalAutonomyReview")
+        autonomy_is_approved = (
+            answer in PILOT_APPROVED_LEXICALIZED_VERBAL_ADJECTIVES
+            and isinstance(autonomy, dict)
+            and autonomy.get("status") == PILOT_LEXICAL_AUTONOMY_STATUS
+            and autonomy.get("autonomousOutsideVerbContext") is True
+        )
+        if not autonomy_is_approved:
+            reject(
+                "pilot_unapproved_lexicalized_verbal_form",
+                "une forme verbale ne peut pas être requalifiée en adjectif sans lexème autonome explicitement approuvé",
+            )
+
+    is_proper_name = (
+        item.get("languageStatus") == "known-proper-name"
+        or "nom propre" in folded_pos
+    )
+    if is_proper_name:
+        proper_review = item.get("properNameReview")
+        if not isinstance(proper_review, dict):
+            reject(
+                "pilot_missing_proper_name_review",
+                "un nom propre exige une revue de reconnaissance et de devinabilité",
+            )
+        else:
+            if (
+                proper_review.get("status") != "human-reviewed-distinctive"
+                or proper_review.get("clueUniquenessChecked") is not True
+                or not normalize_text(proper_review.get("entityType"))
+            ):
+                reject(
+                    "pilot_proper_name_review_failed",
+                    "la revue du nom propre ne prouve pas que l'indice désigne une entité unique et connue",
+                )
+            raw_tokens = proper_review.get("distinctiveTokens")
+            distinctive_tokens = (
+                [fold(normalize_text(token)) for token in raw_tokens]
+                if isinstance(raw_tokens, list)
+                else []
+            )
+            distinctive_tokens = [token for token in distinctive_tokens if token]
+            folded_clue = fold(clue)
+            if not distinctive_tokens or not any(
+                re.search(rf"\b{re.escape(token)}\b", folded_clue)
+                for token in distinctive_tokens
+            ):
+                reject(
+                    "pilot_proper_name_clue_not_distinctive",
+                    "l'indice du nom propre ne contient aucun élément distinctif validé",
+                )
+        generic_clue = re.sub(r"[^a-z0-9]+", " ", fold(clue)).strip()
+        if generic_clue in PILOT_GENERIC_PROPER_NAME_CLUES:
+            reject(
+                "pilot_generic_proper_name_clue",
+                "une catégorie générale ne suffit pas à faire deviner ce nom propre",
+            )
 
     review = item.get("editorialReview")
     if not isinstance(review, dict):

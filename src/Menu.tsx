@@ -4,8 +4,10 @@ import {
   clearGoogleAuthIssue, consumePasswordRecovery, currentGoogleAuthIssue, subscribePasswordRecovery, updateServerProfile, type AuthResponse,
 } from './auth'
 import type { GoogleAuthIssue } from './googleAuthCallback'
-import { startAdaptivePolling } from './adaptivePolling'
+import { startAdaptivePolling, type AdaptivePollingController } from './adaptivePolling'
 import { loadPlayerCosmetics, type PlayerCosmetics } from './cosmetics'
+import type { MenuRealtimeStatus, MenuWakeupScope } from './menuRealtime'
+import { lobbyMenuPollDelay, socialMenuPollDelay } from './menuSyncPolicy'
 import {
   acknowledgeMatchResult, cancelMatchInvitation, cancelNormalSearch, createInstantMatch, EMPTY_MATCH_LOBBY, loadMatchLobby,
   respondToMatchInvitation, searchNormalMatch, type MatchLobbyState, type MatchPace,
@@ -13,7 +15,8 @@ import {
 import { PendingResultPanel } from './game/DuelPresentation'
 import { loadPlayerIdentity, type GuestIdentity } from './playerIdentity'
 import { loadPlayerProgress, type PlayerProgress } from './playerProgress'
-import { EMPTY_SOCIAL_STATE, loadSocialState, registerSocialProfile, type SocialState } from './social'
+import { presenceHeartbeatDelay } from './presencePolicy'
+import { EMPTY_SOCIAL_STATE, loadSocialState, registerSocialProfile, setSocialPresence, type SocialState } from './social'
 import { AccountPanel } from './menu/AccountPanel'
 import { AppHeader, BottomNav } from './menu/MenuChrome'
 import { FriendsPanel } from './menu/FriendsPanel'
@@ -49,7 +52,15 @@ function sameState<T>(left: T, right: T): boolean {
   return JSON.stringify(left) === JSON.stringify(right)
 }
 
-export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
+export function MenuApp({
+  onStartSolo,
+  onStartMatch,
+  ranked,
+  rankedBusy,
+  rankedError,
+  startRanked,
+  cancelRanked,
+}: MenuAppProps) {
   const [page, setPage] = useState<MenuPage>(() => {
     const hash = location.hash.slice(1)
     return hash === 'jouer' ? 'play' : hash === 'classement' ? 'ranking' : hash === 'profil' ? 'profile' : hash === 'epicerie' ? 'shop' : 'home'
@@ -72,8 +83,23 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('motman-theme') as Theme | null) ?? 'light')
   const toastTimer = useRef<number | null>(null)
   const openingMatch = useRef<string | null>(null)
+  const socialPolling = useRef<AdaptivePollingController | null>(null)
+  const lobbyPolling = useRef<AdaptivePollingController | null>(null)
+  const menuRealtimeConnected = useRef(false)
 
   useResolvedTheme(theme)
+
+  useEffect(() => {
+    setProgress(current => ({
+      ...current,
+      rankedPoints: ranked.progress.points,
+      rankedMatches: ranked.progress.matches,
+      rankedWins: ranked.progress.wins,
+      rankedLosses: ranked.progress.losses,
+      rankedDraws: ranked.progress.draws,
+      rankedPeakPoints: Math.max(current.rankedPeakPoints, ranked.progress.points),
+    }))
+  }, [ranked.progress])
 
   useEffect(() => {
     const syncCosmetics = (event: Event) => {
@@ -101,6 +127,29 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
   }, [])
 
   useEffect(() => {
+    const wake = (event: Event) => {
+      const detail = (event as CustomEvent<{
+        scope?: MenuWakeupScope
+        status?: MenuRealtimeStatus
+      }>).detail
+      const scope = detail?.scope ?? 'all'
+      if (detail?.status) menuRealtimeConnected.current = detail.status === 'connected'
+      if (scope === 'social' || scope === 'all') socialPolling.current?.wake()
+      if (scope === 'lobby' || scope === 'all') lobbyPolling.current?.wake()
+    }
+    window.addEventListener('motman:menu-wakeup', wake)
+    return () => window.removeEventListener('motman:menu-wakeup', wake)
+  }, [])
+
+  useEffect(() => {
+    const presence = startAdaptivePolling({
+      task: () => setSocialPresence(identity.playerId, 'online').catch(() => undefined),
+      delay: presenceHeartbeatDelay,
+    })
+    return () => presence.stop()
+  }, [identity.playerId])
+
+  useEffect(() => {
     let active = true
     let syncing = false
     const sync = async (register: boolean) => {
@@ -116,10 +165,15 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
     void sync(true)
     const polling = startAdaptivePolling({
       task: () => sync(false),
-      delay: visibility => visibility === 'hidden' ? 20_000 : 5_000,
+      delay: visibility => socialMenuPollDelay(visibility, menuRealtimeConnected.current),
       immediate: false,
     })
-    return () => { active = false; polling.stop() }
+    socialPolling.current = polling
+    return () => {
+      active = false
+      if (socialPolling.current === polling) socialPolling.current = null
+      polling.stop()
+    }
   }, [identity.playerId, identity.displayName, cosmetics.equippedAvatarId, cosmetics.equippedFrameId, cosmetics.equippedAnimationId])
 
   useEffect(() => {
@@ -151,9 +205,14 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
     }
     const polling = startAdaptivePolling({
       task: sync,
-      delay: visibility => visibility === 'hidden' ? pendingSearch ? 5_000 : 15_000 : pendingSearch ? 900 : 2_500,
+      delay: visibility => lobbyMenuPollDelay(visibility, menuRealtimeConnected.current, Boolean(pendingSearch)),
     })
-    return () => { active = false; polling.stop() }
+    lobbyPolling.current = polling
+    return () => {
+      active = false
+      if (lobbyPolling.current === polling) lobbyPolling.current = null
+      polling.stop()
+    }
   }, [identity.playerId, onStartMatch, pendingSearch])
 
   const notify = useCallback((message: string) => {
@@ -176,10 +235,6 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
     setAccountOpen(true)
     notify('Choisissez maintenant votre nouveau mot de passe')
   }), [notify])
-
-  const soon = () => {
-    notify('Bientôt dispo')
-  }
 
   const navigate = (nextPage: MenuPage) => {
     setPage(nextPage)
@@ -280,7 +335,7 @@ export function MenuApp({ onStartSolo, onStartMatch }: MenuAppProps) {
   return <main className="mm-shell">
     <AppHeader onMenu={() => setQuickMenu(true)} onSettings={() => setSettings(true)} />
     {page === 'home' ? <HomePage identity={identity} progress={progress} cosmetics={cosmetics} social={social} lobby={matchLobby} play={() => navigate('play')} openFriends={() => setFriendsOpen(true)} resumeMatch={onStartMatch} /> : null}
-    {page === 'play' ? <PlayPage identity={identity} onStartSolo={onStartSolo} soon={soon} social={social} lobby={matchLobby} invite={inviteFriend} cancelInvite={cancelInvitation} searchMatch={beginNormalSearch} cancelSearch={stopNormalSearch} resumeMatch={onStartMatch} openFriends={() => setFriendsOpen(true)} /> : null}
+    {page === 'play' ? <PlayPage identity={identity} onStartSolo={onStartSolo} social={social} lobby={matchLobby} invite={inviteFriend} cancelInvite={cancelInvitation} searchMatch={beginNormalSearch} cancelSearch={stopNormalSearch} resumeMatch={onStartMatch} openFriends={() => setFriendsOpen(true)} ranked={ranked} rankedBusy={rankedBusy} rankedError={rankedError} startRanked={startRanked} cancelRanked={cancelRanked} /> : null}
     {page === 'ranking' ? <RankingPage identity={identity} progress={progress} cosmetics={cosmetics} /> : null}
     {page === 'profile' ? <ProfilePage identity={identity} progress={progress} cosmetics={cosmetics} edit={() => setEditingGuest(true)} openShop={() => navigate('shop')} openAccount={() => setAccountOpen(true)} /> : null}
     {page === 'shop' ? <Suspense fallback={<div className="mm-page mm-shop-page mm-route-loading" role="status">Ouverture de L’Épicerie…</div>}><LazyShopPage cosmetics={cosmetics} setCosmetics={setCosmetics} back={() => navigate('profile')} notify={notify} /></Suspense> : null}

@@ -1,7 +1,7 @@
 {
   "name": "entrelignes",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "policy:runtime": "node scripts/build_runtime_catalog_policy.mjs",
@@ -12,10 +12,12 @@
     "postbuild": "npm run audit:security",
     "audit:security": "node scripts/check_production_secrets.mjs",
     "audit:pages": "node scripts/check_pages_artifact.mjs",
+    "audit:play": "node scripts/check_google_play_readiness.mjs",
     "smoke:deployment": "node scripts/smoke_test_deployment.mjs",
     "test:unit": "vitest run",
     "test:e2e": "node scripts/reset_e2e_state.mjs && playwright test",
     "test:online": "node scripts/test_supabase_online.mjs",
+    "test:load:staging": "node scripts/load_test_supabase_staging.mjs --env=.env.loadtest.local",
     "test:priority0": "npm run test:unit && npm run test:e2e",
     "test:dimensions": "node scripts/test_grid_dimensions.mjs",
     "test:performance": "node scripts/check_runtime_budget.mjs",

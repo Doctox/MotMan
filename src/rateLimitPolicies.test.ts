@@ -24,4 +24,24 @@ describe('rate-limit policies', () => {
     const policies = actionRateLimits('match', 'create', false, 'not:a:uuid')
     expect(policies).toHaveLength(1)
   })
+
+  it('protects ranked search and ready-check mutations independently', () => {
+    const guestSearch = actionRateLimits('match', 'ranked-search', true)[0]
+    const accountSearch = actionRateLimits('match', 'ranked-search', false)[0]
+    expect(guestSearch.maxRequests).toBeLessThan(accountSearch.maxRequests)
+    expect(actionRateLimits('match', 'ranked-ready-response', false)).toEqual([{
+      bucket: 'match:ranked-ready-response',
+      maxRequests: 12,
+      windowSeconds: 60,
+    }])
+    expect(actionRateLimits('match', 'ranked-leaderboard', false)[0].maxRequests).toBe(30)
+  })
+
+  it('limits authenticated Grid Studio usage snapshots', () => {
+    expect(actionRateLimits('account', 'grid-usage-snapshot', false)).toEqual([{
+      bucket: 'account:grid-usage-snapshot',
+      maxRequests: 12,
+      windowSeconds: 600,
+    }])
+  })
 })

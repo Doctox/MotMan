@@ -61,6 +61,26 @@ function matchBroadcastProbe(client, matchId) {
   return { ready, event }
 }
 
+function menuBroadcastProbe(client, userId, expectedScope) {
+  let resolveEvent
+  let rejectEvent
+  const event = new Promise((resolve, reject) => { resolveEvent = resolve; rejectEvent = reject })
+  const ready = new Promise((resolve, reject) => {
+    const channel = client
+      .channel(`user:${userId}`, { config: { private: true } })
+      .on('broadcast', { event: 'changed' }, message => {
+        if (message.payload?.scope === expectedScope) resolveEvent(message.payload)
+      })
+      .subscribe((status, error) => {
+        if (status === 'SUBSCRIBED') resolve(channel)
+        else if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT' || status === 'CLOSED') reject(new Error(`Realtime menu ${status}: ${error?.message ?? 'sans détail'}`))
+      })
+    setTimeout(() => reject(new Error('Connexion Realtime du menu trop lente')), 8_000)
+  })
+  setTimeout(() => rejectEvent(new Error(`Aucun signal Realtime ${expectedScope} reçu`)), 8_000)
+  return { ready, event }
+}
+
 const [alice, bob] = await Promise.all([createPlayer(), createPlayer()])
 const aliceAccount = await invoke(alice, 'account-api', { action: 'bootstrap', identity: { displayName: 'Alice QA' } })
 const bobAccount = await invoke(bob, 'account-api', { action: 'bootstrap', identity: { displayName: 'Bob QA' } })
@@ -73,6 +93,8 @@ assert.ok(aliceAccount.progress.titles.find(title => title.id === 'premiers-mots
 assert.ok(aliceAccount.progress.titles.find(title => title.id === 'plume-curieuse' && !title.unlocked))
 const initialOdds = Object.values(aliceAccount.cosmetics.basketOdds).reduce((total, chance) => total + chance, 0)
 assert.ok(Math.abs(initialOdds - 100) < 0.001, 'Les probabilités du panier doivent totaliser 100 %')
+const presenceHeartbeat = await invoke(alice, 'social-api', { action: 'presence', activity: 'online' })
+assert.deepEqual(presenceHeartbeat, { ok: true }, 'Le heartbeat de présence ne doit jamais charger l’état complet des amis')
 
 await invoke(alice, 'account-api', {
   action: 'update-profile', displayName: 'Admin MotMan', avatarId: 'plume-motman', frameId: 'cadre-ivoire', animationId: 'animation-none',
@@ -150,18 +172,45 @@ assert.equal(feedback.recorded, true, 'L’avis de grille doit être enregistré
 assert.equal(feedback.popularity.positive_reviews >= 1, true)
 assert.equal(Number.isFinite(Number(feedback.popularity.popularity_score)), true)
 
+const gridUsage = await invoke(alice, 'grid-usage-api', { action: 'snapshot' })
+assert.equal(gridUsage.schema, 'motman-grid-usage-snapshot')
+assert.equal(gridUsage.version, 1)
+assert.ok(gridUsage.grids.some(grid => grid.gridId === match.gridId), 'La grille jouée manque dans l’agrégat Grid Studio')
+assert.ok(gridUsage.recentGridIds.some(grid => grid.gridId === match.gridId), 'La grille jouée manque dans l’historique récent')
+for (const privateKey of ['userId', 'email', 'displayName', 'token', 'secret']) {
+  assert.equal(privateKey in gridUsage, false, `L’instantané Grid Studio expose ${privateKey}`)
+}
+
 const rotated = await invoke(alice, 'match-api', { action: 'solo', difficulty: 'normal', pace: 'realtime' })
 assert.notEqual(rotated.match.gridId, match.gridId, 'La grille précédente doit sortir de la rotation récente')
 await invoke(alice, 'match-api', { action: 'forfeit', matchId: rotated.match.id })
 
+const socialMenuProbe = menuBroadcastProbe(bob.client, bob.user.id, 'social')
+const socialMenuChannel = await socialMenuProbe.ready
 await invoke(alice, 'social-api', { action: 'request', friendCode: bobAccount.identity.friendCode })
+const socialMenuPulse = await socialMenuProbe.event
+assert.equal(socialMenuPulse.scope, 'social')
+assert.equal(typeof socialMenuPulse.updatedAt, 'string')
+for (const privateKey of ['friends', 'incoming', 'outgoing', 'blocked', 'profile']) {
+  assert.equal(privateKey in socialMenuPulse, false, `Le signal social du menu a exposé ${privateKey}`)
+}
+await bob.client.removeChannel(socialMenuChannel)
 const bobSocial = (await invoke(bob, 'social-api', { action: 'state' })).state
 assert.equal(bobSocial.incoming.length, 1)
 await invoke(bob, 'social-api', { action: 'respond', requestId: bobSocial.incoming[0].id, decision: 'accept' })
 
 // Both invitation rhythms must reach the guest lobby. Declining the realtime
 // invitation keeps the remainder of this scenario focused on one active match.
+const lobbyMenuProbe = menuBroadcastProbe(bob.client, bob.user.id, 'lobby')
+const lobbyMenuChannel = await lobbyMenuProbe.ready
 await invoke(alice, 'match-api', { action: 'create', targetId: bob.user.id, pace: 'realtime' })
+const lobbyMenuPulse = await lobbyMenuProbe.event
+assert.equal(lobbyMenuPulse.scope, 'lobby')
+assert.equal(typeof lobbyMenuPulse.updatedAt, 'string')
+for (const privateKey of ['match', 'state', 'racks', 'grid', 'invitation']) {
+  assert.equal(privateKey in lobbyMenuPulse, false, `Le signal de partie du menu a exposé ${privateKey}`)
+}
+await bob.client.removeChannel(lobbyMenuChannel)
 const realtimeLobby = await invoke(bob, 'match-api', { action: 'state' })
 const realtimeInvitation = realtimeLobby.incoming.find(invitation => invitation.pace === 'realtime')
 assert.ok(realtimeInvitation, 'L\u2019invitation en temps limite doit apparaitre chez l\u2019ami')
@@ -243,5 +292,5 @@ console.log(JSON.stringify({
   privacy: 'solutions et chevalet adverse masqués', authority: 'score et récompense serveur', moderation: 'signalement accepté',
   concurrency: 'conflit de version 409 contrôlé avec état courant',
   multiplayer: 'deux sessions isolées, Realtime privé, abandon hors-tour et anti-farming validés',
-  content: 'rotation des 12 dernières grilles, avis et popularité serveur validés', accountDeletion: 'données supprimées et sessions révoquées',
+  content: 'rotation aléatoire du pool complet avec anti-répétition sur les 5 dernières grilles validée', accountDeletion: 'données supprimées et sessions révoquées',
 }, null, 2))

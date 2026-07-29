@@ -1,26 +1,50 @@
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { BarChart3, ChevronRight, Feather, Gamepad2, Home, Pencil, Shield, ShoppingBasket, Trophy, User, X } from 'lucide-react'
 import { CosmeticPortrait } from '../CosmeticPortrait'
 import { getAnimation, getAvatar, getFrame, type PlayerCosmetics } from '../cosmetics'
 import { PLAYER_NAME_MAX_LENGTH, validatePlayerName } from '../playerNamePolicy'
 import { shortPlayerId, type GuestIdentity } from '../playerIdentity'
 import { experienceGoalForLevel, MAX_PLAYER_LEVEL, type PlayerProgress } from '../playerProgress'
+import { rankImage, rankedDivision } from '../ranked'
+import { loadRankedLeaderboard, type RankedLeaderboard } from '../rankedMatchmaking'
 import { useDialogFocus } from '../useDialogFocus'
-import { RankProgress } from './MenuChrome'
+import { RankProgress, SocialPortrait } from './MenuChrome'
 import type { MenuPage } from './types'
 
 const frenchNumber = new Intl.NumberFormat('fr-FR')
 
 export function RankingPage({ identity, progress, cosmetics }: { identity: GuestIdentity; progress: PlayerProgress; cosmetics: PlayerCosmetics }) {
   const [tab, setTab] = useState<'general' | 'friends'>('general')
+  const [leaderboard, setLeaderboard] = useState<RankedLeaderboard>({ general: [], friends: [] })
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    let active = true
+    setLoading(true)
+    void loadRankedLeaderboard()
+      .then(next => { if (active) setLeaderboard(next) })
+      .catch(() => { if (active) setLeaderboard({ general: [], friends: [] }) })
+      .finally(() => { if (active) setLoading(false) })
+    return () => { active = false }
+  }, [progress.rankedMatches, progress.rankedPoints])
+  const entries = leaderboard[tab]
   return <div className="mm-page mm-ranking-page">
     <RankProgress progress={progress} compact />
     <div className="mm-segmented" role="group" aria-label="Type de classement"><button type="button" className={tab === 'general' ? 'active' : ''} aria-pressed={tab === 'general'} onClick={() => setTab('general')}>Général</button><button type="button" className={tab === 'friends' ? 'active' : ''} aria-pressed={tab === 'friends'} onClick={() => setTab('friends')}>Amis</button></div>
     <section className="mm-leaderboard">
-      {tab === 'general' ? <div className="mm-ranking-row you">
+      {!entries.length && tab === 'general' && progress.rankedMatches >= 5 ? <div className="mm-ranking-row you">
         <span className="mm-position">—</span><CosmeticPortrait avatarId={cosmetics.equippedAvatarId} frameId={cosmetics.equippedFrameId} animationId={cosmetics.equippedAnimationId} alt="" small /><strong>{identity.displayName}<small>Vous</small></strong><b>{progress.rankedPoints} <small>pt</small></b>
       </div> : null}
-      <div className="mm-empty-ranking"><Trophy /><strong>{tab === 'general' ? 'Pas encore classé' : 'Aucun ami classé'}</strong><span>{tab === 'general' ? 'Terminez une partie classée pour rejoindre le classement.' : 'Le classement de vos amis apparaîtra ici.'}</span></div>
+      {entries.map(entry => {
+        const division = rankedDivision(entry.points, entry.matches)
+        const mine = entry.user.playerId === identity.playerId
+        return <div className={`mm-ranking-row ${mine ? 'you' : ''}`} key={entry.user.playerId}>
+          <span className={`mm-position ${entry.position <= 3 ? `p${entry.position}` : ''}`}>{entry.position}</span>
+          <SocialPortrait user={entry.user} small />
+          <strong>{entry.user.displayName}<small>{mine ? 'Vous' : `${entry.wins} victoire${entry.wins > 1 ? 's' : ''}`}</small></strong>
+          <span className="mm-ranking-rank"><img src={rankImage(division)} alt="" /><b>{entry.points} <small>pt</small></b></span>
+        </div>
+      })}
+      {!entries.length ? <div className="mm-empty-ranking"><Trophy /><strong>{loading ? 'Chargement du classement…' : tab === 'general' ? progress.rankedMatches < 5 ? 'Placements en cours' : 'Aucun joueur classé' : 'Aucun ami classé'}</strong><span>{loading ? 'Les meilleurs joueurs arrivent.' : tab === 'general' ? progress.rankedMatches < 5 ? `Encore ${5 - progress.rankedMatches} partie${5 - progress.rankedMatches > 1 ? 's' : ''} de placement.` : 'Soyez le premier à terminer vos cinq placements.' : 'Vos amis apparaîtront ici après leurs placements.'}</span></div> : null}
     </section>
   </div>
 }

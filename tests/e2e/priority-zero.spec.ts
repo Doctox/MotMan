@@ -172,6 +172,89 @@ async function openGame(browser: Browser, identity: Identity, matchId: string, v
   return { context, page }
 }
 
+test('la partie native reste cadrée au-dessus des commandes système Android', async ({ browser, browserName, request }) => {
+  test.skip(browserName !== 'chromium', 'Le mode natif Android utilise Chromium WebView.')
+  const { first, matchId } = await createNormalMatch(request, 'async', 'Cadre natif')
+  const { context, page } = await openGame(browser, first, matchId, { width: 390, height: 796 })
+
+  try {
+    await page.evaluate(() => document.documentElement.classList.add('native-runtime'))
+    const geometry = await page.evaluate(() => {
+      const shell = document.querySelector<HTMLElement>('.multiplayer-shell')
+      const board = document.querySelector<HTMLElement>('.board')
+      const rack = document.querySelector<HTMLElement>('.rack')
+      const actions = document.querySelector<HTMLElement>('.turn-actions')
+      if (!shell || !board || !rack || !actions) throw new Error('Surface de jeu incomplète')
+      return {
+        viewportHeight: window.innerHeight,
+        documentHeight: document.documentElement.scrollHeight,
+        shell: shell.getBoundingClientRect().toJSON(),
+        board: board.getBoundingClientRect().toJSON(),
+        rack: rack.getBoundingClientRect().toJSON(),
+        actions: actions.getBoundingClientRect().toJSON(),
+      }
+    })
+
+    expect(geometry.documentHeight).toBeLessThanOrEqual(geometry.viewportHeight + 1)
+    expect(geometry.shell.top).toBeGreaterThanOrEqual(0)
+    expect(geometry.shell.bottom).toBeLessThanOrEqual(geometry.viewportHeight + 1)
+    expect(geometry.actions.bottom).toBeLessThanOrEqual(geometry.viewportHeight - 8)
+    expect(geometry.actions.top).toBeGreaterThanOrEqual(geometry.rack.bottom)
+    expect(geometry.board.width / geometry.board.height).toBeCloseTo(7 / 8, 2)
+  } finally {
+    await context.close()
+  }
+})
+
+test('seul le cadre de résultat natif défile pour rendre toutes les actions accessibles', async ({ browser, browserName, request }) => {
+  test.skip(browserName !== 'chromium', 'Le mode natif Android utilise Chromium WebView.')
+  const { first, second, matchId } = await createNormalMatch(request, 'async', 'Résultat natif')
+  const finished = await request.post('/api/matches/forfeit', {
+    data: { playerId: second.playerId, matchId },
+  })
+  expect(finished.ok()).toBe(true)
+  const { context, page } = await openGame(browser, first, matchId, { width: 390, height: 620 }, false)
+
+  try {
+    await page.evaluate(() => document.documentElement.classList.add('native-runtime'))
+    const result = page.locator('.game-result-screen')
+    await expect(result).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Nouvelle partie' })).toBeVisible()
+
+    const before = await result.evaluate(element => {
+      const node = element as HTMLElement
+      return {
+        viewportHeight: window.innerHeight,
+        documentHeight: document.documentElement.scrollHeight,
+        clientHeight: node.clientHeight,
+        scrollHeight: node.scrollHeight,
+        overflowY: getComputedStyle(node).overflowY,
+      }
+    })
+    expect(before.documentHeight).toBeLessThanOrEqual(before.viewportHeight + 1)
+    expect(before.overflowY).toBe('auto')
+    expect(before.scrollHeight).toBeGreaterThan(before.clientHeight)
+
+    await result.evaluate(element => {
+      const node = element as HTMLElement
+      node.scrollTop = node.scrollHeight
+    })
+    const geometry = await page.evaluate(() => {
+      const resultPanel = document.querySelector<HTMLElement>('.game-result-screen')
+      const home = document.querySelector<HTMLElement>('.end-game-home')
+      if (!resultPanel || !home) throw new Error('Actions de résultat incomplètes')
+      return {
+        result: resultPanel.getBoundingClientRect().toJSON(),
+        home: home.getBoundingClientRect().toJSON(),
+      }
+    })
+    expect(geometry.home.top).toBeGreaterThanOrEqual(geometry.result.top)
+    expect(geometry.home.bottom).toBeLessThanOrEqual(geometry.result.bottom + 1)
+  } finally {
+    await context.close()
+  }
+})
+
 test('un sondage inchangé ne renvoie pas à nouveau toute la partie', async ({ request, browserName }) => {
   test.skip(browserName === 'webkit', 'Le contrat HTTP est indépendant du moteur visuel.')
   const { first, matchId } = await createNormalMatch(request, 'async', 'Sondage')

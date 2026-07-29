@@ -11,6 +11,7 @@ import {
   type PendingMatchResult,
 } from '../matches'
 import type { ExperienceAward } from '../playerProgress'
+import { rankImage, rankedDivision, rankedPlacementLabel } from '../ranked'
 import { haptic, playEffect } from '../sensoryPreferences'
 
 export function DuelPlayer({ name, score, active, initials, avatarId, frameId, animationId, player, detail }: { name: string; score: number; active: boolean; initials: string; avatarId?: string; frameId?: string; animationId?: string; player?: boolean; detail?: string }) {
@@ -25,9 +26,12 @@ export function ResultPanel({ match, playerId, opponentName, onExit, onHome }: {
   const [leavingError, setLeavingError] = useState<string | null>(null)
   const [experienceAward, setExperienceAward] = useState<ExperienceAward | null>(null)
   const won = match.winnerId === playerId
-  const draw = match.winnerId === null && match.finishReason === 'completed'
+  const administrativeDraw = match.finishReason === 'ranked_transfer'
+  const draw = match.winnerId === null && (match.finishReason === 'completed' || administrativeDraw)
   const title = draw ? 'Égalité !' : won ? 'Victoire !' : 'Partie terminée'
-  const detail = match.finishReason === 'timeout'
+  const detail = administrativeDraw
+    ? 'La partie normale est déclarée égale car un joueur rejoint le match classé confirmé. Aucun gain ni perte n’est appliqué.'
+    : match.finishReason === 'timeout'
     ? won ? `${opponentName} n’a pas réagi pendant trois de ses tours.` : 'Vous avez laissé expirer trois de vos tours.'
     : match.finishReason === 'forfeit'
       ? won ? `${opponentName} a quitté la partie.` : 'Vous avez abandonné la partie.'
@@ -70,6 +74,9 @@ export function ResultPanel({ match, playerId, opponentName, onExit, onHome }: {
     return () => { active = false }
   }, [match.id, won])
   const opponentId = match.playerIds.find(id => id !== playerId) ?? ''
+  const rankedResultDivision = match.rankedRating
+    ? rankedDivision(match.rankedRating.pointsAfter, match.rankedRating.placementNumber)
+    : null
   return <GameResultScreen
     outcome={draw ? 'draw' : won ? 'win' : 'loss'}
     title={title}
@@ -79,6 +86,11 @@ export function ResultPanel({ match, playerId, opponentName, onExit, onHome }: {
     opponentName={opponentName}
     award={experienceAward}
   >
+    {match.mode === 'ranked' && match.rankedRating && rankedResultDivision ? <div className="ranked-result-summary">
+      <img src={rankImage(rankedResultDivision)} alt="" />
+      <span><small>{rankedPlacementLabel(match.rankedRating.placementNumber)}</small><strong>{rankedResultDivision.label}</strong></span>
+      <b className={match.rankedRating.delta >= 0 ? 'positive' : 'negative'}>{match.rankedRating.delta >= 0 ? '+' : ''}{match.rankedRating.delta} pt</b>
+    </div> : null}
     <div className="result-feedback">
       <p className="duel-feedback-label">{feedbackSent ? 'Merci pour votre retour !' : 'Cette grille était-elle agréable ?'}</p>
       {!feedbackSent ? <div className="feedback-actions"><button type="button" disabled={feedbackSending} onClick={() => void sendFeedback('yes')}><Heart />Oui</button><button type="button" disabled={feedbackSending} onClick={() => void sendFeedback('no')}><HeartCrack />Non</button></div> : null}

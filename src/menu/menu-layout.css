@@ -99,6 +99,7 @@
   box-shadow:inset 0 0 0 4px color-mix(in srgb,var(--mm-surface) 65%,transparent);
 }
 .mm-unranked-badge svg{width:21px}
+.mm-rank-image{width:54px;height:62px;object-fit:contain}
 .mm-rank-copy strong{font-size:19px}.mm-rank-copy span{font-size:12px}
 .mm-progress small{margin-bottom:7px;font-size:9px;letter-spacing:.015em}
 .mm-progress i,.mm-level>i{height:5px;background:color-mix(in srgb,var(--mm-line-strong) 70%,var(--mm-sage))}
@@ -136,6 +137,9 @@
 .mm-segmented button.active{color:var(--mm-ink)}
 .mm-leaderboard{border-top-color:var(--mm-line)}
 .mm-ranking-row.you{margin:0;border-color:var(--mm-line)}
+.mm-ranking-rank{display:flex;align-items:center;justify-content:flex-end;gap:5px}
+.mm-ranking-rank img{width:27px;height:31px;object-fit:contain}
+.mm-ranking-rank b{font-size:14px;white-space:nowrap}.mm-ranking-rank small{font-size:9px;color:var(--mm-muted)}
 .mm-empty-ranking{min-height:185px}
 .mm-empty-ranking svg{width:31px;margin-bottom:11px}
 .mm-profile-hero .mm-avatar{width:88px;height:88px;flex-basis:88px;font-size:43px;box-shadow:0 0 0 5px var(--mm-paper),0 8px 24px var(--mm-shadow)}

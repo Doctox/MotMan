@@ -37,6 +37,9 @@
 .mm-home-profile-copy>span{grid-column:1;grid-row:2/span 2;margin-top:10px;font-size:11px;color:var(--mm-muted)}
 .mm-home-profile-copy small{grid-column:2;grid-row:2;margin-top:10px;font-size:9px;color:var(--mm-muted)}
 .mm-home-profile-copy strong{grid-column:2;grid-row:3;font:600 13px 'Playfair Display',serif}
+.mm-home-profile-copy .mm-home-rank{display:flex;align-items:center;gap:4px}
+.mm-home-rank img{width:22px;height:25px;object-fit:contain}
+.mm-home-profile-copy>em{grid-column:2;grid-row:4;margin-top:2px;color:var(--mm-muted);font:500 8px/1.1 'DM Sans',sans-serif}
 .mm-home-xp{position:absolute;left:15px;bottom:14px;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center}
 .mm-home-xp span{font-size:9px;color:var(--mm-muted)}
 .mm-home-xp i{height:6px;overflow:hidden;border-radius:6px;background:#eee2c9}
@@ -173,3 +176,5 @@
 @keyframes mmSearchEmblem{50%{transform:scale(1.06);box-shadow:0 0 0 8px color-mix(in srgb,var(--mm-coral) 8%,transparent)}}
 [data-theme="dark"] .mm-matchmaking-row,[data-theme="dark"] .mm-active-match-row,[data-theme="dark"] .mm-current-match-card{background:#17241f}
 @media(prefers-reduced-motion:reduce){.mm-search-pulse i,.mm-normal-search .mm-match-emblem{animation:none!important}}
+.mm-ranked-mode{display:grid;gap:10px}.mm-ranked-status{min-height:86px;display:grid;grid-template-columns:72px 1fr auto;align-items:center;gap:12px;padding:8px 13px;border:1px solid var(--mm-line);border-radius:12px;background:color-mix(in srgb,var(--mm-gold) 9%,var(--mm-surface))}.mm-ranked-status img{width:68px;height:68px;object-fit:contain}.mm-ranked-status>span{display:flex;flex-direction:column}.mm-ranked-status small{color:var(--mm-muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.mm-ranked-status strong{font:700 21px "Playfair Display",serif}.mm-ranked-status b{font-size:11px;color:var(--mm-coral)}.mm-ranked-status em{font-style:normal;font-weight:800;white-space:nowrap}.mm-ranked-explainer{margin:0;padding:9px 11px;border-radius:9px;background:color-mix(in srgb,var(--mm-sage) 55%,transparent);color:var(--mm-muted);font-size:11px;line-height:1.45}.mm-ranked-search .mm-mode-icon{background:#0c5147;color:#fff}
+@media(max-width:430px){.mm-ranked-status{grid-template-columns:62px 1fr}.mm-ranked-status img{width:58px;height:58px}.mm-ranked-status em{grid-column:2}.mm-ranked-status strong{font-size:19px}}

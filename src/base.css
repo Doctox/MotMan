@@ -1,3 +1,4 @@
+@import './styles/ranked.css';
 @font-face {
   font-family: 'DM Sans';
   font-style: normal;
@@ -18,6 +19,7 @@
 :root{font-family:'DM Sans',sans-serif;font-synthesis:none;background:#e7e3d8;color:#123e37}
 html,body,#root{min-height:100%}
 body{min-width:320px;min-height:100vh;margin:0;background:#deddd6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.native-runtime,.native-runtime body,.native-runtime #root{height:100%;min-height:0;overflow:hidden}
 button,input,select{font:inherit;color:inherit}
 .app-loading{width:min(100%,430px);min-height:100dvh;margin:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;background:#fffaf0;color:#073f36;font:600 15px 'Playfair Display',serif}
 .app-loading svg{width:34px;height:34px;animation:appLoadingSpin 1.2s linear infinite}

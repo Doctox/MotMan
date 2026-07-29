@@ -807,7 +807,10 @@ def load_records(
         score = base_score if base_score is not None else constructor + 7.0 * zipf
         score -= 12.0 * active.get(answer, 0)
         return WordRecord(
-            answer=answer, score=score, zipf=zipf, family=family_key(answer),
+            answer=answer,
+            score=score,
+            zipf=zipf,
+            family=family_key(str(item.get("lemma") or answer)),
             image=answer in images, grammar=answer in GRAMMAR_ANSWERS,
         )
 

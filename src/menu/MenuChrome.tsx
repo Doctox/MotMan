@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react'
-import { BarChart3, Gamepad2, Home, Menu as MenuIcon, Settings, Trophy, User } from 'lucide-react'
+import { BarChart3, Gamepad2, Home, Menu as MenuIcon, Settings, User } from 'lucide-react'
 import { assetUrl } from '../assetUrl'
 import { CosmeticPortrait } from '../CosmeticPortrait'
 import { playerInitials } from '../playerIdentity'
 import type { PlayerProgress } from '../playerProgress'
+import { nextRankedDivision, rankImage, rankedDivision, rankedPlacementLabel, RANKED_PLACEMENT_MATCHES } from '../ranked'
 import type { SocialUser } from '../social'
 import type { MenuPage } from './types'
 
@@ -44,10 +45,16 @@ export function BottomNav({ page, setPage }: { page: MenuPage; setPage: (page: M
 }
 
 export function RankProgress({ progress, compact = false }: { progress: PlayerProgress; compact?: boolean }) {
-  return <section className={`mm-rank-progress mm-rank-progress-empty ${compact ? 'compact' : ''}`} aria-label="Progression classée">
-    <span className="mm-unranked-badge"><Trophy /></span>
-    <div className="mm-rank-copy"><strong>Non classé</strong><span>{progress.rankedPoints} pt</span></div>
-    <div className="mm-progress"><small>Aucune partie classée</small><i><b /></i></div>
+  const division = rankedDivision(progress.rankedPoints, progress.rankedMatches)
+  const next = nextRankedDivision(progress.rankedPoints, progress.rankedMatches)
+  const placementProgress = Math.min(100, progress.rankedMatches / RANKED_PLACEMENT_MATCHES * 100)
+  const rankProgress = next && progress.rankedMatches >= RANKED_PLACEMENT_MATCHES
+    ? Math.min(100, Math.max(0, (progress.rankedPoints - division.minimum) / (next.minimum - division.minimum) * 100))
+    : next ? placementProgress : 100
+  return <section className={`mm-rank-progress ${progress.rankedMatches < RANKED_PLACEMENT_MATCHES ? 'mm-rank-progress-empty' : ''} ${compact ? 'compact' : ''}`} aria-label="Progression classée">
+    <img className="mm-rank-image" src={rankImage(division)} alt={`Rang ${division.label}`} />
+    <div className="mm-rank-copy"><strong>{division.label}</strong><span>{progress.rankedMatches < RANKED_PLACEMENT_MATCHES ? rankedPlacementLabel(progress.rankedMatches) : `${progress.rankedPoints} pt`}</span></div>
+    <div className="mm-progress"><small>{next ? progress.rankedMatches < RANKED_PLACEMENT_MATCHES ? 'Terminez vos placements' : `${next.minimum - progress.rankedPoints} pt avant ${next.label}` : 'Rang maximum'}</small><i><b style={{ width: `${rankProgress}%` }} /></i></div>
   </section>
 }
 

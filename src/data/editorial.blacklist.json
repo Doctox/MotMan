@@ -151,7 +151,6 @@
     "AVERTIN",
     "CARABAS",
     "COMTAT",
-    "ESSUIE",
     "IMAMAT",
     "MASTOC",
     "LAMINE",
@@ -1312,7 +1311,6 @@
     "NEED",
     "SNYDER",
     "STATES",
-    "STREAM",
     "THING",
     "TRE",
     "URBAN",
@@ -1625,7 +1623,6 @@
     "SERINEE",
     "ANGRY",
     "AVALAI",
-    "EPOUSA",
     "FRAPPA",
     "ILIENNE",
     "SALOPE",
@@ -1678,7 +1675,6 @@
     "ENERVE",
     "TAN",
     "PRIANT",
-    "SEDUIT",
     "TROTTE",
     "ENROLE",
     "GUERET",
@@ -1698,6 +1694,36 @@
     "REUNIT",
     "EDITE",
     "RESTEE"
+  ],
+  "registerPenaltyAnswers": [
+    {
+      "answer": "CIERGE",
+      "register": "traditionnel",
+      "penalty": 80,
+      "excludeFromNextPilot": true,
+      "reason": "Mot valide mais trop traditionnel pour le ton 16–45 ans recherché; retour propriétaire du 2026-07-21."
+    },
+    {
+      "answer": "ARDENT",
+      "register": "soutenu",
+      "penalty": 80,
+      "excludeFromNextPilot": true,
+      "reason": "Mot valide mais trop soutenu pour le prochain pilote 16–45 ans; retour propriétaire du 2026-07-21."
+    },
+    {
+      "answer": "FRIANDE",
+      "register": "soutenu",
+      "penalty": 80,
+      "excludeFromNextPilot": true,
+      "reason": "Forme valide mais registre trop soutenu pour le prochain pilote; à ne pas confondre avec une réponse invalide."
+    },
+    {
+      "answer": "EFFROI",
+      "register": "littéraire",
+      "penalty": 80,
+      "excludeFromNextPilot": true,
+      "reason": "Mot valide mais tonalité littéraire trop marquée pour le prochain pilote 16–45 ans."
+    }
   ],
   "rotationCooldownPolicy": "Réponses correctes mais temporairement interdites aux nouveaux lots tant que le catalogue actif ne les a pas suffisamment diluées.",
   "rotationCooldownAnswers": [
@@ -16059,6 +16085,16 @@
       "answer": "SEULES",
       "clue": "Isolées",
       "reason": "Flexion féminine plurielle imposée et indice interchangeable; rejet éditorial du pilote 7×8 le 2026-07-21."
+    },
+    {
+      "answer": "ONG",
+      "clue": "Organisation humanitaire",
+      "reason": "Définition trop large : une organisation humanitaire n'est pas nécessairement une ONG. Rejet du pilote 7×8 le 2026-07-21."
+    },
+    {
+      "answer": "SEREIN",
+      "clue": "Visage apaisé",
+      "reason": "Indice-image trop ambigu pour imposer l'adjectif SEREIN; conserver la réponse uniquement avec une définition textuelle exacte. Rejet du pilote 7×8 le 2026-07-21."
     }
   ],
   "rejectedShapeFingerprints": [
@@ -16212,7 +16248,7 @@
       "gridId": "compact-7x8-pop-owner-01",
       "rating": "positive",
       "difficultyFit": "motman-standard",
-      "comment": "Validée par le propriétaire le 2026-07-19 après remplacement de l'indice de FROTTE par « Astique »."
+      "comment": "Validée par le propriétaire le 2026-07-19, puis confirmée le 2026-07-28 avec l'exception explicite ESSUIE."
     },
     {
       "gridId": "compact-7x8-pop-owner-02",
@@ -16248,7 +16284,7 @@
       "gridId": "compact-7x8-pop-owner-07",
       "rating": "positive",
       "difficultyFit": "motman-standard",
-      "comment": "Grille compacte 7x8 validée par le propriétaire le 2026-07-19."
+      "comment": "Grille compacte 7x8 validée par le propriétaire le 2026-07-19, puis confirmée le 2026-07-28 avec l'exception explicite SEDUIT."
     },
     {
       "gridId": "compact-7x8-pop-owner-09",
@@ -16260,7 +16296,7 @@
       "gridId": "compact-7x8-pop-owner-10",
       "rating": "positive",
       "difficultyFit": "motman-standard",
-      "comment": "Grille compacte 7x8 validée par le propriétaire le 2026-07-19."
+      "comment": "Grille compacte 7x8 validée par le propriétaire le 2026-07-19, puis confirmée le 2026-07-28 avec l'exception explicite EPOUSA."
     }
   ]
 }

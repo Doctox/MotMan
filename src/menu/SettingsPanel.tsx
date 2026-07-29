@@ -1,7 +1,8 @@
-import type { ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { ChevronRight, FileText, LogIn, Moon, Settings, Sun, Type, UserPlus, Vibrate, Volume2, X } from 'lucide-react'
 import { appVersionDisplay } from '../appVersion'
 import type { GuestIdentity } from '../playerIdentity'
+import { readCachedServerAppVersion, refreshServerAppVersion } from '../serverAppVersion'
 import { useSensoryPreferences } from '../sensoryPreferences'
 import { useDialogFocus } from '../useDialogFocus'
 import type { Theme } from './types'
@@ -12,7 +13,19 @@ function ToggleRow({ icon, label, checked, setChecked }: { icon: ReactNode; labe
 
 export function SettingsPanel({ identity, close, openAccount, openFriends, openLegal, theme, setTheme }: { identity: GuestIdentity; close: () => void; openAccount: () => void; openFriends: () => void; openLegal: () => void; theme: Theme; setTheme: (theme: Theme) => void }) {
   const { preferences, setPreference } = useSensoryPreferences()
+  const [serverVersion, setServerVersion] = useState(readCachedServerAppVersion)
   const dialogRef = useDialogFocus<HTMLElement>(close)
+  useEffect(() => {
+    let mounted = true
+    void refreshServerAppVersion().then(version => {
+      if (mounted && version) setServerVersion(version)
+    })
+    return () => { mounted = false }
+  }, [])
+  const revisionLabel = serverVersion ? `#${serverVersion.revision}` : appVersionDisplay.updateLabel
+  const versionAccessibleLabel = serverVersion
+    ? `Révision serveur ${serverVersion.revision}, ${appVersionDisplay.accessibleLabel}`
+    : appVersionDisplay.accessibleLabel
   return <div className="mm-modal-layer" role="presentation" onMouseDown={event => event.target === event.currentTarget && close()}>
     <section ref={dialogRef} className="mm-settings" role="dialog" aria-modal="true" aria-label="Paramètres" tabIndex={-1}>
       <header><h2>Paramètres</h2><button type="button" onClick={close} aria-label="Fermer"><X /></button></header>
@@ -23,8 +36,8 @@ export function SettingsPanel({ identity, close, openAccount, openFriends, openL
       <button className="mm-settings-link" type="button" onClick={openFriends}><UserPlus /><span>Amis<small>Ajouter · retirer · bloquer</small></span><ChevronRight /></button>
       <button className="mm-settings-link" type="button" onClick={openAccount}><LogIn /><span>{identity.accountType === 'account' ? 'Compte synchronisé' : 'Créer ou retrouver un compte'}<small>{identity.accountType === 'account' ? identity.displayName : 'Sauvegarder votre progression'}</small></span><ChevronRight /></button>
       <button className="mm-settings-link" type="button" onClick={openLegal}><FileText /><span>Informations<small>Confidentialité · conditions · crédits</small></span><ChevronRight /></button>
-      <footer className="mm-settings-version" aria-label={appVersionDisplay.accessibleLabel}>
-        <strong>{appVersionDisplay.updateLabel}</strong>
+      <footer className="mm-settings-version" aria-label={versionAccessibleLabel}>
+        <strong>{revisionLabel}</strong>
         <span>{appVersionDisplay.buildLabel}</span>
       </footer>
     </section>

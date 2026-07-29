@@ -35,6 +35,8 @@ def fill_bitset(
     allowed_answers_by_slot: dict[int, set[str]] | None = None,
     undesirable_answers: set[str] | None = None,
     max_undesirable_answers: int | None = None,
+    required_answer_pool: set[str] | None = None,
+    minimum_required_answers: int = 0,
     prefer_constraint_support: bool = False,
     constraint_support_bucket_size: int = 1,
     branching_strategy: str = "slot",
@@ -47,6 +49,7 @@ def fill_bitset(
     reference_solutions: list[dict[int, str]] | None = None,
     minimum_solution_distance: int = 1,
     explore_randomly: bool = False,
+    capture_failure_patterns: bool = False,
     telemetry: dict | None = None,
 ) -> dict[int, str] | None:
     """Fill every declared slot with a real answer and exact crossing letters.
@@ -68,11 +71,14 @@ def fill_bitset(
     allowed_answers_by_slot = allowed_answers_by_slot or {}
     required_image_slots = required_image_slots or set()
     undesirable_answers = undesirable_answers or set()
+    required_answer_pool = required_answer_pool or set()
     reference_solutions = reference_solutions or []
     if solution_limit < 1:
         raise ValueError("solution_limit must be at least 1")
     if minimum_solution_distance < 0:
         raise ValueError("minimum_solution_distance cannot be negative")
+    if minimum_required_answers < 0:
+        raise ValueError("minimum_required_answers cannot be negative")
     if branching_strategy not in {"slot", "cell"}:
         raise ValueError(f"Unknown branching strategy: {branching_strategy}")
     if cell_letter_order not in {"quality", "support"}:
@@ -105,6 +111,7 @@ def fill_bitset(
         id(image_answers),
         frozenset(grammar_answers),
         frozenset(undesirable_answers),
+        frozenset(required_answer_pool),
     )
     compiled = _COMPILED_WORDLIST_CACHE.get(cache_key)
     index_cache_hit = compiled is not None and compiled[0] is by_length
@@ -118,6 +125,7 @@ def fill_bitset(
             image_masks,
             grammar_masks,
             undesirable_masks,
+            required_pool_masks,
         ) = compiled
     else:
         words_by_length = {length: list(words) for length, words in by_length.items()}
@@ -130,6 +138,7 @@ def fill_bitset(
         image_masks = {}
         grammar_masks = {}
         undesirable_masks = {}
+        required_pool_masks = {}
         for length, words in words_by_length.items():
             for position in range(length):
                 for letter_code in range(26):
@@ -155,6 +164,10 @@ def fill_bitset(
                 1 << index for index, word in enumerate(words)
                 if word in undesirable_answers
             )
+            required_pool_masks[length] = sum(
+                1 << index for index, word in enumerate(words)
+                if word in required_answer_pool
+            )
         if len(_COMPILED_WORDLIST_CACHE) >= 4:
             _COMPILED_WORDLIST_CACHE.clear()
         _COMPILED_WORDLIST_CACHE[cache_key] = (
@@ -166,6 +179,7 @@ def fill_bitset(
             image_masks,
             grammar_masks,
             undesirable_masks,
+            required_pool_masks,
         )
 
     domains = {}
@@ -241,6 +255,18 @@ def fill_bitset(
         same_length_groups[len(slots[variable].cells)].append(variable)
 
     last_contradiction: dict = {}
+    failure_patterns: Counter[tuple] = Counter()
+
+    def domain_pattern(variable: int, domain: int) -> str:
+        length = len(slots[variable].cells)
+        pattern = []
+        for position in range(length):
+            letters = [
+                code for code in range(26)
+                if domain & masks[length][position][code]
+            ]
+            pattern.append(chr(65 + letters[0]) if len(letters) == 1 else "?")
+        return "".join(pattern)
 
     def propagate(current: dict[int, int]) -> bool:
         nonlocal timeout
@@ -303,6 +329,24 @@ def fill_bitset(
                         neighborSlotId=getattr(slots[right], "slot_id", str(right)),
                         neighborPosition=right_position,
                     )
+                    if capture_failure_patterns:
+                        left_letters = tuple(
+                            chr(65 + code) for code in range(26)
+                            if current[left] & masks[left_length][left_position][code]
+                        )
+                        right_letters = tuple(
+                            chr(65 + code) for code in supported_letters
+                        )
+                        failure_patterns[(
+                            left,
+                            domain_pattern(left, current[left]),
+                            left_position,
+                            left_letters,
+                            right,
+                            domain_pattern(right, current[right]),
+                            right_position,
+                            right_letters,
+                        )] += 1
                     return False
                 if revised != current[left]:
                     current[left] = revised
@@ -326,6 +370,7 @@ def fill_bitset(
         certain_images = possible_images = 0
         certain_grammar = 0
         certain_undesirable = 0
+        possible_required = 0
         for variable, domain in current.items():
             length = len(slots[variable].cells)
             image_domain = domain & image_masks[length]
@@ -337,8 +382,11 @@ def fill_bitset(
                 certain_grammar += 1
             if domain & undesirable_masks[length] == domain:
                 certain_undesirable += 1
+            if domain & required_pool_masks[length]:
+                possible_required += 1
         return ((not require_image or (possible_images >= minimum_images and certain_images <= 6))
                 and certain_grammar <= max_grammar_answers
+                and possible_required >= minimum_required_answers
                 and (
                     max_undesirable_answers is None
                     or certain_undesirable <= max_undesirable_answers
@@ -399,6 +447,10 @@ def fill_bitset(
                 and sum(word in undesirable_answers for word in chosen.values())
                 > max_undesirable_answers
             ):
+                return None
+            if sum(
+                word in required_answer_pool for word in chosen.values()
+            ) < minimum_required_answers:
                 return None
             concepts = [concept_group[word] for word in chosen.values()]
             if len(concepts) != len(set(concepts)):
@@ -594,10 +646,27 @@ def fill_bitset(
         diversityRejectedSolutions=diversity_rejected_solutions,
         diversityRejectedByDistance=dict(sorted(diversity_rejected_by_distance.items())),
         minimumSolutionDistance=minimum_solution_distance,
+        minimumRequiredAnswers=minimum_required_answers,
         qualityOptimized=solution_limit > 1,
         randomExploration=explore_randomly,
         bestQuality=list(best_quality) if best_quality is not None else None,
         lastContradiction=last_contradiction or None,
+        failurePatterns=(
+            [
+                {
+                    "count": count,
+                    "leftSlot": key[0],
+                    "leftPattern": key[1],
+                    "leftPosition": key[2],
+                    "leftLetters": list(key[3]),
+                    "rightSlot": key[4],
+                    "rightPattern": key[5],
+                    "rightPosition": key[6],
+                    "rightLetters": list(key[7]),
+                }
+                for key, count in failure_patterns.most_common(25)
+            ] if capture_failure_patterns else []
+        ),
         reason="solved" if solved_domains is not None else ("timeout" if timeout else "infeasible"),
     )
     if solved_domains is None:

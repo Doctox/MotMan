@@ -53,6 +53,32 @@ body{overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
   .app-shell{padding-bottom:calc(34px + env(safe-area-inset-bottom))}
 }
 
+/* Capacitor locks the document so the board never slips under Android's
+   navigation bar. Finished matches can be taller than that fixed viewport,
+   so only the result card becomes scrollable when it needs more room. */
+.native-runtime .app-shell.is-finished{
+  height:100%;
+  min-height:0;
+  max-height:100%;
+  overflow:hidden;
+}
+.native-runtime .app-shell.is-finished .game-result-screen{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  scrollbar-color:#8ea99d transparent;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:calc(16px + env(safe-area-inset-bottom));
+}
+.native-runtime .app-shell.is-finished .game-result-screen::-webkit-scrollbar{width:5px}
+.native-runtime .app-shell.is-finished .game-result-screen::-webkit-scrollbar-track{background:transparent}
+.native-runtime .app-shell.is-finished .game-result-screen::-webkit-scrollbar-thumb{
+  border-radius:999px;background:#8ea99d;
+}
+
 /* The result screen offers the next action immediately without making grid feedback mandatory. */
 .solo-result,.multiplayer-result{display:grid;gap:13px}
 .solo-result h2,.multiplayer-result h2{margin-bottom:0}
@@ -70,3 +96,4 @@ body{overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
 [data-theme="dark"] .end-game-home{background:#22322d;border-color:#50635a;color:#e8f3ec}
 [data-theme="dark"] .result-feedback{border-color:#4d5c55}
 @media(max-width:360px){.end-game-actions{grid-template-columns:1fr}.end-game-actions .new-game,.end-game-home{height:42px}}
+.ranked-result-summary{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:11px;width:100%;padding:9px 13px;border:1px solid #cfb873;border-radius:13px;background:#fff8e6;color:#073f37}.ranked-result-summary img{width:62px;height:62px;object-fit:contain}.ranked-result-summary span{display:flex;flex-direction:column}.ranked-result-summary small{font-size:10px;color:#6d756d;text-transform:uppercase;letter-spacing:.06em}.ranked-result-summary strong{font:700 20px "Playfair Display",serif}.ranked-result-summary b{font-size:18px}.ranked-result-summary b.positive{color:#08745f}.ranked-result-summary b.negative{color:#c4472d}

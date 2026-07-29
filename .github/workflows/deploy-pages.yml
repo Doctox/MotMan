@@ -35,6 +35,12 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Audit production dependencies
+        run: npm audit --omit=dev
+
+      - name: Check static Google Play configuration
+        run: npm run audit:play -- --static
+
       - name: Check deployment configuration
         if: github.event_name != 'pull_request'
         shell: bash

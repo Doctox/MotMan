@@ -86,6 +86,34 @@ class BitsetGridFillerTests(unittest.TestCase):
         self.assertEqual("CAT", result[1])
         self.assertNotEqual("CAT", result[0])
 
+    def test_minimum_required_answer_pool_is_enforced(self) -> None:
+        slots = [
+            Slot("across", (row, -1), ((row, 0), (row, 1), (row, 2)))
+            for row in range(3)
+        ]
+        words = ["CAT", "DOG", "FOX", "HEN"]
+        scores = {"CAT": 100.0, "DOG": 90.0, "FOX": 2.0, "HEN": 1.0}
+        indexes = (
+            {3: words}, {}, scores,
+            {word: word for word in words},
+            {word: set() for word in words},
+            {word: "easy" for word in words}, set(),
+        )
+        telemetry = {}
+        result = fill_bitset(
+            slots, indexes, random.Random(6), None,
+            require_image=False,
+            quality_scores=scores,
+            required_answer_pool={"FOX", "HEN"},
+            minimum_required_answers=2,
+            solution_limit=16,
+            max_seconds=1,
+            telemetry=telemetry,
+        )
+        self.assertIsNotNone(result)
+        self.assertEqual(2, sum(word in {"FOX", "HEN"} for word in result.values()))
+        self.assertEqual(2, telemetry["minimumRequiredAnswers"])
+
     def test_crossing_slots_share_the_exact_letter(self) -> None:
         slots = [
             Slot("across", (1, -1), ((1, 0), (1, 1), (1, 2))),
@@ -136,6 +164,34 @@ class BitsetGridFillerTests(unittest.TestCase):
         self.assertEqual(result[0][1], result[1][1])
         self.assertGreater(telemetry["cellBranchNodes"], 0)
         self.assertEqual("cell", telemetry["branchingStrategy"])
+
+    def test_crossing_wipeout_can_capture_both_forced_patterns(self) -> None:
+        slots = [
+            Slot("across", (0, -1), ((0, 0), (0, 1), (0, 2))),
+            Slot("down", (-1, 0), ((0, 0), (1, 0), (2, 0))),
+        ]
+        words = ["ABC", "DEF"]
+        indexes = (
+            {3: words}, {}, {word: 5.0 for word in words},
+            {word: word for word in words},
+            {word: set() for word in words},
+            {word: "easy" for word in words}, set(),
+        )
+        telemetry = {}
+        result = fill_bitset(
+            slots, indexes, random.Random(16), None,
+            require_image=False,
+            fixed_answers={0: "ABC"},
+            allowed_answers_by_slot={1: {"DEF"}},
+            capture_failure_patterns=True,
+            max_seconds=1,
+            telemetry=telemetry,
+        )
+        self.assertIsNone(result)
+        self.assertEqual("ABC", telemetry["failurePatterns"][0]["leftPattern"])
+        self.assertEqual("DEF", telemetry["failurePatterns"][0]["rightPattern"])
+        self.assertEqual(["A"], telemetry["failurePatterns"][0]["leftLetters"])
+        self.assertEqual(["D"], telemetry["failurePatterns"][0]["rightLetters"])
 
     def test_bounded_editorial_search_keeps_the_best_complete_fill(self) -> None:
         slots = [

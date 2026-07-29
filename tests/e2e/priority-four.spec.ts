@@ -1,6 +1,29 @@
 import { expect, request as playwrightRequest, test } from '@playwright/test'
 import { randomUUID } from 'node:crypto'
 
+test('la navigation native reste entièrement au-dessus de la barre système Android', async ({ page, browserName }) => {
+  test.skip(browserName !== 'chromium', 'Le runtime Android utilise Chromium WebView.')
+  await page.goto('/')
+  await page.evaluate(() => document.documentElement.classList.add('native-runtime'))
+  await expect(page.locator('.mm-bottom-nav')).toBeVisible()
+
+  const geometry = await page.evaluate(() => {
+    const shell = document.querySelector<HTMLElement>('.mm-shell')
+    const navigation = document.querySelector<HTMLElement>('.mm-bottom-nav')
+    if (!shell || !navigation) throw new Error('Menu natif incomplet')
+    return {
+      viewportHeight: window.innerHeight,
+      documentHeight: document.documentElement.scrollHeight,
+      shellBottom: shell.getBoundingClientRect().bottom,
+      navigationBottom: navigation.getBoundingClientRect().bottom,
+    }
+  })
+
+  expect(geometry.documentHeight).toBeLessThanOrEqual(geometry.viewportHeight + 1)
+  expect(geometry.shellBottom).toBeLessThanOrEqual(geometry.viewportHeight + 1)
+  expect(geometry.navigationBottom).toBeLessThanOrEqual(geometry.viewportHeight - 4)
+})
+
 test('les informations légales restent lisibles sur mobile', async ({ page }, testInfo) => {
   await page.goto('/')
   await expect(page.locator('.mm-bottom-nav')).toBeVisible()
@@ -103,4 +126,20 @@ test('les derniers matchs libèrent la place quand un mode de jeu est ouvert', a
   await multiplayer.click()
   await expect(historyShell).toHaveAttribute('aria-hidden', 'true')
   await expect(historyShell).toHaveCSS('opacity', '0')
+})
+
+test('le mode classé affiche son emblème et explique la recherche en arrière-plan', async ({ page }, testInfo) => {
+  await page.goto('/#jouer')
+  await page.locator('#mm-multiplayer-accordion > .mm-panel-heading').click()
+  await page.locator('#mm-ranked-accordion > .mm-panel-heading').click()
+
+  const ranked = page.locator('.mm-ranked-mode')
+  await expect(ranked).toBeVisible()
+  await expect(ranked.locator('.mm-ranked-status img')).toHaveAttribute('src', /assets\/ranks\/rank-unranked\.png/)
+  await expect(ranked.getByRole('button', { name: /Lancer la recherche/ })).toBeVisible()
+  await expect(ranked).toContainText('45 s par tour')
+  await expect(ranked).toContainText('La recherche continue en arrière-plan')
+
+  await page.waitForTimeout(500)
+  await page.screenshot({ path: `output/quality/ranked-mode-${testInfo.project.name}.png`, fullPage: false })
 })

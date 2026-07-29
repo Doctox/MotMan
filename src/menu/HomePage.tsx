@@ -4,6 +4,7 @@ import type { PlayerCosmetics } from '../cosmetics'
 import type { MatchLobbyState, MatchState } from '../matches'
 import { playerInitials, type GuestIdentity } from '../playerIdentity'
 import { experienceGoalForLevel, MAX_PLAYER_LEVEL, type PlayerProgress } from '../playerProgress'
+import { rankImage, rankedDivision, rankedPlacementLabel } from '../ranked'
 import type { SocialState } from '../social'
 import { Avatar, SocialPortrait, presenceLabel } from './MenuChrome'
 
@@ -32,6 +33,7 @@ export function HomePage({ identity, progress, cosmetics, social, lobby, play, o
   const visibleFriends = [...social.friends].sort((left, right) => presenceWeight[right.activity] - presenceWeight[left.activity]).slice(0, 3)
   const xpGoal = experienceGoalForLevel(progress.level)
   const xpPercent = progress.level >= MAX_PLAYER_LEVEL ? 100 : Math.min(100, progress.xp / xpGoal * 100)
+  const currentRank = rankedDivision(progress.rankedPoints, progress.rankedMatches)
   const currentMatches = lobby.active
     .filter(match => match.pace === 'async')
     .sort((left, right) => {
@@ -47,7 +49,9 @@ export function HomePage({ identity, progress, cosmetics, social, lobby, play, o
           <h1>{identity.displayName}</h1>
           <span className="mm-home-feathers" aria-label={`${frenchNumber.format(cosmetics.plumes)} plumes`}><Feather aria-hidden="true" /><b>{frenchNumber.format(cosmetics.plumes)}</b></span>
         </div>
-        <span>Niveau {progress.level}</span><small>Rang actuel</small><strong>Non classé</strong>
+        <span>Niveau {progress.level}</span><small>Rang actuel</small>
+        <strong className="mm-home-rank"><img src={rankImage(currentRank)} alt="" />{currentRank.label}</strong>
+        {progress.rankedMatches < 5 ? <em>{rankedPlacementLabel(progress.rankedMatches)}</em> : null}
       </div>
       <div className="mm-home-xp"><span>{progress.level >= MAX_PLAYER_LEVEL ? 'Niveau max' : `${progress.xp} / ${xpGoal} XP`}</span><i><b style={{ width: `${xpPercent}%` }} /></i></div>
     </section>

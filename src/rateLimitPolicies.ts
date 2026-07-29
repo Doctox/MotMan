@@ -38,6 +38,15 @@ export function actionRateLimits(
   if (api === 'match' && action === 'search') {
     return [{ bucket: 'match:search', maxRequests: isAnonymous ? 12 : 24, windowSeconds: 300 }]
   }
+  if (api === 'match' && action === 'ranked-search') {
+    return [{ bucket: 'match:ranked-search', maxRequests: isAnonymous ? 8 : 20, windowSeconds: 300 }]
+  }
+  if (api === 'match' && (action === 'ranked-ready-response' || action === 'ranked-cancel')) {
+    return [{ bucket: `match:${action}`, maxRequests: 12, windowSeconds: 60 }]
+  }
+  if (api === 'match' && action === 'ranked-leaderboard') {
+    return [{ bucket: 'match:ranked-leaderboard', maxRequests: 30, windowSeconds: 60 }]
+  }
   if (api === 'match' && action === 'solo') {
     return [{ bucket: 'match:solo', maxRequests: isAnonymous ? 20 : 40, windowSeconds: 600 }]
   }
@@ -52,6 +61,13 @@ export function actionRateLimits(
   }
   if (api === 'match' && action === 'feedback') {
     return [{ bucket: 'match:feedback', maxRequests: 20, windowSeconds: 3600 }]
+  }
+  if (api === 'account' && action === 'grid-usage-snapshot') {
+    return [{
+      bucket: 'account:grid-usage-snapshot',
+      maxRequests: isAnonymous ? 6 : 12,
+      windowSeconds: 600,
+    }]
   }
   return []
 }

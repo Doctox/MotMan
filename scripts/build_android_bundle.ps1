@@ -1,5 +1,7 @@
 param(
-    [switch]$SkipSync
+    [switch]$SkipSync,
+    [switch]$AllowUnsigned,
+    [switch]$AllowWithoutFirebase
 )
 
 $ErrorActionPreference = 'Stop'
@@ -25,6 +27,25 @@ if (-not $env:ANDROID_HOME) {
     $env:ANDROID_HOME = Join-Path $env:LOCALAPPDATA 'Android\Sdk'
 }
 
+$signingVariables = @{
+    MOTMAN_KEYSTORE_PATH = $env:MOTMAN_KEYSTORE_PATH
+    MOTMAN_KEYSTORE_PASSWORD = $env:MOTMAN_KEYSTORE_PASSWORD
+    MOTMAN_KEY_ALIAS = $env:MOTMAN_KEY_ALIAS
+    MOTMAN_KEY_PASSWORD = $env:MOTMAN_KEY_PASSWORD
+}
+$missingSigningVariables = @($signingVariables.Keys | Where-Object { -not $signingVariables[$_] })
+if ($missingSigningVariables.Count -gt 0 -and -not $AllowUnsigned) {
+    throw "Bundle Play refusé : variables de signature absentes ($($missingSigningVariables -join ', ')). Utilisez -AllowUnsigned uniquement pour un diagnostic local."
+}
+if ($missingSigningVariables.Count -eq 0 -and -not (Test-Path -LiteralPath $env:MOTMAN_KEYSTORE_PATH)) {
+    throw "Keystore introuvable : $($env:MOTMAN_KEYSTORE_PATH)"
+}
+
+$googleServicesPath = Join-Path $projectRoot 'android\app\google-services.json'
+if (-not (Test-Path -LiteralPath $googleServicesPath) -and -not $AllowWithoutFirebase) {
+    throw 'Bundle Play refusé : android\app\google-services.json est absent. Utilisez -AllowWithoutFirebase uniquement pour un diagnostic local.'
+}
+
 Push-Location $projectRoot
 try {
     if (-not $SkipSync) {
@@ -47,16 +68,18 @@ try {
     $bundle = Get-Item (Join-Path $projectRoot 'android\app\build\outputs\bundle\release\app-release.aab')
     Write-Host "Bundle créé : $($bundle.FullName) ($([math]::Round($bundle.Length / 1MB, 2)) Mo)"
 
-    $signingVariables = @(
-        $env:MOTMAN_KEYSTORE_PATH,
-        $env:MOTMAN_KEYSTORE_PASSWORD,
-        $env:MOTMAN_KEY_ALIAS,
-        $env:MOTMAN_KEY_PASSWORD
-    )
-    if ($signingVariables -contains $null -or $signingVariables -contains '') {
+    if ($missingSigningVariables.Count -gt 0) {
         Write-Warning 'Bundle non signé : configurez les quatre variables MOTMAN_* avant un envoi dans Google Play.'
     }
     else {
+        $jarsigner = Join-Path $env:JAVA_HOME 'bin\jarsigner.exe'
+        $signatureOutput = (& $jarsigner -verify $bundle.FullName 2>&1) -join [Environment]::NewLine
+        if (
+            $LASTEXITCODE -ne 0 -or
+            $signatureOutput -match '(?i)jar is unsigned|non signé|non signe'
+        ) {
+            throw 'La vérification de signature du bundle a échoué : le fichier produit n’est pas signé.'
+        }
         Write-Host 'Signature de publication configurée via les variables MOTMAN_*.'
     }
 }

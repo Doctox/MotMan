@@ -40,13 +40,17 @@ export type PlayerTitle = {
 }
 
 export type PlayerProgress = {
-  version: 3
+  version: 4
   playerId: string
   level: number
   xp: number
   lifetimeXp: number
   rankedPoints: number
-  rankedDivision: null
+  rankedMatches: number
+  rankedWins: number
+  rankedLosses: number
+  rankedDraws: number
+  rankedPeakPoints: number
   wins: number
   losses: number
   activeMatchIds: string[]
@@ -77,13 +81,17 @@ function lifetimeXpAtLevel(level: number): number {
 
 function createPlayerProgress(playerId: string): PlayerProgress {
   return {
-    version: 3,
+    version: 4,
     playerId,
     level: 1,
     xp: 0,
     lifetimeXp: 0,
     rankedPoints: 0,
-    rankedDivision: null,
+    rankedMatches: 0,
+    rankedWins: 0,
+    rankedLosses: 0,
+    rankedDraws: 0,
+    rankedPeakPoints: 0,
     wins: 0,
     losses: 0,
     activeMatchIds: [],
@@ -117,13 +125,17 @@ function migratePlayerProgress(value: unknown, playerId: string): PlayerProgress
   const titles = Array.isArray(stored.titles) ? stored.titles : localTitlesForLevel(level)
   const unlockedTitleIds = new Set(titles.filter(title => title.unlocked).map(title => title.id))
   return {
-    version: 3,
+    version: 4,
     playerId,
     level,
     xp,
     lifetimeXp: typeof stored.lifetimeXp === 'number' ? Math.max(0, Math.floor(stored.lifetimeXp)) : lifetimeXpAtLevel(level) + xp,
     rankedPoints: typeof stored.rankedPoints === 'number' ? stored.rankedPoints : 0,
-    rankedDivision: null,
+    rankedMatches: typeof stored.rankedMatches === 'number' ? Math.max(0, Math.floor(stored.rankedMatches)) : 0,
+    rankedWins: typeof stored.rankedWins === 'number' ? Math.max(0, Math.floor(stored.rankedWins)) : 0,
+    rankedLosses: typeof stored.rankedLosses === 'number' ? Math.max(0, Math.floor(stored.rankedLosses)) : 0,
+    rankedDraws: typeof stored.rankedDraws === 'number' ? Math.max(0, Math.floor(stored.rankedDraws)) : 0,
+    rankedPeakPoints: typeof stored.rankedPeakPoints === 'number' ? Math.max(0, Math.floor(stored.rankedPeakPoints)) : 0,
     wins: typeof stored.wins === 'number' ? stored.wins : 0,
     losses: typeof stored.losses === 'number' ? stored.losses : 0,
     activeMatchIds: Array.isArray(stored.activeMatchIds) ? stored.activeMatchIds : [],
@@ -146,7 +158,7 @@ export function loadPlayerProgress(playerId: string): PlayerProgress {
       const parsed = JSON.parse(stored) as { version?: number }
       const migrated = migratePlayerProgress(parsed, playerId)
       if (migrated) {
-        if (parsed.version !== 2) savePlayerProgress(migrated)
+        if (parsed.version !== 4) savePlayerProgress(migrated)
         return migrated
       }
     }

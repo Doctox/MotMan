@@ -93,8 +93,14 @@ pas écrire manuellement un classement PEGI dans la fiche avant ce résultat.
 ## Contrôles avant envoi
 
 1. `npm run test:ci`
-2. `npm run mobile:aab`
-3. Installer le bundle depuis une piste de test interne.
-4. Tester compte invité, Google, suppression, achat de test, notifications,
+2. `npm run audit:play`
+3. `npm run mobile:aab`
+4. Installer le bundle depuis une piste de test interne.
+5. Tester compte invité, Google, suppression, achat de test, notifications,
    mode hors-ligne/reconnexion et deux téléphones en multijoueur.
-5. Vérifier Crashlytics et les ANR dans la Play Console après le test fermé.
+6. Vérifier Crashlytics et les ANR dans la Play Console après le test fermé.
+
+`npm run mobile:aab` refuse désormais de fabriquer un candidat Play si la
+signature ou `android/app/google-services.json` manque. Pour un diagnostic
+local sans publication, il reste possible d'appeler directement le script avec
+`-AllowUnsigned` et/ou `-AllowWithoutFirebase`.

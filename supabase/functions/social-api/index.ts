@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import { createHttpResponder, logServerError } from '../_shared/http.ts'
+import { loadPublicProfiles } from '../_shared/publicProfiles.ts'
 import { enforceRateLimits, RateLimitExceededError } from '../_shared/rateLimit.ts'
 
 Deno.serve(async request => {
@@ -21,12 +22,6 @@ Deno.serve(async request => {
   try { body = await request.json() } catch { return json(400, { error: 'Requête invalide.' }) }
   const action = typeof body.action === 'string' ? body.action : 'state'
 
-  const publicProfile = async (id: string) => {
-    const { data } = await admin.from('profiles').select('id,display_name,friend_code,avatar_id,frame_id,animation_id,activity,last_seen').eq('id', id).single()
-    if (!data) return null
-    const online = Date.now() - new Date(data.last_seen).getTime() < 30000
-    return { playerId: data.id, displayName: data.display_name, code: data.friend_code, online, activity: online ? data.activity : 'offline', avatarId: data.avatar_id, frameId: data.frame_id, animationId: data.animation_id }
-  }
   const state = async () => {
     const [{ data: friendshipRows }, { data: incomingRows }, { data: outgoingRows }, { data: blockedRows }] = await Promise.all([
       admin.from('friendships').select('*').or(`left_user_id.eq.${user.id},right_user_id.eq.${user.id}`),
@@ -34,16 +29,38 @@ Deno.serve(async request => {
       admin.from('friend_requests').select('*').eq('from_user_id', user.id),
       admin.from('blocks').select('*').eq('owner_id', user.id),
     ])
-    const friends = (await Promise.all((friendshipRows ?? []).map(async row => ({ user: await publicProfile(row.left_user_id === user.id ? row.right_user_id : row.left_user_id), since: row.created_at })))).flatMap(item => item.user ? [{ ...item.user, since: item.since }] : [])
-    const incoming = (await Promise.all((incomingRows ?? []).map(async row => ({ id: row.id, createdAt: row.created_at, user: await publicProfile(row.from_user_id) })))).filter(item => item.user)
-    const outgoing = (await Promise.all((outgoingRows ?? []).map(async row => ({ id: row.id, createdAt: row.created_at, user: await publicProfile(row.to_user_id) })))).filter(item => item.user)
-    const blocked = (await Promise.all((blockedRows ?? []).map(async row => ({ user: await publicProfile(row.blocked_id), blockedAt: row.created_at })))).flatMap(item => item.user ? [{ ...item.user, blockedAt: item.blockedAt }] : [])
+    const profileIds = [
+      ...(friendshipRows ?? []).map(row => row.left_user_id === user.id ? row.right_user_id : row.left_user_id),
+      ...(incomingRows ?? []).map(row => row.from_user_id),
+      ...(outgoingRows ?? []).map(row => row.to_user_id),
+      ...(blockedRows ?? []).map(row => row.blocked_id),
+    ]
+    const profiles = await loadPublicProfiles(admin, profileIds, { normalizeOfflineActivity: true })
+    const friends = (friendshipRows ?? []).flatMap(row => {
+      const friendId = row.left_user_id === user.id ? row.right_user_id : row.left_user_id
+      const friend = profiles.get(friendId)
+      return friend ? [{ ...friend, since: row.created_at }] : []
+    })
+    const incoming = (incomingRows ?? []).map(row => ({
+      id: row.id,
+      createdAt: row.created_at,
+      user: profiles.get(row.from_user_id) ?? null,
+    })).filter(item => item.user)
+    const outgoing = (outgoingRows ?? []).map(row => ({
+      id: row.id,
+      createdAt: row.created_at,
+      user: profiles.get(row.to_user_id) ?? null,
+    })).filter(item => item.user)
+    const blocked = (blockedRows ?? []).flatMap(row => {
+      const blockedUser = profiles.get(row.blocked_id)
+      return blockedUser ? [{ ...blockedUser, blockedAt: row.created_at }] : []
+    })
     return { friends, incoming, outgoing, blocked }
   }
 
   try {
     await enforceRateLimits(admin, 'social', user.id, user.is_anonymous === true, action)
-    if (action === 'state' || action === 'presence') {
+    if (action === 'presence') {
       await admin.from('profiles').update({ activity: body.activity === 'playing' ? 'playing' : 'online', last_seen: new Date().toISOString() }).eq('id', user.id)
     } else if (action === 'request') {
       const { count: pendingCount } = await admin.from('friend_requests').select('id', { count: 'exact', head: true }).eq('from_user_id', user.id)

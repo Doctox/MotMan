@@ -27,4 +27,4 @@ export const ASYNC_SEARCH_DURATION_MS = 7 * 24 * 60 * 60 * 1_000
 export const REALTIME_BOT_MATCH_DELAY_MS = Math.max(1_000, Number(process.env.MOTMAN_REALTIME_BOT_DELAY_MS) || 30_000)
 export const ASYNC_BOT_MATCH_DELAY_MS = Math.max(1_000, Number(process.env.MOTMAN_ASYNC_BOT_DELAY_MS) || 30_000)
 export const MAX_ASYNC_MATCHES = 3
-export const RECENT_GRID_HISTORY_LIMIT = 12
+export const RECENT_GRID_HISTORY_LIMIT = 5

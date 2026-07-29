@@ -22,7 +22,135 @@ def codes(answer: str, clue: str, **extra) -> set[str]:
     }
 
 
+def reviewed_pilot_item(answer: str, clue: str, **extra) -> dict:
+    item = {
+        "answer": answer,
+        "clue": clue,
+        "sourceId": "manual",
+        "sourceUrl": "local://pilot",
+        "sourceType": "editorial",
+        "familiarityScore": 90,
+        "familiarityBand": "common",
+        "partOfSpeech": "nom",
+        "languageStatus": "french",
+        "culturalStatus": "everyday",
+        "clueStyle": "direct",
+        "editorialReview": {
+            "semanticFit": True,
+            "grammaticalFit": True,
+            "unambiguous": True,
+            "answerNotRevealed": True,
+            "languageAcceptable": True,
+            "allAudience": True,
+        },
+    }
+    item.update(extra)
+    return item
+
+
 class EditorialQualityTests(unittest.TestCase):
+
+    def test_lexicalized_label_cannot_hide_an_inflected_fill_verb(self) -> None:
+        item = reviewed_pilot_item(
+            "ARROSE",
+            "Mouillé",
+            partOfSpeech="adjectif lexicalisé",
+        )
+        self.assertIn(
+            "pilot_unapproved_lexicalized_verbal_form",
+            {error["code"] for error in pilot_editorial_errors(item)},
+        )
+
+    def test_autonomous_verbal_adjective_requires_explicit_allowlist_review(self) -> None:
+        item = reviewed_pilot_item(
+            "RAVI",
+            "Très content",
+            partOfSpeech="adjectif lexicalisé",
+            lexicalAutonomyReview={
+                "status": "human-reviewed-approved",
+                "autonomousOutsideVerbContext": True,
+            },
+        )
+        self.assertNotIn(
+            "pilot_unapproved_lexicalized_verbal_form",
+            {error["code"] for error in pilot_editorial_errors(item)},
+        )
+
+    def test_generic_character_clue_is_rejected_even_when_reviewed(self) -> None:
+        item = reviewed_pilot_item(
+            "MAGNETO",
+            "Mutant X-Men",
+            partOfSpeech="nom propre",
+            languageStatus="known-proper-name",
+            culturalStatus="current-pop",
+            properNameReview={
+                "status": "human-reviewed-distinctive",
+                "clueUniquenessChecked": True,
+                "entityType": "personnage",
+                "distinctiveTokens": ["magnétisme"],
+            },
+        )
+        found = {error["code"] for error in pilot_editorial_errors(item)}
+        self.assertIn("pilot_generic_proper_name_clue", found)
+        self.assertIn("pilot_proper_name_clue_not_distinctive", found)
+
+    def test_distinctive_character_clue_with_evidence_is_accepted(self) -> None:
+        item = reviewed_pilot_item(
+            "MAGNETO",
+            "Maître du magnétisme",
+            partOfSpeech="nom propre",
+            languageStatus="known-proper-name",
+            culturalStatus="current-pop",
+            properNameReview={
+                "status": "human-reviewed-distinctive",
+                "clueUniquenessChecked": True,
+                "entityType": "personnage",
+                "distinctiveTokens": ["magnétisme"],
+            },
+        )
+        found = {error["code"] for error in pilot_editorial_errors(item)}
+        self.assertNotIn("pilot_generic_proper_name_clue", found)
+        self.assertNotIn("pilot_proper_name_clue_not_distinctive", found)
+        self.assertNotIn("pilot_proper_name_review_failed", found)
+
+    def test_pilot_accepts_only_reviewed_two_letter_answers(self) -> None:
+        base = {
+            "clue": "Métal précieux",
+            "sourceId": "manual",
+            "sourceUrl": "local://pilot",
+            "sourceType": "editorial",
+            "familiarityScore": 95,
+            "familiarityBand": "common",
+            "partOfSpeech": "noun",
+            "languageStatus": "french",
+            "culturalStatus": "everyday",
+            "clueStyle": "direct",
+            "editorialReview": {
+                "semanticFit": True,
+                "grammaticalFit": True,
+                "unambiguous": True,
+                "answerNotRevealed": True,
+                "languageAcceptable": True,
+                "allAudience": True,
+            },
+        }
+        accepted = {error["code"] for error in pilot_editorial_errors({
+            **base, "answer": "OR",
+        })}
+        rejected = {error["code"] for error in pilot_editorial_errors({
+            **base, "answer": "SS",
+        })}
+        self.assertNotIn("pilot_answer_too_short", accepted)
+        self.assertNotIn("pilot_two_letter_answer_not_reviewed", accepted)
+        self.assertIn("pilot_two_letter_answer_not_reviewed", rejected)
+
+    def test_pilot_still_rejects_a_one_letter_answer(self) -> None:
+        self.assertIn(
+            "pilot_answer_too_short",
+            {error["code"] for error in pilot_editorial_errors({
+                "answer": "A", "clue": "Lettre",
+            })},
+        )
 
     def test_pilot_requires_explicit_semantic_and_grammatical_review(self) -> None:
         item = {

@@ -18,6 +18,8 @@ import {
 import { subscribeToMatchUpdates } from './matchRealtime'
 import { matchPollDelay } from './matchSyncPolicy'
 import { loadPlayerIdentity, playerInitials } from './playerIdentity'
+import { presenceHeartbeatDelay } from './presencePolicy'
+import { RankedMatchPausedOverlay } from './RankedReadyOverlay'
 import { createMatchRackTiles, type RackTile } from './rackTiles'
 import { haptic, playEffect } from './sensoryPreferences'
 import { reportPlayer, setSocialPresence } from './social'
@@ -90,11 +92,11 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   const syncFailuresRef = useRef(0)
   const loadedGridId = useRef<string | null>(null)
 
-  const assignedToMe = match?.status === 'active' && match.currentPlayerId === playerId
+  const assignedToMe = match?.status === 'active' && !match.pause && match.currentPlayerId === playerId
   const turnPhase = useTurnPhase(match)
   const turnHasStarted = turnPhase.started
   const isMyTurn = Boolean(assignedToMe && turnHasStarted && !turnPhase.expired)
-  const canAct = Boolean(isMyTurn && !turnAlert)
+  const canAct = Boolean(isMyTurn && !turnAlert && !match?.pause)
   const isAsync = match?.pace === 'async'
   const opponent = match?.players.find(player => player.playerId !== playerId)
   const opponentId = match?.playerIds.find(id => id !== playerId) ?? ''
@@ -315,10 +317,14 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   useEffect(() => { resolvingRef.current = resolving }, [resolving])
   useEffect(() => { hintRequestingRef.current = hintRequesting }, [hintRequesting])
   useEffect(() => {
-    const heartbeat = () => void setSocialPresence(playerId, 'playing').catch(() => undefined)
-    heartbeat()
-    const interval = window.setInterval(heartbeat, 10_000)
-    return () => { window.clearInterval(interval); void setSocialPresence(playerId, 'online').catch(() => undefined) }
+    const presence = startAdaptivePolling({
+      task: () => setSocialPresence(playerId, 'playing').catch(() => undefined),
+      delay: presenceHeartbeatDelay,
+    })
+    return () => {
+      presence.stop()
+      void setSocialPresence(playerId, 'online').catch(() => undefined)
+    }
   }, [playerId])
 
   useEffect(() => {
@@ -334,15 +340,15 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   }, [isMyTurn, match?.status, opponentName])
 
   useEffect(() => {
-    if (assignedToMe && turnHasStarted && turnPhase.expired && match && !submittedTurns.current.has(match.turnNumber)) {
+    if (assignedToMe && !match?.pause && turnHasStarted && turnPhase.expired && match && !submittedTurns.current.has(match.turnNumber)) {
       submitTurnRef.current(true)
     }
-  }, [assignedToMe, match, turnHasStarted, turnPhase.expired])
+  }, [assignedToMe, match, match?.pause, turnHasStarted, turnPhase.expired])
 
   useEffect(() => {
     if (!match || resolving) return
-    setStatus(match.status === 'finished' ? 'Partie terminée' : isMyTurn ? 'À vous de jouer' : `Au tour de ${opponentName}`)
-  }, [isMyTurn, match?.status, match?.turnNumber, opponentName, resolving])
+    setStatus(match.status === 'finished' ? 'Partie terminée' : match.pause ? 'Partie en pause' : isMyTurn ? 'À vous de jouer' : `Au tour de ${opponentName}`)
+  }, [isMyTurn, match?.status, match?.turnNumber, match?.pause, opponentName, resolving])
 
   const placeTile = (tile: Tile, cellIndex: number, origin: 'rack' | number = 'rack') => {
     if (!canAct || resolving || !grid || match?.board[cellIndex] || grid.cells[cellIndex].kind !== 'letter') return
@@ -520,7 +526,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   return <main className={`app-shell multiplayer-shell ${turnAlert ? 'turn-alerting' : ''} ${resolving ? 'is-resolving' : ''} ${presentationPhase === 'result' ? 'is-finished' : ''}`}>
     <header><button type="button" disabled={match.status === 'finished'} aria-label={match.status === 'active' && isAsync ? 'Retour à toutes les parties' : match.status === 'active' ? 'Options de sortie' : resolving ? 'Résultats en cours' : 'Validez le résultat ci-dessous'} onClick={() => match.status === 'active' && isAsync ? onHome() : match.status === 'active' ? setLeaveOpen(true) : undefined}><ArrowLeft /></button><img className="game-brand-logo" src={assetUrl('/assets/motman-logo-v2.webp')} alt="MotMan" /><button type="button" aria-label="Paramètres" onClick={() => setOptionsOpen(true)}><Settings /></button></header>
     {showGame ? <><section className="scoreboard"><DuelPlayer name={opponentName} detail={match.bot ? `Niv. ${match.bot.level}` : undefined} score={opponentScore} initials={playerInitials(opponentName)} avatarId={match.bot?.avatarId ?? opponent?.avatarId} frameId={match.bot?.frameId ?? opponent?.frameId} animationId={opponent?.animationId} active={match.status === 'active' && turnHasStarted && !assignedToMe} /><div className={`turn ${turnPhase.urgent && isMyTurn ? 'urgent' : ''} ${isAsync ? 'async-turn' : ''} ${turnAlert ? 'your-turn-pulse' : ''}`} aria-live="polite"><small>{resolving || !turnHasStarted ? 'Résultats' : isMyTurn ? 'Votre tour' : `Tour de ${opponentName}`}</small><TurnTimer match={match} resolving={resolving} started={turnHasStarted} /><strong>{status}</strong></div><DuelPlayer name="Vous" score={myScore} initials={playerInitials(identity.current.displayName)} avatarId={playerCosmetics.current.equippedAvatarId} frameId={playerCosmetics.current.equippedFrameId} animationId={playerCosmetics.current.equippedAnimationId} active={Boolean(match.status === 'active' && isMyTurn)} player /></section>
-    <p className="instruction duel-instruction"><span>{match.mode === 'solo' ? 'Solo' : match.mode === 'normal' ? 'Normal' : 'Duel ami'}{match.bot ? ` · Bot ${DIFFICULTY_LABELS[match.difficulty].toLowerCase()}` : ''} · {isAsync ? '24 h par tour' : '45 s par tour'}</span><span className={`duel-live ${isAsync ? 'async' : ''}`} aria-label={isAsync ? 'Partie en temps illimité' : 'Partie en temps limité'}>{isAsync ? <Hourglass /> : <i />}{isAsync ? 'ILLIMITÉ' : 'LIMITÉ'}</span></p>
+    <p className="instruction duel-instruction"><span>{match.mode === 'solo' ? 'Solo' : match.mode === 'ranked' ? 'Classé' : match.mode === 'normal' ? 'Normal' : 'Duel ami'}{match.bot ? ` · Bot ${DIFFICULTY_LABELS[match.difficulty].toLowerCase()}` : ''} · {isAsync ? '24 h par tour' : '45 s par tour'}</span><span className={`duel-live ${isAsync ? 'async' : ''}`} aria-label={isAsync ? 'Partie en temps illimité' : 'Partie en temps limité'}>{isAsync ? <Hourglass /> : <i />}{match.mode === 'ranked' ? 'CLASSÉ' : isAsync ? 'ILLIMITÉ' : 'LIMITÉ'}</span></p>
     {myInactivity || opponentInactivity ? <div className="duel-inactivity" aria-label="Avertissements d’inactivité">
       {opponentInactivity ? <span><b>{opponentName}</b> {opponentInactivity}/3</span> : null}
       {myInactivity ? <span className="mine"><b>Vous</b> {myInactivity}/3</span> : null}
@@ -561,6 +567,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     {drag ? <div ref={ghostRef} className="drag-ghost" style={{ left: drag.x, top: drag.y }}>{drag.tile.letter}</div> : null}
     {hintFlight ? <span className="hint-flight" style={{ left: hintFlight.fromX, top: hintFlight.fromY, '--hint-dx': `${hintFlight.deltaX}px`, '--hint-dy': `${hintFlight.deltaY}px`, '--hint-mid-x': `${hintFlight.deltaX * .7}px`, '--hint-mid-y': `${hintFlight.deltaY * .7 - 10}px` } as CSSProperties}>{hintFlight.letter}</span> : null}
     {turnAlert ? <div className="turn-ready-flash" role="status"><span>À vous !</span></div> : null}
+    {match.pause ? <RankedMatchPausedOverlay opponentName={opponentName} expiresAt={match.pause.expiresAt} /> : null}
     {expandedClue ? <ClueZoom entry={expandedClue} onClose={() => setExpandedClue(null)} /> : null}
     {leaveOpen ? <LeaveMatchPanel opponentName={opponentName} isAsync={Boolean(isAsync)} cancel={() => setLeaveOpen(false)} continueLater={isAsync ? onHome : undefined} leave={() => void leave()} /> : null}
     {optionsOpen ? <GameOptionsOverlay close={() => setOptionsOpen(false)} report={match.bot ? undefined : () => setReportOpen(true)} leaveMatch={match.status === 'active' ? () => setLeaveOpen(true) : undefined} /> : null}

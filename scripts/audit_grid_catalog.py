@@ -9,10 +9,35 @@ from pathlib import Path
 from import_crossword_corpus import clue_tokens
 from grid_topology import audit_grid_topology, render_topology_html
 from editorial_quality import pilot_editorial_errors
+from pilot_two_letter_policy import (
+    MAXIMUM_TWO_LETTER_ANSWERS,
+    MINIMUM_TWO_LETTER_ANSWERS,
+    valid_two_letter_answer_count,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
 LEVELS = ("easy", "normal", "hard")
+
+
+def current_audience_answers(words: list[dict]) -> list[str]:
+    """Return explicit 16-45 anchors, never inferred from raw frequency alone."""
+    return sorted({
+        str(word.get("answer", "")).upper()
+        for word in words
+        if word.get("answer") and (
+            word.get("culturalStatus") in {"current-common", "current-pop"}
+            or word.get("languageStatus") == "common-anglicism"
+        )
+    })
+
+
+def pilot_two_letter_answers(words: list[dict]) -> list[str]:
+    return [
+        str(word.get("answer", "")).upper()
+        for word in words
+        if len(str(word.get("answer", ""))) == 2
+    ]
 
 
 def main() -> None:
@@ -65,15 +90,22 @@ def main() -> None:
     errors = []
     report = {}
     topology_reports = []
+    standard_profile = (
+        catalog.get("editorialProfile") == "motman-standard"
+        or all("difficulty" not in grid for grid in catalog["grids"])
+    )
+    topology_profile = (
+        "pilot"
+        if args.profile == "pilot-7x8"
+        else "runtime" if standard_profile else "legacy"
+    )
 
     for grid in catalog["grids"]:
         topology = audit_grid_topology(
             grid,
             require_word_ids=not args.allow_legacy_word_ids,
             enforce_layout=False,
-            topology_profile=(
-                "pilot" if args.profile == "pilot-7x8" else "legacy"
-            ),
+            topology_profile=topology_profile,
         )
         topology["quarantined"] = grid["id"] in quarantined_ids
         topology_reports.append(topology)
@@ -111,6 +143,13 @@ def main() -> None:
         for grid in catalog["grids"]:
             grid_id = str(grid.get("id", "<sans-id>"))
             words = grid.get("words", [])
+            two_letter_answers = pilot_two_letter_answers(words)
+            if not valid_two_letter_answer_count(len(two_letter_answers)):
+                errors.append(
+                    f"{grid_id}: {len(two_letter_answers)} réponse(s) de deux lettres "
+                    f"au lieu de {MINIMUM_TWO_LETTER_ANSWERS} à "
+                    f"{MAXIMUM_TWO_LETTER_ANSWERS}"
+                )
             image_count = sum(bool(word.get("image")) for word in words)
             if not 4 <= image_count <= 6:
                 errors.append(f"{grid_id}: {image_count} images au lieu de 4 à 6")
@@ -121,6 +160,12 @@ def main() -> None:
                 errors.append(
                     f"{grid_id}: équilibre lexical hors cible "
                     f"({common_count} courants, {thoughtful_count} réfléchis)"
+                )
+            current_answers = current_audience_answers(words)
+            if len(current_answers) < 2:
+                errors.append(
+                    f"{grid_id}: ancrage 16-45 ans insuffisant "
+                    f"({len(current_answers)} réponse actuelle; minimum 2)"
                 )
             text_words = [word for word in words if not word.get("image")]
             direct_count = sum(word.get("clueStyle") == "direct" for word in text_words)
@@ -158,9 +203,13 @@ def main() -> None:
             pilot_metrics.append({
                 "gridId": grid_id,
                 "answers": len(words),
+                "twoLetterAnswers": two_letter_answers,
+                "twoLetterAnswerCount": len(two_letter_answers),
                 "images": image_count,
                 "commonAnswers": common_count,
                 "thoughtfulAnswers": thoughtful_count,
+                "currentAudienceAnswers": current_answers,
+                "currentAudienceAnswerCount": len(current_answers),
                 "commonRatio": round(familiarity_ratio, 3),
                 "directTextClues": direct_count,
                 "cleverTextClues": clever_count,
@@ -215,10 +264,6 @@ def main() -> None:
     # The owner replaced the three artificial difficulty buckets with one
     # handcrafted MotMan profile.  Audit that catalog globally instead of
     # assuming every grid still carries a ``difficulty`` field.
-    standard_profile = (
-        catalog.get("editorialProfile") == "motman-standard"
-        or all("difficulty" not in grid for grid in catalog["grids"])
-    )
     if standard_profile:
         active_grids = [
             grid for grid in catalog["grids"]
@@ -232,7 +277,10 @@ def main() -> None:
         )
         for grid in active_grids:
             image_count = sum(bool(word.get("image")) for word in grid["words"])
-            if not 1 <= image_count <= 6:
+            # Images are optional when every answer has a reviewed text clue.
+            # The owner-approved 2026-07-29 batch intentionally includes
+            # text-only grids; keep only the mobile-density upper bound.
+            if image_count > 6:
                 errors.append(f"{grid['id']}: {image_count} images")
             for word in grid["words"]:
                 clue = word.get("clue") or ""

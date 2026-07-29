@@ -1,0 +1,67 @@
+name: Verify Android
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android API 36
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and synchronize Android
+        run: |
+          npm run build
+          npx cap sync android
+
+      - name: Unit tests, lint and unsigned bundle
+        working-directory: android
+        run: ./gradlew :app:testReleaseUnitTest :app:lintRelease :app:bundleRelease
+
+      - name: Upload Android lint diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-lint-${{ github.run_attempt }}
+          path: android/app/build/reports
+          if-no-files-found: ignore
+          retention-days: 7

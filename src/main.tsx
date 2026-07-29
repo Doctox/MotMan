@@ -6,7 +6,10 @@ import { initializeSensoryPreferences } from './sensoryPreferences'
 
 initializeSensoryPreferences()
 
-if (isNativeRuntime()) {
+const nativeRuntime = isNativeRuntime()
+document.documentElement.classList.toggle('native-runtime', nativeRuntime)
+
+if (nativeRuntime) {
   void import('./nativeAuthBridge').then(module => module.initializeNativeAuthBridge())
 }
 
@@ -17,7 +20,7 @@ void Promise.all([import('./auth'), import('./App')]).then(async ([auth, app]) =
   await auth.bootstrapPlayerSession()
   const App = app.App
   root.render(<React.StrictMode><App /></React.StrictMode>)
-  if (isNativeRuntime()) {
+  if (nativeRuntime) {
     void import('./nativePushNotifications')
       .then(module => module.initializeNativePushNotifications())
       .catch(error => console.error('Initialisation des notifications impossible', error))

@@ -11,6 +11,10 @@ describe('navigation depuis une notification native', () => {
     expect(pushNotificationRoute({ type: 'friend_invitation', invitationId: 'invite-1' })).toBe('#jouer')
   })
 
+  it('ouvre Jouer lorsqu’un adversaire classé est prêt', () => {
+    expect(pushNotificationRoute({ type: 'ranked_ready', readySessionId: 'ready-1' })).toBe('#jouer')
+  })
+
   it('ouvre la partie quand une invitation est acceptée', () => {
     expect(pushNotificationRoute({ type: 'invitation_accepted', matchId: '5e748f98-c0c1-4657-a865-4399f510ced1' }))
       .toBe('#partie=5e748f98-c0c1-4657-a865-4399f510ced1')

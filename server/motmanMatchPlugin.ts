@@ -16,6 +16,7 @@ import {
   RACK_SIZE,
   shouldForfeitAfterInactivity,
 } from '../src/gameRules'
+import { isPresenceOnline } from '../src/presencePolicy'
 import { database as accountDatabase, type DatabaseUser } from './motmanDatabase'
 import {
   ASYNC_BOT_MATCH_DELAY_MS,
@@ -96,7 +97,7 @@ function publicUser(playerId: string) {
     playerId: user.id,
     displayName: user.display_name,
     code: user.friend_code,
-    online: Date.now() - new Date(user.last_seen).getTime() < 30_000,
+    online: isPresenceOnline(user.last_seen),
     avatarId: user.equipped_avatar_id,
     frameId: user.equipped_frame_id,
     animationId: user.equipped_animation_id,

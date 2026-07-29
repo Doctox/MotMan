@@ -21,6 +21,14 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from bitset_grid_filler import fill_bitset  # noqa: E402
 from build_compact_7x8_review import family_key  # noqa: E402
 from editorial_fill_quality import answer_usage  # noqa: E402
+from pilot_two_letter_policy import (  # noqa: E402
+    MAXIMUM_TWO_LETTER_ANSWERS,
+    MINIMUM_TWO_LETTER_ANSWERS,
+    PENALIZED_TWO_LETTER_ANSWERS,
+    PILOT_TWO_LETTER_WHITELIST,
+    PREFERRED_TWO_LETTER_ANSWERS,
+    valid_two_letter_answer_count,
+)
 
 
 @dataclass(frozen=True)
@@ -62,7 +70,10 @@ OWNER_SHORT = {
 }
 # Le pilote 7×8 n'a plus aucune exception à deux lettres. La liste historique
 # reste lisible dans le diff, mais ces formes ne peuvent plus entrer au solveur.
-OWNER_SHORT = {answer for answer in OWNER_SHORT if len(answer) >= 3}
+OWNER_SHORT = {
+    answer for answer in OWNER_SHORT
+    if len(answer) >= 3 or answer in PILOT_TWO_LETTER_WHITELIST
+} | set(PILOT_TWO_LETTER_WHITELIST)
 # Domaine fermé pour les nouveaux pilotes. OWNER_SHORT reste disponible pour
 # relire les anciens lots, mais ne constitue plus une validation éditoriale.
 PILOT_SAFE_SHORT = {
@@ -103,6 +114,16 @@ PILOT_SAFE_SHORT = {
     "FIG", "FOX", "FUN", "GPU", "GYM", "HIT", "HOP", "HUM", "LIS", "MAC",
     "MAG", "MAX", "MEC", "MOD", "NFT", "NUL", "OUF", "PSG", "ROM", "RSA",
     "SPA", "SUB", "SVP", "TAC", "TOP", "TOT", "URL", "USA", "VAL", "VIE",
+}
+PILOT_SAFE_SHORT |= set(PILOT_TWO_LETTER_WHITELIST)
+PILOT_REVIEWED_CURRENT_SHORT = {
+    # Liste fermée : ces formes courtes sont actuelles, autonomes et ont
+    # déjà passé le filtre éditorial. Elles peuvent satisfaire le ton moderne
+    # sans être artificiellement recopiées dans le fichier de secours.
+    "AFK", "API", "APP", "BOT", "BUG", "CPU", "DLC", "DVD", "FPS",
+    "GIF", "GPS", "GPU", "GTA", "IRL", "JDR", "JPG", "LOL", "MDR",
+    "MMO", "PDF", "PNG", "PNJ", "POV", "PVP", "RAP", "RPG", "SMS",
+    "URL", "USB", "VOD", "VPN", "WEB", "WII", "WOW",
 }
 PILOT_REVIEWED_LONG = {
     # Références largement connues, admises comme réponses textuelles.
@@ -248,10 +269,24 @@ GRAMMAR_ANSWERS = {
     "UNE", "VOS",
 }
 
+EDITORIAL_RESCUE_PARTS_OF_SPEECH = {
+    "adjective",
+    "adverb",
+    "common-anglicism",
+    "common-noun",
+    "proper-noun",
+    "verb",
+}
+
 
 def normalized(value: str) -> str:
     folded = unicodedata.normalize("NFKD", value.upper())
     return "".join(character for character in folded if "A" <= character <= "Z")
+
+
+def pilot_answer_length_is_eligible(answer: str) -> bool:
+    """Keep every two-letter source behind the explicit reviewed whitelist."""
+    return len(answer) >= 3 or answer in PILOT_TWO_LETTER_WHITELIST
 
 
 def parse_cell(value: str) -> tuple[int, int]:
@@ -265,6 +300,44 @@ def parse_fixed_answer(value: str) -> tuple[int, str]:
     if not normalized_answer:
         raise argparse.ArgumentTypeError("La réponse imposée ne peut pas être vide")
     return int(slot), normalized_answer
+
+
+def load_editorial_rescue_entries(path: Path) -> list[dict]:
+    """Load a deliberately small, human-reviewed construction reservoir.
+
+    This is not another corpus import. Every entry must declare its editorial
+    status and grammatical form. Verbs are accepted only as infinitives so a
+    convenient conjugation cannot silently become crossword fill.
+    """
+    document = json.loads(path.read_text(encoding="utf-8"))
+    entries = document.get("entries")
+    if not isinstance(entries, list):
+        raise ValueError("Le réservoir éditorial doit contenir une liste entries")
+    reviewed: list[dict] = []
+    seen: set[str] = set()
+    for index, item in enumerate(entries):
+        if not isinstance(item, dict):
+            raise ValueError(f"Entrée de secours {index} invalide")
+        answer = normalized(str(item.get("answer") or item.get("spelling") or ""))
+        if not 3 <= len(answer) <= 8:
+            raise ValueError(f"Réponse de secours invalide à l'entrée {index}: {answer!r}")
+        if answer in seen:
+            raise ValueError(f"Réponse de secours dupliquée : {answer}")
+        if item.get("editorialStatus") != "human-reviewed":
+            raise ValueError(f"Réponse de secours non relue : {answer}")
+        part_of_speech = str(item.get("partOfSpeech") or "")
+        form_type = str(item.get("formType") or "")
+        if part_of_speech not in EDITORIAL_RESCUE_PARTS_OF_SPEECH:
+            raise ValueError(f"Nature grammaticale refusée pour {answer}: {part_of_speech}")
+        if part_of_speech == "verb" and form_type != "infinitive":
+            raise ValueError(f"Seuls les infinitifs sont admis dans le secours : {answer}")
+        if part_of_speech != "verb" and form_type not in {
+            "lemma", "editorial-reviewed",
+        }:
+            raise ValueError(f"Forme non canonique refusée pour {answer}: {form_type}")
+        seen.add(answer)
+        reviewed.append({**item, "answer": answer})
+    return reviewed
 
 
 def hybrid_metadata_is_eligible(
@@ -313,12 +386,34 @@ def parse_args() -> argparse.Namespace:
         "--allow-inflected-verbs", action="store_true",
         help="Diagnostic seulement : autorise les formes verbales conjuguées.",
     )
+    parser.add_argument(
+        "--reviewed-proper-names-only",
+        action="store_true",
+        help="Exclut les noms propres du lexique brut; les entrees relues restent admises.",
+    )
     parser.add_argument("--low-quality-threshold", type=float, default=0.0)
     parser.add_argument("--max-low-quality", type=int)
     parser.add_argument("--minimum-familiarity-zipf", type=float)
     parser.add_argument("--max-unfamiliar-answers", type=int)
     parser.add_argument("--curated-short-only", action="store_true")
     parser.add_argument("--pilot-safe-short-only", action="store_true")
+    parser.add_argument(
+        "--editorial-rescue-file",
+        type=Path,
+        help="Petit réservoir de placement explicitement relu, jamais un corpus brut.",
+    )
+    parser.add_argument(
+        "--minimum-editorial-rescue-answers",
+        type=int,
+        default=0,
+        help="Nombre minimal d'entrees du reservoir relu dans le remplissage final.",
+    )
+    parser.add_argument(
+        "--minimum-recognized-current-answers",
+        type=int,
+        default=0,
+        help="Nombre minimal de reponses relues et taguees actuel/pop, quelle que soit leur source.",
+    )
     parser.add_argument(
         "--prefer-pilot-safe-short",
         action="store_true",
@@ -381,8 +476,17 @@ def load_reference_solutions(paths: list[Path]) -> list[dict[int, str]]:
     for path in paths:
         document = json.loads(path.read_text(encoding="utf-8"))
         candidates = []
-        if isinstance(document.get("answers"), dict):
-            candidates.append(document["answers"])
+        answers = document.get("answers")
+        if isinstance(answers, dict):
+            candidates.append(answers)
+        elif isinstance(answers, list):
+            candidates.append({
+                str(item["slotIndex"]): item["answer"]
+                for item in answers
+                if isinstance(item, dict)
+                and "slotIndex" in item
+                and item.get("answer")
+            })
         for grid in document.get("grids", []):
             if isinstance(grid.get("slotAnswers"), dict):
                 candidates.append(grid["slotAnswers"])
@@ -451,11 +555,6 @@ def build_slots_from_clue_cells(
                 # Un singleton dans un axe ne ressemble pas à une entrée et
                 # reste valide si l'autre axe couvre effectivement sa lettre.
                 continue
-            if len(cells) < 3:
-                raise ValueError(
-                    "Segment de moins de trois lettres interdit : "
-                    f"case {list(clue_cell)}, direction {direction}, longueur {len(cells)}"
-                )
             index = len(raw_slots)
             raw_slots.append({
                 "slotId": f"slot-{index + 1:02d}",
@@ -504,6 +603,12 @@ def build_slots_from_clue_cells(
     if covered != letter_cells:
         missing = sorted(letter_cells - covered)
         raise ValueError(f"Cases non couvertes par la silhouette : {missing}")
+    two_letter_slots = sum(item["length"] == 2 for item in raw_slots)
+    if not valid_two_letter_answer_count(two_letter_slots):
+        raise ValueError(
+            "La silhouette 7×8 doit contenir une ou deux réponses de deux "
+            f"lettres (trouvé : {two_letter_slots})"
+        )
     return [list(cell) for cell in sorted(clues)], raw_slots, slots
 
 
@@ -583,7 +688,7 @@ def build_slots_from_shape(
         cells = [list(map(int, cell)) for cell in item.get("cells", [])]
         if direction not in {"across", "down"} or arrow != expected_arrow:
             raise ValueError(f"Direction ou flèche invalide au slot {index}")
-        if int(item.get("length", len(cells))) != len(cells) or len(cells) < 3:
+        if int(item.get("length", len(cells))) != len(cells) or len(cells) < 2:
             raise ValueError(f"Longueur invalide au slot {index}")
         slot_id = str(item.get("slotId") or f"slot-{index + 1:02d}")
         raw = {
@@ -649,6 +754,8 @@ def main() -> int:
             )
         if answer in excluded or family_key(answer) in excluded_families:
             raise ValueError(f"Réponse imposée exclue ou blacklistée : {answer}")
+        if not pilot_answer_length_is_eligible(answer):
+            raise ValueError(f"Réponse imposée de deux lettres non relue : {answer}")
     words_by_length = {length: [] for length in lengths}
     scores: dict[str, float] = {}
     zipf_scores: dict[str, float] = {}
@@ -668,6 +775,7 @@ def main() -> int:
                 or answer in excluded
                 or family_key(answer) in excluded_families
                 or answer in scores
+                or not pilot_answer_length_is_eligible(answer)
                 or item.get("generatorEligible") is not True
                 or item.get("canonicalForGenerator") is not True
                 or (
@@ -709,7 +817,12 @@ def main() -> int:
                 or answer in excluded
                 or family_key(answer) in excluded_families
                 or answer in scores
+                or not pilot_answer_length_is_eligible(answer)
                 or not item.get("attestedCommonForm", False)
+                or (
+                    args.reviewed_proper_names_only
+                    and item.get("partOfSpeech") == "proper-noun"
+                )
                 or (
                     item.get("partOfSpeech") == "verb"
                     and item.get("formType") != "lemma"
@@ -767,6 +880,7 @@ def main() -> int:
                 or answer in excluded
                 or family_key(answer) in excluded_families
                 or answer in scores
+                or not pilot_answer_length_is_eligible(answer)
                 or (
                     args.lexicon == "hybrid"
                     and not hybrid_metadata_is_eligible(
@@ -802,7 +916,7 @@ def main() -> int:
             spellings[answer] = answer.lower()
             lemmas[answer] = family_key(answer)
             words_by_length[len(answer)].append(answer)
-    if args.pilot_safe_short_only or args.prefer_pilot_safe_short:
+    if args.prefer_pilot_safe_short:
         for answer in (
             PILOT_REVIEWED_LONG | PILOT_REVIEWED_NATURAL_FORMS
         ) - excluded:
@@ -825,10 +939,57 @@ def main() -> int:
                 "sourceFrequency": None,
                 "schoolFrequency": None,
             }
+    admitted_editorial_rescue: list[str] = []
+    recognized_current_answers: set[str] = set()
+    if args.editorial_rescue_file:
+        for item in load_editorial_rescue_entries(args.editorial_rescue_file):
+            answer = item["answer"]
+            if (
+                len(answer) not in words_by_length
+                or answer in excluded
+                or family_key(str(item.get("lemma") or answer)) in excluded_families
+            ):
+                continue
+            # A reviewed rescue entry may replace a weaker copy already found
+            # in the broad lexicon, but it never bypasses the hard blacklist.
+            if answer not in scores:
+                words_by_length[len(answer)].append(answer)
+            scores[answer] = max(90.0, scores.get(answer, 0.0))
+            zipf_scores[answer] = float(zipf_frequency(
+                str(item.get("spelling") or answer).lower(), "fr"
+            ))
+            spellings[answer] = str(item.get("spelling") or answer.lower())
+            lemmas[answer] = family_key(str(item.get("lemma") or answer))
+            lexical_metadata_by_answer[answer] = {
+                "partOfSpeech": item.get("partOfSpeech"),
+                "formType": item.get("formType"),
+                "editorialStatus": item.get("editorialStatus"),
+                "editorialRegister": item.get("register"),
+                "editorialReason": item.get("reason"),
+                "sourceFrequency": None,
+                "schoolFrequency": None,
+            }
+            admitted_editorial_rescue.append(answer)
+            if str(item.get("register") or "").startswith("current-"):
+                recognized_current_answers.add(answer)
+    recognized_current_answers.update(
+        answer for answer in PILOT_REVIEWED_CURRENT_SHORT if answer in scores
+    )
+    if (
+        args.minimum_editorial_rescue_answers
+        and args.minimum_recognized_current_answers
+    ):
+        raise ValueError(
+            "Les quotas rescue et current ne peuvent pas etre imposes simultanement"
+        )
     if args.prefer_pilot_safe_short:
         for answer in list(scores):
             if len(answer) == 3 and answer not in PILOT_SAFE_SHORT:
                 scores[answer] = min(scores[answer], -100.0)
+    for answer in PREFERRED_TWO_LETTER_ANSWERS & scores.keys():
+        scores[answer] = max(scores[answer], 85.0)
+    for answer in PENALIZED_TWO_LETTER_ANSWERS & scores.keys():
+        scores[answer] = min(scores[answer], -80.0)
     # Proper names and pop-culture references are intentionally absent from
     # the general construction lexicon. They can enter only through an
     # explicit, reviewed fixed answer and never broaden the automatic pool.
@@ -972,6 +1133,15 @@ def main() -> int:
         fixed_answers=fixed_answers,
         undesirable_answers=undesirable_answers,
         max_undesirable_answers=undesirable_limit,
+        required_answer_pool=(
+            recognized_current_answers
+            if args.minimum_recognized_current_answers
+            else set(admitted_editorial_rescue)
+        ),
+        minimum_required_answers=(
+            args.minimum_recognized_current_answers
+            or args.minimum_editorial_rescue_answers
+        ),
         quality_scores=search_scores,
         answer_usage=active_usage,
         answer_families=lemmas,
@@ -1000,6 +1170,18 @@ def main() -> int:
         "excludedAnswerCount": len(excluded),
         "activeReferenceAnswerCount": len(active_usage),
         "activeRepeatPolicy": "score-penalty-not-global-ban",
+        "editorialRescueFile": (
+            str(args.editorial_rescue_file) if args.editorial_rescue_file else None
+        ),
+        "editorialRescueAdmittedCount": len(admitted_editorial_rescue),
+        "editorialRescueAdmittedAnswers": sorted(admitted_editorial_rescue),
+        "minimumEditorialRescueAnswers": args.minimum_editorial_rescue_answers,
+        "recognizedCurrentAnswerCount": len(recognized_current_answers),
+        "recognizedCurrentAnswers": sorted(recognized_current_answers),
+        "minimumRecognizedCurrentAnswers": args.minimum_recognized_current_answers,
+        "properNamePolicy": (
+            "human-reviewed-only" if args.reviewed_proper_names_only else "lexicon-default"
+        ),
         "repairCandidate": str(args.repair_candidate) if args.repair_candidate else None,
         "releasedSlotIndexes": sorted(released_indexes),
         "fixedAnswerCount": len(fixed_answers),
@@ -1016,6 +1198,9 @@ def main() -> int:
             "letterCells": len({tuple(cell) for item in raw_slots for cell in item["cells"]}),
             "orphanLetters": 0,
             "unusedDefinitionCells": 0,
+            "twoLetterSlots": sum(item["length"] == 2 for item in raw_slots),
+            "minimumTwoLetterSlots": MINIMUM_TWO_LETTER_ANSWERS,
+            "maximumTwoLetterSlots": MAXIMUM_TWO_LETTER_ANSWERS,
         },
         "candidateCounts": {str(length): len(indexed[length]) for length in lengths},
         "availableImageAnswers": len(image_answers),

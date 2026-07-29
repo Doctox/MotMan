@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { selectGridForPlayers, shouldYieldActiveGridClaim, type SelectionGrid } from './gridSelection'
+import catalog from './data/runtime.grid.catalog.json'
 
 const grid = (id: string, ...answers: string[]): SelectionGrid => ({
   id,
@@ -7,67 +8,55 @@ const grid = (id: string, ...answers: string[]): SelectionGrid => ({
 })
 
 describe('sélection anti-répétition des grilles', () => {
-  it('écarte les douze dernières grilles tant qu’une alternative existe', () => {
-    const grids = Array.from({ length: 13 }, (_, index) => grid(`g${index + 1}`, `MOT${index + 1}`))
+  it('écarte les cinq dernières grilles tant qu’une alternative existe', () => {
+    const grids = Array.from({ length: 6 }, (_, index) => grid(`g${index + 1}`, `MOT${index + 1}`))
     const result = selectGridForPlayers({
       grids,
-      recentGridIdsByPlayer: [grids.slice(0, 12).map(item => item.id)],
+      recentGridIdsByPlayer: [grids.slice(0, 5).map(item => item.id)],
       seed: 'fresh-grid',
     })
-    expect(result.grid.id).toBe('g13')
-    expect(result.recentGridIds).toHaveLength(12)
+    expect(result.grid.id).toBe('g6')
+    expect(result.recentGridIds).toHaveLength(5)
   })
 
-  it('bloque une réponse vue deux fois si une grille propre est disponible', () => {
+  it('ne retire pas une grille parce que sa réponse a déjà été vue', () => {
     const grids = [
       grid('recent-a', 'AIR', 'CHAT'),
       grid('recent-b', 'AIR', 'LUNE'),
       grid('candidate-repeated', 'AIR', 'ROSE'),
       grid('candidate-clean', 'MER', 'SOLEIL'),
     ]
-    const result = selectGridForPlayers({
+    const selected = new Set(Array.from({ length: 100 }, (_, index) => selectGridForPlayers({
       grids,
       recentGridIdsByPlayer: [['recent-a', 'recent-b']],
-      seed: 'personal-cooldown',
-    })
-    expect(result.repeatedAnswersOnCooldown).toContain('AIR')
-    expect(result.grid.id).toBe('candidate-clean')
+      seed: `personal-cooldown-${index}`,
+    }).grid.id))
+    expect(selected).toEqual(new Set(['candidate-repeated', 'candidate-clean']))
   })
 
-  it('utilise la popularité pour départager deux grilles aussi fraîches', () => {
+  it('ne retire aucune grille en fonction de sa popularité', () => {
     const grids = [grid('liked', 'CHAT'), grid('neutral', 'CHIEN')]
-    const result = selectGridForPlayers({
+    const selected = new Set(Array.from({ length: 100 }, (_, index) => selectGridForPlayers({
       grids,
       recentGridIdsByPlayer: [[]],
       popularity: [
-        { gridId: 'liked', score: 90 },
-        { gridId: 'neutral', score: 50 },
+        { gridId: 'liked', score: 100 },
+        { gridId: 'neutral', score: 0 },
       ],
-      seed: 'popularity',
-    })
-    expect(result.grid.id).toBe('liked')
+      seed: `popularity-${index}`,
+    }).grid.id))
+    expect(selected).toEqual(new Set(['liked', 'neutral']))
   })
 
-  it('bloque temporairement une réponse éditorialement surutilisée', () => {
+  it('ne retire aucune grille à cause d’un cooldown éditorial', () => {
     const grids = [grid('overused', 'AIR'), grid('clean', 'MONTAGNE')]
-    const result = selectGridForPlayers({
+    const selected = new Set(Array.from({ length: 100 }, (_, index) => selectGridForPlayers({
       grids,
       recentGridIdsByPlayer: [[]],
       globalCooldownAnswers: ['AIR'],
-      seed: 'global-cooldown',
-    })
-    expect(result.grid.id).toBe('clean')
-  })
-
-  it('réautorise un cooldown global si aucune grille propre ne reste', () => {
-    const grids = [grid('air', 'AIR'), grid('mer', 'MER')]
-    const result = selectGridForPlayers({
-      grids,
-      recentGridIdsByPlayer: [[]],
-      globalCooldownAnswers: ['AIR', 'MER'],
-      seed: 'global-fallback',
-    })
-    expect(['air', 'mer']).toContain(result.grid.id)
+      seed: `global-cooldown-${index}`,
+    }).grid.id))
+    expect(selected).toEqual(new Set(['overused', 'clean']))
   })
 
   it('retombe sur le catalogue complet lorsque tout a été joué', () => {
@@ -100,6 +89,17 @@ describe('sélection anti-répétition des grilles', () => {
       seed: 'all-active-fallback',
     })
     expect(['active-a', 'active-b']).toContain(result.grid.id)
+  })
+
+  it('rend les 44 grilles publiées atteignables par le tirage en production', () => {
+    const selected = new Set(Array.from({ length: 20_000 }, (_, index) => selectGridForPlayers({
+      grids: catalog.grids,
+      recentGridIdsByPlayer: [[]],
+      globalCooldownAnswers: catalog.grids.flatMap(item => item.words.map(word => word.answer)),
+      popularity: catalog.grids.map((item, itemIndex) => ({ gridId: item.id, score: itemIndex })),
+      seed: `catalog-${index}`,
+    }).grid.id))
+    expect(selected).toEqual(new Set(catalog.grids.map(item => item.id)))
   })
 
   it('laisse la grille au match le plus ancien lors de deux créations simultanées', () => {

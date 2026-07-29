@@ -18,6 +18,8 @@ export type GridSelectionResult<T extends SelectionGrid> = {
 
 export type ActiveGridClaim = { id: string; createdAt: string }
 
+export const RECENT_GRID_AVOIDANCE_LIMIT = 5
+
 export function shouldYieldActiveGridClaim(current: ActiveGridClaim, competing: readonly ActiveGridClaim[]): boolean {
   const currentTime = Date.parse(current.createdAt)
   return competing.some(other => {
@@ -45,20 +47,16 @@ function answerSet(grid: SelectionGrid): Set<string> {
 }
 
 /**
- * Selects a grid against each human player's latest twelve plays.
+ * Selects a random grid while avoiding each human player's latest five plays.
  *
- * A response seen at least twice enters a personal cooldown. A candidate
- * containing one of those responses is excluded while a clean alternative
- * exists. Global editorial cooldowns follow the same temporary rule: they
- * are blocked while at least one fresh clean grid remains, then become a
- * strong penalty so a small catalogue can never deadlock.
+ * Editorial validation happens before publication. Runtime answer cooldowns,
+ * popularity and feedback must therefore never remove a published grid from
+ * the playable pool.
  */
 export function selectGridForPlayers<T extends SelectionGrid>({
   grids,
   recentGridIdsByPlayer,
   activeGridIds = [],
-  globalCooldownAnswers = [],
-  popularity = [],
   seed,
 }: {
   grids: readonly T[]
@@ -71,7 +69,7 @@ export function selectGridForPlayers<T extends SelectionGrid>({
   if (!grids.length) throw new Error('Le catalogue de grilles est vide.')
 
   const byId = new Map(grids.map(grid => [grid.id, grid]))
-  const recentGroups = recentGridIdsByPlayer.map(ids => [...ids].slice(0, 12))
+  const recentGroups = recentGridIdsByPlayer.map(ids => [...ids].slice(0, RECENT_GRID_AVOIDANCE_LIMIT))
   const recentGridIds = [...new Set(recentGroups.flat())]
   const recentIdSet = new Set(recentGridIds)
   const recentAnswerFrequency = new Map<string, number>()
@@ -90,10 +88,6 @@ export function selectGridForPlayers<T extends SelectionGrid>({
     .filter(([, uses]) => uses >= 2)
     .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
     .map(([answer]) => answer)
-  const repeatedSet = new Set(repeatedAnswersOnCooldown)
-  const globalSet = new Set([...globalCooldownAnswers].map(normalizeAnswer))
-  const popularityById = new Map(popularity.map(item => [item.gridId, item.score]))
-
   // Do not expose the same board in concurrent matches involving either
   // player. Falling back to an occupied grid is allowed only when every grid
   // in the catalogue is already occupied for the participants.
@@ -101,40 +95,17 @@ export function selectGridForPlayers<T extends SelectionGrid>({
   const unoccupied = grids.filter(grid => !activeIdSet.has(grid.id))
   const occupancyPool = unoccupied.length ? unoccupied : [...grids]
   const fresh = occupancyPool.filter(grid => !recentIdSet.has(grid.id))
-  const freshPool = fresh.length ? fresh : occupancyPool
-  const personalCooldownClean = freshPool.filter(grid => {
-    for (const answer of answerSet(grid)) if (repeatedSet.has(answer)) return false
-    return true
-  })
-  const personalPool = personalCooldownClean.length ? personalCooldownClean : freshPool
-  const globalCooldownClean = personalPool.filter(grid => {
-    for (const answer of answerSet(grid)) if (globalSet.has(answer)) return false
-    return true
-  })
-  const pool = globalCooldownClean.length ? globalCooldownClean : personalPool
+  const pool = fresh.length ? fresh : occupancyPool
+  const grid = pool[stableHash(seed) % pool.length]
+  let overlapCount = 0
+  for (const answer of answerSet(grid)) {
+    if ((recentAnswerFrequency.get(answer) ?? 0) > 0) overlapCount += 1
+  }
 
-  const ranked = pool.map(grid => {
-    let overlapCount = 0
-    let repeatWeight = 0
-    let globalCooldownHits = 0
-    for (const answer of answerSet(grid)) {
-      const uses = recentAnswerFrequency.get(answer) ?? 0
-      if (uses > 0) overlapCount += 1
-      repeatWeight += uses
-      if (globalSet.has(answer)) globalCooldownHits += 1
-    }
-    const popularityScore = popularityById.get(grid.id) ?? 60
-    const penalty = repeatWeight * 8 + overlapCount * 3 + globalCooldownHits * 2 - (popularityScore - 60) * 0.22
-    return { grid, overlapCount, penalty }
-  }).sort((left, right) => left.penalty - right.penalty || left.grid.id.localeCompare(right.grid.id))
-
-  const bestPenalty = ranked[0].penalty
-  const shortlist = ranked.filter(item => item.penalty <= bestPenalty + 2.5).slice(0, 5)
-  const chosen = shortlist[stableHash(seed) % shortlist.length]
   return {
-    grid: chosen.grid,
+    grid,
     recentGridIds,
     repeatedAnswersOnCooldown,
-    overlapCount: chosen.overlapCount,
+    overlapCount,
   }
 }

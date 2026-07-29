@@ -87,7 +87,8 @@ class Compact7x8BatchSearchTests(unittest.TestCase):
         indexes, metadata, _family_answers, _all_families = central_index(
             set(), 3.2, "lexical-full"
         )
-        self.assertTrue({"GO", "IA", "OM", "QR", "WC", "XL"} <= set(indexes[0][2]))
+        self.assertTrue({"AN", "AS", "BD", "DJ", "IA", "OR", "OS", "QR", "XP"} <= set(indexes[0][2]))
+        self.assertFalse({"GO", "OM", "WC", "XL"} & set(indexes[0][2]))
         self.assertEqual(
             metadata["QR"]["sourceId"],
             "motman-owner-short-vocabulary-20260719",

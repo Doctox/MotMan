@@ -24,6 +24,7 @@ from editorial_fill_quality import (
     rescore_entries,
 )
 from search_compact_grid_pilot import OWNER_SHORT, build_slots, normalized
+from pilot_two_letter_policy import PILOT_TWO_LETTER_WHITELIST
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -399,15 +400,19 @@ def central_index(
                 answer, answer, "", lexical_family_lookup
             )
             all_families.setdefault(answer, families[answer])
+            is_reviewed_two_letter = answer in PILOT_TWO_LETTER_WHITELIST
             metadata[answer] = {
                 "spelling": spelling,
                 "lemma": answer,
                 "wordfreqZipf": zipf,
-                "centralClue": "",
+                "centralClue": PILOT_TWO_LETTER_WHITELIST.get(answer, ""),
                 "sourceClue": "",
                 "sourceId": "motman-owner-short-vocabulary-20260719",
                 "sourceUrl": "internal://motman/editorial/owner-short-vocabulary",
-                "editorialStatus": "owner-short-review-required",
+                "editorialStatus": (
+                    "human-reviewed" if is_reviewed_two_letter
+                    else "owner-short-review-required"
+                ),
             }
 
     for answer, clue in POP_CLUES.items():

@@ -17,7 +17,28 @@ if (batchIndex >= 0) {
   process.stdout.write(`${deactivate}insert into public.server_grid_catalog(id, version, columns, rows, payload, active) values\n${selected.join(',\n')}\non conflict (id) do update set version=excluded.version, columns=excluded.columns, rows=excluded.rows, payload=excluded.payload, active=excluded.active;\n`)
   process.exit(0)
 }
-const sql = `update public.server_grid_catalog set active = false;\ninsert into public.server_grid_catalog(id, version, columns, rows, payload, active) values\n${rows.join(',\n')}\non conflict (id) do update set version=excluded.version, columns=excluded.columns, rows=excluded.rows, payload=excluded.payload, active=excluded.active;\n`
+const expectedVersion = Number(catalog.version ?? 1)
+const expectedCount = rows.length
+const sql = `begin;
+update public.server_grid_catalog set active = false;
+insert into public.server_grid_catalog(id, version, columns, rows, payload, active) values
+${rows.join(',\n')}
+on conflict (id) do update set version=excluded.version, columns=excluded.columns, rows=excluded.rows, payload=excluded.payload, active=excluded.active;
+do $catalog_check$
+begin
+  if (select count(*) from public.server_grid_catalog where active) <> ${expectedCount} then
+    raise exception 'MotMan catalog publication expected ${expectedCount} active grids';
+  end if;
+  if exists (
+    select 1 from public.server_grid_catalog
+    where active and (version <> ${expectedVersion} or columns <> 7 or rows <> 8)
+  ) then
+    raise exception 'MotMan catalog publication contains an unexpected version or dimensions';
+  end if;
+end
+$catalog_check$;
+commit;
+`
 const target = resolve(root, 'output/supabase-grid-catalog.sql')
 writeFileSync(target, sql, 'utf8')
 console.log(JSON.stringify({ target, grids: rows.length, bytes: Buffer.byteLength(sql) }))

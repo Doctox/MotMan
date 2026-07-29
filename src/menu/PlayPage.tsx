@@ -4,13 +4,11 @@ import type { GridDifficulty } from '../generator'
 import { matchHistoryDateLabel, matchHistoryResultLabel, matchHistoryTone } from '../matchHistory'
 import type { MatchHistoryEntry, MatchLobbyState, MatchPace } from '../matches'
 import { playerInitials, type GuestIdentity } from '../playerIdentity'
+import { rankImage, rankedDivision, rankedPlacementLabel } from '../ranked'
+import type { RankedMatchmakingState } from '../rankedMatchmaking'
 import type { SocialState } from '../social'
 import { Avatar, SocialPortrait, presenceLabel } from './MenuChrome'
 import { asyncTimeLeft, matchOpponent } from './HomePage'
-
-function SoonButton({ icon, title, subtitle, onClick }: { icon: ReactNode; title: string; subtitle: string; onClick: () => void }) {
-  return <button type="button" className="mm-mode-row" onClick={onClick}><span className="mm-mode-icon">{icon}</span><span><strong>{title}</strong><small>{subtitle}</small></span><ChevronRight /></button>
-}
 
 function MatchmakingRow({ icon, title, subtitle, searching, disabled, start, cancel }: { icon: ReactNode; title: string; subtitle: string; searching: boolean; disabled: boolean; start: () => void; cancel: () => void }) {
   return <div className={`mm-matchmaking-row ${searching ? 'is-searching' : ''}`}>
@@ -76,10 +74,9 @@ function RecentMatchHistory({ matches, visible }: { matches: MatchHistoryEntry[]
   </div>
 }
 
-export function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, cancelInvite, searchMatch, cancelSearch, resumeMatch, openFriends }: {
+export function PlayPage({ identity, onStartSolo, social, lobby, invite, cancelInvite, searchMatch, cancelSearch, resumeMatch, openFriends, ranked, rankedBusy, rankedError, startRanked, cancelRanked }: {
   identity: GuestIdentity
   onStartSolo: (difficulty: GridDifficulty, pace: MatchPace) => Promise<void>
-  soon: () => void
   social: SocialState
   lobby: MatchLobbyState
   invite: (friendId: string, pace: MatchPace) => Promise<void>
@@ -88,6 +85,11 @@ export function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, c
   cancelSearch: (pace: MatchPace) => Promise<void>
   resumeMatch: (matchId: string) => void
   openFriends: () => void
+  ranked: RankedMatchmakingState
+  rankedBusy: boolean
+  rankedError: string | null
+  startRanked: () => Promise<void>
+  cancelRanked: () => Promise<void>
 }) {
   const [difficulty, setDifficulty] = useState<GridDifficulty | null>(null)
   const [soloPace, setSoloPace] = useState<MatchPace | null>(null)
@@ -103,6 +105,8 @@ export function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, c
   const realtimeSearching = lobby.searches.some(search => search.pace === 'realtime')
   const asyncSearching = lobby.searches.some(search => search.pace === 'async')
   const asyncMatches = lobby.active.filter(match => match.mode === 'normal' && match.pace === 'async')
+  const rankedSearching = ranked.status === 'searching' || ranked.status === 'ready' || ranked.status === 'accepted'
+  const currentRank = rankedDivision(ranked.progress.points, ranked.progress.matches)
 
   const beginSearch = async (pace: MatchPace) => {
     setSearchBusy(pace)
@@ -171,8 +175,23 @@ export function PlayPage({ identity, onStartSolo, soon, social, lobby, invite, c
       </div> : null}
     </PlayAccordion>
     <PlayAccordion id="ranked" icon={<BarChart3 />} title="Classé" open={openMultiplayerSection === 'ranked'} toggle={toggleMultiplayerSection}>
-      <SoonButton icon={<Clock3 />} title="Temps limité" subtitle="45 s par tour · Bientôt" onClick={soon} />
-      <SoonButton icon={<Hourglass />} title="Temps illimité" subtitle="24 h par tour · Bientôt" onClick={soon} />
+      <div className="mm-ranked-mode">
+        <div className="mm-ranked-status">
+          <img src={rankImage(currentRank)} alt="" />
+          <span><small>Votre rang</small><strong>{currentRank.label}</strong><b>{rankedPlacementLabel(ranked.progress.matches)}</b></span>
+          {ranked.progress.matches >= 5 ? <em>{ranked.progress.points} pt</em> : null}
+        </div>
+        <div className={`mm-matchmaking-row mm-ranked-search ${rankedSearching ? 'is-searching' : ''}`}>
+          <button type="button" className="mm-mode-row" disabled={rankedBusy || ranked.status === 'started'} onClick={() => void startRanked()}>
+            <span className="mm-mode-icon"><Clock3 /></span>
+            <span><strong>{rankedSearching ? 'Recherche classée en cours' : ranked.status === 'started' ? 'Partie classée en cours' : 'Lancer la recherche'}</strong><small>45 s par tour · adversaires de rang proche</small></span>
+            {rankedSearching ? <span className="mm-search-pulse"><i /><i /><i /></span> : <ChevronRight />}
+          </button>
+          {rankedSearching ? <button type="button" className="mm-search-cancel" disabled={rankedBusy || ranked.status === 'accepted'} onClick={() => void cancelRanked()}>Annuler</button> : null}
+        </div>
+        <p className="mm-ranked-explainer">La recherche continue en arrière-plan. Une partie normale limitée sera seulement mise en pause pendant la confirmation.</p>
+        {rankedError ? <p className="mm-social-error" role="alert">{rankedError}</p> : null}
+      </div>
     </PlayAccordion>
     <PlayAccordion id="friends" icon={<Users />} title="Amis" open={openMultiplayerSection === 'friends'} toggle={toggleMultiplayerSection}>
       <div className="mm-friend-pace-step">

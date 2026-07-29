@@ -37,13 +37,17 @@ function accountStateFor(user: DatabaseUser) {
   const items = database.prepare('SELECT kind, item_id FROM inventory WHERE user_id = ? ORDER BY acquired_at').all(user.id) as Array<{ kind: 'avatar' | 'frame' | 'animation'; item_id: string }>
   return {
     progress: {
-      version: 2,
+      version: 4,
       playerId: user.id,
       level: user.level,
       xp: user.xp,
       lifetimeXp: user.lifetime_xp,
       rankedPoints: user.ranked_points,
-      rankedDivision: null,
+      rankedMatches: 0,
+      rankedWins: 0,
+      rankedLosses: 0,
+      rankedDraws: 0,
+      rankedPeakPoints: user.ranked_points,
       wins: user.wins,
       losses: user.losses,
       activeMatchIds: [],
