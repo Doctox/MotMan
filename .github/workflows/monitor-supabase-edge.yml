@@ -1,0 +1,145 @@
+name: Monitor Supabase Edge Functions
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: monitor-supabase-edge
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout monitoring code
+        uses: actions/checkout@v4
+
+      - name: Query Supabase Edge metrics
+        id: edge
+        continue-on-error: true
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_REF: ${{ vars.SUPABASE_PROJECT_REF }}
+          EDGE_ALERT_WINDOW_MINUTES: ${{ vars.EDGE_ALERT_WINDOW_MINUTES }}
+          EDGE_ALERT_MAX_5XX: ${{ vars.EDGE_ALERT_MAX_5XX }}
+          EDGE_ALERT_MAX_429: ${{ vars.EDGE_ALERT_MAX_429 }}
+          EDGE_ALERT_MAX_P95_MS: ${{ vars.EDGE_ALERT_MAX_P95_MS }}
+          EDGE_ALERT_MAX_INVOCATIONS: ${{ vars.EDGE_ALERT_MAX_INVOCATIONS }}
+          EDGE_ALERT_MIN_INVOCATIONS_FOR_LATENCY: ${{ vars.EDGE_ALERT_MIN_INVOCATIONS_FOR_LATENCY }}
+        run: node scripts/check_supabase_edge_alerts.mjs
+
+      - name: Open or update the monitoring failure
+        if: steps.edge.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner
+            const repo = context.repo.repo
+            const title = '[MotMan] Surveillance Supabase Edge indisponible'
+            const label = 'monitoring:edge'
+            try {
+              await github.rest.issues.getLabel({ owner, repo, name: label })
+            } catch (error) {
+              if (error.status !== 404) throw error
+              await github.rest.issues.createLabel({ owner, repo, name: label, color: 'B60205', description: 'Alertes opérationnelles Supabase Edge' })
+            }
+            const { data: issues } = await github.rest.issues.listForRepo({ owner, repo, state: 'open', labels: label, per_page: 100 })
+            const existing = issues.find(issue => issue.title === title)
+            const body = [
+              'La surveillance automatique n’a pas pu interroger les journaux Supabase.',
+              '',
+              `Exécution : ${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`,
+              '',
+              'Causes probables : secret absent/expiré, API Supabase temporairement indisponible ou requête de logs refusée.',
+            ].join('\n')
+            if (existing) {
+              await github.rest.issues.update({ owner, repo, issue_number: existing.number, body })
+            } else {
+              await github.rest.issues.create({ owner, repo, title, body, labels: [label] })
+            }
+
+      - name: Open or update the Edge alert
+        if: steps.edge.outcome == 'success' && steps.edge.outputs.has_alerts == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs')
+            const report = JSON.parse(fs.readFileSync('output/monitoring/supabase-edge-health.json', 'utf8'))
+            const owner = context.repo.owner
+            const repo = context.repo.repo
+            const title = '[MotMan] Alerte Supabase Edge Functions'
+            const label = 'monitoring:edge'
+            try {
+              await github.rest.issues.getLabel({ owner, repo, name: label })
+            } catch (error) {
+              if (error.status !== 404) throw error
+              await github.rest.issues.createLabel({ owner, repo, name: label, color: 'B60205', description: 'Alertes opérationnelles Supabase Edge' })
+            }
+            const metricLine = `| ${report.totals.invocations} | ${report.totals.errors5xx} | ${report.totals.errors429} | ${report.totals.p95Ms} ms | ${report.totals.maxMs} ms |`
+            const functionLines = report.functions.map(metric =>
+              `| \`${metric.scope}\` | ${metric.invocations} | ${metric.errors5xx} | ${metric.errors429} | ${metric.p95Ms} ms |`
+            )
+            const body = [
+              `<!-- edge-alert-signature:${report.alertSignature} -->`,
+              'Un ou plusieurs seuils Supabase Edge sont dépassés.',
+              '',
+              `Fenêtre : ${report.window.start} → ${report.window.end} (${report.window.minutes} min)`,
+              '',
+              '| Invocations | 5xx | 429 | p95 | max |',
+              '| ---: | ---: | ---: | ---: | ---: |',
+              metricLine,
+              '',
+              ...report.alerts.map(alert => `- **${alert.severity}** — ${alert.message}`),
+              '',
+              '| Fonction | Invocations | 5xx | 429 | p95 |',
+              '| --- | ---: | ---: | ---: | ---: |',
+              ...functionLines,
+              '',
+              `Exécution : ${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`,
+            ].join('\n')
+            const { data: issues } = await github.rest.issues.listForRepo({ owner, repo, state: 'open', labels: label, per_page: 100 })
+            const existing = issues.find(issue => issue.title === title)
+            if (existing) {
+              const previousSignature = existing.body?.match(/edge-alert-signature:([a-f0-9]+)/)?.[1]
+              await github.rest.issues.update({ owner, repo, issue_number: existing.number, body })
+              if (previousSignature !== report.alertSignature) {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: existing.number,
+                  body: `Le type d’alerte a changé. Valeurs actuelles : ${report.alerts.map(alert => alert.code).join(', ')}.`,
+                })
+              }
+            } else {
+              await github.rest.issues.create({ owner, repo, title, body, labels: [label] })
+            }
+            const unavailable = issues.find(issue => issue.title === '[MotMan] Surveillance Supabase Edge indisponible')
+            if (unavailable) await github.rest.issues.update({ owner, repo, issue_number: unavailable.number, state: 'closed' })
+
+      - name: Close recovered Edge alerts
+        if: steps.edge.outcome == 'success' && steps.edge.outputs.has_alerts == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner
+            const repo = context.repo.repo
+            const label = 'monitoring:edge'
+            let issues = []
+            try {
+              ;({ data: issues } = await github.rest.issues.listForRepo({ owner, repo, state: 'open', labels: label, per_page: 100 }))
+            } catch (error) {
+              if (error.status === 404) return
+              throw error
+            }
+            for (const issue of issues) {
+              if (!['[MotMan] Alerte Supabase Edge Functions', '[MotMan] Surveillance Supabase Edge indisponible'].includes(issue.title)) continue
+              await github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body: 'Retour à la normale confirmé par la surveillance automatique.' })
+              await github.rest.issues.update({ owner, repo, issue_number: issue.number, state: 'closed' })
+            }
