@@ -175,6 +175,34 @@ begin
   ) then
     raise exception 'Authenticated clients can execute the server-only ranked RPC';
   end if;
+
+  if not has_schema_privilege('service_role', 'private', 'USAGE') then
+    raise exception 'service_role cannot access ranked private helpers';
+  end if;
+
+  if not has_function_privilege(
+    'service_role',
+    'private.ranked_effective_points(integer,integer)',
+    'EXECUTE'
+  ) or not has_function_privilege(
+    'service_role',
+    'private.ranked_tier_index(integer)',
+    'EXECUTE'
+  ) or not has_function_privilege(
+    'service_role',
+    'private.pause_realtime_normal_for_ranked(uuid,uuid)',
+    'EXECUTE'
+  ) or not has_function_privilege(
+    'service_role',
+    'private.resume_ranked_paused_match(uuid,uuid)',
+    'EXECUTE'
+  ) or not has_function_privilege(
+    'service_role',
+    'private.finish_ranked_transfer_match(uuid,uuid)',
+    'EXECUTE'
+  ) then
+    raise exception 'service_role is missing an EXECUTE grant on a ranked private helper';
+  end if;
 end;
 $$;
 
