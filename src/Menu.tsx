@@ -19,6 +19,7 @@ import { presenceHeartbeatDelay } from './presencePolicy'
 import { EMPTY_SOCIAL_STATE, loadSocialState, registerSocialProfile, setSocialPresence, type SocialState } from './social'
 import { AccountPanel } from './menu/AccountPanel'
 import { AppHeader, BottomNav } from './menu/MenuChrome'
+import { FirstRunTutorial } from './menu/FirstRunTutorial'
 import { FriendsPanel } from './menu/FriendsPanel'
 import { HomePage } from './menu/HomePage'
 import { MatchInvitationPanel, MatchWaitingPanel, NormalSearchPanel } from './menu/MatchActivityPanels'
@@ -26,6 +27,7 @@ import { PlayPage } from './menu/PlayPage'
 import { EditGuestPanel, ProfilePage, QuickMenu, RankingPage } from './menu/ProfilePanels'
 import { SettingsPanel } from './menu/SettingsPanel'
 import type { MenuAppProps, MenuPage, Theme } from './menu/types'
+import { completeFirstRunTutorial, hasCompletedFirstRunTutorial } from './tutorialProgress'
 
 export type { MenuPage } from './menu/types'
 
@@ -72,6 +74,7 @@ export function MenuApp({
   const [googleAuthIssue, setGoogleAuthIssue] = useState<GoogleAuthIssue | null>(currentGoogleAuthIssue)
   const [friendsOpen, setFriendsOpen] = useState(false)
   const [editingGuest, setEditingGuest] = useState(false)
+  const [tutorialOpen, setTutorialOpen] = useState(() => !hasCompletedFirstRunTutorial())
   const [identity, setIdentity] = useState<GuestIdentity>(loadPlayerIdentity)
   const [progress, setProgress] = useState<PlayerProgress>(() => loadPlayerProgress(identity.playerId))
   const [cosmetics, setCosmetics] = useState<PlayerCosmetics>(() => loadPlayerCosmetics(identity.playerId))
@@ -242,6 +245,12 @@ export function MenuApp({
     history.replaceState(null, '', `#${hash}`)
   }
 
+  const closeTutorial = (openPlay = false) => {
+    completeFirstRunTutorial()
+    setTutorialOpen(false)
+    if (openPlay) navigate('play')
+  }
+
   const saveGuestProfile = async (displayName: string, avatarId: string, frameId: string, animationId: string, titleId: string | null) => {
     const response = await updateServerProfile(displayName, avatarId, frameId, animationId, titleId)
     setIdentity(response.identity)
@@ -341,7 +350,7 @@ export function MenuApp({
     {page === 'shop' ? <Suspense fallback={<div className="mm-page mm-shop-page mm-route-loading" role="status">Ouverture de L’Épicerie…</div>}><LazyShopPage cosmetics={cosmetics} setCosmetics={setCosmetics} back={() => navigate('profile')} notify={notify} /></Suspense> : null}
     <BottomNav page={page} setPage={navigate} />
     {quickMenu ? <QuickMenu page={page} navigate={navigate} close={() => setQuickMenu(false)} /> : null}
-    {settings ? <SettingsPanel identity={identity} close={() => setSettings(false)} openAccount={() => { setSettings(false); setAccountOpen(true) }} openFriends={() => { setSettings(false); setFriendsOpen(true) }} openLegal={() => { setSettings(false); setLegalOpen(true) }} theme={theme} setTheme={setTheme} /> : null}
+    {settings ? <SettingsPanel identity={identity} close={() => setSettings(false)} openAccount={() => { setSettings(false); setAccountOpen(true) }} openFriends={() => { setSettings(false); setFriendsOpen(true) }} openLegal={() => { setSettings(false); setLegalOpen(true) }} openTutorial={() => { setSettings(false); setTutorialOpen(true) }} theme={theme} setTheme={setTheme} /> : null}
     {legalOpen ? <Suspense fallback={null}><LazyLegalPanel close={() => setLegalOpen(false)} /></Suspense> : null}
     {accountOpen ? <AccountPanel identity={identity} close={() => setAccountOpen(false)} apply={applyAuthenticatedState} notify={notify} googleAuthIssue={googleAuthIssue} dismissGoogleAuthIssue={() => { clearGoogleAuthIssue(); setGoogleAuthIssue(null) }} /> : null}
     {friendsOpen ? <FriendsPanel identity={identity} social={social} setSocial={setSocial} close={() => setFriendsOpen(false)} notify={notify} /> : null}
@@ -351,6 +360,9 @@ export function MenuApp({
       {outgoingInvitation ? <MatchWaitingPanel invitation={outgoingInvitation} busy={matchBusy} cancel={() => void cancelInvitation(outgoingInvitation.id)} /> : null}
       {realtimeSearch ? <NormalSearchPanel busy={matchBusy} cancel={() => void stopNormalSearch('realtime')} /> : null}
     </div> : null}
+    {tutorialOpen && !settings && !legalOpen && !accountOpen && !friendsOpen && !editingGuest && !matchLobby.incoming[0]
+      ? <FirstRunTutorial skip={() => closeTutorial()} finish={() => closeTutorial(true)} />
+      : null}
     {toast ? <div className="mm-toast" role="status">{toast}</div> : null}
   </main>
 }

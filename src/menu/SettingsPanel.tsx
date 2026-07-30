@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import { ChevronRight, FileText, LogIn, Moon, Settings, Sun, Type, UserPlus, Vibrate, Volume2, X } from 'lucide-react'
+import { BookOpen, ChevronRight, FileText, LogIn, Moon, Settings, Sun, Type, UserPlus, Vibrate, Volume2, X } from 'lucide-react'
 import { appVersionDisplay } from '../appVersion'
 import type { GuestIdentity } from '../playerIdentity'
 import { readCachedServerAppVersion, refreshServerAppVersion } from '../serverAppVersion'
@@ -11,7 +11,7 @@ function ToggleRow({ icon, label, checked, setChecked }: { icon: ReactNode; labe
   return <label className="mm-setting-row"><span>{icon}{label}</span><input type="checkbox" checked={checked} onChange={event => setChecked(event.target.checked)} /><i /></label>
 }
 
-export function SettingsPanel({ identity, close, openAccount, openFriends, openLegal, theme, setTheme }: { identity: GuestIdentity; close: () => void; openAccount: () => void; openFriends: () => void; openLegal: () => void; theme: Theme; setTheme: (theme: Theme) => void }) {
+export function SettingsPanel({ identity, close, openAccount, openFriends, openLegal, openTutorial, theme, setTheme }: { identity: GuestIdentity; close: () => void; openAccount: () => void; openFriends: () => void; openLegal: () => void; openTutorial: () => void; theme: Theme; setTheme: (theme: Theme) => void }) {
   const { preferences, setPreference } = useSensoryPreferences()
   const [serverVersion, setServerVersion] = useState(readCachedServerAppVersion)
   const dialogRef = useDialogFocus<HTMLElement>(close)
@@ -33,6 +33,7 @@ export function SettingsPanel({ identity, close, openAccount, openFriends, openL
       <ToggleRow icon={<Type />} label="Texte plus grand" checked={preferences.largeText} setChecked={value => setPreference('largeText', value)} />
       <ToggleRow icon={<Volume2 />} label="Effets" checked={preferences.effects} setChecked={value => setPreference('effects', value)} />
       <ToggleRow icon={<Vibrate />} label="Vibrations" checked={preferences.vibration} setChecked={value => setPreference('vibration', value)} />
+      <button className="mm-settings-link" type="button" onClick={openTutorial}><BookOpen /><span>Revoir le tutoriel<small>Règles et modes de jeu · 5 étapes</small></span><ChevronRight /></button>
       <button className="mm-settings-link" type="button" onClick={openFriends}><UserPlus /><span>Amis<small>Ajouter · retirer · bloquer</small></span><ChevronRight /></button>
       <button className="mm-settings-link" type="button" onClick={openAccount}><LogIn /><span>{identity.accountType === 'account' ? 'Compte synchronisé' : 'Créer ou retrouver un compte'}<small>{identity.accountType === 'account' ? identity.displayName : 'Sauvegarder votre progression'}</small></span><ChevronRight /></button>
       <button className="mm-settings-link" type="button" onClick={openLegal}><FileText /><span>Informations<small>Confidentialité · conditions · crédits</small></span><ChevronRight /></button>

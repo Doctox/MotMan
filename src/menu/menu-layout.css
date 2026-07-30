@@ -159,7 +159,13 @@
   animation:mmSheetIn .34s var(--mm-ease) both;
 }
 @keyframes mmSheetIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
-.mm-settings{padding:22px 24px calc(27px + env(safe-area-inset-bottom));border-radius:25px 25px 0 0}
+.mm-settings{
+  max-height:calc(100dvh - env(safe-area-inset-top));
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:22px 24px calc(27px + env(safe-area-inset-bottom));
+  border-radius:25px 25px 0 0;
+}
 .mm-settings>header{margin-bottom:20px}
 .mm-theme-choice{gap:9px;margin-bottom:17px}
 .mm-theme-choice button{height:58px;border-color:var(--mm-line);border-radius:12px;background:var(--mm-surface)}

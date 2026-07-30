@@ -1,6 +1,51 @@
 import { expect, request as playwrightRequest, test } from '@playwright/test'
 import { randomUUID } from 'node:crypto'
 
+test.beforeEach(async ({ page }, testInfo) => {
+  if (testInfo.title.includes('tutoriel')) return
+  await page.addInitScript(() => {
+    localStorage.setItem('motman-first-run-tutorial', JSON.stringify({
+      version: 1,
+      completedAt: '2026-07-30T12:00:00.000Z',
+    }))
+  })
+})
+
+test('le tutoriel accompagne la première ouverture et reste rejouable', async ({ page }, testInfo) => {
+  await page.goto('/')
+
+  const tutorial = page.getByRole('dialog', { name: 'Tutoriel MotMan' })
+  await expect(tutorial).toBeVisible()
+  await expect(tutorial).toContainText('Chaque lettre correcte colore une case')
+
+  await tutorial.getByRole('button', { name: 'Suivant' }).click()
+  await expect(page.getByRole('heading', { name: 'Suivez les flèches' })).toBeVisible()
+  await tutorial.getByRole('button', { name: 'Suivant' }).click()
+  await expect(page.getByRole('heading', { name: 'Posez vos lettres, puis validez' })).toBeVisible()
+  await tutorial.getByRole('button', { name: 'Suivant' }).click()
+  await expect(page.getByRole('heading', { name: 'À chacun sa façon de jouer' })).toBeVisible()
+  await expect(tutorial).toContainText('Solo')
+  await expect(tutorial).toContainText('Normal')
+  await expect(tutorial).toContainText('Classé')
+  await expect(tutorial).toContainText('Amis')
+  await tutorial.getByRole('button', { name: 'Suivant' }).click()
+  await expect(page.getByRole('heading', { name: 'Rapide ou à reprendre plus tard' })).toBeVisible()
+  await expect(tutorial).toContainText('45 s par tour')
+  await expect(tutorial).toContainText('24 h par tour')
+
+  await page.screenshot({ path: `output/quality/first-run-tutorial-${testInfo.project.name}.png`, fullPage: false })
+  await tutorial.getByRole('button', { name: 'Choisir un mode' }).click()
+  await expect(page).toHaveURL(/#jouer$/)
+  await expect(tutorial).toBeHidden()
+
+  await page.reload()
+  await expect(page.getByRole('dialog', { name: 'Tutoriel MotMan' })).toBeHidden()
+  await page.getByRole('button', { name: 'Paramètres' }).click()
+  await page.getByRole('button', { name: /Revoir le tutoriel/ }).click()
+  await expect(page.getByRole('dialog', { name: 'Tutoriel MotMan' })).toBeVisible()
+  await page.getByRole('button', { name: 'Passer' }).click()
+})
+
 test('la navigation native reste entièrement au-dessus de la barre système Android', async ({ page, browserName }) => {
   test.skip(browserName !== 'chromium', 'Le runtime Android utilise Chromium WebView.')
   await page.goto('/')

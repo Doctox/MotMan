@@ -165,6 +165,7 @@ async function openGame(browser: Browser, identity: Identity, matchId: string, v
   const context = await browser.newContext({ viewport })
   await context.addInitScript(storedIdentity => {
     localStorage.setItem('motman-player-v1', JSON.stringify(storedIdentity))
+    localStorage.setItem('motman-first-run-tutorial', JSON.stringify({ version: 1, completedAt: '2026-07-30T12:00:00.000Z' }))
   }, identity)
   const page = await context.newPage()
   await page.goto(`/#partie=${encodeURIComponent(matchId)}`)
@@ -270,6 +271,7 @@ test('l’accueil permet de reprendre chacune des trois parties illimitées', as
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } })
   await context.addInitScript(storedIdentity => {
     localStorage.setItem('motman-player-v1', JSON.stringify(storedIdentity))
+    localStorage.setItem('motman-first-run-tutorial', JSON.stringify({ version: 1, completedAt: '2026-07-30T12:00:00.000Z' }))
   }, player)
   const page = await context.newPage()
 
@@ -305,6 +307,7 @@ test('un résultat illimité reste affiché jusqu’à sa validation par le joue
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } })
   await context.addInitScript(storedIdentity => {
     localStorage.setItem('motman-player-v1', JSON.stringify(storedIdentity))
+    localStorage.setItem('motman-first-run-tutorial', JSON.stringify({ version: 1, completedAt: '2026-07-30T12:00:00.000Z' }))
   }, player)
   const page = await context.newPage()
 
