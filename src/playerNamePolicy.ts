@@ -11,8 +11,14 @@ const RESERVED_MARKERS = ['admin', 'administrateur', 'moderateur', 'moderation',
 const UNAMBIGUOUS_BLOCKED_MARKERS = [
   'nazi', 'hitler', 'penis', 'porno', 'pornographie', 'encule', 'salope', 'putain',
   'negro', 'negre', 'bamboula', 'bougnoule', 'youpin', 'chintok',
+  'pds', 'fdp', 'filsdepute', 'tagueule', 'fermetagueule',
+  'sucechien', 'sucechienne', 'sucebite', 'sucequeue', 'sucemoi',
+  'niquetamere', 'niketamere', 'connard', 'connasse', 'petasse', 'batard',
+  'abruti', 'debile', 'salaud', 'grognasse', 'pouffiasse', 'tapette',
+  'pede', 'pederaste', 'tarlouze', 'gouine',
 ]
 const SHORT_BLOCKED_WORDS = ['bite', 'vagin', 'chatte', 'couille', 'sexe', 'pute']
+const BLOCKED_ABBREVIATIONS = ['ntm', 'tg']
 
 export function normalizePlayerName(value: string): string {
   return value.normalize('NFKC').trim().replace(/\s+/g, ' ')
@@ -29,6 +35,17 @@ function canonicalName(value: string): string {
     .replace(/0/g, 'o')
     .replace(/[5$]/g, 's')
     .replace(/7/g, 't')
+}
+
+function collapseRepeatedCharacters(value: string): string {
+  return value.replace(/(.)\1+/g, '$1')
+}
+
+function isBlockedAbbreviation(compact: string): boolean {
+  const withoutDecoration = compact
+    .replace(/^x+|x+$/g, '')
+    .replace(/\d{1,4}$/g, '')
+  return BLOCKED_ABBREVIATIONS.includes(withoutDecoration)
 }
 
 export function validatePlayerName(value: string): PlayerNameValidation {
@@ -48,10 +65,12 @@ export function validatePlayerName(value: string): PlayerNameValidation {
   const compact = canonical.replace(/[^a-z0-9]/g, '')
   const literalCompact = normalized.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('fr').replace(/[^a-z0-9]/g, '')
   const tokens = canonical.split(/[^a-z0-9]+/).filter(Boolean)
+  const moderationForms = [compact, collapseRepeatedCharacters(compact)]
   if (RESERVED_MARKERS.some(marker => compact.includes(marker))) {
     return { valid: false, normalized, error: 'Ce pseudo peut être confondu avec un compte officiel.' }
   }
-  if (UNAMBIGUOUS_BLOCKED_MARKERS.some(marker => compact.includes(marker)) ||
+  if (UNAMBIGUOUS_BLOCKED_MARKERS.some(marker => moderationForms.some(form => form.includes(collapseRepeatedCharacters(marker)))) ||
+    (isBlockedAbbreviation(compact) || isBlockedAbbreviation(literalCompact)) ||
     SHORT_BLOCKED_WORDS.some(word => tokens.includes(word) || compact === word || new RegExp(`^${word}\\d{1,3}$`).test(compact) || new RegExp(`^${word}\\d{1,3}$`).test(literalCompact))) {
     return { valid: false, normalized, error: 'Choisis un pseudo respectueux.' }
   }
