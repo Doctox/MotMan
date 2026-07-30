@@ -39,7 +39,7 @@ try {
   assert.equal(validation.valid, true, validation.errors.join('; '))
   assert.equal(validation.score, 100)
 
-  assert.equal(catalog.version, 21)
+  assert.equal(catalog.version, 22)
   assert.equal(catalog.grids.length, 44)
   assert.ok(catalog.grids.every(grid => grid.columns === 7 && grid.rows === 8 && grid.size === undefined))
   assert.ok(catalog.grids.every(grid => grid.difficulty === undefined))

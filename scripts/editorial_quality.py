@@ -145,7 +145,13 @@ def editorial_errors(item: dict, *, root: Path | None = None) -> list[dict]:
             "message": "ponctuation de fragment, trou ou aparté interdite dans une définition courte",
         })
     word_count = len(re.findall(r"[A-Za-zÀ-ÖØ-öø-ÿŒœ]+", clue))
-    if word_count > 3:
+    long_clue_review = item.get("longClueReview")
+    long_clue_approved = (
+        isinstance(long_clue_review, dict)
+        and long_clue_review.get("status") == "owner-approved-clarity"
+        and bool(normalize_text(long_clue_review.get("reason")))
+    )
+    if word_count > 3 and not long_clue_approved:
         errors.append({
             "code": "clue_too_long",
             "message": "la définition dépasse exceptionnellement trois mots",

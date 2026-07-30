@@ -266,6 +266,17 @@ class EditorialQualityTests(unittest.TestCase):
         errors = editorial_errors({"answer": "ALIBI", "clue": "Preuve de son innocence"})
         self.assertIn("clue_too_long", {error["code"] for error in errors})
 
+    def test_owner_can_approve_a_longer_clue_when_clarity_requires_it(self) -> None:
+        errors = editorial_errors({
+            "answer": "TEE",
+            "clue": "Support de balle de golf",
+            "longClueReview": {
+                "status": "owner-approved-clarity",
+                "reason": "Le contexte golf évite une définition ambiguë.",
+            },
+        })
+        self.assertNotIn("clue_too_long", {error["code"] for error in errors})
+
     def test_empty_clue_requires_a_complete_image_record(self) -> None:
         self.assertIn("empty_clue", codes("VERS", "   "))
         self.assertNotIn("empty_clue", codes(

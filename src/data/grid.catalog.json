@@ -1,5 +1,5 @@
 {
-  "version": 21,
+  "version": 22,
   "kind": "motman-compact-7x8-runtime",
   "generatorSeed": 20260719,
   "selectionPolicy": "server-history-popularity-v1",
@@ -26774,9 +26774,13 @@
         {
           "wordId": "factory-7x8-23f625ed92154709:word:11",
           "answer": "TEE",
-          "clue": "Support de balle",
-          "sourceClue": "Support de balle",
-          "editorialDefinition": "Support de balle",
+          "clue": "Support de balle de golf",
+          "sourceClue": "Support de balle de golf",
+          "editorialDefinition": "Support de balle de golf",
+          "longClueReview": {
+            "status": "owner-approved-clarity",
+            "reason": "Préciser le golf évite l’ambiguïté du support de balle."
+          },
           "definitionStatus": "manually-reviewed",
           "editorialStatus": "owner-review-required",
           "sourceType": "editorial-original",
@@ -47025,9 +47029,13 @@
         {
           "wordId": "factory-7x8-8e4177e95b864c40:word:06",
           "answer": "TEE",
-          "clue": "Support de balle",
-          "sourceClue": "Support de balle",
-          "editorialDefinition": "Support de balle",
+          "clue": "Support de balle de golf",
+          "sourceClue": "Support de balle de golf",
+          "editorialDefinition": "Support de balle de golf",
+          "longClueReview": {
+            "status": "owner-approved-clarity",
+            "reason": "Préciser le golf évite l’ambiguïté du support de balle."
+          },
           "definitionStatus": "manually-reviewed",
           "editorialStatus": "owner-review-required",
           "sourceType": "editorial-original",
