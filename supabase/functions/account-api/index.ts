@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { validatePlayerName } from '../../../src/playerNamePolicy.ts'
 import { basketRarityProbabilities, type RewardRarity } from '../../../src/progressionRewards.ts'
+import { requiredAndroidUpdate } from '../_shared/clientVersion.ts'
 import { createHttpResponder, logServerError } from '../_shared/http.ts'
 import { enforceRateLimits, RateLimitExceededError } from '../_shared/rateLimit.ts'
 
@@ -165,6 +166,14 @@ Deno.serve(async request => {
   let body: Record<string, unknown>
   try { body = await request.json() } catch { return json(400, { error: 'Requête invalide.' }) }
   const action = typeof body.action === 'string' ? body.action : 'state'
+  const appUpdate = action === 'delete-account' ? null : await requiredAndroidUpdate(request, admin)
+  if (appUpdate) {
+    return json(426, {
+      error: 'Une mise à jour de MotMan est nécessaire pour continuer.',
+      code: 'APP_UPDATE_REQUIRED',
+      ...appUpdate,
+    })
+  }
 
   try {
     await enforceRateLimits(admin, 'account', user.id, user.is_anonymous === true, action)

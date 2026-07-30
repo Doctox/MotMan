@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+import { requiredAndroidUpdate } from '../_shared/clientVersion.ts'
 import { createHttpResponder, logServerError } from '../_shared/http.ts'
 import { enforceRateLimits, RateLimitExceededError } from '../_shared/rateLimit.ts'
 import {
@@ -40,6 +41,14 @@ Deno.serve(async request => {
   const admin = createClient(url, serviceKey, {
     auth: { persistSession: false, autoRefreshToken: false },
   })
+  const appUpdate = await requiredAndroidUpdate(request, admin)
+  if (appUpdate) {
+    return json(426, {
+      error: 'Une mise à jour de MotMan est nécessaire pour continuer.',
+      code: 'APP_UPDATE_REQUIRED',
+      ...appUpdate,
+    })
+  }
 
   try {
     const { data: accessProfile, error: profileError } = await admin

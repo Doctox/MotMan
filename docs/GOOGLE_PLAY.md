@@ -1,5 +1,34 @@
 # Préparation Google Play de MotMan
 
+## Mise à jour Android obligatoire
+
+MotMan distingue désormais :
+
+- la dernière version disponible (`android_version_code`) ;
+- la version minimale encore autorisée en ligne (`minimum_android_version_code`).
+
+Le bundle `1.0.3` utilise le `versionCode 4`. Tant qu’il n’est pas réellement
+disponible sur Google Play, conserver le minimum serveur à `3`.
+
+Une fois la release `1.0.3` accessible aux testeurs :
+
+```sql
+update public.server_app_config
+set minimum_android_version_code = 4,
+    updated_at = now()
+where id = 'motman';
+```
+
+Après cette bascule :
+
+- le nouvel AAB continue normalement ;
+- l’ancien AAB `versionCode 3` reçoit HTTP 426 pour les services en ligne ;
+- les versions intégrant le garde-fou affichent un écran bloquant avec un
+  bouton vers Google Play ;
+- la suppression de compte reste disponible même depuis une ancienne version.
+
+Ne jamais augmenter le minimum avant que le nouvel AAB soit téléchargeable.
+
 ## État technique
 
 - Identifiant Android : `com.motman.game`.

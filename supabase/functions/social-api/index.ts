@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+import { requiredAndroidUpdate } from '../_shared/clientVersion.ts'
 import { createHttpResponder, logServerError } from '../_shared/http.ts'
 import { loadPublicProfiles } from '../_shared/publicProfiles.ts'
 import { enforceRateLimits, RateLimitExceededError } from '../_shared/rateLimit.ts'
@@ -21,6 +22,14 @@ Deno.serve(async request => {
   let body: Record<string, unknown>
   try { body = await request.json() } catch { return json(400, { error: 'Requête invalide.' }) }
   const action = typeof body.action === 'string' ? body.action : 'state'
+  const appUpdate = await requiredAndroidUpdate(request, admin)
+  if (appUpdate) {
+    return json(426, {
+      error: 'Une mise à jour de MotMan est nécessaire pour continuer.',
+      code: 'APP_UPDATE_REQUIRED',
+      ...appUpdate,
+    })
+  }
 
   const state = async () => {
     const [{ data: friendshipRows }, { data: incomingRows }, { data: outgoingRows }, { data: blockedRows }] = await Promise.all([

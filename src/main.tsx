@@ -16,10 +16,16 @@ if (nativeRuntime) {
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 root.render(<main className="app-loading" role="status"><span>Ouverture de MotMan…</span></main>)
 
-void Promise.all([import('./auth'), import('./App')]).then(async ([auth, app]) => {
+void Promise.all([import('./auth'), import('./App'), import('./appUpdate')]).then(async ([auth, app, update]) => {
+  const requiredUpdate = await update.checkRequiredAppUpdate().catch(() => null)
+  if (requiredUpdate) {
+    const RequiredAppUpdate = (await import('./RequiredAppUpdate')).RequiredAppUpdateScreen
+    root.render(<RequiredAppUpdate update={requiredUpdate} />)
+    return
+  }
   await auth.bootstrapPlayerSession()
   const App = app.App
-  root.render(<React.StrictMode><App /></React.StrictMode>)
+  root.render(<React.StrictMode><App initialRequiredUpdate={requiredUpdate} /></React.StrictMode>)
   if (nativeRuntime) {
     void import('./nativePushNotifications')
       .then(module => module.initializeNativePushNotifications())

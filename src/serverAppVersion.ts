@@ -4,6 +4,8 @@ export type ServerAppVersion = {
   revision: number
   androidVersionName: string
   androidVersionCode: number
+  minimumAndroidVersionCode: number
+  androidStoreUrl: string
   updatedAt: string
 }
 
@@ -30,10 +32,29 @@ export function parseServerAppVersion(value: unknown): ServerAppVersion | null {
   const row = value as Record<string, unknown>
   const revision = positiveInteger(row.revision)
   const androidVersionCode = positiveInteger(row.android_version_code ?? row.androidVersionCode)
+  const minimumAndroidVersionCode = positiveInteger(
+    row.minimum_android_version_code ?? row.minimumAndroidVersionCode,
+  )
   const androidVersionName = String(row.android_version_name ?? row.androidVersionName ?? '').trim()
+  const androidStoreUrl = String(row.android_store_url ?? row.androidStoreUrl ?? '').trim()
   const updatedAt = String(row.updated_at ?? row.updatedAt ?? '').trim()
-  if (!revision || !androidVersionCode || !/^\d+\.\d+\.\d+$/.test(androidVersionName) || !updatedAt) return null
-  return { revision, androidVersionName, androidVersionCode, updatedAt }
+  if (
+    !revision ||
+    !androidVersionCode ||
+    !minimumAndroidVersionCode ||
+    minimumAndroidVersionCode > androidVersionCode ||
+    !/^\d+\.\d+\.\d+$/.test(androidVersionName) ||
+    !/^https:\/\/play\.google\.com\/store\/apps\/details\?id=[a-z0-9._]+$/i.test(androidStoreUrl) ||
+    !updatedAt
+  ) return null
+  return {
+    revision,
+    androidVersionName,
+    androidVersionCode,
+    minimumAndroidVersionCode,
+    androidStoreUrl,
+    updatedAt,
+  }
 }
 
 export function readCachedServerAppVersion(storage = storageOrUndefined()): ServerAppVersion | null {
@@ -49,7 +70,7 @@ async function queryServerAppVersion(): Promise<unknown> {
   if (!supabaseConfigured) throw new Error('Supabase indisponible.')
   const { data, error } = await supabase
     .from('server_app_config')
-    .select('revision,android_version_name,android_version_code,updated_at')
+    .select('revision,android_version_name,android_version_code,minimum_android_version_code,android_store_url,updated_at')
     .eq('id', 'motman')
     .single()
   if (error) throw error

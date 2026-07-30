@@ -25,7 +25,7 @@ export function createHttpResponder(request: Request, additionalOrigins?: string
   const origin = request.headers.get('Origin')?.trim() ?? ''
   const originAllowed = !origin || isAllowedOrigin(origin, additionalOrigins)
   const corsHeaders: Record<string, string> = {
-    'Access-Control-Allow-Headers': 'authorization, apikey, content-type, x-client-info',
+    'Access-Control-Allow-Headers': 'authorization, apikey, content-type, x-client-info, x-motman-platform, x-motman-version-code',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Max-Age': '86400',
     'Vary': 'Origin',

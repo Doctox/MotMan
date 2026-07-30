@@ -7,6 +7,7 @@ import {
 import { calculateFeatherReward } from '../../../src/progressionRewards.ts'
 import { RECENT_GRID_AVOIDANCE_LIMIT, selectGridForPlayers, shouldYieldActiveGridClaim } from '../../../src/gridSelection.ts'
 import { MATCH_STATE_CONFLICT_CODE } from '../../../src/matchConflict.ts'
+import { requiredAndroidUpdate } from '../_shared/clientVersion.ts'
 import { createHttpResponder, logServerError } from '../_shared/http.ts'
 import { loadPublicProfile, loadPublicProfiles, type PublicPlayerProfile } from '../_shared/publicProfiles.ts'
 import { queuePush, sendPushToUser } from '../_shared/pushNotifications.ts'
@@ -893,6 +894,14 @@ Deno.serve(async request => {
   let body: Record<string, unknown>
   try { body = await request.json() } catch { return json(400, { error: 'Requête invalide.' }) }
   const action = typeof body.action === 'string' ? body.action : 'state'
+  const appUpdate = await requiredAndroidUpdate(request, admin)
+  if (appUpdate) {
+    return json(426, {
+      error: 'Une mise à jour de MotMan est nécessaire pour jouer en ligne.',
+      code: 'APP_UPDATE_REQUIRED',
+      ...appUpdate,
+    })
+  }
 
   try {
     const targetId = typeof body.targetId === 'string' ? body.targetId : undefined

@@ -6,6 +6,8 @@ import { subscribeToMenuUpdates, type MenuRealtimeStatus, type MenuWakeupScope }
 import { createSoloMatch, type MatchPace } from './matches'
 import { loadPlayerIdentity, type GuestIdentity } from './playerIdentity'
 import { RankedReadyOverlay } from './RankedReadyOverlay'
+import { RequiredAppUpdateScreen } from './RequiredAppUpdate'
+import { requiredUpdateFromPayload, type RequiredAppUpdate } from './appUpdate'
 import {
   cancelRankedSearch,
   EMPTY_RANKED_MATCHMAKING,
@@ -22,7 +24,8 @@ function AppLoading({ label = 'Préparation de MotMan…' }: { label?: string })
   return <main className="app-loading" role="status"><LoaderCircle /><span>{label}</span></main>
 }
 
-export function App() {
+export function App({ initialRequiredUpdate = null }: { initialRequiredUpdate?: RequiredAppUpdate | null }) {
+  const [requiredUpdate, setRequiredUpdate] = useState<RequiredAppUpdate | null>(initialRequiredUpdate)
   const [matchId, setMatchId] = useState<string | null>(() => {
     const match = location.hash.match(/^#partie=([^&]+)$/)
     return match ? decodeURIComponent(match[1]) : null
@@ -34,6 +37,15 @@ export function App() {
   const rankedRef = useRef(ranked)
   const rankedPollingRef = useRef<ReturnType<typeof startAdaptivePolling> | null>(null)
   rankedRef.current = ranked
+
+  useEffect(() => {
+    const requireUpdate = (event: Event) => {
+      const parsed = requiredUpdateFromPayload((event as CustomEvent<unknown>).detail)
+      if (parsed) setRequiredUpdate(parsed)
+    }
+    window.addEventListener('motman:update-required', requireUpdate)
+    return () => window.removeEventListener('motman:update-required', requireUpdate)
+  }, [])
 
   const openMatch = useCallback((nextMatchId: string) => {
     history.replaceState(null, '', `#partie=${encodeURIComponent(nextMatchId)}`)
@@ -135,6 +147,8 @@ export function App() {
       setRankedBusy(false)
     }
   }, [openMatch, rankedBusy])
+
+  if (requiredUpdate) return <RequiredAppUpdateScreen update={requiredUpdate} />
 
   return <>
     {matchId ? <Suspense fallback={<AppLoading label="Préparation du duel…" />}>
