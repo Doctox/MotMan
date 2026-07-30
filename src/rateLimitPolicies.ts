@@ -32,6 +32,9 @@ export function actionRateLimits(
   if (api === 'social' && action === 'request') {
     return [{ bucket: 'social:friend-request', maxRequests: isAnonymous ? 8 : 20, windowSeconds: 3600 }]
   }
+  if (api === 'social' && action === 'search') {
+    return [{ bucket: 'social:friend-search', maxRequests: isAnonymous ? 20 : 40, windowSeconds: 60 }]
+  }
   if (api === 'social' && action === 'report') {
     return [{ bucket: 'social:report', maxRequests: 5, windowSeconds: 3600 }]
   }

@@ -25,6 +25,15 @@ describe('rate-limit policies', () => {
     expect(policies).toHaveLength(1)
   })
 
+  it('rate-limits pseudo searches without consuming the friend-request quota', () => {
+    expect(actionRateLimits('social', 'search', true)).toEqual([{
+      bucket: 'social:friend-search',
+      maxRequests: 20,
+      windowSeconds: 60,
+    }])
+    expect(actionRateLimits('social', 'request', true)[0].bucket).toBe('social:friend-request')
+  })
+
   it('protects ranked search and ready-check mutations independently', () => {
     const guestSearch = actionRateLimits('match', 'ranked-search', true)[0]
     const accountSearch = actionRateLimits('match', 'ranked-search', false)[0]

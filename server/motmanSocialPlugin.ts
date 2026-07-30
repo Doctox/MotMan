@@ -6,6 +6,11 @@ import type { Plugin } from 'vite'
 import { validatePlayerName } from '../src/playerNamePolicy'
 import { isPresenceOnline } from '../src/presencePolicy'
 import {
+  isValidSocialSearch,
+  normalizeSocialSearch,
+  SOCIAL_SEARCH_RESULT_LIMIT,
+} from '../src/socialSearchPolicy'
+import {
   database, nowIso, readJsonBody, requestHasSameOrigin, requireAuthenticatedUser, sendJson,
   type DatabaseUser,
 } from './motmanDatabase'
@@ -151,10 +156,50 @@ async function handleSocialRequest(request: IncomingMessage, response: ServerRes
     return sendJson(response, 200, { ok: true })
   }
 
+  if (route === 'search') {
+    const query = normalizeSocialSearch(body.query)
+    if (!isValidSocialSearch(query)) {
+      return sendJson(response, 400, { error: 'Entre au moins 3 caractères du pseudo recherché.' })
+    }
+    const normalizedQuery = query.toLocaleLowerCase('fr')
+    const existingFriendIds = new Set((database.prepare(`SELECT left_user_id, right_user_id FROM friendships
+      WHERE left_user_id = ? OR right_user_id = ?`).all(playerId, playerId) as Array<{ left_user_id: string; right_user_id: string }>)
+      .map(row => row.left_user_id === playerId ? row.right_user_id : row.left_user_id))
+    const incomingIds = new Set((database.prepare('SELECT from_user_id FROM friend_requests WHERE to_user_id = ?').all(playerId) as Array<{ from_user_id: string }>).map(row => row.from_user_id))
+    const outgoingIds = new Set((database.prepare('SELECT to_user_id FROM friend_requests WHERE from_user_id = ?').all(playerId) as Array<{ to_user_id: string }>).map(row => row.to_user_id))
+    const candidates = (database.prepare(`SELECT id FROM users
+      WHERE id <> ? AND lower(display_name) LIKE lower(?)
+      ORDER BY CASE WHEN lower(display_name) = lower(?) THEN 0 ELSE 1 END, display_name
+      LIMIT ?`).all(playerId, `${query}%`, query, SOCIAL_SEARCH_RESULT_LIMIT * 3) as Array<{ id: string }>)
+      .filter(candidate => !isBlocked(playerId, candidate.id))
+      .flatMap(candidate => {
+        const profile = publicUser(candidate.id)
+        if (!profile) return []
+        const { code: _privateFriendCode, ...publicProfile } = profile
+        return [{
+          ...publicProfile,
+          relation: existingFriendIds.has(candidate.id) ? 'friend'
+            : outgoingIds.has(candidate.id) ? 'outgoing'
+              : incomingIds.has(candidate.id) ? 'incoming'
+                : 'available',
+        }]
+      })
+      .sort((left, right) => {
+        const leftExact = left.displayName.toLocaleLowerCase('fr') === normalizedQuery ? 0 : 1
+        const rightExact = right.displayName.toLocaleLowerCase('fr') === normalizedQuery ? 0 : 1
+        return leftExact - rightExact || left.displayName.localeCompare(right.displayName, 'fr', { sensitivity: 'base' })
+      })
+      .slice(0, SOCIAL_SEARCH_RESULT_LIMIT)
+    return sendJson(response, 200, { ok: true, results: candidates })
+  }
+
   if (route === 'request') {
     const friendCode = cleanCode(body.friendCode)
-    const target = database.prepare('SELECT * FROM users WHERE friend_code = ?').get(friendCode) as DatabaseUser | undefined
-    if (!target) return sendJson(response, 404, { error: 'Code ami inconnu.' })
+    const targetId = cleanTargetId(body.targetId)
+    const target = (targetId
+      ? database.prepare('SELECT * FROM users WHERE id = ?').get(targetId)
+      : database.prepare('SELECT * FROM users WHERE friend_code = ?').get(friendCode)) as DatabaseUser | undefined
+    if (!target) return sendJson(response, 404, { error: targetId ? 'Joueur introuvable.' : 'Code ami inconnu.' })
     if (target.id === playerId) return sendJson(response, 400, { error: 'Vous ne pouvez pas vous ajouter vous-même.' })
     if (isBlocked(playerId, target.id)) return sendJson(response, 409, { error: 'Cette demande ne peut pas être envoyée.' })
     const [left, right] = orderedPair(playerId, target.id)

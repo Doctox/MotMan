@@ -4,6 +4,7 @@ import { invokeSupabaseFunction } from './supabaseFunctions'
 
 export type PresenceActivity = 'offline' | 'online' | 'playing'
 export type SocialUser = { playerId: string; displayName: string; code: string; online: boolean; activity: PresenceActivity; avatarId?: string; frameId?: string; animationId?: string }
+export type SocialSearchResult = Omit<SocialUser, 'code'> & { relation: 'available' | 'friend' | 'incoming' | 'outgoing' }
 export type SocialRequest = { id: string; createdAt: string; user: SocialUser }
 export type Friend = SocialUser & { since: string }
 export type BlockedUser = SocialUser & { blockedAt: string }
@@ -55,6 +56,17 @@ export async function sendFriendRequest(playerId: string, friendCode: string): P
   if (localTestServer) return (await localSocial<{ state: SocialState }>('request', { friendCode })).state
   void playerId
   return (await supabaseSocial<{ state: SocialState }>('request', { friendCode })).state
+}
+
+export async function searchFriendProfiles(query: string): Promise<SocialSearchResult[]> {
+  if (localTestServer) return (await localSocial<{ results: SocialSearchResult[] }>('search', { query })).results
+  return (await supabaseSocial<{ results: SocialSearchResult[] }>('search', { query })).results
+}
+
+export async function sendFriendRequestToPlayer(playerId: string, targetId: string): Promise<SocialState> {
+  if (localTestServer) return (await localSocial<{ state: SocialState }>('request', { targetId })).state
+  void playerId
+  return (await supabaseSocial<{ state: SocialState }>('request', { targetId })).state
 }
 
 export async function respondToFriendRequest(playerId: string, requestId: string, decision: 'accept' | 'decline'): Promise<SocialState> {

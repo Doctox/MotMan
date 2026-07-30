@@ -3,6 +3,14 @@ import { requiredAndroidUpdate } from '../_shared/clientVersion.ts'
 import { createHttpResponder, logServerError } from '../_shared/http.ts'
 import { loadPublicProfiles } from '../_shared/publicProfiles.ts'
 import { enforceRateLimits, RateLimitExceededError } from '../_shared/rateLimit.ts'
+import {
+  escapePostgresLikePattern,
+  isValidSocialSearch,
+  normalizeSocialSearch,
+  SOCIAL_SEARCH_RESULT_LIMIT,
+} from '../../../src/socialSearchPolicy.ts'
+
+const UUID_PATTERN = /^[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i
 
 Deno.serve(async request => {
   const http = createHttpResponder(request, Deno.env.get('MOTMAN_ALLOWED_ORIGINS'))
@@ -69,20 +77,72 @@ Deno.serve(async request => {
 
   try {
     await enforceRateLimits(admin, 'social', user.id, user.is_anonymous === true, action)
-    if (action === 'presence') {
+    if (action === 'search') {
+      const query = normalizeSocialSearch(body.query)
+      if (!isValidSocialSearch(query)) {
+        return json(400, { error: 'Entre au moins 3 caractères du pseudo recherché.' })
+      }
+      const escapedPrefix = `${escapePostgresLikePattern(query)}%`
+      const [
+        { data: candidateRows, error: candidateError },
+        { data: friendshipRows, error: friendshipError },
+        { data: incomingRows, error: incomingError },
+        { data: outgoingRows, error: outgoingError },
+        { data: blockRows, error: blockError },
+      ] = await Promise.all([
+        admin.from('profiles').select('id').eq('status', 'active').neq('id', user.id)
+          .ilike('display_name', escapedPrefix).order('display_name').limit(SOCIAL_SEARCH_RESULT_LIMIT * 3),
+        admin.from('friendships').select('left_user_id,right_user_id').or(`left_user_id.eq.${user.id},right_user_id.eq.${user.id}`),
+        admin.from('friend_requests').select('from_user_id').eq('to_user_id', user.id),
+        admin.from('friend_requests').select('to_user_id').eq('from_user_id', user.id),
+        admin.from('blocks').select('owner_id,blocked_id').or(`owner_id.eq.${user.id},blocked_id.eq.${user.id}`),
+      ])
+      const searchError = candidateError ?? friendshipError ?? incomingError ?? outgoingError ?? blockError
+      if (searchError) throw searchError
+
+      const blockedIds = new Set((blockRows ?? []).map(row => row.owner_id === user.id ? row.blocked_id : row.owner_id))
+      const friendIds = new Set((friendshipRows ?? []).map(row => row.left_user_id === user.id ? row.right_user_id : row.left_user_id))
+      const incomingIds = new Set((incomingRows ?? []).map(row => row.from_user_id))
+      const outgoingIds = new Set((outgoingRows ?? []).map(row => row.to_user_id))
+      const candidateIds = (candidateRows ?? []).map(row => row.id).filter(id => !blockedIds.has(id))
+      const profiles = await loadPublicProfiles(admin, candidateIds, { normalizeOfflineActivity: true })
+      const normalizedQuery = query.toLocaleLowerCase('fr')
+      const results = [...profiles.values()]
+        .sort((left, right) => {
+          const leftExact = left.displayName.toLocaleLowerCase('fr') === normalizedQuery ? 0 : 1
+          const rightExact = right.displayName.toLocaleLowerCase('fr') === normalizedQuery ? 0 : 1
+          return leftExact - rightExact || left.displayName.localeCompare(right.displayName, 'fr', { sensitivity: 'base' })
+        })
+        .slice(0, SOCIAL_SEARCH_RESULT_LIMIT)
+        .map(({ code: _privateFriendCode, ...profile }) => ({
+          ...profile,
+          relation: friendIds.has(profile.playerId) ? 'friend'
+            : outgoingIds.has(profile.playerId) ? 'outgoing'
+              : incomingIds.has(profile.playerId) ? 'incoming'
+                : 'available',
+        }))
+      return json(200, { ok: true, results })
+    } else if (action === 'presence') {
       await admin.from('profiles').update({ activity: body.activity === 'playing' ? 'playing' : 'online', last_seen: new Date().toISOString() }).eq('id', user.id)
     } else if (action === 'request') {
       const { count: pendingCount } = await admin.from('friend_requests').select('id', { count: 'exact', head: true }).eq('from_user_id', user.id)
       if ((pendingCount ?? 0) >= 20) return json(429, { error: 'Vous avez trop de demandes en attente.' })
       const friendCode = typeof body.friendCode === 'string' ? body.friendCode.toUpperCase().replace(/[^A-F0-9]/g, '').slice(0, 8) : ''
-      const { data: target } = await admin.from('profiles').select('id').eq('friend_code', friendCode).single()
-      if (!target) return json(404, { error: 'Code ami inconnu.' })
+      const targetId = typeof body.targetId === 'string' && UUID_PATTERN.test(body.targetId) ? body.targetId : ''
+      const targetQuery = admin.from('profiles').select('id').eq('status', 'active')
+      const { data: target } = targetId
+        ? await targetQuery.eq('id', targetId).maybeSingle()
+        : await targetQuery.eq('friend_code', friendCode).maybeSingle()
+      if (!target) return json(404, { error: targetId ? 'Joueur introuvable.' : 'Code ami inconnu.' })
       if (target.id === user.id) return json(400, { error: 'Vous ne pouvez pas vous ajouter vous-même.' })
       const { data: blocked } = await admin.from('blocks').select('owner_id').or(`and(owner_id.eq.${user.id},blocked_id.eq.${target.id}),and(owner_id.eq.${target.id},blocked_id.eq.${user.id})`).limit(1)
       if (blocked?.length) return json(409, { error: 'Cette demande ne peut pas être envoyée.' })
+      const [left, right] = [user.id, target.id].sort()
+      const { data: existingFriendship } = await admin.from('friendships').select('left_user_id')
+        .eq('left_user_id', left).eq('right_user_id', right).maybeSingle()
+      if (existingFriendship) return json(409, { error: 'Ce joueur est déjà dans vos amis.' })
       const { data: reverse } = await admin.from('friend_requests').select('id').eq('from_user_id', target.id).eq('to_user_id', user.id).maybeSingle()
       if (reverse) {
-        const [left, right] = [user.id, target.id].sort()
         await admin.from('friend_requests').delete().eq('id', reverse.id)
         await admin.from('friendships').upsert({ left_user_id: left, right_user_id: right })
       } else await admin.from('friend_requests').upsert({ from_user_id: user.id, to_user_id: target.id }, { onConflict: 'from_user_id,to_user_id' })

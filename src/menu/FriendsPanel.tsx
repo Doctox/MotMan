@@ -1,7 +1,18 @@
 import { useState, type FormEvent } from 'react'
-import { ArrowLeft, Ban, Check, Copy, Shield, UserMinus, UserPlus, Users, X } from 'lucide-react'
+import { ArrowLeft, Ban, Check, Copy, Search, Shield, UserMinus, UserPlus, Users, X } from 'lucide-react'
 import { shortPlayerId, type GuestIdentity } from '../playerIdentity'
-import { reportPlayer, respondToFriendRequest, sendFriendRequest, updateFriend, type SocialState, type SocialUser } from '../social'
+import {
+  reportPlayer,
+  respondToFriendRequest,
+  searchFriendProfiles,
+  sendFriendRequest,
+  sendFriendRequestToPlayer,
+  updateFriend,
+  type SocialSearchResult,
+  type SocialState,
+  type SocialUser,
+} from '../social'
+import { normalizeSocialSearch, SOCIAL_SEARCH_MIN_LENGTH } from '../socialSearchPolicy'
 import { useDialogFocus } from '../useDialogFocus'
 import { SocialPortrait, presenceLabel } from './MenuChrome'
 
@@ -13,6 +24,10 @@ export function FriendsPanel({ identity, social, setSocial, close, notify }: {
   notify: (message: string) => void
 }) {
   const [friendCode, setFriendCode] = useState('')
+  const [friendSearch, setFriendSearch] = useState('')
+  const [searchResults, setSearchResults] = useState<SocialSearchResult[]>([])
+  const [searchPerformed, setSearchPerformed] = useState(false)
+  const [searchBusy, setSearchBusy] = useState(false)
   const [busy, setBusy] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [managedFriend, setManagedFriend] = useState<string | null>(null)
@@ -44,6 +59,32 @@ export function FriendsPanel({ identity, social, setSocial, close, notify }: {
     if (sent) setFriendCode('')
   }
 
+  const submitFriendSearch = async (event: FormEvent) => {
+    event.preventDefault()
+    const query = normalizeSocialSearch(friendSearch)
+    if (Array.from(query).length < SOCIAL_SEARCH_MIN_LENGTH || searchBusy) return
+    setFriendSearch(query)
+    setSearchBusy(true)
+    setSearchPerformed(false)
+    setError(null)
+    try {
+      setSearchResults(await searchFriendProfiles(query))
+      setSearchPerformed(true)
+    } catch (reason) {
+      setSearchResults([])
+      setError(reason instanceof Error ? reason.message : 'Recherche impossible.')
+    } finally {
+      setSearchBusy(false)
+    }
+  }
+
+  const addSearchResult = async (result: SocialSearchResult) => {
+    const sent = await run(`search-${result.playerId}`, () => sendFriendRequestToPlayer(identity.playerId, result.playerId), 'Demande envoyée')
+    if (sent) {
+      setSearchResults(current => current.map(item => item.playerId === result.playerId ? { ...item, relation: 'outgoing' } : item))
+    }
+  }
+
   const copyCode = async () => {
     try {
       await navigator.clipboard.writeText(ownCode)
@@ -70,16 +111,37 @@ export function FriendsPanel({ identity, social, setSocial, close, notify }: {
     <section ref={dialogRef} className="mm-friends-panel" role="dialog" aria-modal="true" aria-label="Gestion des amis" aria-busy={busy !== null} tabIndex={-1}>
       <header><button type="button" onClick={close} aria-label="Retour"><ArrowLeft /></button><h2>Amis</h2><span /></header>
       <div className="mm-friends-scroll">
-        <section className="mm-friend-code-card">
-          <div><small>Votre code ami</small><strong>{ownCode}</strong><p>Votre ami doit ouvrir MotMan sur le même serveur.</p></div>
-          <button type="button" onClick={copyCode} aria-label="Copier le code ami"><Copy /></button>
-        </section>
-
-        <form className="mm-add-friend" onSubmit={submitFriendCode}>
-          <label htmlFor="friend-code">Ajouter un ami</label>
-          <div><input id="friend-code" value={friendCode} onChange={event => setFriendCode(event.target.value.toUpperCase().replace(/[^A-F0-9]/g, '').slice(0, 8))} placeholder="CODE AMI" inputMode="text" autoComplete="off" /><button type="submit" disabled={friendCode.length !== 8 || busy !== null}><UserPlus />Ajouter</button></div>
+        <form className="mm-add-friend mm-friend-search" onSubmit={submitFriendSearch}>
+          <label htmlFor="friend-search">Rechercher par pseudo</label>
+          <p>Entre au moins {SOCIAL_SEARCH_MIN_LENGTH} caractères.</p>
+          <div><input id="friend-search" value={friendSearch} onChange={event => {
+            setFriendSearch(event.target.value)
+            setSearchPerformed(false)
+            setSearchResults([])
+          }} placeholder="Pseudo du joueur" inputMode="search" autoComplete="off" maxLength={16} /><button type="submit" disabled={Array.from(normalizeSocialSearch(friendSearch)).length < SOCIAL_SEARCH_MIN_LENGTH || searchBusy || busy !== null}><Search />{searchBusy ? 'Recherche…' : 'Rechercher'}</button></div>
         </form>
+        {searchResults.length ? <section className="mm-friend-search-results" aria-live="polite">
+          {searchResults.map(result => <article className="mm-social-row" key={result.playerId}>
+            <SocialPortrait user={result} small />
+            <span><strong>{result.displayName}</strong><small>{presenceLabel(result.activity)}</small></span>
+            {result.relation === 'available'
+              ? <button type="button" className="mm-search-add" disabled={busy !== null} onClick={() => void addSearchResult(result)}><UserPlus />Ajouter</button>
+              : <span className="mm-search-relation">{result.relation === 'friend' ? 'Déjà ami' : result.relation === 'outgoing' ? 'Envoyée' : 'Demande reçue'}</span>}
+          </article>)}
+        </section> : searchPerformed ? <p className="mm-search-empty" role="status">Aucun joueur à ajouter avec ce pseudo.</p> : null}
         {error ? <p className="mm-social-error" role="alert">{error}</p> : null}
+
+        <details className="mm-friend-code-fallback">
+          <summary>Utiliser un code ami</summary>
+          <section className="mm-friend-code-card">
+            <div><small>Votre code ami</small><strong>{ownCode}</strong><p>À utiliser si la recherche par pseudo ne suffit pas.</p></div>
+            <button type="button" onClick={copyCode} aria-label="Copier le code ami"><Copy /></button>
+          </section>
+          <form className="mm-add-friend" onSubmit={submitFriendCode}>
+            <label htmlFor="friend-code">Code de votre ami</label>
+            <div><input id="friend-code" value={friendCode} onChange={event => setFriendCode(event.target.value.toUpperCase().replace(/[^A-F0-9]/g, '').slice(0, 8))} placeholder="CODE AMI" inputMode="text" autoComplete="off" /><button type="submit" disabled={friendCode.length !== 8 || busy !== null}><UserPlus />Ajouter</button></div>
+          </form>
+        </details>
 
         {social.incoming.length ? <section className="mm-social-section">
           <h3>Demandes reçues <b>{social.incoming.length}</b></h3>
@@ -100,7 +162,7 @@ export function FriendsPanel({ identity, social, setSocial, close, notify }: {
               <button type="button" disabled={busy !== null} onClick={() => setReportTarget(friend)}><Shield />Signaler</button>
               <button type="button" className="danger" disabled={busy !== null} onClick={() => void run(friend.playerId, () => updateFriend(identity.playerId, friend.playerId, 'block'), 'Joueur bloqué')}><Ban />Bloquer</button>
             </div> : null}
-          </article>) : <div className="mm-social-empty"><Users /><strong>Votre liste est vide</strong><span>Ajoutez votre premier ami avec son code.</span></div>}
+          </article>) : <div className="mm-social-empty"><Users /><strong>Votre liste est vide</strong><span>Recherchez votre premier ami par son pseudo.</span></div>}
         </section>
 
         {social.outgoing.length ? <section className="mm-social-section subdued">

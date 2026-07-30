@@ -21,6 +21,7 @@
     "src/botOpponents.ts",
     "src/playerNamePolicy.ts",
     "src/presencePolicy.ts",
+    "src/socialSearchPolicy.ts",
     "src/data/*.json"
   ]
 }
