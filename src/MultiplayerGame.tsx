@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
-import { ArrowLeft, Check, Hourglass, Lightbulb, Settings, Shuffle, Wifi } from 'lucide-react'
+import { ArrowLeft, Check, Hourglass, Lightbulb, Settings, Shuffle, Sparkles, Wifi } from 'lucide-react'
 import './styles.css'
 import { startAdaptivePolling, type AdaptivePollingController } from './adaptivePolling'
 import { assetUrl } from './assetUrl'
@@ -35,6 +35,7 @@ export { StableBoardLetters } from './game/StableBoardLetters'
 
 type Tile = RackTile
 type ScoreEffect = { id: string; kind: 'letter' | 'word'; label: string; owner: 'player' | 'bot'; cellIndex: number }
+type RackBonusEffect = { id: string; points: number; owner: 'player' | 'bot' }
 type HintFlight = { letter: string; cellIndex: number; fromX: number; fromY: number; deltaX: number; deltaY: number }
 
 const DIFFICULTY_LABELS = { easy: 'Facile', normal: 'Normale', hard: 'Difficile' } as const
@@ -63,6 +64,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   const [rerollRequesting, setRerollRequesting] = useState(false)
   const [rackRolling, setRackRolling] = useState(false)
   const [scoreEffects, setScoreEffects] = useState<ScoreEffect[]>([])
+  const [rackBonusEffect, setRackBonusEffect] = useState<RackBonusEffect | null>(null)
   const [wordHighlight, setWordHighlight] = useState<BoardWordHighlightState | null>(null)
   const [leaveOpen, setLeaveOpen] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -84,6 +86,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   const wasMyTurn = useRef(false)
   const turnAlertTimer = useRef<number | null>(null)
   const rerollTimer = useRef<number | null>(null)
+  const rackBonusTimer = useRef<number | null>(null)
   const opponentNameRef = useRef('Votre adversaire')
   const hintRequestingRef = useRef(false)
   const pollingRef = useRef<AdaptivePollingController | null>(null)
@@ -134,6 +137,16 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     window.setTimeout(() => setScoreEffects(current => current.filter(item => item.id !== created.id)), REWARD_EFFECT_LIFETIME_MS)
   }
 
+  const showRackBonusEffect = (points: number, owner: 'player' | 'bot') => {
+    if (rackBonusTimer.current !== null) window.clearTimeout(rackBonusTimer.current)
+    const created = { id: `rack-bonus-${multiplayerEffectSequence++}`, points, owner }
+    setRackBonusEffect(created)
+    rackBonusTimer.current = window.setTimeout(() => {
+      setRackBonusEffect(current => current?.id === created.id ? null : current)
+      rackBonusTimer.current = null
+    }, REWARD_EFFECT_LIFETIME_MS)
+  }
+
   const stopAnimationTimer = () => {
     if (animationTimer.current !== null) window.clearTimeout(animationTimer.current)
     animationTimer.current = null
@@ -181,8 +194,8 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
       setStatus(`Mot terminé · +${bonus.points}`)
     }}))
     if (turn.rackBonus) steps.push({ points: turn.rackBonus, run: () => {
-      const cellIndex = turn.correct[Math.floor(turn.correct.length / 2)] ?? 0
-      showEffect({ kind: 'word', label: `+${turn.rackBonus}`, owner, cellIndex })
+      setGreenCells(new Set()); setOrangeCells(new Set()); setWrongCells(new Set()); setRevealedWrong({}); setWordHighlight(null)
+      showRackBonusEffect(turn.rackBonus, owner)
       playEffect('word')
       setStatus(`Chevalet complet · +${turn.rackBonus}`)
     }})
@@ -308,6 +321,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
       if (hintLandingTimer.current !== null) window.clearTimeout(hintLandingTimer.current)
       if (turnAlertTimer.current !== null) window.clearTimeout(turnAlertTimer.current)
       if (rerollTimer.current !== null) window.clearTimeout(rerollTimer.current)
+      if (rackBonusTimer.current !== null) window.clearTimeout(rackBonusTimer.current)
     }
     // The match identity is fixed for the lifetime of this screen.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -557,11 +571,11 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
       <BoardScoreEffects effects={scoreEffects} columns={grid.columns} rows={grid.rows} />
     </div></section> : null}
     {showGame ? <>
-      <section className={`rack-area ${!isMyTurn ? 'duel-rack-waiting' : ''}`}><div className="rack-heading"><strong>{isMyTurn ? 'Vos lettres' : `${opponentName} joue…`}</strong><span>{isMyTurn ? `${rack.length - placedIds.size} disponible${rack.length - placedIds.size > 1 ? 's' : ''}` : 'Préparez votre prochain coup'}</span></div><div className={`rack ${dropTarget === -1 ? 'rack-drop' : ''} ${rackRolling ? 'is-rerolling' : ''}`} data-rack="true" aria-label="Lettres disponibles">
+      <section className={`rack-area ${!isMyTurn ? 'duel-rack-waiting' : ''}`}><div className="rack-heading"><strong>{isMyTurn ? 'Vos lettres' : `${opponentName} joue…`}{isMyTurn ? <small className="rack-bonus-rule" title="Posez correctement les 5 lettres du chevalet sans indice pendant ce tour pour gagner 5 points"><Sparkles /> 5 correctes = +5</small> : null}</strong><span>{isMyTurn ? `${rack.length - placedIds.size} disponible${rack.length - placedIds.size > 1 ? 's' : ''}` : 'Préparez votre prochain coup'}</span></div><div className={`rack ${dropTarget === -1 ? 'rack-drop' : ''} ${rackRolling ? 'is-rerolling' : ''}`} data-rack="true" aria-label="Lettres disponibles">
         {rack.map(tile => <div className="rack-slot" key={tile.id}>{!placedIds.has(tile.id) ? <button type="button" data-rack-letter={tile.letter} data-rack-id={tile.id} disabled={!canAct || resolving} aria-label={`Lettre ${tile.letter}`} className={`rack-letter ${selected?.id === tile.id ? 'selected' : ''} ${drag?.tile.id === tile.id ? 'drag-source' : ''}`} onClick={() => setSelected(current => current?.id === tile.id ? null : tile)} onPointerDown={event => pointerDown(event, tile, 'rack')} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerCancel}>{tile.letter}</button> : null}</div>)}
         {Array.from({ length: Math.max(0, 5 - rack.length) }, (_, index) => <div className="rack-slot" aria-hidden="true" key={`empty-${index}`} />)}
         <button className="reroll-button" type="button" onClick={() => void rerollRack()} disabled={!canAct || resolving || rerollRequesting || rerollUsedInMatch || Object.keys(provisional).length > 0} aria-label={rerollUsedInMatch ? 'Relance déjà utilisée pendant cette partie' : 'Relancer les lettres'} title={rerollUsedInMatch ? 'Relance déjà utilisée' : 'Relancer les lettres'}><Shuffle /></button>
-      </div></section>
+      </div>{rackBonusEffect ? <div key={rackBonusEffect.id} className={`rack-completion-reward rack-completion-reward--${rackBonusEffect.owner}`} role="status" aria-live="polite"><Sparkles /><span><strong>Chevalet complet</strong><small>5 lettres correctes</small></span><b>+{rackBonusEffect.points}</b></div> : null}</section>
       <div className="turn-actions"><button className="hint-button" type="button" onClick={requestHint} disabled={!canAct || resolving || hintRequesting || hintUsedInMatch} title={hintUsedInMatch ? 'Indice déjà utilisé pendant cette partie' : 'Utiliser un indice'}><Lightbulb />Indice</button><button className="validate" type="button" onClick={() => void validate(false)} disabled={!canAct || resolving}><Check />{isMyTurn ? resolving ? 'Résultats…' : 'Valider' : `Tour de ${opponentName}`}</button></div>
     </> : <ResultPanel match={match} playerId={playerId} opponentName={opponentName} onExit={onExit} onHome={onHome} />}
     {drag ? <div ref={ghostRef} className="drag-ghost" style={{ left: drag.x, top: drag.y }}>{drag.tile.letter}</div> : null}

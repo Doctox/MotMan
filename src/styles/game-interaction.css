@@ -46,7 +46,13 @@
 .board{border-radius:8px;box-shadow:0 5px 15px #3c352312}
 .board-wrap{margin-bottom:11px}
 .clue{font-weight:600}.clue:nth-child(4n+1){background:#f4ded5}.clue:nth-child(4n+2){background:#f5e9c4}.clue:nth-child(4n+3){background:#e9ece1}
-.rack-area{padding-top:9px}
+.rack-area{position:relative;padding-top:9px}
+.rack-heading>strong{display:flex;align-items:center;gap:6px;min-width:0}
+.rack-bonus-rule{
+  display:inline-flex;align-items:center;gap:3px;padding:3px 6px;border:1px solid #d8bf76;border-radius:999px;
+  background:#fff8df;color:#8b641c;white-space:nowrap;font:800 7px/1 'DM Sans',sans-serif;letter-spacing:.015em;
+}
+.rack-bonus-rule svg{width:10px;height:10px;stroke-width:2}
 .rack{border-radius:10px;background:#f1eadf;box-shadow:inset 0 1px 4px #66482210}
 .rack-slot{border-radius:8px;background:#ece2d4}.rack-letter{border-radius:8px;background:#fffaf0}
 .turn-actions{width:100%;margin-top:11px}
@@ -59,6 +65,7 @@
 [data-theme="dark"] .player{background:#18241f;border-color:#40524b}
 [data-theme="dark"] .game-portrait{box-shadow:0 0 0 2px #18241f}
 [data-theme="dark"] .rack{background:#1d2c27}
+[data-theme="dark"] .rack-bonus-rule{border-color:#8a7540;background:#3b3421;color:#f3d98a}
 
 @media(max-height:780px){
   .app-shell>header{height:53px}.game-brand-logo{height:36px}
@@ -74,6 +81,29 @@
   .turn{width:64px;height:64px;min-height:64px}.turn-timer{font-size:28px}.turn strong{top:58px;max-width:112px}.turn small{bottom:66px}
   .turn-actions{grid-template-columns:100px 1fr}
 }
+
+.rack-completion-reward{
+  position:absolute;z-index:90;left:50%;bottom:7px;width:min(238px,calc(100% - 22px));min-height:47px;
+  display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:8px;padding:6px 10px;
+  border:2px solid #d8bd72;border-radius:14px;background:linear-gradient(145deg,#fff9e7,#f3e5b6);color:#164f42;
+  box-shadow:0 10px 24px #49391f42,0 0 0 3px #fffaf0cc;pointer-events:none;
+  transform:translateX(-50%);animation:rackBonusReveal 1.72s var(--motion) forwards;
+}
+.rack-completion-reward>svg{width:25px;height:25px;padding:5px;border-radius:50%;background:#0d6755;color:#fff6d8}
+.rack-completion-reward>span{display:flex;min-width:0;flex-direction:column}
+.rack-completion-reward>span strong{font:700 13px/1.1 'Playfair Display',serif}
+.rack-completion-reward>span small{margin-top:2px;color:#6e735f;font:700 7px/1.1 'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.05em}
+.rack-completion-reward>b{color:#b64f2c;font:800 20px/1 'DM Sans',sans-serif}
+.rack-completion-reward--bot{border-color:#dda17e;background:linear-gradient(145deg,#fff5ec,#f5d7c6)}
+.rack-completion-reward--bot>svg{background:#c9572f}
+@keyframes rackBonusReveal{
+  0%{opacity:0;translate:0 10px;scale:.78}
+  16%{opacity:1;translate:0 0;scale:1.04}
+  32%,78%{opacity:1;translate:0 0;scale:1}
+  100%{opacity:0;translate:0 -8px;scale:.96}
+}
+[data-theme="dark"] .rack-completion-reward{background:linear-gradient(145deg,#273c34,#40391f);color:#f4f1df;box-shadow:0 10px 24px #0009,0 0 0 3px #17231fcc}
+[data-theme="dark"] .rack-completion-reward>span small{color:#c5c8b2}
 
 /* A single visual language for turn ownership in solo and live matches. */
 .player>span:last-child{position:relative;min-width:0}
@@ -101,7 +131,8 @@
 @keyframes rackRenew{0%{opacity:.35;transform:translateY(8px) rotate(-2deg)}58%{opacity:1;transform:translateY(-4px) rotate(1deg)}100%{transform:translateY(0) rotate(0)}}
 [data-theme="dark"] .reroll-button{background:linear-gradient(145deg,#26715f,#0c4c40);border-color:#4f8b79;color:#fff4dc;box-shadow:0 4px 9px #0006}
 @media(max-width:360px){.rack{grid-template-columns:repeat(5,minmax(0,1fr)) 44px;gap:5px}.turn-actions{grid-template-columns:minmax(94px,.82fr) minmax(0,1.35fr);gap:7px}}
-@media(prefers-reduced-motion:reduce){.rack.is-rerolling .rack-slot{animation:none!important}.reroll-button svg{transition:none}}
+@media(max-width:360px){.rack-bonus-rule{gap:2px;padding:2px 4px;font-size:6px}.rack-bonus-rule svg{width:8px;height:8px}.rack-heading>span{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.rack.is-rerolling .rack-slot{animation:none!important}.reroll-button svg{transition:none}.rack-completion-reward{animation:none!important}}
 .player-turn-marker{
   display:block;margin-top:4px;padding:2px 5px;border-radius:999px;background:#e5f1e8;color:#0d654c;
   font:800 6px/1 'DM Sans',sans-serif;font-style:normal;letter-spacing:.08em;text-align:center;white-space:nowrap;

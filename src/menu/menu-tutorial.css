@@ -246,6 +246,26 @@
   font-weight:900;
 }
 .mm-tutorial-rack-visual .mini-validate svg{width:16px;height:16px}
+.mm-tutorial-rack-visual .mini-rack-bonus{
+  width:min(228px,92%);
+  margin-top:10px;
+  padding:7px 9px;
+  display:grid;
+  grid-template-columns:24px 1fr auto;
+  align-items:center;
+  gap:7px;
+  border:1px solid color-mix(in srgb,var(--mm-gold) 72%,var(--mm-line));
+  border-radius:12px;
+  background:color-mix(in srgb,var(--mm-gold) 13%,var(--mm-surface));
+  box-shadow:0 5px 14px #00000012;
+  color:var(--mm-ink);
+  text-align:left;
+}
+.mm-tutorial-rack-visual .mini-rack-bonus>svg{width:22px;height:22px;padding:4px;border-radius:50%;background:var(--mm-green);color:#fff6d8}
+.mm-tutorial-rack-visual .mini-rack-bonus>span{display:flex;min-width:0;flex-direction:column}
+.mm-tutorial-rack-visual .mini-rack-bonus strong{font:700 10px/1.1 'Playfair Display',serif}
+.mm-tutorial-rack-visual .mini-rack-bonus small{margin-top:2px;color:var(--mm-muted);font-size:7px;line-height:1.1}
+.mm-tutorial-rack-visual .mini-rack-bonus>b{color:var(--mm-coral);font-size:17px}
 .mm-tutorial-modes{
   width:min(340px,92%);
   display:grid;

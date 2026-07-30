@@ -48,6 +48,7 @@ function RackVisual() {
     <div className="move-arrow">↑</div>
     <div className="mini-rack"><span>R</span><span className="selected">A</span><span>O</span><span>S</span></div>
     <div className="mini-validate"><Check /> Valider</div>
+    <div className="mini-rack-bonus"><Sparkles /><span><strong>Chevalet complet</strong><small>5 lettres correctes sans indice</small></span><b>+5</b></div>
   </div>
 }
 
@@ -84,7 +85,7 @@ const STEPS: TutorialStep[] = [
   {
     eyebrow: 'Jouer un tour',
     title: 'Posez vos lettres, puis validez',
-    description: 'Touchez une lettre du chevalet puis une case vide, ou faites-la glisser. Vous pouvez encore la déplacer tant que vous n’avez pas validé.',
+    description: 'Touchez une lettre du chevalet puis une case vide, ou faites-la glisser. Si les 5 lettres sont correctes au même tour sans indice, le bonus Chevalet complet ajoute 5 points.',
     visual: <RackVisual />,
     note: <><Lightbulb /> L’indice place une lettre correcte, mais ne rapporte aucun point.</>,
   },
