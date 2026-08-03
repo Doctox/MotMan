@@ -95,6 +95,7 @@ export type MatchState = {
   } | null
   createdAt: string
   updatedAt: string
+  serverTime?: string
   grid?: GeneratedGrid
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { MatchState } from '../matches'
+import { serverNow } from '../serverClock'
 
 const ASYNC_TURN_DURATION_SECONDS = 24 * 60 * 60
 
@@ -13,7 +14,7 @@ function turnClockLabel(seconds: number, async: boolean): string {
 
 type TurnPhase = { started: boolean; expired: boolean; urgent: boolean }
 
-function phaseAt(match: MatchState | null, instant = Date.now()): TurnPhase {
+function phaseAt(match: MatchState | null, instant = serverNow()): TurnPhase {
   if (!match || match.status !== 'active') return { started: false, expired: false, urgent: false }
   const startsAt = new Date(match.turnStartedAt).getTime()
   const endsAt = new Date(match.turnEndsAt).getTime()
@@ -28,7 +29,7 @@ export function useTurnPhase(match: MatchState | null): TurnPhase {
     const update = () => setRevision(current => current + 1)
     update()
     if (!match || match.status !== 'active') return
-    const now = Date.now()
+    const now = serverNow()
     const startsAt = new Date(match.turnStartedAt).getTime()
     const endsAt = new Date(match.turnEndsAt).getTime()
     const boundaries = [startsAt, match.pace === 'realtime' ? endsAt - 10_000 : 0, endsAt]
@@ -46,7 +47,7 @@ export function useTurnPhase(match: MatchState | null): TurnPhase {
 export function TurnTimer({ match, resolving, started }: { match: MatchState; resolving: boolean; started: boolean }) {
   const labelAt = () => {
     if (match.status !== 'active' || resolving || !started) return '—'
-    const seconds = Math.max(0, Math.ceil((new Date(match.turnEndsAt).getTime() - Date.now()) / 1_000))
+    const seconds = Math.max(0, Math.ceil((new Date(match.turnEndsAt).getTime() - serverNow()) / 1_000))
     return turnClockLabel(seconds, match.pace === 'async')
   }
   const [label, setLabel] = useState(labelAt)

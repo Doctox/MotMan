@@ -17,6 +17,7 @@ import {
 } from './matches'
 import { subscribeToMatchUpdates } from './matchRealtime'
 import { matchPollDelay } from './matchSyncPolicy'
+import { noteServerTime, serverNow } from './serverClock'
 import { loadPlayerIdentity, playerInitials } from './playerIdentity'
 import { presenceHeartbeatDelay } from './presencePolicy'
 import { RankedMatchPausedOverlay } from './RankedReadyOverlay'
@@ -115,6 +116,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     return new Set(gameWordCellIndexes(grid, word))
   }, [expandedClue, grid])
   const applyMatchState = (next: MatchState) => {
+    noteServerTime(next.serverTime)
     const current = matchRef.current
     if (current?.id === next.id) {
       const nextUpdatedAt = new Date(next.updatedAt).getTime()
@@ -199,7 +201,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
       playEffect('word')
       setStatus(`Chevalet complet · +${turn.rackBonus}`)
     }})
-    const revealRemaining = revealEndsAt === null ? steps.length * REWARD_STEP_MS + 350 : revealEndsAt - Date.now()
+    const revealRemaining = revealEndsAt === null ? steps.length * REWARD_STEP_MS + 350 : revealEndsAt - serverNow()
     const finishAnimation = () => {
       setGreenCells(new Set()); setOrangeCells(new Set()); setWrongCells(new Set()); setWordHighlight(null)
       setRevealedWrong({}); provisionalRef.current = {}; setProvisional({})
@@ -246,13 +248,17 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
 
   const acceptRemoteSnapshot = (next: MatchState) => {
     if (!alive.current) return
+    // A new grid must arrive with its geometry. If the authoritative snapshot is
+    // missing it, do NOT record this version — otherwise the next poll reports
+    // "already known", the grid never reloads, and the loading screen freezes.
+    const needsGrid = loadedGridId.current !== next.gridId
+    if (needsGrid && !next.grid) throw new Error('Le serveur n’a pas transmis la grille publique de cette partie.')
     unchangedPollsRef.current = 0
     syncFailuresRef.current = 0
     applyMatchState(next)
-    if (loadedGridId.current !== next.gridId) {
+    if (needsGrid && next.grid) {
       // Online matches receive a sanitized board from the authoritative server:
       // clues and word geometry are present, answers and cell solutions are not.
-      if (!next.grid) throw new Error('Le serveur n’a pas transmis la grille publique de cette partie.')
       loadedGridId.current = next.gridId
       setGrid(next.grid)
     }
@@ -410,7 +416,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   const validate = async (automatic = false) => {
     const currentMatch = matchRef.current
     if (!currentMatch || currentMatch.status !== 'active' || currentMatch.currentPlayerId !== playerId || resolvingRef.current) return
-    if (!automatic && (!canAct || Date.now() >= new Date(currentMatch.turnEndsAt).getTime())) return
+    if (!automatic && (!canAct || serverNow() >= new Date(currentMatch.turnEndsAt).getTime())) return
     if (submittedTurns.current.has(currentMatch.turnNumber)) return
     submittedTurns.current.add(currentMatch.turnNumber)
     resolvingRef.current = true; setResolving(true); setError(null); setStatus(automatic ? 'Temps écoulé · validation…' : 'Validation…')

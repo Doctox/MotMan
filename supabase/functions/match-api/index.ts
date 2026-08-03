@@ -261,7 +261,7 @@ async function view(
       remainingMs: row.paused_remaining_ms ?? 0,
       expiresAt: readySession?.expires_at ?? row.paused_at,
     } : null,
-    createdAt: row.created_at, updatedAt: row.updated_at, ...(grid ? { grid: publicGrid(grid) } : {}),
+    createdAt: row.created_at, updatedAt: row.updated_at, serverTime: new Date().toISOString(), ...(grid ? { grid: publicGrid(grid) } : {}),
   }
 }
 
