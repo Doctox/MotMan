@@ -27,6 +27,7 @@ import { reportPlayer, setSocialPresence } from './social'
 import { useDragGhost } from './useDragGhost'
 import { DuelPlayer, LeaveMatchPanel, ResultPanel } from './game/DuelPresentation'
 import { compactClue, sameNumberRecord } from './game/gameDisplay'
+import { useClueAutoFit } from './game/clueAutoFit'
 import { FINAL_GRID_COMPLETION_HOLD_MS, matchPresentationPhase } from './game/matchPresentation'
 import { StableBoardLetters } from './game/StableBoardLetters'
 import { TurnTimer, useTurnPhase } from './game/TurnTiming'
@@ -49,6 +50,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   const playerCosmetics = useRef(loadPlayerCosmetics(playerId))
   const [match, setMatch] = useState<MatchState | null>(null)
   const [grid, setGrid] = useState<GeneratedGrid | null>(null)
+  const fitBoardRef = useClueAutoFit()
   const [provisional, setProvisional] = useState<Record<number, Tile>>({})
   const [selected, setSelected] = useState<Tile | null>(null)
   const [drag, setDrag] = useState<{ tile: Tile; origin: 'rack' | number; x: number; y: number } | null>(null)
@@ -558,7 +560,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
       {myInactivity ? <span className="mine"><b>Vous</b> {myInactivity}/3</span> : null}
     </div> : null}</> : null}
     {error ? <p className="duel-error" role="alert">{error}</p> : null}
-    {showGame ? <section className="board-wrap" aria-label="Grille multijoueur" data-bot-level={match.bot ? match.difficulty : undefined}><div className={`board ${focusedWordCells.size ? 'has-clue-focus' : ''}`} style={{ '--board-columns': grid.columns, '--board-rows': grid.rows, '--board-aspect': `${grid.columns} / ${grid.rows}` } as CSSProperties}>
+    {showGame ? <section className="board-wrap" aria-label="Grille multijoueur" data-bot-level={match.bot ? match.difficulty : undefined}><div ref={fitBoardRef} className={`board ${focusedWordCells.size ? 'has-clue-focus' : ''}`} style={{ '--board-columns': grid.columns, '--board-rows': grid.rows, '--board-aspect': `${grid.columns} / ${grid.rows}` } as CSSProperties}>
       {grid.cells.map((cell, index) => {
         if (cell.kind === 'block') return <div className="cell block corner-block" key={index} aria-label="Case centrale des définitions" />
         if (cell.kind === 'clue') {

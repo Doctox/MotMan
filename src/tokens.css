@@ -1,0 +1,124 @@
+/* ============================================================
+   MotMan — Système de tokens unifié (source de vérité unique)
+   ------------------------------------------------------------
+   Valeurs VÉRIFIÉES contre ta source :
+     - menu/menu-layout.css      → tokens --mm-* (clair + [data-theme="dark"])
+     - styles/game-foundation.css→ tokens --green / --paper / --terra / ...
+   Ce fichier reproduit EXACTEMENT ces valeurs : l'adopter ne change
+   rien au rendu, il ne fait que centraliser les hex en un seul endroit.
+
+   INTÉGRATION EN 2 TEMPS (sans risque)
+   1) Importe ce fichier EN PREMIER (avant tes autres CSS). Comme il
+      reproduit tes valeurs, l'appli doit être identique. Vérifie à l'œil.
+   2) Une fois confiant, SUPPRIME les définitions dupliquées à la source :
+        - le bloc :root de tokens dans menu/menu-layout.css + son bloc
+          [data-theme="dark"]
+        - le bloc :root de tokens dans styles/game-foundation.css
+      … pour ne garder QUE ce fichier comme source.
+
+   NOTE (mode sombre)
+   Tes tokens de JEU (--green, --paper, --terra, --gold, --sage, --line)
+   n'ont pas de variante sombre au niveau TOKEN — mais la grille passe
+   quand même en sombre grâce à ~46 règles `[data-theme="dark"] .xxx{...}`
+   dans game-foundation.css (board, cellules, chevalet, indices, etc.).
+   Ces règles restent en place : la consolidation ne déplace QUE les
+   définitions de tokens, jamais les règles sombres des composants.
+
+   Non inclus : les tokens de BOUTONS (--mm-button-*, --game-button-*) et
+   de MOT (--word-*) sont définis de façon LOCALE (dans des composants),
+   pas en :root. Les remonter ici demande de déplacer leur portée : à
+   traiter dans un 2e temps, prudemment.
+   ============================================================ */
+
+:root {
+  /* ============================================================
+     1. PRIMITIVES — la palette brute, définie UNE SEULE FOIS.
+        On ne réécrit plus jamais un hex ailleurs : on référence ces noms.
+     ============================================================ */
+
+  /* — Clair — */
+  --c-green-900:      #073f36;   /* encre / vert pin signature */
+  --c-green-700:      #176b58;   /* vert adouci */
+  --c-ink-soft:       #24594f;
+  --c-paper:          #fffaf0;   /* ivoire chaud, fond */
+  --c-surface:        #fffdf8;   /* cartes */
+  --c-terra:          #c94d29;   /* terracotta (adversaire / accent) */
+  --c-gold:           #c59b45;   /* or laiton */
+  --c-sage-100:       #e8ece2;
+  --c-sage-050:       #f2f3ec;
+  --c-muted:          #6d7773;
+  --c-line-mm:        #d7d1c2;   /* ligne (système --mm-*) */
+  --c-line-warm:      #b8b6aa;   /* ligne (système jeu --line) — VALEUR DIFFÉRENTE */
+  --c-line-strong:    #b9b9a9;
+  --c-shadow-green:   #173b3014;
+  --c-shadow-warm:    #49391f0a;
+
+  /* — Sombre — */
+  --c-paper-dark:     #111b18;
+  --c-surface-dark:   #18241f;
+  --c-ink-dark:       #edf5ef;
+  --c-ink-soft-dark:  #b8d2c8;
+  --c-muted-dark:     #a5b4ae;
+  --c-coral-dark:     #ef805d;
+  --c-sage-dark:      #263a33;
+  --c-sage-soft-dark: #1e2c27;
+  --c-gold-dark:      #d9b563;
+  --c-line-dark:      #3d5048;
+  --c-line-strong-dark: #52655e;
+  --c-shadow-dark:    #00000045;
+
+  /* ============================================================
+     2. SÉMANTIQUE — système --mm-* (menu), thème CLAIR.
+        (identique à ton menu/menu-layout.css actuel)
+     ============================================================ */
+  --mm-paper:         var(--c-paper);
+  --mm-surface:       var(--c-surface);
+  --mm-ink:           var(--c-green-900);
+  --mm-ink-soft:      var(--c-ink-soft);
+  --mm-muted:         var(--c-muted);
+  --mm-coral:         var(--c-terra);
+  --mm-sage:          var(--c-sage-100);
+  --mm-sage-soft:     var(--c-sage-050);
+  --mm-gold:          var(--c-gold);
+  --mm-line:          var(--c-line-mm);
+  --mm-line-strong:   var(--c-line-strong);
+  --mm-shadow:        var(--c-shadow-green);
+  --mm-shadow-raised: 0 10px 28px var(--c-shadow-green), 0 2px 6px var(--c-shadow-warm);
+  --mm-ease:          cubic-bezier(.22, 1, .36, 1);
+
+  /* ============================================================
+     3. TOKENS DE JEU — système --green/--paper/... (grille).
+        (identique à ton styles/game-foundation.css actuel)
+        ⚠️ PAS de variante sombre — voir la note en-tête. On les fait
+        pointer vers les primitives, mais on ne leur donne AUCUN override
+        dans [data-theme="dark"] pour reproduire le comportement actuel.
+     ============================================================ */
+  --green:            var(--c-green-900);
+  --green-soft:       var(--c-green-700);
+  --paper:            var(--c-paper);
+  --surface:          var(--c-surface);
+  --terra:            var(--c-terra);
+  --gold:             var(--c-gold);
+  --sage:             var(--c-sage-100);
+  --line:             var(--c-line-warm);   /* #b8b6aa — distinct de --mm-line ! */
+  --motion:           var(--mm-ease);
+}
+
+/* ============================================================
+   Thème SOMBRE — n'affecte QUE le système --mm-* (comme aujourd'hui).
+   ============================================================ */
+[data-theme="dark"] {
+  --mm-paper:         var(--c-paper-dark);
+  --mm-surface:       var(--c-surface-dark);
+  --mm-ink:           var(--c-ink-dark);
+  --mm-ink-soft:      var(--c-ink-soft-dark);
+  --mm-muted:         var(--c-muted-dark);
+  --mm-coral:         var(--c-coral-dark);
+  --mm-sage:          var(--c-sage-dark);
+  --mm-sage-soft:     var(--c-sage-soft-dark);
+  --mm-gold:          var(--c-gold-dark);
+  --mm-line:          var(--c-line-dark);
+  --mm-line-strong:   var(--c-line-strong-dark);
+  --mm-shadow:        var(--c-shadow-dark);
+  --mm-shadow-raised: 0 13px 34px #0005, 0 2px 7px #0003;
+}

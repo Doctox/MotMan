@@ -3,37 +3,7 @@
    A single rhythm for every menu surface: quiet paper, editorial hierarchy,
    tactile controls and restrained motion.
    -------------------------------------------------------------------------- */
-:root{
-  --mm-paper:#fffaf0;
-  --mm-surface:#fffdf8;
-  --mm-ink:#073f36;
-  --mm-ink-soft:#24594f;
-  --mm-muted:#6d7773;
-  --mm-coral:#c94d29;
-  --mm-sage:#e8ece2;
-  --mm-sage-soft:#f2f3ec;
-  --mm-gold:#c59b45;
-  --mm-line:#d7d1c2;
-  --mm-line-strong:#b9b9a9;
-  --mm-shadow:#173b3014;
-  --mm-shadow-raised:0 10px 28px #173b3014,0 2px 6px #49391f0a;
-  --mm-ease:cubic-bezier(.22,1,.36,1);
-}
-[data-theme="dark"]{
-  --mm-paper:#111b18;
-  --mm-surface:#18241f;
-  --mm-ink:#edf5ef;
-  --mm-ink-soft:#b8d2c8;
-  --mm-muted:#a5b4ae;
-  --mm-coral:#ef805d;
-  --mm-sage:#263a33;
-  --mm-sage-soft:#1e2c27;
-  --mm-gold:#d9b563;
-  --mm-line:#3d5048;
-  --mm-line-strong:#52655e;
-  --mm-shadow:#00000045;
-  --mm-shadow-raised:0 13px 34px #0005,0 2px 7px #0003;
-}
+/* Tokens --mm-* (clair + sombre) déplacés dans src/tokens.css — source de vérité unique. */
 
 .mm-shell{
   background-image:
