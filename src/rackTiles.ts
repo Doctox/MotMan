@@ -10,3 +10,18 @@ export function createMatchRackTiles(letters: readonly string[], turnNumber: num
     letter,
   }))
 }
+
+export function reconcileRackPlacements(
+  placements: Readonly<Record<number, RackTile>>,
+  rackLetters: readonly string[],
+  turnNumber: number,
+): Record<number, RackTile> {
+  const available = createMatchRackTiles(rackLetters, turnNumber)
+  const reconciled: Record<number, RackTile> = {}
+  for (const [cellIndex, placement] of Object.entries(placements)) {
+    const nextIndex = available.findIndex(tile => tile.letter === placement.letter)
+    if (nextIndex < 0) continue
+    reconciled[Number(cellIndex)] = available.splice(nextIndex, 1)[0]
+  }
+  return reconciled
+}

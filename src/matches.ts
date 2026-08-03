@@ -179,10 +179,10 @@ export async function playMatchTurn(playerId: string, matchId: string, turnNumbe
   return supabaseMatch<{ match: MatchState; result: MatchTurn }>('turn', { matchId, turnNumber, placements, automatic, knownUpdatedAt })
 }
 
-export async function requestMatchHint(playerId: string, matchId: string, knownUpdatedAt?: string): Promise<MatchState> {
-  if (localTestServer) return localMatch('hint', { playerId, matchId, knownUpdatedAt })
+export async function requestMatchHint(playerId: string, matchId: string, placements: Array<{ cellIndex: number; letter: string }>, knownUpdatedAt?: string): Promise<MatchState> {
+  if (localTestServer) return localMatch('hint', { playerId, matchId, placements, knownUpdatedAt })
   void playerId
-  return (await supabaseMatch<{ match: MatchState }>('hint', { matchId, knownUpdatedAt })).match
+  return (await supabaseMatch<{ match: MatchState }>('hint', { matchId, placements, knownUpdatedAt })).match
 }
 
 export async function rerollMatchRack(playerId: string, matchId: string, knownUpdatedAt?: string): Promise<MatchState> {

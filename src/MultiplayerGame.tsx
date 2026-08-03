@@ -20,7 +20,7 @@ import { matchPollDelay } from './matchSyncPolicy'
 import { loadPlayerIdentity, playerInitials } from './playerIdentity'
 import { presenceHeartbeatDelay } from './presencePolicy'
 import { RankedMatchPausedOverlay } from './RankedReadyOverlay'
-import { createMatchRackTiles, type RackTile } from './rackTiles'
+import { createMatchRackTiles, reconcileRackPlacements, type RackTile } from './rackTiles'
 import { haptic, playEffect } from './sensoryPreferences'
 import { reportPlayer, setSocialPresence } from './social'
 import { useDragGhost } from './useDragGhost'
@@ -448,14 +448,20 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
     hintRequestingRef.current = true
     setHintRequesting(true)
     try {
-      const next = await requestMatchHint(playerId, match.id, match.updatedAt)
+      const pendingPlacements = Object.entries(provisionalRef.current)
+        .map(([cellIndex, tile]) => ({ cellIndex: Number(cellIndex), letter: tile.letter }))
+      const next = await requestMatchHint(playerId, match.id, pendingPlacements, match.updatedAt)
       const placedHint = next.hint
       if (placedHint) {
         const target = document.querySelector<HTMLElement>(`[data-cell="${placedHint.cellIndex}"]`)
         const sourceRect = sourceRects.get(placedHint.letter)
         const targetRect = target?.getBoundingClientRect()
         applyMatchState(next)
-        updateProvisional(current => Object.fromEntries(Object.entries(current).filter(([cellIndex, tile]) => Number(cellIndex) !== placedHint.cellIndex && tile.letter !== placedHint.letter)))
+        updateProvisional(current => reconcileRackPlacements(
+          Object.fromEntries(Object.entries(current).filter(([cellIndex]) => Number(cellIndex) !== placedHint.cellIndex)),
+          next.racks[playerId] ?? [],
+          next.turnNumber,
+        ))
         setSelected(null)
         if (sourceRect && targetRect) {
           const fromX = sourceRect.left + sourceRect.width / 2

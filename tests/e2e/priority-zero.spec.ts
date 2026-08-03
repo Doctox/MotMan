@@ -32,6 +32,7 @@ type MatchState = {
   racks: Record<string, string[]>
   scores: Record<string, number>
   inactivity: Record<string, number>
+  hint: null | { playerId: string; cellIndex: number; letter: string; turnNumber: number }
   lastTurn: null | { id: string; playerId: string; turnNumber: number; correct: number[] }
   status: 'active' | 'finished'
   winnerId: string | null
@@ -172,6 +173,35 @@ async function openGame(browser: Browser, identity: Identity, matchId: string, v
   if (expectBoard) await expect(page.locator('.board')).toBeVisible()
   return { context, page }
 }
+
+test('un indice évite une lettre déjà posée mais pas encore validée', async ({ browser, request }, testInfo) => {
+  const { first, second, matchId } = await createNormalMatch(request, 'async', 'Indice utile')
+  const initial = await loadMatch(request, first.playerId, matchId)
+  const placement = playablePlacements(initial)[0]
+  expect(placement).toBeTruthy()
+  const actor = initial.currentPlayerId === first.playerId ? first : second
+  const { context, page } = await openGame(browser, actor, matchId, { width: 390, height: 844 })
+  try {
+    await expect(page.locator('.turn-ready-flash')).toBeHidden()
+    await page.getByRole('button', { name: `Lettre ${placement.letter}` }).first().click({ force: true })
+    const provisionalCell = page.locator(`[data-cell="${placement.cellIndex}"]`)
+    await provisionalCell.click({ force: true })
+    await expect(provisionalCell).toContainText(placement.letter)
+
+    await page.getByRole('button', { name: 'Indice' }).click({ force: true })
+    await expect(page.locator('.slot.hint-auto-placed')).toBeVisible()
+    await expect(provisionalCell).toContainText(placement.letter)
+    await expect(provisionalCell).toHaveAttribute('data-confirmed', 'false')
+
+    const hinted = await loadMatch(request, actor.playerId, matchId)
+    expect(hinted.hint).not.toBeNull()
+    expect(hinted.hint?.cellIndex).not.toBe(placement.cellIndex)
+    expect(hinted.board[String(placement.cellIndex)]).toBeUndefined()
+    await page.screenshot({ path: `output/quality/hint-skips-provisional-${testInfo.project.name}.png`, fullPage: false })
+  } finally {
+    await context.close()
+  }
+})
 
 test('la partie native reste cadrée au-dessus des commandes système Android', async ({ browser, browserName, request }) => {
   test.skip(browserName !== 'chromium', 'Le mode natif Android utilise Chromium WebView.')
@@ -500,10 +530,11 @@ test('une grille complète atteint l’écran final', async ({ browser, request 
     match = (await submitTurn(request, match, submitted)).match
 
     const remaining = [...solution.entries()].filter(([index]) => !match.board[index]).map(([, letter]) => letter)
-    if (match.status === 'active' && remaining.length > 0 && remaining.length <= 5) {
+    if (match.status === 'active' && remaining.length > 0 && remaining.length <= 10) {
       sawFinalSprint = true
+      const sharedRack = remaining.slice(0, 5)
       for (const playerId of match.playerIds) {
-        expect([...(match.racks[playerId] ?? [])].sort()).toEqual([...remaining].sort())
+        expect([...(match.racks[playerId] ?? [])].sort()).toEqual([...sharedRack].sort())
       }
     }
   }

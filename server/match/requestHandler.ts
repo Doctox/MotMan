@@ -233,7 +233,17 @@ export async function handleMatchRequest(request: IncomingMessage, response: Ser
     const currentGrid = gridForMatch(match)
     const solution = gridSolution(currentGrid)
     const rack = match.racks[playerId] ?? []
-    const candidates = hintCandidates(ruleGrid(currentGrid), rack, Object.keys(match.board).map(Number))
+    const pendingPlacements = context.sanitizePlacements(
+      match,
+      playerId,
+      Array.isArray(body.placements) ? body.placements : [],
+    )
+    const candidates = hintCandidates(
+      ruleGrid(currentGrid),
+      rack,
+      Object.keys(match.board).map(Number),
+      pendingPlacements,
+    )
     if (!candidates.length) return sendJson(response, 409, { error: 'Aucun indice disponible.' })
     const selected = candidates[hash(`${match.id}:${playerId}:${match.turnNumber}:hint`) % candidates.length]
     match.hint = { playerId, cellIndex: selected.cellIndex, letter: selected.letter, turnNumber: match.turnNumber }

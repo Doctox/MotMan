@@ -9,6 +9,7 @@ import {
   normalizeSocialSearch,
   SOCIAL_SEARCH_RESULT_LIMIT,
 } from '../../../src/socialSearchPolicy.ts'
+import { socialActionRoute } from '../../../src/socialActionPolicy.ts'
 
 const UUID_PATTERN = /^[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i
 
@@ -77,7 +78,10 @@ Deno.serve(async request => {
 
   try {
     await enforceRateLimits(admin, 'social', user.id, user.is_anonymous === true, action)
-    if (action === 'search') {
+    const route = socialActionRoute(action)
+    if (route === 'state') {
+      return json(200, { ok: true, state: await state() })
+    } else if (route === 'search') {
       const query = normalizeSocialSearch(body.query)
       if (!isValidSocialSearch(query)) {
         return json(400, { error: 'Entre au moins 3 caractères du pseudo recherché.' })
@@ -122,9 +126,9 @@ Deno.serve(async request => {
                 : 'available',
         }))
       return json(200, { ok: true, results })
-    } else if (action === 'presence') {
+    } else if (route === 'presence') {
       await admin.from('profiles').update({ activity: body.activity === 'playing' ? 'playing' : 'online', last_seen: new Date().toISOString() }).eq('id', user.id)
-    } else if (action === 'request') {
+    } else if (route === 'request') {
       const { count: pendingCount } = await admin.from('friend_requests').select('id', { count: 'exact', head: true }).eq('from_user_id', user.id)
       if ((pendingCount ?? 0) >= 20) return json(429, { error: 'Vous avez trop de demandes en attente.' })
       const friendCode = typeof body.friendCode === 'string' ? body.friendCode.toUpperCase().replace(/[^A-F0-9]/g, '').slice(0, 8) : ''
@@ -146,7 +150,7 @@ Deno.serve(async request => {
         await admin.from('friend_requests').delete().eq('id', reverse.id)
         await admin.from('friendships').upsert({ left_user_id: left, right_user_id: right })
       } else await admin.from('friend_requests').upsert({ from_user_id: user.id, to_user_id: target.id }, { onConflict: 'from_user_id,to_user_id' })
-    } else if (action === 'respond') {
+    } else if (route === 'respond') {
       const requestId = typeof body.requestId === 'string' ? body.requestId : ''
       const { data: pending } = await admin.from('friend_requests').select('*').eq('id', requestId).eq('to_user_id', user.id).single()
       if (!pending) return json(404, { error: 'Cette demande n’existe plus.' })
@@ -155,7 +159,7 @@ Deno.serve(async request => {
         const [left, right] = [user.id, pending.from_user_id].sort()
         await admin.from('friendships').upsert({ left_user_id: left, right_user_id: right })
       }
-    } else if (action === 'moderation-list' || action === 'moderation-resolve') {
+    } else if (route === 'moderation') {
       if (!['moderator', 'admin'].includes(accessProfile?.role ?? 'player')) return json(403, { error: 'Accès modération refusé.' })
       if (action === 'moderation-list') {
         const { data: reports } = await admin.from('reports').select('*').eq('status', 'open').order('created_at').limit(100)
@@ -169,8 +173,8 @@ Deno.serve(async request => {
       if (decision === 'suspend' || decision === 'ban') await admin.from('profiles').update({ status: decision === 'ban' ? 'banned' : 'suspended', updated_at: new Date().toISOString() }).eq('id', report.reported_id)
       await admin.from('reports').update({ status: decision === 'dismiss' ? 'dismissed' : 'actioned', reviewed_at: new Date().toISOString(), reviewed_by: user.id }).eq('id', reportId)
       return json(200, { ok: true })
-    } else {
-      const targetId = typeof body.targetId === 'string' ? body.targetId : ''
+    } else if (route === 'target') {
+      const targetId = typeof body.targetId === 'string' && UUID_PATTERN.test(body.targetId) ? body.targetId : ''
       if (!targetId || targetId === user.id) return json(400, { error: 'Joueur invalide.' })
       const [left, right] = [user.id, targetId].sort()
       if (action === 'cancel') await admin.from('friend_requests').delete().eq('from_user_id', user.id).eq('to_user_id', targetId)
@@ -187,9 +191,9 @@ Deno.serve(async request => {
         if ((count ?? 0) >= 5) return json(429, { error: 'Limite de signalements atteinte pour cette heure.' })
         const { data: target } = await admin.from('profiles').select('id').eq('id', targetId).maybeSingle()
         if (!target) return json(404, { error: 'Joueur introuvable.' })
-        await admin.from('reports').insert({ reporter_id: user.id, reported_id: targetId, reason: allowed.includes(String(body.reason)) ? body.reason : 'autre', details: typeof body.details === 'string' ? body.details.trim().slice(0, 500) : '', match_id: typeof body.matchId === 'string' ? body.matchId : null })
-      } else return json(404, { error: 'Action inconnue.' })
-    }
+        await admin.from('reports').insert({ reporter_id: user.id, reported_id: targetId, reason: allowed.includes(String(body.reason)) ? body.reason : 'autre', details: typeof body.details === 'string' ? body.details.trim().slice(0, 500) : '', match_id: typeof body.matchId === 'string' && UUID_PATTERN.test(body.matchId) ? body.matchId : null })
+      }
+    } else return json(404, { error: 'Action inconnue.' })
     return json(200, action === 'presence' ? { ok: true } : { ok: true, state: await state() })
   } catch (error) {
     if (error instanceof RateLimitExceededError) {

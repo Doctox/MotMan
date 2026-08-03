@@ -120,6 +120,20 @@ describe('indice et chevalet', () => {
     expect(candidates).toEqual([{ cellIndex: 6, letter: 'R', rackIndex: 1 }])
   })
 
+  it('ne gaspille pas un indice sur une lettre déjà posée pendant le tour', () => {
+    const candidates = hintCandidates(
+      crossingGrid,
+      ['C', 'T', 'R'],
+      [],
+      [{ cellIndex: 0, letter: 'C' }],
+    )
+
+    expect(candidates).toEqual([
+      { cellIndex: 2, letter: 'T', rackIndex: 0 },
+      { cellIndex: 6, letter: 'R', rackIndex: 1 },
+    ])
+  })
+
   it('conserve les doublons utiles et évite d’abord les lettres fraîchement jouées', () => {
     const rack = replenishRackFromNeeds({
       neededLetters: ['A', 'A', 'B', 'C', 'D', 'E'],
@@ -189,9 +203,21 @@ describe('indice et chevalet', () => {
     expect(finale.racks).toEqual({ alex: ['F', 'I', 'N', 'A', 'L'], lea: ['F', 'I', 'N', 'A', 'L'] })
   })
 
-  it('ne déclenche pas la finale quand il reste six cases', () => {
+  it('déclenche le sprint partagé dès dix cases et limite chaque chevalet à cinq lettres', () => {
     const finale = prepareFinalSprintRacks({
-      remainingLetters: ['S', 'O', 'U', 'R', 'I', 'S'],
+      remainingLetters: ['D', 'E', 'B', 'L', 'O', 'C', 'A', 'G', 'E', 'S'],
+      playerIds: ['alex', 'lea'],
+      racks: { alex: ['A'], lea: ['I', 'R'] },
+    })
+
+    expect(finale.active).toBe(true)
+    expect(finale.changed).toBe(true)
+    expect(finale.racks).toEqual({ alex: ['D', 'E', 'B', 'L', 'O'], lea: ['D', 'E', 'B', 'L', 'O'] })
+  })
+
+  it('ne déclenche pas le sprint partagé tant que onze cases restent', () => {
+    const finale = prepareFinalSprintRacks({
+      remainingLetters: ['D', 'E', 'B', 'L', 'O', 'C', 'A', 'G', 'E', 'S', 'X'],
       playerIds: ['alex', 'lea'],
       racks: { alex: ['A'], lea: ['I', 'R'] },
     })

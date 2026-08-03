@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { acknowledgeMatchResult, loadMatch, playMatchTurn, type MatchLobbyState, type MatchState, type MatchTurn } from './matches'
+import { acknowledgeMatchResult, loadMatch, playMatchTurn, requestMatchHint, type MatchLobbyState, type MatchState, type MatchTurn } from './matches'
 
 const remote = vi.hoisted(() => ({
   invoke: vi.fn(),
@@ -38,6 +38,25 @@ describe('synchronisation légère des parties', () => {
     expect(remote.invoke).toHaveBeenCalledWith('match-api', {
       action: 'turn', matchId: 'match-1', turnNumber: 4,
       placements: [{ cellIndex: 12, letter: 'A' }], automatic: false,
+      knownUpdatedAt: '2026-07-20T12:00:00.000Z',
+    })
+  })
+
+  it('transmet les lettres déjà posées afin que l’indice ne les répète pas', async () => {
+    const state = { id: 'match-1', updatedAt: '2026-07-20T12:00:01.000Z' } as MatchState
+    remote.invoke.mockResolvedValue({ match: state })
+
+    await requestMatchHint(
+      'guest_1234567890abcdef',
+      'match-1',
+      [{ cellIndex: 12, letter: 'C' }],
+      '2026-07-20T12:00:00.000Z',
+    )
+
+    expect(remote.invoke).toHaveBeenCalledWith('match-api', {
+      action: 'hint',
+      matchId: 'match-1',
+      placements: [{ cellIndex: 12, letter: 'C' }],
       knownUpdatedAt: '2026-07-20T12:00:00.000Z',
     })
   })

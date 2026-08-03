@@ -13,6 +13,8 @@ import { loadPublicProfile, loadPublicProfiles, type PublicPlayerProfile } from 
 import { queuePush, sendPushToUser } from '../_shared/pushNotifications.ts'
 import { enforceRateLimits, RateLimitExceededError } from '../_shared/rateLimit.ts'
 
+const UUID_PATTERN = /^[a-f0-9]{8}-[a-f0-9]{4}-[1-8][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i
+
 type Pace = 'realtime' | 'async'
 type Mode = 'solo' | 'friend' | 'normal' | 'ranked'
 type CatalogWord = { wordId?: string; answer: string; clue?: string; image?: unknown; direction: 'across' | 'down'; arrow?: string; clueCell: number[]; cells: number[][] }
@@ -943,6 +945,9 @@ Deno.serve(async request => {
     }
 
     if (action === 'ranked-state' || action === 'ranked-search') {
+      if (action === 'ranked-search' && user.is_anonymous === true) {
+        return json(403, { error: 'Le mode classé nécessite un compte. Connecte-toi avec Google pour y accéder.', code: 'RANKED_REQUIRES_ACCOUNT' })
+      }
       const current = await rankedSnapshot(admin, user.id)
       if (action === 'ranked-search' || current.status === 'searching') {
         await advanceRankedSearch(admin, user.id)
@@ -979,6 +984,9 @@ Deno.serve(async request => {
       const readySessionId = typeof body.readySessionId === 'string' ? body.readySessionId : ''
       const decision = body.decision === 'accept' ? 'accept' : body.decision === 'decline' ? 'decline' : ''
       if (!readySessionId || !decision) return json(400, { error: 'Réponse classée invalide.' })
+      if (decision === 'accept' && user.is_anonymous === true) {
+        return json(403, { error: 'Le mode classé nécessite un compte.', code: 'RANKED_REQUIRES_ACCOUNT' })
+      }
       const result = await atomicResult(admin.rpc('server_respond_ranked_ready_atomic', {
         p_user_id: user.id,
         p_ready_session_id: readySessionId,
@@ -1108,7 +1116,8 @@ Deno.serve(async request => {
     }
 
     if (action === 'create') {
-      const targetId = typeof body.targetId === 'string' ? body.targetId : ''
+      const targetId = typeof body.targetId === 'string' && UUID_PATTERN.test(body.targetId) ? body.targetId : ''
+      if (!targetId) return json(400, { error: 'Joueur invalide.' })
       const pace: Pace = body.pace === 'async' ? 'async' : 'realtime'
       const [left, right] = [user.id, targetId].sort()
       if (await playersBlocked(admin, user.id, targetId)) return json(409, { error: 'Cette invitation ne peut pas être envoyée.' })
@@ -1342,7 +1351,18 @@ Deno.serve(async request => {
       else applyTurn(row, grid, user.id, valid)
     } else if (action === 'hint') {
       if (!canUseHint(Boolean(row.state.hintUsed[user.id]))) return json(409, { error: 'Votre indice a déjà été utilisé.' })
-      const candidates = hintCandidates(ruleGrid(grid), row.state.racks[user.id] ?? [], Object.keys(row.state.board).map(Number))
+      const pendingPlacements = sanitizePlacements(
+        row,
+        grid,
+        user.id,
+        Array.isArray(body.placements) ? body.placements as Array<{ cellIndex: number; letter: string }> : [],
+      ).sanitized
+      const candidates = hintCandidates(
+        ruleGrid(grid),
+        row.state.racks[user.id] ?? [],
+        Object.keys(row.state.board).map(Number),
+        pendingPlacements,
+      )
       if (!candidates.length) return json(409, { error: 'Aucun indice disponible.' })
       const chosen = candidates[hash(`${row.id}:${row.turn_number}:hint`) % candidates.length]
       row.state.hint = { playerId: user.id, cellIndex: chosen.cellIndex, letter: chosen.letter, turnNumber: row.turn_number }

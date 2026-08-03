@@ -1,7 +1,8 @@
 param(
     [switch]$SkipSync,
     [switch]$AllowUnsigned,
-    [switch]$AllowWithoutFirebase
+    [switch]$AllowWithoutFirebase,
+    [switch]$InteractiveSigning
 )
 
 $ErrorActionPreference = 'Stop'
@@ -25,6 +26,33 @@ if (-not (Test-JavaHome $env:JAVA_HOME)) {
 
 if (-not $env:ANDROID_HOME) {
     $env:ANDROID_HOME = Join-Path $env:LOCALAPPDATA 'Android\Sdk'
+}
+
+function Read-PlainTextSecret([string]$Prompt) {
+    $secureValue = Read-Host $Prompt -AsSecureString
+    $pointer = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureValue)
+    try {
+        return [Runtime.InteropServices.Marshal]::PtrToStringBSTR($pointer)
+    }
+    finally {
+        [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($pointer)
+        $secureValue.Dispose()
+    }
+}
+
+if ($InteractiveSigning) {
+    if (-not $env:MOTMAN_KEYSTORE_PATH) {
+        $env:MOTMAN_KEYSTORE_PATH = 'C:\Users\peete\MotMan-secrets'
+    }
+    if (-not $env:MOTMAN_KEY_ALIAS) {
+        $env:MOTMAN_KEY_ALIAS = 'motman-upload'
+    }
+    if (-not $env:MOTMAN_KEYSTORE_PASSWORD) {
+        $env:MOTMAN_KEYSTORE_PASSWORD = Read-PlainTextSecret 'Mot de passe du keystore MotMan'
+    }
+    if (-not $env:MOTMAN_KEY_PASSWORD) {
+        $env:MOTMAN_KEY_PASSWORD = Read-PlainTextSecret 'Mot de passe de la cle motman-upload'
+    }
 }
 
 $signingVariables = @{

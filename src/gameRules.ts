@@ -44,7 +44,7 @@ export type TurnEvaluation = {
 
 export const RACK_SIZE = 5
 export const RACK_COMPLETION_BONUS = 5
-export const FINAL_SPRINT_THRESHOLD = RACK_SIZE
+export const FINAL_SPRINT_THRESHOLD = RACK_SIZE * 2
 export const MAX_INACTIVITY_COUNT = 3
 export const REWARD_STEP_MS = 1_240
 export const REWARD_EFFECT_LIFETIME_MS = 1_180
@@ -124,9 +124,16 @@ export function hintCandidates(
   grid: Pick<GameRuleGrid, 'cells'>,
   rackLetters: readonly string[],
   occupiedCells: Iterable<number>,
+  pendingPlacements: Iterable<GamePlacement> = [],
 ): Array<GamePlacement & { rackIndex: number }> {
   const occupied = new Set(occupiedCells)
-  return rackLetters.flatMap((letter, rackIndex) => grid.cells.flatMap((cell, cellIndex) =>
+  const availableRack = [...rackLetters]
+  for (const placement of pendingPlacements) {
+    occupied.add(placement.cellIndex)
+    const rackIndex = availableRack.indexOf(placement.letter)
+    if (rackIndex >= 0) availableRack.splice(rackIndex, 1)
+  }
+  return availableRack.flatMap((letter, rackIndex) => grid.cells.flatMap((cell, cellIndex) =>
     cell.kind === 'letter' && !occupied.has(cellIndex) && cell.solution === letter
       ? [{ cellIndex, letter, rackIndex }]
       : []))
@@ -183,15 +190,15 @@ export type FinalSprintRacks = {
 }
 
 /**
- * Gives both players the same final letters once only five cells remain.
+ * Gives both players the same useful rack once ten cells or fewer remain.
  *
  * The regular match uses one shared bag. Near the end, that can leave the
- * active player with an empty rack while the opponent owns the last useful
- * occurrence. The final sprint deliberately duplicates the remaining board
- * letters for both players, then keeps both racks synchronized as cells are
- * confirmed. Five cells matches one full rack: both players can therefore
- * attempt the whole final board instead of waiting for the opponent to release
- * the only useful occurrences.
+ * contents of both five-letter racks entirely deducible. Players can then
+ * refuse to release the occurrence needed by their opponent. The final sprint
+ * starts as soon as at most two full racks remain: it deliberately gives both
+ * players the same five still-useful letters, then refreshes that shared rack
+ * as cells are confirmed. Once five cells or fewer remain, both players still
+ * receive every remaining letter, preserving the original endgame behaviour.
  */
 export function prepareFinalSprintRacks({
   remainingLetters,
@@ -204,7 +211,8 @@ export function prepareFinalSprintRacks({
   racks: Readonly<Record<string, readonly string[]>>
   threshold?: number
 }): FinalSprintRacks {
-  if (remainingLetters.length === 0 || remainingLetters.length > Math.min(RACK_SIZE, Math.max(0, threshold))) {
+  const safeThreshold = Math.max(0, Math.floor(threshold))
+  if (remainingLetters.length === 0 || remainingLetters.length > safeThreshold) {
     return {
       active: false,
       changed: false,
@@ -212,7 +220,7 @@ export function prepareFinalSprintRacks({
     }
   }
 
-  const finalRack = [...remainingLetters]
+  const finalRack = [...remainingLetters].slice(0, RACK_SIZE)
   const nextRacks: Record<string, string[]> = Object.fromEntries(
     Object.entries(racks).map(([playerId, rack]) => [playerId, [...rack]]),
   )

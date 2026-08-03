@@ -1,9 +1,11 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { gzipSync } from 'node:zlib'
 
 const limits = {
   entryJavaScript: 20_000,
-  runtimeCatalog: 300_000,
+  runtimeCatalog: 400_000,
+  runtimeCatalogGzip: 80_000,
   runtimePolicy: 100_000,
   avatar: 100_000,
   avatarsTotal: 1_500_000,
@@ -25,6 +27,11 @@ function directorySize(directory) {
 const runtimeCatalogPath = resolve('src/data/runtime.grid.catalog.json')
 const runtimePolicyPath = resolve('src/data/runtime.catalog-policy.json')
 assertBudget('Catalogue runtime', statSync(runtimeCatalogPath).size, limits.runtimeCatalog)
+assertBudget(
+  'Catalogue runtime compressé',
+  gzipSync(readFileSync(runtimeCatalogPath), { level: 9 }).length,
+  limits.runtimeCatalogGzip,
+)
 assertBudget('Politique runtime', statSync(runtimePolicyPath).size, limits.runtimePolicy)
 
 const avatarCatalog = JSON.parse(readFileSync(resolve('src/data/avatar.catalog.json'), 'utf8'))
