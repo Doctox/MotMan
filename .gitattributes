@@ -1,0 +1,25 @@
+# Normalise les fins de ligne : LF stocke dans le depot, natif au checkout.
+# Met fin au bruit de ~350 fichiers "modifies" dans git status.
+* text=auto
+
+# Scripts Windows : doivent rester en CRLF
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+# Fichiers binaires : ne jamais toucher aux fins de ligne
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary
+*.jar   binary
+*.keystore binary
+*.mp3   binary
+*.wav   binary
+*.pdf   binary
