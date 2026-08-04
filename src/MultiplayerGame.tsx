@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
-import { ArrowLeft, Check, Hourglass, Lightbulb, Settings, Shuffle, Sparkles, Wifi } from 'lucide-react'
+import { ArrowLeft, Check, Lightbulb, Settings, Shuffle, Sparkles, Wifi } from 'lucide-react'
 import './styles.css'
 import { startAdaptivePolling, type AdaptivePollingController } from './adaptivePolling'
 import { assetUrl } from './assetUrl'
@@ -19,6 +19,7 @@ import { subscribeToMatchUpdates } from './matchRealtime'
 import { matchPollDelay } from './matchSyncPolicy'
 import { noteServerTime, serverNow } from './serverClock'
 import { loadPlayerIdentity, playerInitials } from './playerIdentity'
+import { loadPlayerProgress } from './playerProgress'
 import { presenceHeartbeatDelay } from './presencePolicy'
 import { RankedMatchPausedOverlay } from './RankedReadyOverlay'
 import { createMatchRackTiles, reconcileRackPlacements, type RackTile } from './rackTiles'
@@ -40,7 +41,6 @@ type ScoreEffect = { id: string; kind: 'letter' | 'word'; label: string; owner: 
 type RackBonusEffect = { id: string; points: number; owner: 'player' | 'bot' }
 type HintFlight = { letter: string; cellIndex: number; fromX: number; fromY: number; deltaX: number; deltaY: number }
 
-const DIFFICULTY_LABELS = { easy: 'Facile', normal: 'Normale', hard: 'Difficile' } as const
 const TURN_READY_DURATION_MS = 1_800
 let multiplayerEffectSequence = 0
 
@@ -48,6 +48,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
   const identity = useRef(loadPlayerIdentity())
   const playerId = identity.current.playerId
   const playerCosmetics = useRef(loadPlayerCosmetics(playerId))
+  const myLevel = useMemo(() => loadPlayerProgress(playerId).level, [playerId])
   const [match, setMatch] = useState<MatchState | null>(null)
   const [grid, setGrid] = useState<GeneratedGrid | null>(null)
   const fitBoardRef = useClueAutoFit()
@@ -553,8 +554,8 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
 
   return <main className={`app-shell multiplayer-shell ${turnAlert ? 'turn-alerting' : ''} ${resolving ? 'is-resolving' : ''} ${presentationPhase === 'result' ? 'is-finished' : ''}`}>
     <header><button type="button" disabled={match.status === 'finished'} aria-label={match.status === 'active' && isAsync ? 'Retour à toutes les parties' : match.status === 'active' ? 'Options de sortie' : resolving ? 'Résultats en cours' : 'Validez le résultat ci-dessous'} onClick={() => match.status === 'active' && isAsync ? onHome() : match.status === 'active' ? setLeaveOpen(true) : undefined}><ArrowLeft /></button><img className="game-brand-logo" src={assetUrl('/assets/motman-logo-v2.webp')} alt="MotMan" /><button type="button" aria-label="Paramètres" onClick={() => setOptionsOpen(true)}><Settings /></button></header>
-    {showGame ? <><section className="scoreboard"><DuelPlayer name={opponentName} detail={match.bot ? `Niv. ${match.bot.level}` : undefined} score={opponentScore} initials={playerInitials(opponentName)} avatarId={match.bot?.avatarId ?? opponent?.avatarId} frameId={match.bot?.frameId ?? opponent?.frameId} animationId={opponent?.animationId} active={match.status === 'active' && turnHasStarted && !assignedToMe} /><div className={`turn ${turnPhase.urgent && isMyTurn ? 'urgent' : ''} ${isAsync ? 'async-turn' : ''} ${turnAlert ? 'your-turn-pulse' : ''}`} aria-live="polite"><small>{resolving || !turnHasStarted ? 'Résultats' : isMyTurn ? 'Votre tour' : `Tour de ${opponentName}`}</small><TurnTimer match={match} resolving={resolving} started={turnHasStarted} /><strong>{status}</strong></div><DuelPlayer name="Vous" score={myScore} initials={playerInitials(identity.current.displayName)} avatarId={playerCosmetics.current.equippedAvatarId} frameId={playerCosmetics.current.equippedFrameId} animationId={playerCosmetics.current.equippedAnimationId} active={Boolean(match.status === 'active' && isMyTurn)} player /></section>
-    <p className="instruction duel-instruction"><span>{match.mode === 'solo' ? 'Solo' : match.mode === 'ranked' ? 'Classé' : match.mode === 'normal' ? 'Normal' : 'Duel ami'}{match.bot ? ` · Bot ${DIFFICULTY_LABELS[match.difficulty].toLowerCase()}` : ''} · {isAsync ? '24 h par tour' : '45 s par tour'}</span><span className={`duel-live ${isAsync ? 'async' : ''}`} aria-label={isAsync ? 'Partie en temps illimité' : 'Partie en temps limité'}>{isAsync ? <Hourglass /> : <i />}{match.mode === 'ranked' ? 'CLASSÉ' : isAsync ? 'ILLIMITÉ' : 'LIMITÉ'}</span></p>
+    {showGame ? <><section className="scoreboard"><DuelPlayer name={opponentName} detail={match.bot ? `Niv. ${match.bot.level}` : undefined} score={opponentScore} initials={playerInitials(opponentName)} avatarId={match.bot?.avatarId ?? opponent?.avatarId} frameId={match.bot?.frameId ?? opponent?.frameId} animationId={opponent?.animationId} active={match.status === 'active' && turnHasStarted && !assignedToMe} /><div className={`turn ${turnPhase.urgent && isMyTurn ? 'urgent' : ''} ${isAsync ? 'async-turn' : ''} ${turnAlert ? 'your-turn-pulse' : ''}`} aria-live="polite"><TurnTimer match={match} resolving={resolving} started={turnHasStarted} /><strong>{status}</strong></div><DuelPlayer name="Vous" detail={`Niv. ${myLevel}`} score={myScore} initials={playerInitials(identity.current.displayName)} avatarId={playerCosmetics.current.equippedAvatarId} frameId={playerCosmetics.current.equippedFrameId} animationId={playerCosmetics.current.equippedAnimationId} active={Boolean(match.status === 'active' && isMyTurn)} player /></section>
+    
     {myInactivity || opponentInactivity ? <div className="duel-inactivity" aria-label="Avertissements d’inactivité">
       {opponentInactivity ? <span><b>{opponentName}</b> {opponentInactivity}/3</span> : null}
       {myInactivity ? <span className="mine"><b>Vous</b> {myInactivity}/3</span> : null}
@@ -585,7 +586,7 @@ export function MultiplayerGameScreen({ matchId, onExit, onHome }: { matchId: st
       <BoardScoreEffects effects={scoreEffects} columns={grid.columns} rows={grid.rows} />
     </div></section> : null}
     {showGame ? <>
-      <section className={`rack-area ${!isMyTurn ? 'duel-rack-waiting' : ''}`}><div className="rack-heading"><strong>{isMyTurn ? 'Vos lettres' : `${opponentName} joue…`}{isMyTurn ? <small className="rack-bonus-rule" title="Posez correctement les 5 lettres du chevalet sans indice pendant ce tour pour gagner 5 points"><Sparkles /> 5 correctes = +5</small> : null}</strong><span>{isMyTurn ? `${rack.length - placedIds.size} disponible${rack.length - placedIds.size > 1 ? 's' : ''}` : 'Préparez votre prochain coup'}</span></div><div className={`rack ${dropTarget === -1 ? 'rack-drop' : ''} ${rackRolling ? 'is-rerolling' : ''}`} data-rack="true" aria-label="Lettres disponibles">
+      <section className={`rack-area ${!isMyTurn ? 'duel-rack-waiting' : ''}`}><div className="rack-heading"><strong>{isMyTurn ? 'Vos lettres' : `${opponentName} joue…`}{isMyTurn ? <span className="rack-bonus-info" title="Posez correctement les 5 lettres du chevalet sans indice pendant ce tour pour gagner 5 points" aria-label="Bonus: 5 lettres correctes sans indice pour +5 points">i</span> : null}</strong><span>{isMyTurn ? '' : 'Préparez votre prochain coup'}</span></div><div className={`rack ${dropTarget === -1 ? 'rack-drop' : ''} ${rackRolling ? 'is-rerolling' : ''}`} data-rack="true" aria-label="Lettres disponibles">
         {rack.map(tile => <div className="rack-slot" key={tile.id}>{!placedIds.has(tile.id) ? <button type="button" data-rack-letter={tile.letter} data-rack-id={tile.id} disabled={!canAct || resolving} aria-label={`Lettre ${tile.letter}`} className={`rack-letter ${selected?.id === tile.id ? 'selected' : ''} ${drag?.tile.id === tile.id ? 'drag-source' : ''}`} onClick={() => setSelected(current => current?.id === tile.id ? null : tile)} onPointerDown={event => pointerDown(event, tile, 'rack')} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerCancel}>{tile.letter}</button> : null}</div>)}
         {Array.from({ length: Math.max(0, 5 - rack.length) }, (_, index) => <div className="rack-slot" aria-hidden="true" key={`empty-${index}`} />)}
         <button className="reroll-button" type="button" onClick={() => void rerollRack()} disabled={!canAct || resolving || rerollRequesting || rerollUsedInMatch || Object.keys(provisional).length > 0} aria-label={rerollUsedInMatch ? 'Relance déjà utilisée pendant cette partie' : 'Relancer les lettres'} title={rerollUsedInMatch ? 'Relance déjà utilisée' : 'Relancer les lettres'}><Shuffle /></button>

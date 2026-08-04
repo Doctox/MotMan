@@ -111,7 +111,7 @@
 [data-theme="dark"] .player em{color:#c8b48f}
 
 /* Approved composition: five ivory tiles + one dark-green shuffle square. */
-.rack{grid-template-columns:repeat(5,minmax(0,1fr)) 52px;gap:6px}
+.rack{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
 .turn-actions{grid-template-columns:minmax(112px,.82fr) minmax(0,1.35fr);gap:10px}
 .reroll-button{
   align-self:stretch;min-width:0;width:100%;height:auto;min-height:0;margin:0 0 1px;border:1px solid #07382f;border-radius:9px;
@@ -130,7 +130,7 @@
 .rack.is-rerolling .rack-slot:nth-child(2){animation-delay:.035s}.rack.is-rerolling .rack-slot:nth-child(3){animation-delay:.07s}.rack.is-rerolling .rack-slot:nth-child(4){animation-delay:.105s}.rack.is-rerolling .rack-slot:nth-child(5){animation-delay:.14s}
 @keyframes rackRenew{0%{opacity:.35;transform:translateY(8px) rotate(-2deg)}58%{opacity:1;transform:translateY(-4px) rotate(1deg)}100%{transform:translateY(0) rotate(0)}}
 [data-theme="dark"] .reroll-button{background:linear-gradient(145deg,#26715f,#0c4c40);border-color:#4f8b79;color:#fff4dc;box-shadow:0 4px 9px #0006}
-@media(max-width:360px){.rack{grid-template-columns:repeat(5,minmax(0,1fr)) 44px;gap:5px}.turn-actions{grid-template-columns:minmax(94px,.82fr) minmax(0,1.35fr);gap:7px}}
+@media(max-width:360px){.rack{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}.turn-actions{grid-template-columns:minmax(94px,.82fr) minmax(0,1.35fr);gap:7px}}
 @media(max-width:360px){.rack-bonus-rule{gap:2px;padding:2px 4px;font-size:6px}.rack-bonus-rule svg{width:8px;height:8px}.rack-heading>span{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.rack.is-rerolling .rack-slot{animation:none!important}.reroll-button svg{transition:none}.rack-completion-reward{animation:none!important}}
 .player-turn-marker{
@@ -359,10 +359,10 @@
 .corner-block,.clue.corner-clue{
   position:relative;
   background-color:#fbf7ec!important;
-  background-image:url('../assets/motman-logo-v2.webp')!important;
+  background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNNTAgNTAgSDkwIFY3OCBBMTIgMTIgMCAwIDEgNzggOTAgSDUwIFoiIGZpbGw9IiNjOTRkMjkiLz48cmVjdCB4PSI3IiB5PSI3IiB3aWR0aD0iODYiIGhlaWdodD0iODYiIHJ4PSIxOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDczZjM2IiBzdHJva2Utd2lkdGg9IjguNSIvPjxwYXRoIGQ9Ik01MCA5IFY5MSBNOSA1MCBIOTEiIHN0cm9rZT0iIzA3M2YzNiIgc3Ryb2tlLXdpZHRoPSI4LjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==")!important;
   background-repeat:no-repeat!important;
-  background-size:auto 110%!important;
-  background-position:24.2% center!important;
+  background-size:76%!important;
+  background-position:center!important;
   color:transparent!important;
   box-shadow:inset 0 0 0 1px #0a342c1c;
 }
@@ -371,3 +371,40 @@
   content:none!important;
   display:none!important;
 }
+
+
+/* == Grille alveoles + tuiles (ressembler a la maquette) == */
+.board{background:linear-gradient(180deg,#f8f1e2,#f1e9d5)!important;padding:5px!important;border-radius:15px!important;box-shadow:0 12px 28px #173b3018,0 2px 6px #49391f0f,inset 0 0 0 1px #efe3ca!important}
+[data-theme="dark"] .board{background:linear-gradient(180deg,#1c2a24,#16211d)!important;box-shadow:0 12px 28px #0006,inset 0 0 0 1px #33443c!important}
+.board .cell{border:0!important;border-radius:9px!important}
+.board .cell.slot,.board .clue{border:3px solid transparent!important;background-clip:padding-box!important}
+.board .cell.slot:not([data-confirmed="true"]):not(.correct):not(.wrong):not(.bot-play):not(.drop-target):not(.word-reward-cell):not(.clue-focus){background-color:var(--surface)!important;background-image:none!important;box-shadow:inset 0 2px 4px #b7a67d40,inset 0 0 0 1px #efe6d0!important}
+[data-theme="dark"] .board .cell.slot:not([data-confirmed="true"]):not(.correct):not(.wrong):not(.bot-play):not(.drop-target):not(.word-reward-cell):not(.clue-focus){background-color:#1d2b25!important;box-shadow:inset 0 2px 4px #0006,inset 0 0 0 1px #2f3f38!important}
+.board .clue-tone-0{background-color:#f5dfd6!important;background-image:none!important}
+.board .clue-tone-1{background-color:#f6e9c5!important;background-image:none!important}
+.board .clue-tone-2{background-color:#e5ece2!important;background-image:none!important}
+.board .clue-tone-3{background-color:#e2eef0!important;background-image:none!important}
+[data-theme="dark"] .board .clue-tone-0{background-color:#49332e!important;background-image:none!important}
+[data-theme="dark"] .board .clue-tone-1{background-color:#48402a!important;background-image:none!important}
+[data-theme="dark"] .board .clue-tone-2{background-color:#303e35!important;background-image:none!important}
+[data-theme="dark"] .board .clue-tone-3{background-color:#2d3d40!important;background-image:none!important}
+.clue-popover strong{font-size:clamp(17px,4.8vw,22px)!important;overflow-wrap:break-word!important;hyphens:auto!important;max-width:100%!important}
+
+/* == Coin O-cell restore (apres les tons, gagne le cascade) == */
+.board .corner-clue,.board .corner-block{background-color:#fbf7ec!important;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNNTAgNTAgSDkwIFY3OCBBMTIgMTIgMCAwIDEgNzggOTAgSDUwIFoiIGZpbGw9IiNjOTRkMjkiLz48cmVjdCB4PSI3IiB5PSI3IiB3aWR0aD0iODYiIGhlaWdodD0iODYiIHJ4PSIxOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDczZjM2IiBzdHJva2Utd2lkdGg9IjguNSIvPjxwYXRoIGQ9Ik01MCA5IFY5MSBNOSA1MCBIOTEiIHN0cm9rZT0iIzA3M2YzNiIgc3Ryb2tlLXdpZHRoPSI4LjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==")!important;background-position:center!important;background-size:70%!important;background-repeat:no-repeat!important;background-clip:padding-box!important;box-shadow:inset 0 0 0 1px #e9dcc4!important}
+
+
+/* == Couche lettres: aligner sur les alveoles (board a padding:5px) == */
+.multiplayer-shell .confirmed-board-layer{inset:5px!important}
+
+
+/* == Bandeau tour: recentrer sous le cercle (chrono passe en absolu) == */
+.scoreboard .turn>strong{grid-area:auto!important;left:50%!important;right:auto!important;margin:0!important;width:max-content!important;max-width:120px!important;transform:translateX(-50%)!important;translate:none!important;text-align:center!important}
+
+
+/* == Mode sombre: coin O-cell (traits clairs) + tons plus riches == */
+[data-theme="dark"] .board .clue.corner-clue,[data-theme="dark"] .board .corner-block{background-color:#22302a!important;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNNTAgNTAgSDkwIFY3OCBBMTIgMTIgMCAwIDEgNzggOTAgSDUwIFoiIGZpbGw9IiNlZjgwNWQiLz48cmVjdCB4PSI3IiB5PSI3IiB3aWR0aD0iODYiIGhlaWdodD0iODYiIHJ4PSIxOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTNmMGU3IiBzdHJva2Utd2lkdGg9IjguNSIvPjxwYXRoIGQ9Ik01MCA5IFY5MSBNOSA1MCBIOTEiIHN0cm9rZT0iI2UzZjBlNyIgc3Ryb2tlLXdpZHRoPSI4LjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==")!important;background-position:center!important;background-size:70%!important;background-repeat:no-repeat!important;background-clip:padding-box!important;box-shadow:inset 0 0 0 1px #3a4a42!important;color:transparent!important}
+[data-theme="dark"] .board .clue-tone-0{background-color:#4a2f27!important}
+[data-theme="dark"] .board .clue-tone-1{background-color:#4b4226!important}
+[data-theme="dark"] .board .clue-tone-2{background-color:#2c3f35!important}
+[data-theme="dark"] .board .clue-tone-3{background-color:#284046!important}
