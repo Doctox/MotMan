@@ -9,7 +9,7 @@ import { loadPlayerCosmetics, type PlayerCosmetics } from './cosmetics'
 import type { MenuRealtimeStatus, MenuWakeupScope } from './menuRealtime'
 import { lobbyMenuPollDelay, socialMenuPollDelay } from './menuSyncPolicy'
 import {
-  acknowledgeMatchResult, cancelMatchInvitation, cancelNormalSearch, createInstantMatch, EMPTY_MATCH_LOBBY, loadMatchLobby,
+  acknowledgeMatchResult, cancelMatchInvitation, cancelNormalSearch, createDailyMatch, createInstantMatch, EMPTY_MATCH_LOBBY, loadMatchLobby,
   respondToMatchInvitation, searchNormalMatch, type MatchLobbyState, type MatchPace,
 } from './matches'
 import { PendingResultPanel } from './game/DuelPresentation'
@@ -245,6 +245,26 @@ export function MenuApp({
     history.replaceState(null, '', `#${hash}`)
   }
 
+  // Défi du jour : le SERVEUR dérive la dateKey (horloge serveur), choisit la grille
+  // (calendrier du jour) et le niveau du bot (player_progress.level). Le client
+  // n'envoie que le rythme. S'active une fois l'action 'daily' déployée côté edge
+  // function (travail serveur préparé, non déployé).
+  const playDailyChallenge = async () => {
+    try {
+      const match = await createDailyMatch('realtime')
+      onStartMatch(match.id)
+    } catch (reason) {
+      // Tant que l'action 'daily' n'est pas déployée, l'edge function répond
+      // « Partie introuvable. » : un message techniquement exact mais
+      // incompréhensible ici. On n'affiche jamais le texte brut du serveur —
+      // seulement l'expiration de session, que le joueur peut corriger lui-même.
+      const raw = reason instanceof Error ? reason.message : ''
+      notify(/session/i.test(raw)
+        ? raw
+        : 'Le défi du jour n’est pas disponible pour le moment. Réessayez plus tard.')
+    }
+  }
+
   const closeTutorial = (openPlay = false) => {
     completeFirstRunTutorial()
     setTutorialOpen(false)
@@ -343,7 +363,7 @@ export function MenuApp({
 
   return <main className="mm-shell">
     <AppHeader onMenu={() => setQuickMenu(true)} onSettings={() => setSettings(true)} />
-    {page === 'home' ? <HomePage identity={identity} progress={progress} cosmetics={cosmetics} social={social} lobby={matchLobby} play={() => navigate('play')} openFriends={() => setFriendsOpen(true)} resumeMatch={onStartMatch} /> : null}
+    {page === 'home' ? <HomePage identity={identity} progress={progress} cosmetics={cosmetics} social={social} lobby={matchLobby} play={() => navigate('play')} playDaily={playDailyChallenge} openFriends={() => setFriendsOpen(true)} resumeMatch={onStartMatch} /> : null}
     {page === 'play' ? <PlayPage identity={identity} onStartSolo={onStartSolo} social={social} lobby={matchLobby} invite={inviteFriend} cancelInvite={cancelInvitation} searchMatch={beginNormalSearch} cancelSearch={stopNormalSearch} resumeMatch={onStartMatch} openFriends={() => setFriendsOpen(true)} ranked={ranked} rankedBusy={rankedBusy} rankedError={rankedError} startRanked={startRanked} cancelRanked={cancelRanked} /> : null}
     {page === 'ranking' ? <RankingPage identity={identity} progress={progress} cosmetics={cosmetics} /> : null}
     {page === 'profile' ? <ProfilePage identity={identity} progress={progress} cosmetics={cosmetics} edit={() => setEditingGuest(true)} openShop={() => navigate('shop')} openAccount={() => setAccountOpen(true)} /> : null}

@@ -7,6 +7,7 @@ import { experienceGoalForLevel, MAX_PLAYER_LEVEL, type PlayerProgress } from '.
 import { rankImage, rankedDivision, rankedPlacementLabel } from '../ranked'
 import type { SocialState } from '../social'
 import { Avatar, SocialPortrait, presenceLabel } from './MenuChrome'
+import { DailyChallengeHero } from './DailyChallenge'
 
 const frenchNumber = new Intl.NumberFormat('fr-FR')
 
@@ -27,7 +28,7 @@ function activeMatchLabel(match: MatchState): string {
   return 'Match normal'
 }
 
-export function HomePage({ identity, progress, cosmetics, social, lobby, play, openFriends, resumeMatch }: { identity: GuestIdentity; progress: PlayerProgress; cosmetics: PlayerCosmetics; social: SocialState; lobby: MatchLobbyState; play: () => void; openFriends: () => void; resumeMatch: (matchId: string) => void }) {
+export function HomePage({ identity, progress, cosmetics, social, lobby, play, playDaily, openFriends, resumeMatch }: { identity: GuestIdentity; progress: PlayerProgress; cosmetics: PlayerCosmetics; social: SocialState; lobby: MatchLobbyState; play: () => void; playDaily: () => void; openFriends: () => void; resumeMatch: (matchId: string) => void }) {
   const firstRequest = social.incoming[0]
   const presenceWeight = { offline: 0, online: 1, playing: 2 }
   const visibleFriends = [...social.friends].sort((left, right) => presenceWeight[right.activity] - presenceWeight[left.activity]).slice(0, 3)
@@ -56,6 +57,7 @@ export function HomePage({ identity, progress, cosmetics, social, lobby, play, o
       <div className="mm-home-xp"><span>{progress.level >= MAX_PLAYER_LEVEL ? 'Niveau max' : `${progress.xp} / ${xpGoal} XP`}</span><i><b style={{ width: `${xpPercent}%` }} /></i></div>
     </section>
     <section className="mm-attention">
+      <DailyChallengeHero onPlay={playDaily} />
       <header className="mm-attention-heading">
         <h2>{currentMatches.length > 1 ? 'Parties en cours' : 'Partie en cours'}</h2>
         {currentMatches.length ? <span aria-label={`${currentMatches.length} parties en cours`}>{currentMatches.length}</span> : null}

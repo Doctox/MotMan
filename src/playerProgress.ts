@@ -1,4 +1,3 @@
-import { grantPlumes } from './cosmetics'
 import { LEVEL_TITLE_REWARDS, type FeatherRewardBreakdown } from './progressionRewards'
 
 export const MAX_PLAYER_LEVEL = 50
@@ -58,12 +57,6 @@ export type PlayerProgress = {
   equippedTitleId: string | null
   titles: PlayerTitle[]
   experienceAwards: ExperienceAward[]
-}
-
-export type ExperienceGrant = {
-  award: ExperienceAward
-  progress: PlayerProgress
-  applied: boolean
 }
 
 const STORAGE_KEY = 'motman-progress-v1'
@@ -171,65 +164,10 @@ export function loadPlayerProgress(playerId: string): PlayerProgress {
   return progress
 }
 
-export function calculateExperience(mode: ExperienceMode, outcome: ExperienceOutcome, productiveTurns: number): ExperienceBreakdown {
-  const normalizedTurns = Math.max(0, Math.floor(productiveTurns))
-  if (outcome === 'abandon') return { productiveTurns: normalizedTurns, productiveXp: 0, completionXp: 0, resultXp: 0, total: 0 }
-  const productiveXp = normalizedTurns * (mode === 'solo' ? 1 : 2)
-  const completed = outcome === 'win' || outcome === 'draw' || outcome === 'loss'
-  const completionXp = completed ? mode === 'solo' ? 5 : 10 : 0
-  const resultTable = mode === 'solo'
-    ? { win: 10, draw: 6, loss: 3 }
-    : { win: 20, draw: 12, loss: 6 }
-  const resultXp = completed ? resultTable[outcome] : 0
-  return { productiveTurns: normalizedTurns, productiveXp, completionXp, resultXp, total: productiveXp + completionXp + resultXp }
-}
-
-export function awardExperience({ playerId, awardId, mode, outcome, productiveTurns }: {
-  playerId: string
-  awardId: string
-  mode: ExperienceMode
-  outcome: ExperienceOutcome
-  productiveTurns: number
-}): ExperienceGrant {
-  const progress = loadPlayerProgress(playerId)
-  const existing = progress.experienceAwards.find(award => award.id === awardId)
-  if (existing) return { award: existing, progress, applied: false }
-
-  const breakdown = calculateExperience(mode, outcome, productiveTurns)
-  const levelBefore = progress.level
-  let level = progress.level
-  let xp = progress.xp
-  let remaining = breakdown.total
-  while (remaining > 0 && level < MAX_PLAYER_LEVEL) {
-    const goal = experienceGoalForLevel(level)
-    const applied = Math.min(remaining, goal - xp)
-    xp += applied
-    remaining -= applied
-    if (xp >= goal) { level += 1; xp = 0 }
-  }
-  const award: ExperienceAward = {
-    id: awardId,
-    mode,
-    outcome,
-    breakdown,
-    levelBefore,
-    levelAfter: level,
-    xpAfter: level === MAX_PLAYER_LEVEL ? 0 : xp,
-    xpGoalAfter: experienceGoalForLevel(level),
-    plumesEarned: breakdown.total > 0 ? Math.max(1, Math.ceil(breakdown.total / 4)) : 0,
-    createdAt: new Date().toISOString(),
-  }
-  const next: PlayerProgress = {
-    ...progress,
-    level,
-    xp: level === MAX_PLAYER_LEVEL ? 0 : xp,
-    lifetimeXp: progress.lifetimeXp + breakdown.total,
-    wins: progress.wins + (outcome === 'win' || outcome === 'opponent-abandoned' ? 1 : 0),
-    losses: progress.losses + (outcome === 'loss' || outcome === 'abandon' ? 1 : 0),
-    titles: localTitlesForLevel(level),
-    experienceAwards: [...progress.experienceAwards, award].slice(-200),
-  }
-  savePlayerProgress(next)
-  grantPlumes(playerId, `xp:${awardId}`, award.plumesEarned ?? 0)
-  return { award, progress: next, applied: true }
-}
+// NOTE (nettoyage 2026-08-05) : `awardExperience()` et `calculateExperience()`
+// ont été retirés — chemin MORT (jamais appelé) qui exposait une fausse formule
+// d'économie (`plumesEarned = ceil(XP/4)`). La progression réelle est calculée
+// CÔTÉ SERVEUR (edge function match-api → calculateFeatherReward → RPC
+// server_award_progress). Le champ `plumesEarned` du type `ExperienceAward` est
+// CONSERVÉ : il reste alimenté par le serveur (account-api → feather_amount) et
+// affiché par ExperienceReward.tsx.

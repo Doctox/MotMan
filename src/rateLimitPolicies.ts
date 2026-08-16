@@ -53,6 +53,12 @@ export function actionRateLimits(
   if (api === 'match' && action === 'solo') {
     return [{ bucket: 'match:solo', maxRequests: isAnonymous ? 20 : 40, windowSeconds: 600 }]
   }
+  // Le défi du jour est volontairement rejouable jusqu'à minuit : le plafond ne
+  // sert qu'à empêcher la création en boucle de parties, pas à limiter les
+  // tentatives d'un joueur normal. Même ordre de grandeur que le solo.
+  if (api === 'match' && action === 'daily') {
+    return [{ bucket: 'match:daily', maxRequests: isAnonymous ? 20 : 40, windowSeconds: 600 }]
+  }
   if (api === 'match' && action === 'create') {
     const policies: RateLimitPolicy[] = [
       { bucket: 'match:invite', maxRequests: isAnonymous ? 12 : 30, windowSeconds: 1800 },

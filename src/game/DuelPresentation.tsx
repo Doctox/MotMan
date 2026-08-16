@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { Feather, Heart, HeartCrack, House } from 'lucide-react'
 import { refreshPlayerAccount } from '../auth'
 import { CosmeticPortrait } from '../CosmeticPortrait'
+import { dailyResultForMatch, recordDailyResult, type DailyAdvanceEffects } from '../dailyChallenge'
 import { GameResultScreen } from '../GameResultScreen'
+import { DailyStreakReward } from '../menu/DailyChallenge'
 import {
   acknowledgeMatchResult,
   submitMatchGridFeedback,
@@ -13,6 +15,12 @@ import {
 import type { ExperienceAward } from '../playerProgress'
 import { rankImage, rankedDivision, rankedPlacementLabel } from '../ranked'
 import { haptic, playEffect } from '../sensoryPreferences'
+
+// Défi du jour : la série est enregistrée UNE SEULE FOIS par match terminé.
+// L'écran de résultat peut être remonté (retour arrière, reprise, StrictMode) et
+// chaque appel à recordDailyResult compte une tentative de plus : ce garde-fou de
+// module évite de gonfler le compteur du jour pour une seule partie jouée.
+const recordedDailyMatches = new Set<string>()
 
 export function DuelPlayer({ name, score, active, initials, avatarId, frameId, animationId, player, detail }: { name: string; score: number; active: boolean; initials: string; avatarId?: string; frameId?: string; animationId?: string; player?: boolean; detail?: string }) {
   return <div className={`player ${active ? 'active' : ''} ${player ? 'player-you' : ''}`}>{avatarId ? <CosmeticPortrait avatarId={avatarId} frameId={frameId ?? 'cadre-ivoire'} animationId={animationId} alt="" className="game-portrait" /> : <span className="avatar">{initials}</span>}<span><small>{name}</small>{detail ? <em>{detail}</em> : null}<strong className="score-value" key={score}>{score}</strong></span></div>
@@ -25,6 +33,7 @@ export function ResultPanel({ match, playerId, opponentName, onExit, onHome }: {
   const [leaving, setLeaving] = useState(false)
   const [leavingError, setLeavingError] = useState<string | null>(null)
   const [experienceAward, setExperienceAward] = useState<ExperienceAward | null>(null)
+  const [dailyEffects, setDailyEffects] = useState<DailyAdvanceEffects | null>(null)
   const won = match.winnerId === playerId
   const administrativeDraw = match.finishReason === 'ranked_transfer'
   const draw = match.winnerId === null && (match.finishReason === 'completed' || administrativeDraw)
@@ -73,6 +82,35 @@ export function ResultPanel({ match, playerId, opponentName, onExit, onHome }: {
     window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })
     return () => { active = false }
   }, [match.id, won])
+  // ── Défi du jour : enregistrement de la SÉRIE (état local) ─────────────────
+  // `isDaily` / `dailyDate` sont posés PAR LE SERVEUR à la création du match
+  // (action 'daily'). Tant que l'edge function n'est pas déployée, ils sont
+  // absents : ce bloc ne fait alors strictement rien et l'écran de fin reste
+  // identique. Aucune plume n'est versée ici — les 250 de la première victoire du
+  // jour sont versées par le serveur (server_award_feathers), sans quoi le
+  // rafraîchissement de compte écraserait un crédit local.
+  useEffect(() => {
+    if (!match.isDaily || !match.dailyDate) return
+    if (recordedDailyMatches.has(match.id)) return
+    recordedDailyMatches.add(match.id)
+    try {
+      const { effects } = recordDailyResult({
+        day: match.dailyDate,
+        // Même règle de victoire que le serveur : une partie interrompue n'est
+        // pas une victoire (cf. dailyResultForMatch).
+        result: dailyResultForMatch({ winnerId: match.winnerId, finishReason: match.finishReason }, playerId),
+        gridId: match.gridId,
+        // Aucun thème n'est enregistré tant que les grilles publiées sont
+        // génériques : le calendrier annonce `theme: null` partout.
+        theme: null,
+      })
+      setDailyEffects(effects)
+    } catch {
+      // La série est un confort local : si le stockage refuse, le résultat de la
+      // partie reste affiché normalement.
+      recordedDailyMatches.delete(match.id)
+    }
+  }, [match.dailyDate, match.finishReason, match.gridId, match.id, match.isDaily, match.winnerId, playerId])
   const opponentId = match.playerIds.find(id => id !== playerId) ?? ''
   const rankedResultDivision = match.rankedRating
     ? rankedDivision(match.rankedRating.pointsAfter, match.rankedRating.placementNumber)
@@ -86,6 +124,7 @@ export function ResultPanel({ match, playerId, opponentName, onExit, onHome }: {
     opponentName={opponentName}
     award={experienceAward}
   >
+    {dailyEffects ? <DailyStreakReward effects={dailyEffects} /> : null}
     {match.mode === 'ranked' && match.rankedRating && rankedResultDivision ? <div className="ranked-result-summary">
       <img src={rankImage(rankedResultDivision)} alt="" />
       <span><small>{rankedPlacementLabel(match.rankedRating.placementNumber)}</small><strong>{rankedResultDivision.label}</strong></span>

@@ -1,0 +1,98 @@
+/* Défi du jour + série — Option A. S'appuie sur les tokens --mm-* (tokens.css).
+   DA : papier vivant, vert pin, terracotta, or ; accent série = or / terracotta.
+   Aucune information codée par la seule couleur ; animations coupées si
+   prefers-reduced-motion. */
+
+/* ── Puce de série (header, à la place du spacer mort de 40 px) ── */
+.mm-streak-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--mm-gold) 16%, transparent);
+  color: var(--mm-ink);
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1;
+}
+.mm-streak-chip svg { width: 17px; height: 17px; color: var(--mm-coral); }
+.mm-streak-chip b { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.mm-streak-chip.is-done { background: color-mix(in srgb, var(--mm-gold) 26%, transparent); }
+
+/* ── Carte héro « Défi du jour » (tête de mm-attention) ── */
+.mm-daily-hero {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--mm-gold) 42%, var(--mm-line));
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--mm-gold) 12%, var(--mm-surface)) 0%, var(--mm-surface) 60%);
+  box-shadow: var(--mm-shadow-raised);
+  color: var(--mm-ink);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 140ms var(--mm-ease), box-shadow 140ms var(--mm-ease);
+}
+.mm-daily-hero:hover { transform: translateY(-1px); }
+.mm-daily-hero:active { transform: translateY(0); }
+.mm-daily-hero.is-done { cursor: default; }
+
+.mm-daily-hero-badge {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--mm-coral) 15%, var(--mm-surface));
+  color: var(--mm-coral);
+}
+.mm-daily-hero-badge svg { width: 24px; height: 24px; }
+.mm-daily-hero.is-done .mm-daily-hero-badge { background: color-mix(in srgb, var(--mm-ink) 12%, var(--mm-surface)); color: var(--mm-ink); }
+
+/* État « perdu » — invitation, jamais sanction : accent terracotta doux, pas de rouge. */
+.mm-daily-hero.is-lost { border-color: color-mix(in srgb, var(--mm-coral) 38%, var(--mm-line)); }
+.mm-daily-hero.is-lost .mm-daily-hero-badge { background: color-mix(in srgb, var(--mm-coral) 14%, var(--mm-surface)); color: var(--mm-coral); }
+
+.mm-daily-hero-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 auto; }
+.mm-daily-hero-copy small { font-size: 12px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--mm-muted); }
+.mm-daily-hero-copy strong { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; }
+.mm-daily-hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--mm-ink-soft);
+}
+.mm-daily-hero-meta svg { width: 15px; height: 15px; color: var(--mm-coral); }
+.mm-daily-hero-meta .mm-daily-dot { color: var(--mm-line-strong); }
+.mm-daily-hero > svg:last-child { flex: 0 0 auto; width: 20px; height: 20px; color: var(--mm-muted); }
+
+/* ── Ligne de série dans la séquence de récompense de fin de partie ── */
+.mm-daily-reward {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--mm-gold) 12%, var(--mm-surface));
+  color: var(--mm-ink);
+}
+.mm-daily-reward-heading { display: flex; align-items: center; justify-content: space-between; }
+.mm-daily-reward-heading span { display: inline-flex; align-items: center; gap: 6px; color: var(--mm-ink-soft); }
+.mm-daily-reward-heading svg { width: 17px; height: 17px; color: var(--mm-coral); }
+.mm-daily-reward-heading strong { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-variant-numeric: tabular-nums; }
+.mm-daily-reward-note { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--mm-ink-soft); margin: 0; }
+.mm-daily-reward-note svg { width: 15px; height: 15px; }
+.mm-daily-reward-milestone { margin: 0; font-size: 13px; font-weight: 600; color: var(--mm-coral); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-daily-hero { transition: none; }
+  .mm-daily-hero:hover, .mm-daily-hero:active { transform: none; }
+}

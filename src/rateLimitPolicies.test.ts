@@ -46,6 +46,17 @@ describe('rate-limit policies', () => {
     expect(actionRateLimits('match', 'ranked-leaderboard', false)[0].maxRequests).toBe(30)
   })
 
+  it('plafonne la création de parties du défi du jour', () => {
+    // Le défi reste rejouable jusqu'à minuit : le plafond ne vise que la
+    // création en boucle, pas les tentatives d'un joueur normal.
+    expect(actionRateLimits('match', 'daily', false)).toEqual([{
+      bucket: 'match:daily',
+      maxRequests: 40,
+      windowSeconds: 600,
+    }])
+    expect(actionRateLimits('match', 'daily', true)[0].maxRequests).toBe(20)
+  })
+
   it('limits authenticated Grid Studio usage snapshots', () => {
     expect(actionRateLimits('account', 'grid-usage-snapshot', false)).toEqual([{
       bucket: 'account:grid-usage-snapshot',

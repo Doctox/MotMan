@@ -8,6 +8,7 @@ import { calculateFeatherReward } from '../../../src/progressionRewards.ts'
 import { RECENT_GRID_AVOIDANCE_LIMIT, selectGridForPlayers, shouldYieldActiveGridClaim } from '../../../src/gridSelection.ts'
 import { MATCH_STATE_CONFLICT_CODE } from '../../../src/matchConflict.ts'
 import { requiredAndroidUpdate } from '../_shared/clientVersion.ts'
+import { dailyGridIdFor, parisDateKey } from '../_shared/dailyCalendar.ts'
 import { createHttpResponder, logServerError } from '../_shared/http.ts'
 import { loadPublicProfile, loadPublicProfiles, type PublicPlayerProfile } from '../_shared/publicProfiles.ts'
 import { queuePush, sendPushToUser } from '../_shared/pushNotifications.ts'
@@ -33,6 +34,11 @@ type State = {
   rackCompletions: Record<string, number>;
   hint: { playerId: string; cellIndex: number; letter: string; turnNumber: number } | null;
   hintUsed: Record<string, boolean | number>; rerollUsed: Record<string, boolean | number>; lastTurn: Turn | null;
+  // Défi du jour — posés PAR LE SERVEUR à la création (action 'daily'), jamais
+  // par le client. `dailyDate` est la clé de jour Europe/Paris de l'horloge
+  // serveur : elle sert de clé d'idempotence au bonus de 250 plumes et de jour
+  // de référence à la série côté client.
+  isDaily?: boolean; dailyDate?: string;
 }
 type MatchRow = {
   id: string; mode: Mode; pace: Pace; grid_id: string; state: State; status: 'pending' | 'active' | 'finished'; current_player_id: string;
@@ -65,6 +71,10 @@ const READY_MS = 1_800
 const MANUAL_SUBMIT_GRACE_MS = 2_000
 const AUTOMATIC_SUBMIT_GRACE_MS = 8_000
 const BOT_SEARCH_MS = 30_000
+// Bonus du défi du jour, versé une seule fois par joueur et par jour.
+// Doit rester égal à DAILY_COMPLETION_PLUMES (src/dailyChallenge.ts), qui n'est
+// qu'un rappel d'affichage : la valeur autoritaire est celle-ci.
+const DAILY_COMPLETION_FEATHERS = 250
 const nowIso = () => new Date().toISOString()
 
 function hash(text: string): number {
@@ -261,7 +271,11 @@ async function view(
       remainingMs: row.paused_remaining_ms ?? 0,
       expiresAt: readySession?.expires_at ?? row.paused_at,
     } : null,
-    createdAt: row.created_at, updatedAt: row.updated_at, serverTime: new Date().toISOString(), ...(grid ? { grid: publicGrid(grid) } : {}),
+    createdAt: row.created_at, updatedAt: row.updated_at, serverTime: new Date().toISOString(),
+    // Remontés au client pour que l'écran de fin sache qu'il s'agit du défi du
+    // jour et enregistre la série locale (game/DuelPresentation.tsx).
+    ...(state.isDaily ? { isDaily: true, dailyDate: state.dailyDate } : {}),
+    ...(grid ? { grid: publicGrid(grid) } : {}),
   }
 }
 
@@ -326,6 +340,25 @@ async function chooseGrid(
   }).grid
 }
 
+/**
+ * Force du bot du défi du jour, d'après le NIVEAU du joueur. Décidé côté serveur :
+ * le client ne propose jamais de difficulté pour le défi.
+ * Bornes calées sur les plages de persona de src/botOpponents.ts (beginner 6-17,
+ * regular 18-34, expert 35-48) pour que le niveau AFFICHÉ du bot reste cohérent
+ * avec sa force réelle.
+ */
+function botSkillForLevel(level: number): BotSkill {
+  if (level <= 17) return 'beginner'
+  if (level <= 34) return 'regular'
+  return 'expert'
+}
+
+/** Niveau du joueur lu en base, borné 1-50. Jamais sur déclaration du client. */
+async function playerLevel(admin: ReturnType<typeof createClient>, userId: string): Promise<number> {
+  const { data } = await admin.from('player_progress').select('level').eq('user_id', userId).maybeSingle()
+  return Math.min(50, Math.max(1, Number(data?.level ?? 1)))
+}
+
 function createBot(seed: string, preferredSkill?: BotSkill): Bot {
   const persona = createBotPersona(seed, preferredSkill)
   // server_matches.current_player_id is a UUID foreign-key shaped column.
@@ -353,13 +386,49 @@ function initialMatchState(grid: CatalogGrid, hostId: string, guestId: string, i
   return state
 }
 
-async function createMatch(admin: ReturnType<typeof createClient>, hostId: string, guestId: string, mode: Mode, pace: Pace, invitationId: string | null, bot: Bot | null) {
+/**
+ * Grille imposée (défi du jour) si elle existe ET reste active au catalogue.
+ * Sinon `null` : l'appelant retombe silencieusement sur la sélection normale,
+ * conformément au contrat 3 — le joueur a toujours une grille.
+ */
+async function activeGridById(admin: ReturnType<typeof createClient>, gridId: string): Promise<CatalogGrid | null> {
+  const { data, error } = await admin.from('server_grid_catalog')
+    .select('payload').eq('id', gridId).eq('active', true).maybeSingle()
+  if (error || !data) return null
+  return data.payload as CatalogGrid
+}
+
+type CreateMatchOptions = {
+  /** Marque le match comme défi du jour (remonté au client par `view`). */
+  isDaily?: boolean
+  /** Clé de jour Europe/Paris, calculée sur l'horloge SERVEUR. */
+  dailyDate?: string
+  /** Grille du calendrier du jour : partagée par tous les joueurs. */
+  forcedGridId?: string | null
+}
+
+async function createMatch(
+  admin: ReturnType<typeof createClient>,
+  hostId: string,
+  guestId: string,
+  mode: Mode,
+  pace: Pace,
+  invitationId: string | null,
+  bot: Bot | null,
+  options: CreateMatchOptions = {},
+) {
   const humanPlayerIds = [hostId, guestId].filter(id => id !== bot?.playerId)
   const selectionSeed = `${hostId}:${guestId}:${Date.now()}`
-  let grid = await chooseGrid(admin, selectionSeed, humanPlayerIds)
+  const forcedGrid = options.forcedGridId ? await activeGridById(admin, options.forcedGridId) : null
+  // Le défi du jour porte ses marqueurs dans l'état persisté : `view` les relit à
+  // chaque chargement, y compris après une reprise sur coupure.
+  const markDaily = (state: State): State => options.isDaily && options.dailyDate
+    ? { ...state, isDaily: true, dailyDate: options.dailyDate }
+    : state
+  let grid = forcedGrid ?? await chooseGrid(admin, selectionSeed, humanPlayerIds)
   const startedAt = new Date(Date.now() + READY_MS)
   const endsAt = new Date(startedAt.getTime() + (pace === 'realtime' ? REALTIME_TURN_MS : ASYNC_TURN_MS))
-  let state = initialMatchState(grid, hostId, guestId, invitationId, bot)
+  let state = markDaily(initialMatchState(grid, hostId, guestId, invitationId, bot))
   const { data: insertedRow, error } = await admin.from('server_matches').insert({
     mode, pace, grid_id: grid.id, state, status: 'active', current_player_id: hostId,
     turn_number: 1, turn_started_at: startedAt.toISOString(), turn_ends_at: endsAt.toISOString(),
@@ -378,7 +447,10 @@ async function createMatch(admin: ReturnType<typeof createClient>, hostId: strin
   // Two invitations can be accepted nearly simultaneously, after both
   // requests selected a grid. The oldest match keeps it; the newer match
   // rerolls against every active grid of either participant.
-  for (let collisionAttempt = 0; collisionAttempt < 3; collisionAttempt += 1) {
+  //
+  // La grille du défi du jour est EXCLUE de cette rotation : elle est partagée
+  // par tous les joueurs du jour, la faire tourner viderait le défi de son sens.
+  for (let collisionAttempt = 0; !forcedGrid && collisionAttempt < 3; collisionAttempt += 1) {
     const otherActiveMatches = await activeMatchesForPlayers(admin, humanPlayerIds, row.id)
     const sameGridMatches = otherActiveMatches.filter(item => item.gridId === grid.id)
     if (!sameGridMatches.length) break
@@ -389,7 +461,7 @@ async function createMatch(admin: ReturnType<typeof createClient>, hostId: strin
     if (!newerThanConflict) break
     const replacement = await chooseGrid(admin, `${selectionSeed}:collision:${collisionAttempt}`, humanPlayerIds, row.id)
     if (replacement.id === grid.id) break
-    state = initialMatchState(replacement, hostId, guestId, invitationId, bot)
+    state = markDaily(initialMatchState(replacement, hostId, guestId, invitationId, bot))
     const { data: updatedRow, error: updateError } = await admin.from('server_matches')
       .update({ grid_id: replacement.id, state })
       .eq('id', row.id)
@@ -666,6 +738,23 @@ async function awardFinished(admin: ReturnType<typeof createClient>, row: MatchR
       p_feather_amount: feathers.total,
       p_feather_breakdown: feathers,
     })
+    // Bonus du défi du jour : 250 plumes à la PREMIÈRE victoire de la journée.
+    // Versé par un RPC PUREMENT MONÉTAIRE — surtout pas server_award_progress,
+    // qui ajouterait de l'XP et une victoire fantôme au palmarès. Idempotent sur
+    // `daily:<user>:<date>` : rejouer et regagner le même jour ne verse rien de
+    // plus. La récompense ordinaire du match ci-dessus reste due à chaque partie.
+    if (row.state.isDaily && row.state.dailyDate && outcome === 'win') {
+      const { error: dailyError } = await admin.rpc('server_award_feathers', {
+        p_user_id: playerId,
+        p_idempotency_key: `daily:${playerId}:${row.state.dailyDate}`,
+        p_amount: DAILY_COMPLETION_FEATHERS,
+        p_kind: 'daily-completion',
+        p_metadata: { dateKey: row.state.dailyDate, gridId: row.grid_id },
+      })
+      // Un bonus manqué ne doit pas faire échouer la clôture du match : le
+      // résultat, l'historique et la récompense ordinaire sont déjà écrits.
+      if (dailyError) logServerError('match-api', dailyError, { action: 'daily-award', userId: playerId })
+    }
   }
   if (row.mode === 'ranked') {
     const { error } = await admin.rpc('server_apply_ranked_result_atomic', { p_match_id: row.id })
@@ -1112,6 +1201,28 @@ Deno.serve(async request => {
       const skill: BotSkill = body.difficulty === 'easy' ? 'beginner' : body.difficulty === 'hard' ? 'expert' : 'regular'
       const bot = createBot(`${user.id}:solo:${Date.now()}`, skill)
       const created = await createMatch(admin, user.id, bot.playerId, 'solo', pace, null, bot)
+      return json(200, { match: await view(admin, created.row, user.id, created.grid) })
+    }
+
+    // ── Défi du jour ─────────────────────────────────────────────────────────
+    // Le client n'envoie QUE le rythme : ni gridId, ni dateKey, ni difficulté.
+    // Le serveur décide de tout, sinon le défi n'a plus rien de « du jour » :
+    //  - la clé de jour vient de l'horloge SERVEUR (Europe/Paris) ;
+    //  - la grille vient du calendrier gravé, donc partagée par tous ;
+    //  - la force du bot vient de player_progress.level, lu en base.
+    // Le défi est rejouable jusqu'à minuit : chaque appel crée bien une nouvelle
+    // tentative. Le bonus de 250 plumes, lui, reste versé une seule fois par jour
+    // (idempotence `daily:<user>:<date>` dans awardFinished).
+    if (action === 'daily') {
+      const pace: Pace = body.pace === 'async' ? 'async' : 'realtime'
+      const dateKey = parisDateKey(new Date())
+      const skill = botSkillForLevel(await playerLevel(admin, user.id))
+      const bot = createBot(`${user.id}:daily:${dateKey}:${Date.now()}`, skill)
+      const created = await createMatch(admin, user.id, bot.playerId, 'solo', pace, null, bot, {
+        isDaily: true,
+        dailyDate: dateKey,
+        forcedGridId: dailyGridIdFor(dateKey),
+      })
       return json(200, { match: await view(admin, created.row, user.id, created.grid) })
     }
 

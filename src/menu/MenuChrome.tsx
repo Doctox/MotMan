@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { BarChart3, Gamepad2, Home, Menu as MenuIcon, Settings, User } from 'lucide-react'
+import { BarChart3, Gamepad2, Home, Settings, User } from 'lucide-react'
 import { assetUrl } from '../assetUrl'
 import { CosmeticPortrait } from '../CosmeticPortrait'
 import { playerInitials } from '../playerIdentity'
@@ -7,6 +7,7 @@ import type { PlayerProgress } from '../playerProgress'
 import { nextRankedDivision, rankImage, rankedDivision, rankedPlacementLabel, RANKED_PLACEMENT_MATCHES } from '../ranked'
 import type { SocialUser } from '../social'
 import type { MenuPage } from './types'
+import { DailyStreakChip } from './DailyChallenge'
 
 function Brand() {
   return <div className="mm-brand"><img src={assetUrl('/assets/motman-logo-v2.webp')} alt="MotMan" /></div>
@@ -25,9 +26,9 @@ export function presenceLabel(activity: 'offline' | 'online' | 'playing'): strin
   return activity === 'playing' ? 'En jeu' : activity === 'online' ? 'En ligne' : 'Hors ligne'
 }
 
-export function AppHeader({ onMenu, onSettings }: { onMenu: () => void; onSettings: () => void }) {
+export function AppHeader({ onSettings }: { onMenu?: () => void; onSettings: () => void }) {
   return <header className="mm-header">
-    <button className="mm-header-round" type="button" aria-label="Ouvrir le menu" onClick={onMenu}><MenuIcon /></button>
+    <DailyStreakChip />
     <Brand />
     <button className="mm-icon-button" type="button" aria-label="Paramètres" onClick={onSettings}><Settings /></button>
   </header>

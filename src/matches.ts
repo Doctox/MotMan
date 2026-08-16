@@ -97,6 +97,10 @@ export type MatchState = {
   updatedAt: string
   serverTime?: string
   grid?: GeneratedGrid
+  // Défi du jour : posés PAR LE SERVEUR (action 'daily'). Permettent à l'écran de
+  // fin d'enregistrer la série via recordDailyResult(). Absents pour un match normal.
+  isDaily?: boolean
+  dailyDate?: string
 }
 
 export type MatchLobbyState = {
@@ -162,6 +166,15 @@ export async function cancelNormalSearch(playerId: string, pace: MatchPace): Pro
 
 export async function createSoloMatch(difficulty: 'easy' | 'normal' | 'hard', pace: MatchPace): Promise<MatchState> {
   return (await supabaseMatch<{ match: MatchState }>('solo', { difficulty, pace })).match
+}
+
+// Défi du jour. Le client n'envoie RIEN d'autre que le rythme : le SERVEUR dérive
+// la dateKey (horloge serveur), choisit la grille (calendrier du jour) ET le niveau
+// du bot (d'après player_progress.level). Un dateKey client serait ignoré → piège,
+// donc on ne l'envoie pas (Correction 2, relecture Principal). Active une fois
+// l'action 'daily' déployée côté edge function (voir travail serveur).
+export async function createDailyMatch(pace: MatchPace = 'realtime'): Promise<MatchState> {
+  return (await supabaseMatch<{ match: MatchState }>('daily', { pace })).match
 }
 
 export async function loadMatch(playerId: string, matchId: string, knownUpdatedAt?: string): Promise<MatchState | null> {
