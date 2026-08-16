@@ -27,8 +27,11 @@ export const DAILY_STATE_VERSION = 1
 export const MAX_FREEZES = 2
 export const HISTORY_LIMIT = 90
 
-/** Bonus versé PAR LE SERVEUR à la première victoire du jour. Informatif ici. */
-export const DAILY_COMPLETION_PLUMES = 250
+// NOTE (2026-08-16) : `DAILY_COMPLETION_PLUMES = 250` a été RETIRÉ. C'était un
+// doublon mort de la valeur serveur (DAILY_COMPLETION_FEATHERS, match-api). Le
+// montant affiché en fin de partie est désormais le montant RÉELLEMENT crédité,
+// remonté par account-api (ExperienceAward.dailyBonusPlumes) : aucune constante
+// locale ne doit pouvoir le contredire.
 
 export type DailyMilestone = { streak: number; plumes: number; freeze: number }
 

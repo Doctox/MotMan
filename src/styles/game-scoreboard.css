@@ -102,13 +102,16 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   .validate:after,.new-game:after{display:none!important}
 }
 
-/* Confirmed opponent letters are amber; failed attempts are unmistakably red. */
+/* Confirmed opponent letters are amber; failed attempts are unmistakably red.
+   La couleur s'applique à la COUCHE STABLE uniquement (`.confirmed-board-letter`).
+   Repeindre aussi `.letter-only` dans la cellule dédoublait la lettre : les deux
+   glyphes ne sont pas exactement superposés (couche en `inset:5px`), d'où le
+   fantôme décalé visible pendant un déplacement de tuile. */
 .slot.confirmed-opponent{background:#fff4dc!important}
-.letter-only.confirmed-letter.owned-by-opponent,.confirmed-board-letter.opponent-effect{
+.confirmed-board-letter.opponent-effect{
   color:#b9670d!important;-webkit-text-fill-color:#b9670d!important;
 }
 .slot.bot-play{background:#ffedce!important;box-shadow:inset 0 0 0 3px #d88924,0 0 15px #e3a33e70!important}
-.slot.bot-play .letter-only{color:#b9670d!important;-webkit-text-fill-color:#b9670d!important}
 .slot.wrong{position:relative;z-index:8;background:#ffdde2!important;box-shadow:inset 0 0 0 2px #c72b43,0 0 13px #c72b4350!important}
 .slot.wrong .letter-only{color:#b51f38!important;text-shadow:0 1px 0 #fff,0 0 10px #c72b4340!important}
 .confirmed-board-letter.failed-board-letter{
@@ -117,6 +120,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 }
 .multiplayer-shell .confirmed-board-layer{z-index:12}
 [data-theme="dark"] .slot.confirmed-opponent{background:#45361d!important}
-[data-theme="dark"] .letter-only.confirmed-letter.owned-by-opponent,[data-theme="dark"] .confirmed-board-letter.opponent-effect{color:#ffb554!important;-webkit-text-fill-color:#ffb554!important}
+[data-theme="dark"] .confirmed-board-letter.player-effect{color:#79d8ad!important;-webkit-text-fill-color:#79d8ad!important}
+[data-theme="dark"] .confirmed-board-letter.opponent-effect{color:#ffb554!important;-webkit-text-fill-color:#ffb554!important}
 [data-theme="dark"] .slot.wrong{background:#50252d!important}
 [data-theme="dark"] .confirmed-board-letter.failed-board-letter{color:#ff7185!important;-webkit-text-fill-color:#ff7185!important;text-shadow:none}

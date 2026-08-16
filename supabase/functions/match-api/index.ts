@@ -71,9 +71,9 @@ const READY_MS = 1_800
 const MANUAL_SUBMIT_GRACE_MS = 2_000
 const AUTOMATIC_SUBMIT_GRACE_MS = 8_000
 const BOT_SEARCH_MS = 30_000
-// Bonus du défi du jour, versé une seule fois par joueur et par jour.
-// Doit rester égal à DAILY_COMPLETION_PLUMES (src/dailyChallenge.ts), qui n'est
-// qu'un rappel d'affichage : la valeur autoritaire est celle-ci.
+// Bonus du défi du jour, versé une seule fois par joueur et par jour. Valeur
+// AUTORITAIRE et unique : le client ne la duplique plus, il lit le montant
+// réellement crédité (account-api → ExperienceAward.dailyBonusPlumes).
 const DAILY_COMPLETION_FEATHERS = 250
 const nowIso = () => new Date().toISOString()
 
@@ -749,7 +749,11 @@ async function awardFinished(admin: ReturnType<typeof createClient>, row: MatchR
         p_idempotency_key: `daily:${playerId}:${row.state.dailyDate}`,
         p_amount: DAILY_COMPLETION_FEATHERS,
         p_kind: 'daily-completion',
-        p_metadata: { dateKey: row.state.dailyDate, gridId: row.grid_id },
+        // `matchId` rattache le versement au match qui l'a déclenché : c'est ce
+        // qui permet à account-api d'annoncer le bonus sur l'écran de fin de
+        // CETTE partie, et uniquement sur celle-là (un rejeu gagnant du même
+        // jour ne crée aucune transaction, donc n'annonce rien).
+        p_metadata: { dateKey: row.state.dailyDate, gridId: row.grid_id, matchId: row.id },
       })
       // Un bonus manqué ne doit pas faire échouer la clôture du match : le
       // résultat, l'historique et la récompense ordinaire sont déjà écrits.

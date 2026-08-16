@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Check, ChevronRight, Flame, RotateCcw, Snowflake } from 'lucide-react'
-import { currentDailyDateKey } from '../dailyDate'
+import { currentDailyDateKey, dailyDateKey } from '../dailyDate'
 import {
   dailyAttempts,
   dailyStatus,
@@ -22,7 +22,11 @@ import './menu-daily.css'
 // grilles à thème seront publiées.
 
 export function useDailyChallenge() {
-  const [day] = useState(() => currentDailyDateKey())
+  // Le jour NE DOIT PAS être figé au montage : le menu reste souvent ouvert, et
+  // un joueur qui passe minuit verrait sinon éternellement « Défi réussi » alors
+  // qu'une nouvelle grille l'attend. On réévalue donc la clé de jour
+  // périodiquement, et on ne déclenche un rendu que lorsqu'elle change vraiment.
+  const [day, setDay] = useState(() => currentDailyDateKey())
   const [state, setState] = useState<DailyChallengeState>(() => loadDailyChallengeState())
   useEffect(() => {
     const sync = (event: Event) => {
@@ -31,6 +35,23 @@ export function useDailyChallenge() {
     }
     window.addEventListener('motman:daily', sync)
     return () => window.removeEventListener('motman:daily', sync)
+  }, [])
+  useEffect(() => {
+    const refreshDay = () => {
+      const current = currentDailyDateKey()
+      setDay(previous => (previous === current ? previous : current))
+    }
+    // 30 s suffisent : la bascule est visible presque immédiatement sans
+    // réveiller le rendu inutilement. `visibilitychange` couvre le cas le plus
+    // fréquent sur mobile — l'app mise en veille la veille, rouverte le lendemain.
+    const timer = window.setInterval(refreshDay, 30_000)
+    document.addEventListener('visibilitychange', refreshDay)
+    window.addEventListener('focus', refreshDay)
+    return () => {
+      window.clearInterval(timer)
+      document.removeEventListener('visibilitychange', refreshDay)
+      window.removeEventListener('focus', refreshDay)
+    }
   }, [])
   return {
     day,
@@ -46,13 +67,58 @@ function streakLabel(streak: number): string {
   return streak > 1 ? `Série ${streak} jours` : streak === 1 ? 'Série 1 jour' : 'Commencez votre série'
 }
 
-// Heures restantes avant la prochaine bascule (minuit Europe/Paris). Approximation
-// suffisante pour l'affichage « revient dans Xh » (ignore les jours de DST à 23/25 h).
-function hoursUntilParisMidnight(nowMs: number): number {
-  const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', hour12: false, hour: '2-digit', minute: '2-digit' })
-    .format(new Date(nowMs)).split(':').map(Number)
-  const minutesElapsed = (parts[0] ?? 0) * 60 + (parts[1] ?? 0)
-  return Math.max(1, Math.ceil((24 * 60 - minutesElapsed) / 60))
+/**
+ * Millisecondes avant la prochaine grille, par recherche dichotomique sur la clé
+ * de jour elle-même.
+ *
+ * POURQUOI PAS UN SIMPLE « 24 h − heure de Paris » : les jours de changement
+ * d'heure durent 23 ou 25 h, et le calcul naïf se trompe alors d'une heure
+ * pendant toute la journée. Interroger `dailyDateKey` donne la bascule réelle,
+ * quel que soit le fuseau du joueur et quelles que soient les règles d'été.
+ *
+ * POURQUOI UN COMPTE À REBOURS ET PAS UNE HEURE : la bascule est fixée à minuit
+ * à PARIS, pour que tout le monde ait la même grille au même instant. Annoncer
+ * « à minuit » ne serait donc vrai qu'en France — au Québec la bascule tombe à
+ * 18 h locale. Un compte à rebours reste juste partout.
+ */
+function msUntilNextDailyGrid(nowMs: number): number {
+  const today = dailyDateKey(nowMs)
+  let stillToday = 0
+  let alreadyTomorrow = 26 * 3_600_000 // borne haute : couvre le jour le plus long
+  while (alreadyTomorrow - stillToday > 30_000) {
+    const middle = Math.floor((stillToday + alreadyTomorrow) / 2)
+    if (dailyDateKey(nowMs + middle) === today) stillToday = middle
+    else alreadyTomorrow = middle
+  }
+  return alreadyTomorrow
+}
+
+/** « 3 h 12 », « 21 min », « moins d'une minute ». La précision aux minutes évite
+ *  qu'un « dans 1 h » arrondi se lise comme un défi qui reviendrait chaque heure. */
+function countdownLabel(remainingMs: number): string {
+  const totalMinutes = Math.floor(remainingMs / 60_000)
+  if (totalMinutes < 1) return 'moins d’une minute'
+  const hours = Math.floor(totalMinutes / 60)
+  const minutes = totalMinutes % 60
+  if (hours === 0) return `${minutes} min`
+  return minutes === 0 ? `${hours} h` : `${hours} h ${String(minutes).padStart(2, '0')}`
+}
+
+/** Compte à rebours vivant, réveillé aussi au retour de veille (usage mobile). */
+function useDailyCountdown(): string {
+  const [remainingMs, setRemainingMs] = useState(() => msUntilNextDailyGrid(Date.now()))
+  useEffect(() => {
+    const refresh = () => setRemainingMs(msUntilNextDailyGrid(Date.now()))
+    const timer = window.setInterval(refresh, 30_000)
+    document.addEventListener('visibilitychange', refresh)
+    window.addEventListener('focus', refresh)
+    return () => {
+      window.clearInterval(timer)
+      document.removeEventListener('visibilitychange', refresh)
+      window.removeEventListener('focus', refresh)
+    }
+  }, [])
+  return countdownLabel(remainingMs)
 }
 
 /** Puce de série pour le header. Visible sur les 4 onglets, dès la 1re session. */
@@ -76,19 +142,18 @@ export function DailyStreakChip() {
  */
 export function DailyChallengeHero({ onPlay }: { onPlay: () => void }) {
   const { status, streak, freezes, attempts } = useDailyChallenge()
-  const [nowMs] = useState(() => Date.now())
+  const countdown = useDailyCountdown()
 
   if (status === 'won') {
-    const hours = hoursUntilParisMidnight(nowMs)
     return (
-      <section className="mm-daily-hero is-done" aria-label="Défi du jour réussi">
+      <section className="mm-daily-hero is-done" aria-label={`Défi du jour réussi. ${streakLabel(streak)}. Nouvelle grille dans ${countdown}.`}>
         <span className="mm-daily-hero-badge" aria-hidden="true"><Check /></span>
         <div className="mm-daily-hero-copy">
           <small>Défi du jour</small>
           <strong>Défi réussi</strong>
           <span className="mm-daily-hero-meta">
             <Flame aria-hidden="true" />{streakLabel(streak)}
-            <span className="mm-daily-dot" aria-hidden="true">·</span>revient dans {hours} h
+            <span className="mm-daily-dot" aria-hidden="true">·</span>nouvelle grille dans {countdown}
           </span>
         </div>
       </section>

@@ -143,8 +143,18 @@
 }
 .player.player-you.active .game-portrait,.player.player-you.active .avatar{box-shadow:0 0 0 3px #d8eee0,0 0 0 4px #2d8961}
 
-/* A stable visual layer prevents WebKit/Android grid repaints from hiding letters. */
-.multiplayer-shell .confirmed-letter,.multiplayer-shell .stable-provisional-letter{
+/* A stable visual layer prevents WebKit/Android grid repaints from hiding letters.
+   UNE SEULE couche peint les lettres du plateau : `.confirmed-board-layer`
+   (StableBoardLetters). Les <span class="letter-only"> des cases confirmées ou
+   provisoires restent dans le DOM (mise en page, cible du pointeur, animations
+   de case) mais ne doivent JAMAIS être peints : la couche stable est calée en
+   `inset:5px` sur le plateau, donc une lettre peinte deux fois apparaît
+   dédoublée / en fantôme légèrement décalé.
+   Spécificité volontairement élevée (0,4,0) : les règles de couleur des lettres
+   confirmées, elles, appartiennent à la couche stable et ne doivent pas pouvoir
+   « rallumer » le glyphe de la cellule par une simple surcharge !important. */
+.multiplayer-shell .cell.slot .letter-only.confirmed-letter,
+.multiplayer-shell .cell.slot .letter-only.stable-provisional-letter{
   position:relative;z-index:7;color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;
 }
 .multiplayer-shell .confirmed-board-layer{
@@ -246,13 +256,13 @@
   translate:0 -6px;text-align:center;
 }
 
-/* Confirmed letters keep a readable owner colour after reward animations. */
+/* Confirmed letters keep a readable owner colour after reward animations.
+   Seule la CASE est teintée ici. La couleur du glyphe appartient à la couche
+   stable (`.confirmed-board-letter.player-effect` / `.opponent-effect`) : les
+   anciennes règles `.letter-only.confirmed-letter.owned-by-*` ont été retirées,
+   elles rallumaient un second glyphe par-dessus la couche stable. */
 .slot.confirmed-player{background:#f1faf4}
-.letter-only.confirmed-letter.owned-by-player{color:#087457!important}
-.letter-only.confirmed-letter.owned-by-opponent{color:#bd4b28!important}
 [data-theme="dark"] .slot.confirmed-player{background:#193c33}
-[data-theme="dark"] .letter-only.confirmed-letter.owned-by-player{color:#79d8ad!important}
-[data-theme="dark"] .letter-only.confirmed-letter.owned-by-opponent{color:#ff9b73!important}
 
 @media(prefers-reduced-motion:reduce){
   .board-effects-layer>.reward-bubble{animation:none!important;opacity:1!important;filter:none!important}
@@ -275,6 +285,14 @@
 .experience-plumes{width:max-content;margin:-2px 0 8px auto;padding:4px 8px;border:1px solid #dcc88f;border-radius:14px;background:#f8edca;color:#72561f;display:flex;align-items:center;gap:4px;font-size:10px;font-weight:800}.experience-plumes svg{width:13px;height:13px;color:#b88a2d}
 .experience-feather-breakdown{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin:-2px 0 9px;padding:7px 9px;border-radius:9px;background:#fbf5e7}.experience-feather-breakdown span{display:flex;justify-content:space-between;gap:5px;color:#725f4f;font-size:8px}.experience-feather-breakdown b{color:#8c6924;font-size:9px}
 .experience-title-unlocked{margin-top:11px;padding:9px 11px;border:1px solid #d9c17d;border-radius:12px;background:linear-gradient(135deg,#fffaf0,#f6e9bd);display:flex;align-items:center;gap:9px;box-shadow:0 7px 18px #765c1e1c}.experience-title-unlocked>svg{width:20px;color:#b48a25}.experience-title-unlocked>span{display:flex;flex-direction:column}.experience-title-unlocked small{color:#8e6f2e;font-size:7px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.experience-title-unlocked strong{font:600 15px 'Playfair Display',serif;color:var(--green)}
+/* Bonus du défi du jour : versé à part, donc annoncé à part — c'est la ligne que
+   le joueur doit voir pour comprendre d'où viennent ses plumes supplémentaires. */
+.experience-daily-bonus{display:flex;align-items:center;gap:6px;margin:-2px 0 9px;padding:7px 9px;border:1px solid #e0b183;border-radius:9px;background:linear-gradient(135deg,#fdf0e0,#fbe6cf);color:#8a4a18}
+.experience-daily-bonus svg{width:14px;height:14px;flex:none;color:#d2761f}
+.experience-daily-bonus span{flex:1;font:700 10px 'DM Sans',sans-serif}
+.experience-daily-bonus b{font:800 12px 'DM Sans',sans-serif;color:#a8551a}
+[data-theme="dark"] .experience-daily-bonus{border-color:#7d5433;background:linear-gradient(135deg,#3c2c1f,#33291f);color:#f4c58c}
+[data-theme="dark"] .experience-daily-bonus b{color:#ffbd7a}
 [data-theme="dark"] .experience-plumes{border-color:#75653a;background:#3e3725;color:#edd48a}
 [data-theme="dark"] .experience-feather-breakdown{background:#302f25}[data-theme="dark"] .experience-feather-breakdown b{color:#d2b264}[data-theme="dark"] .experience-title-unlocked{border-color:#75653a;background:linear-gradient(135deg,#353426,#2b3028)}
 @keyframes experienceRewardIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}

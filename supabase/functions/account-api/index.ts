@@ -68,6 +68,7 @@ function awardBreakdown(award: Record<string, unknown>) {
 async function accountState(admin: ReturnType<typeof createClient>, userId: string) {
   const [
     { data: profile }, { data: progress }, { data: wallet }, { data: inventory }, { data: awardRows },
+    { data: dailyBonusRows },
     { data: titleCatalog }, { data: ownedTitles }, { data: cosmeticCatalog },
   ] = await Promise.all([
     admin.from('profiles').select('*').eq('id', userId).single(),
@@ -75,6 +76,13 @@ async function accountState(admin: ReturnType<typeof createClient>, userId: stri
     admin.from('player_wallets').select('*').eq('user_id', userId).single(),
     admin.from('player_inventory').select('kind,item_id').eq('user_id', userId),
     admin.from('experience_awards').select('*').eq('user_id', userId).order('created_at', { ascending: false }).limit(200),
+    // Le bonus du défi du jour n'est PAS dans `experience_awards` : il est versé
+    // par un RPC purement monétaire (server_award_feathers) et n'existe donc que
+    // dans `economy_transactions`. Sans cette lecture, l'écran de fin annonçait
+    // seulement la récompense de match et le joueur croyait avoir perdu ses 250
+    // plumes.
+    admin.from('economy_transactions').select('amount,metadata').eq('user_id', userId)
+      .eq('kind', 'daily-completion').order('created_at', { ascending: false }).limit(200),
     admin.from('server_title_catalog').select('id,name,description,unlock_type,required_value,sort_order').eq('active', true).order('sort_order'),
     admin.from('player_titles').select('title_id,source,unlocked_at').eq('user_id', userId),
     admin.from('server_cosmetic_catalog').select('kind,item_id,rarity').eq('active', true).eq('availability', 'epicerie'),
@@ -97,6 +105,22 @@ async function accountState(admin: ReturnType<typeof createClient>, userId: stri
     unlockedAt: unlockedTitleMap.get(title.id)?.unlocked_at ?? null,
   }))
   const titleById = new Map(titles.map(title => [title.id, title]))
+  // Montant RÉELLEMENT crédité, rattaché au match qui l'a déclenché
+  // (`metadata.matchId`, posé par match-api). Un rejeu gagnant du même jour ne
+  // crée aucune transaction : son match n'est donc dans aucune entrée et
+  // l'écran de fin n'annonce aucun bonus. Les transactions antérieures à cette
+  // correction n'ont pas de `matchId` : elles sont simplement ignorées.
+  const dailyBonusByMatch = new Map<string, number>()
+  for (const transaction of dailyBonusRows ?? []) {
+    const metadata = transaction.metadata as { matchId?: unknown } | null
+    if (metadata && typeof metadata.matchId === 'string') {
+      dailyBonusByMatch.set(metadata.matchId, Math.max(0, Number(transaction.amount) || 0))
+    }
+  }
+  const dailyBonusForAward = (idempotencyKey: unknown): number => {
+    const key = typeof idempotencyKey === 'string' ? idempotencyKey : ''
+    return key.startsWith('match:') ? dailyBonusByMatch.get(key.slice('match:'.length)) ?? 0 : 0
+  }
   return {
     identity: {
       version: 2,
@@ -128,6 +152,7 @@ async function accountState(admin: ReturnType<typeof createClient>, userId: stri
         xpGoalAfter: experienceGoal(progress.level),
         plumesEarned: award.feather_amount,
         featherBreakdown: award.feather_breakdown ?? {},
+        dailyBonusPlumes: dailyBonusForAward(award.idempotency_key),
         unlockedTitles: (award.unlocked_title_ids ?? []).map((id: string) => titleById.get(id)).filter(Boolean),
         createdAt: award.created_at,
       })),

@@ -24,6 +24,13 @@ export type ExperienceAward = {
   xpGoalAfter: number
   plumesEarned?: number
   featherBreakdown?: Partial<FeatherRewardBreakdown>
+  /**
+   * Bonus du défi du jour RÉELLEMENT crédité pour ce match (0 sinon). Il ne
+   * vient pas de `experience_awards` mais de `economy_transactions`
+   * (kind='daily-completion'), remonté par account-api. Jamais calculé côté
+   * client : afficher un montant non versé serait mentir au joueur.
+   */
+  dailyBonusPlumes?: number
   unlockedTitles?: PlayerTitle[]
   createdAt: string
 }
