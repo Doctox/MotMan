@@ -3,6 +3,12 @@ import { createHttpResponder, isAllowedOrigin } from '../supabase/functions/_sha
 
 describe('Edge Function origin policy', () => {
   it('allows the production, native and local development origins', () => {
+    // Domaine propre depuis le 17/08/2026. Son absence de la liste blanche a
+    // renvoyé un 403 sur le préflight CORS et empêché l'app de démarrer :
+    // l'écran affichait « la vérification de sécurité a échoué », ce qui ne
+    // désignait pas la cause. Ces deux assertions évitent la récidive.
+    expect(isAllowedOrigin('https://www.doctox.fr')).toBe(true)
+    expect(isAllowedOrigin('https://doctox.fr')).toBe(true)
     expect(isAllowedOrigin('https://doctox.github.io')).toBe(true)
     expect(isAllowedOrigin('https://localhost')).toBe(true)
     expect(isAllowedOrigin('capacitor://localhost')).toBe(true)

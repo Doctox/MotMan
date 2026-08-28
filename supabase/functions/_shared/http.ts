@@ -1,4 +1,9 @@
+// Origines autorisées à appeler les Edge Functions. Le 17/08/2026 le site est
+// passé de doctox.github.io au domaine propre doctox.fr : l'ancienne adresse est
+// conservée le temps que les installations en cache basculent.
 const defaultAllowedOrigins = new Set([
+  'https://www.doctox.fr',
+  'https://doctox.fr',
   'https://doctox.github.io',
   'https://localhost',
   'capacitor://localhost',
