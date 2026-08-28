@@ -66,9 +66,14 @@ for (const relativePath of [
   assertStatic(existsSync(path.join(root, relativePath)), `Page légale ${path.basename(relativePath)}`, relativePath)
 }
 
+// L'adresse de contact a changé le 17/08/2026 (docteurtox@gmail.com →
+// contact@doctox.fr, avec le domaine doctox.fr). On vérifie donc qu'une adresse
+// e-mail joignable EST présente, sans figer laquelle : Google exige un contact,
+// pas une adresse en particulier. Coder l'adresse en dur avait fait échouer le
+// déploiement au premier changement.
 const accountDeletion = read('public/legal/suppression-compte.html')
 assertStatic(
-  /docteurtox@gmail\.com/.test(accountDeletion) && /Données supprimées/.test(accountDeletion),
+  /mailto:[^"'\s>]+@[^"'\s>]+/.test(accountDeletion) && /Données supprimées/.test(accountDeletion),
   'Suppression de compte publique',
   'Contact et périmètre de suppression présents',
 )
