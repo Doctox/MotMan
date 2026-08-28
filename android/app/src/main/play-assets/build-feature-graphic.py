@@ -2,6 +2,7 @@
 # Couleurs echantillonnees dans motman-icon-master.png, polices = celles de l'app.
 # Relancer apres modification : python3 build-feature-graphic.py
 from PIL import Image, ImageDraw, ImageFont
+import os
 
 CREAM=(253,245,224); GREEN=(5,81,57); ORANGE=(247,111,38)
 W,H=1024,500
@@ -13,7 +14,9 @@ def f(path,size,wght):
     except Exception: pass
     return ft
 
-PF='/tmp/fonts/playfair.ttf'; DM='/tmp/fonts/dmsans.ttf'
+_ICI = os.path.dirname(os.path.abspath(__file__))
+PF = os.path.join(_ICI, 'fonts', 'playfair.ttf')
+DM = os.path.join(_ICI, 'fonts', 'dmsans.ttf')
 title=f(PF,96,700); tag=f(DM,38,600); sub=f(DM,23,400); cell=f(DM,46,600)
 
 x=72
