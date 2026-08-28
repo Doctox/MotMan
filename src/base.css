@@ -26,6 +26,14 @@ button,input,select{font:inherit;color:inherit}
 @keyframes appLoadingSpin{to{transform:rotate(360deg)}}
 [data-theme="dark"] .app-loading{background:#111b18;color:#edf5ef}
 @media(prefers-reduced-motion:reduce){.app-loading svg{animation:none}}
+.app-loading-bar{width:min(210px,60vw);height:4px;overflow:hidden;border-radius:999px;background:#e6ddc7}
+.app-loading-bar i{display:block;width:40%;height:100%;border-radius:999px;background:#0b594c;animation:appLoadingSlide 1.4s ease-in-out infinite}
+@keyframes appLoadingSlide{0%{transform:translateX(-100%)}100%{transform:translateX(250%)}}
+.app-loading small{max-width:280px;color:#725f55;text-align:center;font:500 13px/1.5 'DM Sans',sans-serif}
+.app-loading>button{min-width:150px;min-height:44px;border:1px solid #0b594c;border-radius:999px;background:transparent;color:#0b594c;font:700 14px 'DM Sans',sans-serif}
+[data-theme="dark"] .app-loading-bar{background:#26332e}[data-theme="dark"] .app-loading-bar i{background:#7fd6bd}
+[data-theme="dark"] .app-loading small{color:#b9c7c1}[data-theme="dark"] .app-loading>button{border-color:#7fd6bd;color:#7fd6bd}
+@media(prefers-reduced-motion:reduce){.app-loading-bar i{width:100%;animation:none}}
 .app-loading-error{padding:34px;text-align:center}.app-loading-error strong{font:600 25px 'Playfair Display',serif}.app-loading-error span{max-width:320px;color:#725f55;line-height:1.55}.app-loading-error button{min-width:170px;min-height:44px;margin-top:8px;border:1px solid #0b594c;border-radius:999px;background:#0b594c;color:#fffaf0;font-weight:700;box-shadow:0 8px 22px #073f3626}
 [data-text-size="large"] .app-loading{font-size:17px}
 [data-text-size="large"] .app-loading-error span{font-size:16px}

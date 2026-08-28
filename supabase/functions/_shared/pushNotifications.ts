@@ -17,6 +17,19 @@ type FirebaseServiceAccount = {
 type PushDevice = { id: string; token: string }
 
 const FCM_SCOPE = 'https://www.googleapis.com/auth/firebase.messaging'
+
+// Panne de production du 28/08/2026 : des workers Edge sont restés immobilisés
+// 150 secondes (la limite de la plateforme), jusqu'à ce que `account-api` et
+// `social-api` répondent 504 IDLE_TIMEOUT et 546 WORKER_RESOURCE_LIMIT et que
+// l'app ne démarre plus du tout.
+//
+// Les deux appels ci-dessous partent vers Google et étaient lancés SANS aucune
+// borne de temps, puis confiés à `EdgeRuntime.waitUntil` : un Google lent
+// gardait donc le worker en vie bien après que la réponse HTTP soit partie.
+// Une notification perdue est un incident mineur ; un serveur de jeu gelé, non.
+// On préfère explicitement rater l'envoi que retenir le worker.
+const FCM_TIMEOUT_MS = 8_000
+
 const encoder = new TextEncoder()
 let cachedAccessToken: { value: string; expiresAt: number } | null = null
 let configurationWarningLogged = false
@@ -64,6 +77,7 @@ async function firebaseAccessToken(account: FirebaseServiceAccount): Promise<str
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion }),
+    signal: AbortSignal.timeout(FCM_TIMEOUT_MS),
   })
   const payload = await response.json() as { access_token?: string; expires_in?: number; error_description?: string }
   if (!response.ok || !payload.access_token) throw new Error(payload.error_description ?? 'Jeton Firebase indisponible.')
@@ -101,6 +115,7 @@ async function sendToDevice(account: FirebaseServiceAccount, accessToken: string
         },
       },
     }),
+    signal: AbortSignal.timeout(FCM_TIMEOUT_MS),
   })
   const payload = await response.json().catch(() => ({}))
   return { ok: response.ok, invalid: ['UNREGISTERED', 'INVALID_ARGUMENT'].includes(firebaseErrorCode(payload)) }
@@ -135,9 +150,26 @@ export async function sendPushToUser(admin: SupabaseClient, userId: string, mess
   if (notifiedIds.length) await admin.from('push_devices').update({ last_notified_at: new Date().toISOString() }).in('id', notifiedIds)
 }
 
+// Filet de sécurité au-dessus des délais de `fetch` : quoi qu'il arrive dans la
+// tâche confiée à `waitUntil` — un appel réseau imprévu, une écriture en base
+// qui traîne — le worker est libéré au bout de PUSH_TASK_DEADLINE_MS. Sans
+// cela, il faut qu'AUCUN futur ajout dans cette chaîne n'oublie sa borne ; avec
+// cela, l'oubli reste sans conséquence pour la disponibilité du serveur.
+const PUSH_TASK_DEADLINE_MS = 20_000
+
 export function queuePush(task: Promise<void>): void {
   const guarded = task.catch(error => console.error('Notification push non envoyée', error))
+  let deadline: ReturnType<typeof setTimeout> | undefined
+  const bounded = Promise.race([
+    guarded,
+    new Promise<void>(resolve => {
+      deadline = setTimeout(() => {
+        console.error(`Notification push abandonnée après ${PUSH_TASK_DEADLINE_MS} ms — le worker est libéré.`)
+        resolve()
+      }, PUSH_TASK_DEADLINE_MS)
+    }),
+  ]).finally(() => { if (deadline !== undefined) clearTimeout(deadline) })
   const runtime = (globalThis as typeof globalThis & { EdgeRuntime?: { waitUntil(promise: Promise<unknown>): void } }).EdgeRuntime
-  if (runtime) runtime.waitUntil(guarded)
-  else void guarded
+  if (runtime) runtime.waitUntil(bounded)
+  else void bounded
 }
