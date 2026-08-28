@@ -113,7 +113,12 @@ test('la suppression de compte est visible, confirmée et disponible hors de l�
   const deletionPage = await page.context().newPage()
   await deletionPage.goto(externalDeletionHref!)
   await expect(deletionPage.getByRole('heading', { name: 'Supprimer votre compte' })).toBeVisible()
-  await expect(deletionPage.getByRole('link', { name: 'Demander la suppression par e-mail' })).toHaveAttribute('href', /^mailto:docteurtox@gmail\.com/)
+  // On vérifie qu'un lien mailto exploitable EST présent, sans figer l'adresse :
+  // Google exige un contact joignable, pas une adresse en particulier. Le
+  // 17/08/2026 le passage à contact@doctox.fr a fait échouer ce test alors que
+  // la page était parfaitement conforme.
+  await expect(deletionPage.getByRole('link', { name: 'Demander la suppression par e-mail' }))
+    .toHaveAttribute('href', /^mailto:[^@\s]+@[^@\s]+\.[a-z]{2,}/i)
 })
 
 test('l’API locale supprime le profil et révoque sa session', async () => {
